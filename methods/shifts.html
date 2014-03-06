@@ -8,12 +8,12 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 
     <!-- Use title if it's in the page YAML frontmatter -->
-    <title>API Reference</title>
+    <title>API Documentation</title>
 
-    <link href="stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <link href="../stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="javascripts/all.js" type="text/javascript"></script>
+    <script src="../javascripts/all.js" type="text/javascript"></script>
 
     <script>
       $(function() {
@@ -40,114 +40,21 @@
         },50);
         setupLanguages([
           
-            
-              
-                'shell',
-              
-            
-              
-                'php',
-              
-            
-          
         ]);
       });
     </script>
   </head>
 
-  <body class="index">
+  <body class="methods methods_shifts">
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <img src="../images/logo.png" />
       <div id="toc">
       </div>
-      
-      <ul class="toc-footer">
-        
-          <li><a href='#'>Sign Up for a Developer Key</a></li>
-        
-          <li><a href='http://wheniwork.com'>Powered by When I Work</a></li>
-        
-      </ul>
       
     </div>
     <div class="page-wrapper">
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
-
-<p>The When I Work API is thorough, flexible, and restful. It&rsquo;s methods are logically grouped, and follow standard conventions. Make a selection from the left to jump to the method group you would like to know more about.</p>
-
-<p>Feel free to <a href="http://support.wheniwork.com">contact us</a> if something seems out of place.</p>
-
-<h1 id="authentication">Authentication</h1>
-
-<p>Server authentication is based on a token model. The developer with authenticate using a private developer key, along with the user&rsquo;s credentials. Your developer key can be used like the folling in the headers.</p>
-
-<p><code class="prettyprint">W-Key: iworksoharditsnotfunny</code></p>
-
-<p>Authenticating in will return back a token that can be use for all further requests. The token may be included in the headers, as a cookie or in the query string using the key <code class="prettyprint">W-Token</code>, like the following.</p>
-
-<p><code class="prettyprint">W-Token: ilovemyboss</code></p>
-
-<h2 id="login">Login</h2>
-
-<blockquote>
-<p>Login requires that you use both <code class="prettyprint">username</code> and <code class="prettyprint">password</code></p>
-</blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/2/login <span class="se">\</span>
-  --data <span class="s1">'{"username":"user@example.com","password":"*******"}'</span> <span class="se">\</span>
-  -H <span class="s2">"W-Key: iworksoharditsnotfunny"</span>
-</pre>
-<blockquote>
-<p>Be sure to replace <code class="prettyprint">iworksoharditsnotfunny</code> with your requested Developer Key.</p>
-</blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
-      </span><span class="err">...</span><span class="w">
-      </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ilovemyboss"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></pre>
-<p>The first thing to do after you receive your Developer Key is to login and replace that with a token. This token will be used for all future authenticated requests.</p>
-
-<p><aside class="notice">
-Remember — All post bodies must be JSON encoded data (no form data).
-</aside></p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>username</td>
-<td>The email of the user logging in.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>Password of the user logging in.</td>
-</tr>
-<tr>
-<td>key (optional)</td>
-<td>Developer key. Can be used instead of <code class="prettyprint">W-Key</code> in the headers.</td>
-</tr>
-</tbody></table>
-
-<p>Once you have the token, you must include it in all authenticated requests. The <code class="prettyprint">W-Key</code> does not need to be included.</p>
-
-<p><code class="prettyprint">W-Token: ilovemyboss</code></p>
-
-<h1 id="shifts">Shifts</h1>
-
-<p>Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites and Users all link through Shifts.</p>
+        <p>Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites and Users all link through Shifts.</p>
 
 <h3 id="shift-object">Shift Object</h3>
 
@@ -180,8 +87,8 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </tbody></table>
 
 <h2 id="listing-shifts">Listing Shifts</h2>
-<pre class="highlight shell">curl https://api.wheniwork.com/shifts/?location_id<span class="o">=</span>1&amp;start_time<span class="o">=</span>2014-03-05 <span class="se">\</span>
- -H <span class="s2">"W-Token: ilovemyboss"</span>
+<pre class="highlight shell">curl /shifts/?location_id<span class="o">=</span>1&amp;start_time<span class="o">=</span>2014-03-05 <span class="se">\</span>
+ -H <span class="s2">"W-Token: "</span>
 </pre><pre class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 05 Mar 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 08 Mar 2014 23:59:59 -0600"</span><span class="p">,</span><span class="w">
@@ -209,7 +116,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/shifts</code></p>
+<p><code class="prettyprint">GET /2/shifts</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -238,8 +145,8 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </tbody></table>
 
 <h2 id="get-existing-shift">Get Existing Shift</h2>
-<pre class="highlight shell">curl https://api.wheniwork.com/shifts/1 <span class="se">\</span>
- -H <span class="s2">"W-Token: ilovemyboss"</span>
+<pre class="highlight shell">curl /shifts/1 <span class="se">\</span>
+ -H <span class="s2">"W-Token: "</span>
 </pre><pre class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"shift"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -254,7 +161,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/shifts/{id}</code></p>
+<p><code class="prettyprint">GET /2/shifts/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -274,11 +181,11 @@ Remember — All post bodies must be JSON encoded data (no form data).
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/</code></p>
+<p><code class="prettyprint">POST /2/shifts/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/shifts/{id}</code></p>
+<p><code class="prettyprint">PUT /2/shifts/{id}</code></p>
 
 <h3 id="post/put-body">Post/Put Body</h3>
 
@@ -295,15 +202,15 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </tbody></table>
 
 <h2 id="delete-existing-shift">Delete Existing Shift</h2>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/shifts/1 <span class="se">\</span>
- -H <span class="s2">"W-Token: ilovemyboss"</span>
+<pre class="highlight shell">curl -X DELETE /shifts/1 <span class="se">\</span>
+ -H <span class="s2">"W-Token: "</span>
 </pre><pre class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/shifts/{id}</code></p>
+<p><code class="prettyprint">DELETE /2/shifts/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -323,75 +230,9 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </tr>
 </tbody></table>
 
-<h1 id="errors">Errors</h1>
-
-<p>When I Work uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong or you&rsquo;re in the wrong place</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The request is above your permission level</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified request could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slown down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
-</tr>
-</tbody></table>
-
       </div>
       <div class="dark-box">
         <div id="lang-selector">
-          
-            
-              
-                <a href="#" data-language-name="shell">shell</a>
-              
-            
-              
-                <a href="#" data-language-name="php">php</a>
-              
-            
           
         </div>
       </div>
