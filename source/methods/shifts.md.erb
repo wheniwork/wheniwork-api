@@ -1,0 +1,124 @@
+Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites and Users all link through Shifts.
+
+<%= partial "objects/shift", :local => {:header=>true} %>
+
+## Listing Shifts
+
+```shell
+curl <%=@api_prefix%>/shifts/?location_id=1&start_time=2014-03-05 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+```json
+{
+  "start": "Wed, 05 Mar 2014 00:00:00 -0600",
+  "end": "Sat, 08 Mar 2014 23:59:59 -0600",
+  "shifts": [
+    <%= partial "objects/shift_json" %>,
+    {
+      "id": 2,
+      "location_id": 1,
+      "start_time": "Wed, 06 Mar 2014 08:00:00",
+      "end_time": "Wed, 06 Mar 2014 13:30:00",
+      ...
+      "notes": "Come in early today"
+    }
+  ]
+}
+```
+
+This method allows you to search for shifts. See the parameters below for all the options.
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/shifts`
+
+### Parameters
+
+Key | Description
+--- | -----------
+start_time | Start time for a search window
+end_time | End time for a search window
+user_id | Only show shifts for a user, or multiple (e.g. 1,5,3)
+location_id | Only show shifts for a location, or multiple.
+
+
+
+## Get Existing Shift
+
+```shell
+curl <%=@api_prefix%>/shifts/1 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+```json
+{
+  "shift": {
+    "id": 1,
+    "user_id": 1,
+    "location_id": 1,
+    "start_time": "Wed, 06 Mar 2014 08:00:00",
+    "end_time": "Wed, 06 Mar 2014 13:30:00",
+    ...
+    "notes": "Come in early today"
+  }
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/shifts/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the shift requested.
+
+
+
+## Create/Update Shift
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/shifts/`
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/shifts/{id}`
+
+### Post/Put Body
+
+Key | Description
+--- | -----------
+id | ID of the shift requested.
+
+
+
+
+## Delete Existing Shift
+
+```shell
+curl -X DELETE <%=@api_prefix%>/shifts/1 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/shifts/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the shift requested.
+ids | Optional query parameter that can be used to delete multiple shifts. `?ids=5,2,34`
+
+
+
+
+
+
+
+
