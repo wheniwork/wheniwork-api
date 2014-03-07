@@ -1,28 +1,33 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['shift']) %>
+
+```
+
 Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites and Users all link through Shifts.
 
-<%= partial "objects/shift", :local => {:header=>true} %>
+
+<%= print_table(data.objects['shift'], :header => :shift) %>
 
 ## Listing Shifts
+
+> Example Request
 
 ```shell
 curl <%=@api_prefix%>/shifts/?location_id=1&start_time=2014-03-05 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
+> Example Response
+
 ```json
 {
   "start": "Wed, 05 Mar 2014 00:00:00 -0600",
   "end": "Sat, 08 Mar 2014 23:59:59 -0600",
   "shifts": [
-    <%= partial "objects/shift_json" %>,
-    {
-      "id": 2,
-      "location_id": 1,
-      "start_time": "Wed, 06 Mar 2014 08:00:00",
-      "end_time": "Wed, 06 Mar 2014 13:30:00",
-      ...
-      "notes": "Come in early today"
-    }
+    <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['shift'], :minimal=>true, :include=>{'id'=>27384}).indent(4) %>
   ]
 }
 ```
@@ -45,22 +50,18 @@ location_id | Only show shifts for a location, or multiple.
 
 ## Get Existing Shift
 
+> Example Request
+
 ```shell
 curl <%=@api_prefix%>/shifts/1 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
+> Example Response
+
 ```json
 {
-  "shift": {
-    "id": 1,
-    "user_id": 1,
-    "location_id": 1,
-    "start_time": "Wed, 06 Mar 2014 08:00:00",
-    "end_time": "Wed, 06 Mar 2014 13:30:00",
-    ...
-    "notes": "Come in early today"
-  }
+  "shift": <%= print_json(data.objects['shift'], :minimal=>true,:include=>{:notes=>"Come in early today."}).indent(2) %>
 }
 ```
 
@@ -94,10 +95,14 @@ id | ID of the shift requested.
 
 ## Delete Existing Shift
 
+> Example Request
+
 ```shell
 curl -X DELETE <%=@api_prefix%>/shifts/1 \
  -H "W-Token: <%=@wiw_token%>"
 ```
+
+> Example Response
 
 ```json
 {

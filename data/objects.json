@@ -1,0 +1,97 @@
+{
+  "shift": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the shift",
+      "value": 10000,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "Link identifier for the User attached to this shift. 0 means OpenShift.",
+      "value": 101
+    },
+    "location_id": {
+      "type": "integer",
+      "description": "Link identifier for the Location to which this shift is attached.",
+      "value": 1045
+    },
+    "position_id": {
+      "type": "integer",
+      "description": "Link identifier for the Position attached to this shift.",
+      "value": 19483
+    },
+    "site_id": {
+      "type": "integer",
+      "description": "Link identifier for the Site attached to this shift.",
+      "value": 4351
+    },
+    "start_time": {
+      "type": "datetime",
+      "description": "Start time of the shift.",
+      "value": "Fri, 07 Mar 2014 08:30:00 -0600",
+      "show": true
+    },
+    "end_time": {
+      "type": "datetime",
+      "description": "End time of the shift.",
+      "value": "Fri, 07 Mar 2014 14:30:00 -0600",
+      "show": true
+    },
+    "break_time": {
+      "type": "float",
+      "description": "Hours of unpaid break.",
+      "value": 0.5
+    },
+    "color": {
+      "type": "hex",
+      "description": "Hex color used to identify the shift in the UI.",
+      "value": "cc0000"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes about the shift. Max length 350.",
+      "value": "We need more cow bell.",
+      "show": true
+    },
+    "published": {
+      "type": "boolean",
+      "description": "Published shifts show to employees.",
+      "value": true
+    },
+    "published_date": {
+      "type": "datetime",
+      "description": "Date the shift was most recently published.",
+      "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+    },
+    "notified_at": {
+      "type": "datetime",
+      "description": "Date the shift was most recently notified.",
+      "value": null
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "Date at which the shift was created.",
+      "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "Date the shift was most recently updated.",
+      "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+    }
+  },
+  "user": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the shift.",
+      "value": 4364,
+      "show": true
+    },
+    "first_name": {
+      "type": "string",
+      "description": "First name of this user.",
+      "value": "Jackson",
+      "show": true
+    }
+  }
+}

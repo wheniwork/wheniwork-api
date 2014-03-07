@@ -398,7 +398,7 @@ html, body {
     background-color: $code-bg;
     color: #fff;
 
-    padding: 2em $main-padding;
+    padding: 2em $main-padding 1em;
     margin: 0;
     width: $examples-width;
 
@@ -406,7 +406,7 @@ html, body {
     clear:right;
 
     @include box-sizing(border-box);
-    @include text-shadow(0px 1px 2px rgba(0,0,0,0.4));
+    @include text-shadow(0px 1px 0px rgba(0,0,0,0.4));
 
     &>p { margin: 0; }
 
@@ -419,16 +419,39 @@ html, body {
 
   pre {
     @extend %code-font;
+    padding-bottom: 2em;
+    &+blockquote {
+      padding-top: 1em;
+    }
   }
 
   blockquote {
-    &>p {
-      background-color: $code-annotation-bg;
-      border-radius: 5px;
-      padding: $code-annotation-padding;
-      color: #ccc;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #404040;
+    &+pre {
+      padding-top: 0;
     }
+    &>p {
+      text-transform: uppercase;
+      color: #999;
+    }
+    blockquote {
+      float: left;
+      width: 100%;
+      padding: 0 0 1em;
+      &>p {
+        text-transform: none;
+        background-color: $code-annotation-bg;
+        border-radius: 5px;
+        padding: $code-annotation-padding;
+        color: #ccc;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #404040;
+      }
+    }
+  }
+
+  h2 + blockquote {
+    margin-top: -74px;
+    border-top: 1px solid #222;
+    padding-top: 40px;
   }
 }

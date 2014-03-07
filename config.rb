@@ -1,5 +1,7 @@
-require "lib/api_helpers"
-helpers ApiHelpers
+require "lib/api_objects"
+::Middleman::Extensions.register(:api_objects, ApiObjects)
+
+activate :api_objects
 
 set :css_dir, 'stylesheets'
 
@@ -25,7 +27,7 @@ activate :syntax
 
 
 # Settings for the main page
-page "/index.html" do
+page "*" do
   @api_prefix = "https://api.wheniwork.com"
   @wiw_key = "iworksoharditsnotfunny"
   @wiw_token = "ilovemyboss"

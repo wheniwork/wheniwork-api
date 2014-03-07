@@ -1,0 +1,123 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['user']) %>
+
+```
+
+Users provide a reference
+
+
+<%= print_table(data.objects['user'], :header => :user) %>
+
+## Listing Users
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/users/?location_id=1 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "users": [
+    <%= print_json(data.objects['user'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Garret'}).indent(4) %>
+  ]
+}
+```
+
+This method allows you to search for users. See the parameters below for all the options.
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/users`
+
+### Parameters
+
+Key | Description
+--- | -----------
+location_id | <strong>integer, string</strong><br />Only show shifts for a location, or multiple (e.g. 1,5,3).
+
+
+
+## Get Existing User
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/users/1 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "user": <%= print_json(data.objects['user'], :minimal=>true,:include=>{:notes=>"This user excels at awesome."}).indent(2) %>
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/users/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the user requested.
+
+
+
+## Create/Update User
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/users/`
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/users/{id}`
+
+### Parameters
+
+The `POST` and/or `PUT` body can include fields from the [User Object](#users).
+
+
+
+
+## Delete Existing Shift
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/users/4364 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+Users can be deleted by managers, or by supervisors. If a supervisor, the user must be able to manage all locations the user is attached to.
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/users/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the shift requested.
+
+
+
+
+
+
+
+

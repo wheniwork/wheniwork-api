@@ -28,7 +28,7 @@ Authenticating in will return back a token that can be use for all further reque
 
 ## Login
 
-> Login requires that you use both `username` and `password`
+> Example Request
 
 ```shell
 curl <%=@api_prefix%>/2/login \
@@ -36,22 +36,21 @@ curl <%=@api_prefix%>/2/login \
   -H "W-Key: <%=@wiw_key%>"
 ```
 
-> Be sure to replace `<%=@wiw_key%>` with your requested Developer Key.
+> Example Response
 
 ```json
 {
   "users": [
-    {
-      "first_name": "Example",
-      ...
-      "token": "<%=@wiw_token%>"
-    }
+    <%= print_json(data.objects['user'], :minimal=>true, :include=>{:token=>@wiw_token}).indent(4) %>
   ],
   "accounts": [
     
   ]
 }
 ```
+
+>> Be sure to replace `<%=@wiw_key%>` with your requested Developer Key.
+
 
 The first thing to do after you receive your Developer Key is to login and replace that with a token. This token will be used for all future authenticated requests.
 
@@ -76,6 +75,9 @@ Once you have the token, you must include it in all authenticated requests. The 
 <%= partial "methods/shifts" %>
 
 
+# Users
+
+<%= partial "methods/users" %>
 
 
 
