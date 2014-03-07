@@ -54,60 +54,125 @@
     </div>
     <div class="page-wrapper">
       <div class="content">
-        <p>Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites and Users all link through Shifts.</p>
+        <blockquote>
+<p>Example Object</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1045</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19483</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4351</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"break_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc0000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We need more cow bell."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"published_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"notified_at"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites and Users all link through Shifts.</p>
 
 <h3 id="shift-object">Shift Object</h3>
 
 <table><thead>
 <tr>
-<th>Key</th>
+<th>Parameter</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Unique identifier for the shift</td>
+<td><strong>integer</strong><br />Unique identifier for the shift</td>
 </tr>
 <tr>
 <td>user_id</td>
-<td>User id</td>
+<td><strong>integer</strong><br />Link identifier for the User attached to this shift. 0 means OpenShift.</td>
 </tr>
 <tr>
 <td>location_id</td>
-<td>Location ID</td>
+<td><strong>integer</strong><br />Link identifier for the Location to which this shift is attached.</td>
 </tr>
 <tr>
 <td>position_id</td>
-<td>Position ID</td>
+<td><strong>integer</strong><br />Link identifier for the Position attached to this shift.</td>
 </tr>
 <tr>
 <td>site_id</td>
-<td>Site ID</td>
+<td><strong>integer</strong><br />Link identifier for the Site attached to this shift.</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td><strong>datetime</strong><br />Start time of the shift.</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td><strong>datetime</strong><br />End time of the shift.</td>
+</tr>
+<tr>
+<td>break_time</td>
+<td><strong>float</strong><br />Hours of unpaid break.</td>
+</tr>
+<tr>
+<td>color</td>
+<td><strong>hex</strong><br />Hex color used to identify the shift in the UI.</td>
+</tr>
+<tr>
+<td>notes</td>
+<td><strong>string</strong><br />Notes about the shift. Max length 350.</td>
+</tr>
+<tr>
+<td>published</td>
+<td><strong>boolean</strong><br />Published shifts show to employees.</td>
+</tr>
+<tr>
+<td>published_date</td>
+<td><strong>datetime</strong><br />Date the shift was most recently published.</td>
+</tr>
+<tr>
+<td>notified_at</td>
+<td><strong>datetime</strong><br />Date the shift was most recently notified.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><strong>datetime</strong><br />Date at which the shift was created.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><strong>datetime</strong><br />Date the shift was most recently updated.</td>
 </tr>
 </tbody></table>
 
 <h2 id="listing-shifts">Listing Shifts</h2>
-<pre class="highlight shell">curl /shifts/?location_id<span class="o">=</span>1&amp;start_time<span class="o">=</span>2014-03-05 <span class="se">\</span>
- -H <span class="s2">"W-Token: "</span>
-</pre><pre class="highlight json"><span class="p">{</span><span class="w">
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl https://api.wheniwork.com/shifts/?location_id<span class="o">=</span>1&amp;start_time<span class="o">=</span>2014-03-05 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 05 Mar 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 08 Mar 2014 23:59:59 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 06 Mar 2014 08:00:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 06 Mar 2014 13:30:00"</span><span class="p">,</span><span class="w">
-  </span><span class="err">...</span><span class="w">
-  </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Come in early today"</span><span class="w">
-</span><span class="p">},</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We need more cow bell."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 06 Mar 2014 08:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 06 Mar 2014 13:30:00"</span><span class="p">,</span><span class="w">
-      </span><span class="err">...</span><span class="w">
-      </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Come in early today"</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27384</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We need more cow bell."</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -116,7 +181,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /2/shifts</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/shifts</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -145,23 +210,28 @@
 </tbody></table>
 
 <h2 id="get-existing-shift">Get Existing Shift</h2>
-<pre class="highlight shell">curl /shifts/1 <span class="se">\</span>
- -H <span class="s2">"W-Token: "</span>
-</pre><pre class="highlight json"><span class="p">{</span><span class="w">
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl https://api.wheniwork.com/shifts/1 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"shift"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 06 Mar 2014 08:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 06 Mar 2014 13:30:00"</span><span class="p">,</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Come in early today"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Come in early today."</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /2/shifts/{id}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/shifts/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -181,11 +251,11 @@
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST /2/shifts/</code></p>
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT /2/shifts/{id}</code></p>
+<p><code class="prettyprint">PUT https://api.wheniwork.com/2/shifts/{id}</code></p>
 
 <h3 id="post/put-body">Post/Put Body</h3>
 
@@ -202,15 +272,23 @@
 </tbody></table>
 
 <h2 id="delete-existing-shift">Delete Existing Shift</h2>
-<pre class="highlight shell">curl -X DELETE /shifts/1 <span class="se">\</span>
- -H <span class="s2">"W-Token: "</span>
-</pre><pre class="highlight json"><span class="p">{</span><span class="w">
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/shifts/1 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE /2/shifts/{id}</code></p>
+<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/shifts/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
