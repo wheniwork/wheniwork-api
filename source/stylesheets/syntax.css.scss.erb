@@ -16,7 +16,7 @@ under the License.
 
 @import 'variables';
 
-<%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
+<%= CodeColors.render(:scope => '.highlight') %>
 
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
   color: #909090;
@@ -24,4 +24,8 @@ under the License.
 
 .highlight, .highlight .w {
   background-color: $code-bg;
+}
+
+.highlight.shell > * {
+  color: white;
 }

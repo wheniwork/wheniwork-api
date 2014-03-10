@@ -48,17 +48,18 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 400;
 
   // This is the logo at the top of the ToC
   &>img {
     display: block;
-    margin-bottom: $logo-margin;
+    padding: 20px;
+    width: 150px;
   }
 
   .tocify-item>a, .toc-footer li {
-    padding: 0 $nav-padding 0 $nav-padding;
+    padding: 0 $nav-padding;
     display:block;
     overflow-x:hidden;
     white-space: nowrap;
@@ -72,7 +73,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 28px;
+    line-height: 40px;
   }
 
   li {
@@ -84,9 +85,12 @@ html, body {
 
   // This is the currently selected ToC entry
   .tocify-focus {
-    @include box-shadow(0px 1px 0px $nav-active-shadow);
     background-color: $nav-active-bg;
     color: $nav-active-text;
+    border-left: 5px solid $accent-color;
+    &>a {
+      padding-left: $nav-padding - 5;
+    }
   }
 
   // Subheaders are the submenus that slide open
@@ -94,26 +98,29 @@ html, body {
   .tocify-subheader {
     display: none; // tocify will override this when needed
     background-color: $nav-subitem-bg;
-    font-weight: 500;
-    @include background-image(
-      linear-gradient(top,
-                      darken($nav-subitem-bg,2%),
-                      $nav-subitem-bg 10%,
-                      $nav-subitem-bg 90%,
-                      darken($nav-subitem-bg,2%))
-    );
-    .tocify-item>a {
-      padding-left: $nav-padding + $nav-indent;
-      font-size: 12px;
+
+    .tocify-item {
+      line-height: 30px;
+      &>a {
+        padding-left: $nav-padding + $nav-indent;
+        font-size: 14px;
+      }
+
+      &.tocify-focus {
+        border-left-width: 10px;
+        &>a {
+          padding-left: $nav-padding + $nav-indent - 10;
+        }
+      }
     }
     // These items make for a slight embossed look for the subheader.
     // "Why not put the borders in the subheader?" you ask.
     // "Because then the animation isn't as smooth," I reply.
     &>li:first-child {
-      border-top: $nav-embossed-border-top;
+      //border-top: $nav-embossed-border-top;
     }
     &>li:last-child {
-      border-bottom: $nav-embossed-border-bottom;
+      //border-bottom: $nav-embossed-border-bottom;
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
   }
@@ -219,7 +226,7 @@ html, body {
     padding: 0 $main-padding;
     @include box-sizing(border-box);
     display: block;
-    @include text-shadow($main-embossed-text-shadow);
+    //@include text-shadow($main-embossed-text-shadow);
   }
 
   &>ul, &>ol {
@@ -231,18 +238,19 @@ html, body {
     clear:both;
   }
 
+  h1, h2 {
+    float: left;
+    width: 50%;
+    margin-right: 0;
+  }
+
   h1 {
     @extend %header-font;
-    font-size: 30px;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid #ccc;
-    margin-top: 2em;
-    margin-bottom: $h1-margin-bottom;
-    border-top: 1px solid #ddd;
-    @include background-image(
-      linear-gradient(top, #fff, #f9f9f9)
-    );
+    font-size: 36px;
+    padding-top: 30px;
+    border-top: 1px solid #ccc;
+    margin-top: 45px;
+    margin-bottom: 20px;
   }
 
   // The header at the very top of the page
@@ -254,15 +262,11 @@ html, body {
 
   h2 {
     @extend %header-font;
-    font-size: 20px;
-    margin-top: 4em;
-    margin-bottom: 0;
+    font-size: 26px;
+    padding-top: 20px;
     border-top: 1px solid #ccc;
-    padding-top: 1.2em;
-    padding-bottom: 1.2em;
-    @include background-image(
-      linear-gradient(top, rgba(#fff,0.4), rgba(#fff, 0))
-    );
+    margin-top: 45px;
+    margin-bottom: 20px;
   }
 
   // h2s right after h1s should bump right up
@@ -274,10 +278,11 @@ html, body {
 
   h3 {
     @extend %header-font;
-    font-size: 12px;
-    margin-top: 2.5em;
-    margin-bottom: 0.8em;
+    font-size: 16px;
+    margin-top: 25px;
+    margin-bottom: 5px;
     text-transform: uppercase;
+    font-weight: 600;
   }
 
   hr {
@@ -289,6 +294,15 @@ html, body {
   table {
     margin-bottom: 1em;
     overflow: auto;
+
+    thead tr {
+      border: 1px solid #ddd;
+    }
+    tr {
+      border-style: solid;
+      border-color: #ddd;
+      border-width: 0 1px;
+    }
     th,td {
       text-align: left;
       vertical-align: top;
@@ -306,15 +320,15 @@ html, body {
     }
 
     tr:last-child {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 2px solid #ccc;
     }
 
     tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,4.2%);
+      background-color: darken($main-bg,2.4%);
     }
 
     tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
+      background-color: $main-bg;
     }
   }
 
@@ -344,45 +358,39 @@ html, body {
   }
 
   aside {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    background: $aside-notice-bg;
-    line-height: 1.6;
+    padding: 18px $main-padding 18px $main-padding * 1.5;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    background: #eee;
+    line-height: 1.4;
+    position: relative;
 
-    &.warning {
-      background-color: $aside-warning-bg;
-      text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
-    }
-
-    &.success {
+    &:before {
+      position: absolute;
+      width: $main-padding;
+      height: 100%;
+      line-height: 1.4;
+      left: 0; top: 0;
+      padding-top: 18px;
+      color: white;
+      text-align: center;
+      vertical-align: middle;
       background-color: $aside-success-bg;
-      text-shadow: 0 1px 0 lighten($aside-success-bg, 15%);
+      @include box-sizing(border-box);
+      @extend %icon-info-sign;
     }
-  }
 
+    &.warning:before {
+      background-color: $aside-warning-bg;
+      @extend %icon-exclamation-sign;
+      line-height: 1.4;
+    }
 
-  aside.warning {
-  }
-
-  aside:before {
-    vertical-align: middle;
-    padding-right: 0.5em;
-    font-size: 14px;
-  }
-
-  aside.notice:before {
-    @extend %icon-info-sign;
-  }
-
-  aside.warning:before {
-    @extend %icon-exclamation-sign;
-  }
-
-  aside.success:before {
-    @extend %icon-ok-sign;
+    &.success:before {
+      background-color: $aside-success-bg;
+      @extend %icon-ok-sign;
+      line-height: 1.4;
+    }
   }
 
 }
@@ -426,6 +434,7 @@ html, body {
   }
 
   blockquote {
+    font-size: 14px;
     &+pre {
       padding-top: 0;
     }
@@ -440,18 +449,17 @@ html, body {
       &>p {
         text-transform: none;
         background-color: $code-annotation-bg;
-        border-radius: 5px;
-        padding: $code-annotation-padding;
+        padding: $code-annotation-padding $main-padding;
+        margin: 0 $main-padding * -1;
         color: #ccc;
-        border-top: 1px solid #000;
-        border-bottom: 1px solid #404040;
+        font-style: italic;
       }
     }
   }
 
-  h2 + blockquote {
-    margin-top: -74px;
+  h2 + blockquote, h1 + blockquote {
+    margin-top: 45px;
     border-top: 1px solid #222;
-    padding-top: 40px;
+    padding-top: 25px;
   }
 }

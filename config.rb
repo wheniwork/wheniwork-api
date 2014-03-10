@@ -25,6 +25,7 @@ set :markdown,
 # Activate the syntax highlighter
 activate :syntax
 
+require "lib/code_colors"
 
 # Settings for the main page
 page "*" do

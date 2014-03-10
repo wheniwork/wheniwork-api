@@ -35,7 +35,6 @@ class ApiObjects < Middleman::Extension
         end
       end
       json = JSON.pretty_generate(formatted)
-      puts json
       return json
     end
   end
