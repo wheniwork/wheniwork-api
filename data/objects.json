@@ -92,6 +92,104 @@
       "description": "First name of this user.",
       "value": "Jackson",
       "show": true
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Last name of this user.",
+      "value": "Smith",
+      "show": true
+    },
+    "email":{
+          "type": "Valid Email Address",
+          "description": "The user's email address.",
+          "value": "bobsmith@example.com"
+    },
+    "phone_number": {
+        "type": "string",
+        "description": "The user's phone number.",
+        "value": "555-555-5555"
+    },
+    "hours_preferred":{
+        "type": "float",
+        "description": "The preferred number of hours for the user.",
+        "value": "40"
+    },
+    "hours_max": {
+        "type": "float",
+        "description": "Max hours an employee can work.",
+        "value": "40"
+    },
+    "hourly_rate": {
+        "type": "float",
+        "description": "The employee's hourly rate.",
+        "value": "15.50"
+    },
+    "role": {
+        "type": "integer",
+        "description": "The users role.<br> Allowed values:<br> 2 //manager<br> 3 //employee (default)",
+        "value": "2"
+    },
+    "positions": {
+        "type": "Array (of strings)",
+        "description": "An array of positions to be assigned to the user.",
+        "value": ["Book Keeper", "Cashier"]
+    },
+    "locations": {
+        "type": "Array (of strings)",
+        "description": "An array of locations to be applied to the user.",
+        "value": ["Uptown", "Downtown"]
+    },
+    "notes": {
+        "type": "string",
+        "description": "Notes about the user",
+        "value": "Bob doesn't like working with Suzie."
+    },
+    "activated": {
+        "type": "integer",
+        "description": "1 if the user has activated their account. 0 if they haven't.",
+        "value": "1"
+    },
+    "password": {
+        "type": "string",
+        "description": "User's password. Works only upon user creation, not retrieval or update.",
+        "value": "myp@55w0rd!"
     }
+
+  },
+  "location": {
+      "id": {
+          "type": "integer",
+          "description": "The unique id of the location.",
+          "value": "136",
+          "show": true
+      },
+      "name": {
+          "type": "string",
+          "description": "The name of the location.",
+          "value": "Downtown",
+          "show": true
+      },
+      "address": {
+          "type": "string",
+          "description": "The location's address.",
+          "value": "9303 Lyon Drive, Hill Valley, CA 12345"
+      },
+      "coordinates": {
+          "type": "string",
+          "description": "The coordinates of the location.",
+          "value": ["34.141362","-118.349732"]
+      },
+      "created_at": {
+          "type": "date",
+          "description": "The date the location was created.",
+          "value": "Sat, 26 Oct 1985 01:20:00 -0500"
+      },
+      "updated_at": {
+          "type": "date",
+          "description": "The last time the location was updated.",
+          "value": "Wed, Oct 21 2015 16:29:00 -0500"
+      }
+
   }
+
 }

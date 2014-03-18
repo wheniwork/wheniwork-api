@@ -1,0 +1,127 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['location']) %>
+
+```
+
+Locations
+
+<%= print_table(data.objects['location'], :header => :location) %>
+
+
+## Listing Locations
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/locations \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "locations": [
+    <%= print_json(data.objects['location'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['location'], :minimal=>true, :include=>{'id'=>137,'name'=>'Uptown'}).indent(4) %>
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/locations`
+
+
+
+## Get Existing Location
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/locations/136 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "location": <%= print_json(data.objects['location'], :minimal=>true).indent(2) %>
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/locations/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the location requested.
+
+
+## Create/Update Location
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/locations/`
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/locations/{id}`
+
+### Parameters
+
+The `POST` and/or `PUT` body can include fields from the [Location Object](#locations).
+
+## Sort Locations
+Sort locations by id
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/locations/sort \
+-H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+
+
+## Delete Existing Location
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/locations/136 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+Locations can be deleted by managers.
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/locations/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the location to be deleted.
+
+
+
+
