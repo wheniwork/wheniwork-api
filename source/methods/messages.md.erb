@@ -1,0 +1,116 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['message']) %>
+
+```
+
+Messages
+
+<%= print_table(data.objects['message'], :header => :message) %>
+
+
+## Listing Messages
+List messages for given parameters
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/messages?request_id=123 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "messages": [
+    <%= print_json(data.objects['message'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['message'], :minimal=>true, :include=>{'id'=>456,'user_id'=>14, 'title'=>'Approved','content'=>'This request has been approved'}).indent(4) %>
+    <%= print_json(data.objects['message'], :minimal=>true, :include=>{'id'=>789,'user_id'=>14, 'title' => 'Canceled', 'content'=>'This request has been canceled again.'}).indent(4) %>
+
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/messages?swap_id={swap_id}&request_id={request_id}&conversation_id={conversation_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+swap| ID of the shift block being requested.
+
+Only one of the parameters is required, but they can also be combined.
+
+
+## Get Existing Message
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/messages/61 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "message": <%= print_json(data.objects['message'], :minimal=>true).indent(2) %>
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/messages/{message_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+message id | ID of the shift block being requested.
+
+
+## Create/Update Message
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/messages/`
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/messages/{message id}`
+
+### Parameters
+
+The `POST` and/or `PUT` body can include fields from the [Message Object](#messages).
+
+
+## Delete Existing Message
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/messages/61 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/messages/{message_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+message id | ID of the message to be deleted.
+
+
+
+

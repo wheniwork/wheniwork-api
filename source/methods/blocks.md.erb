@@ -1,0 +1,108 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['block']) %>
+
+```
+
+Blocks
+
+<%= print_table(data.objects['block'], :header => :block) %>
+
+
+## Listing Shift Blocks
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/blocks \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "blocks": [
+    <%= print_json(data.objects['block'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['block'], :minimal=>true, :include=>{'id'=>183,'start_time'=>'06:00:00', 'end_time'=>'14:30:00'}).indent(4) %>
+    <%= print_json(data.objects['block'], :minimal=>true, :include=>{'id'=>204,'start_time'=>'08:45:00', 'end_time'=>'16:30:00'}).indent(4) %>
+
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/blocks`
+
+
+
+## Get Existing Shift Block
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/block/233 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "block": <%= print_json(data.objects['block'], :minimal=>true).indent(2) %>
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/blocks/{block_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+block id | ID of the shift block being requested.
+
+
+## Create/Update Shift Block
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/blocks/`
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/blocks/{block id}`
+
+### Parameters
+
+The `POST` and/or `PUT` body can include fields from the [Block Object](#blocks).
+
+
+## Delete Existing Shift Block
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/blocks/233 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/blocks/{block_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+block id | ID of the shift block to be deleted.
+
+
+
+

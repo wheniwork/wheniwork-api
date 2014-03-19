@@ -1,0 +1,106 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['site']) %>
+
+```
+
+Sites
+
+<%= print_table(data.objects['site'], :header => :site) %>
+
+
+## Listing Sites
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/sites \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "sites": [
+    <%= print_json(data.objects['site'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['site'], :minimal=>true, :include=>{'id'=>4,'name'=>'Lone Pine'}).indent(4) %>
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/sites`
+
+
+
+## Get Existing Site
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/sites/9 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "site": <%= print_json(data.objects['site'], :minimal=>true).indent(2) %>
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/sites/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the site requested.
+
+
+## Create/Update Site
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/sites/`
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/sites/{id}`
+
+### Parameters
+
+The `POST` and/or `PUT` body can include fields from the [Site Object](#sites).
+
+
+## Delete Existing Site
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/sites/9 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/sites/{site_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+site id | ID of the site to be deleted.
+
+
+
+

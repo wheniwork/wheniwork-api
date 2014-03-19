@@ -1,0 +1,24 @@
+> Example Post Data
+
+```json
+<%= print_json(data.objects['send']) %>
+
+```
+
+Send and email to a group of users.
+
+<%= print_table(data.objects['send'], :header => :send) %>
+
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/send \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/send`
+
+### Response
+An empty array is returned upon success.

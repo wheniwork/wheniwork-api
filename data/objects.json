@@ -112,22 +112,22 @@
     "hours_preferred":{
         "type": "float",
         "description": "The preferred number of hours for the user.",
-        "value": "40"
+        "value": 40
     },
     "hours_max": {
         "type": "float",
         "description": "Max hours an employee can work.",
-        "value": "40"
+        "value": 40
     },
     "hourly_rate": {
         "type": "float",
         "description": "The employee's hourly rate.",
-        "value": "15.50"
+        "value": 15.50
     },
     "role": {
         "type": "integer",
         "description": "The users role.<br> Allowed values:<br> 2 //manager<br> 3 //employee (default)",
-        "value": "2"
+        "value": 2
     },
     "positions": {
         "type": "Array (of strings)",
@@ -147,7 +147,7 @@
     "activated": {
         "type": "integer",
         "description": "1 if the user has activated their account. 0 if they haven't.",
-        "value": "1"
+        "value": 1
     },
     "password": {
         "type": "string",
@@ -160,7 +160,7 @@
       "id": {
           "type": "integer",
           "description": "The unique id of the location.",
-          "value": "136",
+          "value": 136,
           "show": true
       },
       "name": {
@@ -190,6 +190,358 @@
           "value": "Wed, Oct 21 2015 16:29:00 -0500"
       }
 
+  },
+  "site": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the site.",
+          "value": 9,
+          "show": true
+      },
+      "name": {
+          "type": "string",
+          "description": "The name of the site.",
+          "value": "Twin Pines",
+          "show": true
+      },
+      "locationid": {
+          "type": "integer",
+          "description": "The ID of the location that the site belongs to.",
+          "value": 136
+      },
+      "address": {
+          "type": "string",
+          "description": "The address of the site.",
+          "value": "1600 S Azusa Ave, City of Industry, CA 91748"
+      },
+      "coordinates": {
+          "type": "array",
+          "description": "The new coordinates for the site, as an array of comma separated values.",
+          "value": ["33.9935161","-117.9264044"]
+      }
+
+  },
+  "position": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the position.",
+          "value": 32,
+          "show": true
+      },
+      "account_id": {
+          "type": "integer",
+          "description": "The ID of the account that the position belongs to.",
+          "value": 3
+      },
+      "name": {
+          "type": "string",
+          "description": "The name of the position.",
+          "value": "Stocker",
+          "show": true
+      },
+      "color": {
+          "type": "hexadecimal",
+          "description": "The position's color in the schedule.",
+          "value": "1174a6",
+          "show": true
+      },
+      "created_at": {
+          "type": "datetime",
+          "description": "Date at which the position was created.",
+          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+      },
+      "updated_at": {
+          "type": "datetime",
+          "description": "Date the position was most recently updated.",
+          "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+      }
+  },
+  "block": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the shift block.",
+          "value": 233,
+          "show": true
+      },
+      "account_id": {
+          "type": "integer",
+          "description": "The ID of the account the shift block is attached to.",
+          "value": 0
+      },
+      "location_id": {
+          "type": "integer",
+          "description": "The ID of the location the shift block is for.",
+          "value": 14
+      },
+      "position_id": {
+          "type": "integer",
+          "description": "The ID of the position that the shift is designated for.",
+          "value": 7
+      },
+      "start_time": {
+          "type": "date time",
+          "description": "The start time for the shift block.",
+          "value": "16:00:00",
+          "show": true
+      },
+      "end_time": {
+          "type": "date time",
+          "description": "The end time for the shift block.",
+          "value": "21:30:00",
+          "show": true
+      },
+      "color": {
+          "type": "hexadecimal",
+          "description": "The hexadecimal value of the color for the shift block.",
+          "value": "b38dd9"
+      },
+      "break_time": {
+          "type": "float",
+          "description": "The unpaid break time (in hours) for the shift block",
+          "value": 0.5
+      },
+      "created_at": {
+          "type": "datetime",
+          "description": "Date at which the shift block was created.",
+          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+      },
+      "updated_at": {
+          "type": "datetime",
+          "description": "Date the shift block was most recently updated.",
+          "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+      }
+
+  },
+  "availability": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the availability.",
+          "value": 10,
+          "show": true
+      },
+      "account_id": {
+          "type": "integer",
+          "description": "The ID of the account that this user's availability is tied to.",
+          "value": 77
+      },
+      "user_id": {
+          "type": "integer",
+          "description": "The ID of the user tied to the availability.",
+          "value": 371,
+          "show": true
+      },
+      "name": {
+          "type": "string",
+          "description": "The name of the availability.",
+          "value": "Emmett's availability preferences.",
+          "show": true
+      },
+      "description": {
+          "type": "string",
+          "description": "The description for the availability",
+          "value": "Emmett B.'s summer availability",
+          "show": true
+      },
+      "start_date": {
+          "type": "date",
+          "description": "The starting date of the time period the availability is designated for.",
+          "value": "Tue, 1 Jun 2014"
+      },
+      "end_date": {
+          "type": "date",
+          "description": "The ending date of the time period the availability is designated for.",
+          "value": "Fri, 13 Apr 2012"
+      },
+      "ongoing": {
+          "type": "boolean",
+          "description": "Is the availability the user's ongoing availability.",
+          "value": false
+      },
+      "repeat": {
+          "type": "integer",
+          "description": "The repeat value for availability.",
+          "value": 1
+      },
+      "created_at": {
+          "type": "datetime",
+          "description": "Date at which the availability was created.",
+          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+      },
+      "updated_at": {
+          "type": "datetime",
+          "description": "Date the availability was most recently updated.",
+          "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+      }
+
+  },
+  "availabilityitems": {
+
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the availability item",
+          "value": 85,
+          "show": true
+      },
+      "availability_id":{
+          "type": "integer",
+          "description": "The ID of the availability object the item is associated with.",
+          "value": 10,
+          "show": true
+      },
+      "user_id": {
+          "type": "integer",
+          "description": "The ID of the user that the availability item is associated with.",
+          "value": 4634
+      },
+      "day": {
+          "type": "integer",
+          "description": "The day of the week (0-6) for the availability item.",
+          "value": 0,
+          "show": true
+      },
+      "type": {
+          "type": "integer",
+          "description": "The type of availability item.",
+          "value": 1
+      },
+      "start_time": {
+          "type": "date time",
+          "description": "The start time of the availability for the specified day.",
+          "value": "07:15:00",
+          "show": true
+      },
+      "end_time": {
+          "type": "date time",
+          "description": "The end time of the availability for the specified day.",
+          "value": "16:00:00",
+          "show": true
+
+      },
+      "created_at": {
+          "type": "datetime",
+          "description": "Date at which the availability item was created.",
+          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+      },
+      "updated_at": {
+          "type": "datetime",
+          "description": "Date the availability item was most recently updated.",
+          "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+      }
+
+  },
+  "message": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the message.",
+          "value": 61,
+          "show": true
+      },
+      "account_id": {
+          "type": "integer",
+          "description": "The account ID that the message is associated with.",
+          "value": 0
+      },
+      "user_id": {
+          "type": "integer",
+          "description": "The ID of the user.",
+          "value": 135,
+          "show": true
+      },
+      "request_id": {
+          "type": "integer",
+          "description": "The ID of the request the message is for.",
+          "value": 123,
+          "show": true
+      },
+      "swap_id": {
+          "type": "integer",
+          "description": "The ID of the swap the message is for.",
+          "value": 0
+      },
+      "conversation_id": {
+          "type": "integer",
+          "description": "The ID of the conversation the message is a part of.",
+          "value": 0
+      },
+      "title": {
+          "type": "string",
+          "description": "The title of the message.",
+          "value": "This is a message title.",
+          "show": true
+      },
+      "content": {
+          "type": "string",
+          "description": "The content of the message.",
+          "value": "This request has been canceled.",
+          "show": true
+      },
+      "created_at": {
+          "type": "datetime",
+          "description": "Date at which the message was created.",
+          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+      },
+      "updated_at": {
+          "type": "datetime",
+          "description": "Date the message was most recently updated.",
+          "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+      }
+
+  },
+  "send": {
+        "ids": {
+            "type": "array",
+            "description": "An array of user IDs to send the email to.",
+            "value": [145,245],
+            "show": true
+        },
+        "subject": {
+            "type": "string",
+            "description": "The subject of the email notification.",
+            "value": "Open shift up for grabs!",
+            "show": true
+        },
+       "message": {
+           "type": "string",
+           "description": "The email notification message content.",
+           "value": "We have an open shift available on Tuesday from 1:00 PM to 10:00 PM",
+           "show": true
+       }
+  },
+  "swap": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the swap.",
+          "value": "22",
+          "show": true
+      },
+      "account_id": {
+          "type": "integer",
+          "description": "The ID of the account associated with the swap.",
+          "value": 0
+      },
+      "user_id": {
+          "type": "integer",
+          "description": "The ID of the user who initiated the swap.",
+          "value": 145
+      },
+      "type": {
+          "type": "integer",
+          "description": "The type of swap. (1 = swap, 2 = drop, 3 = alert)",
+          "value": 1
+      },
+      "status": {
+          "type": "integer",
+          "description": "The status of the swap. (0 = Pending, 1 = Approved, 2 = Declined, 3 = Completed, 4 = Canceled, 5 = Expired)",
+          "value": 0
+      },
+      "accepted_id": {
+          "type": "integer",
+          "description": "The ID of the user who took the shift",
+          "value": 0
+      }
   }
+
+
+
 
 }

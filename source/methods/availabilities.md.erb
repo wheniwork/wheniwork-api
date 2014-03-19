@@ -1,0 +1,153 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['availability']) %>
+
+```
+
+Availabilities
+
+<%= print_table(data.objects['availability'], :header => :availability) %>
+
+
+## Listing Availabilities
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/availabilities \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "availabilities": [
+    <%= print_json(data.objects['availability'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['availability'], :minimal=>true, :include=>{'id'=>11, 'user_id'=>453,'name'=>"George's availability", 'description'=>"George M.'s School Year Availability" }).indent(4) %>
+    <%= print_json(data.objects['availability'], :minimal=>true, :include=>{'id'=>12, 'user_id'=>456,'name'=>"Lorraine's availability", 'description'=>"Lorraine B.'s Winter Availability" }).indent(4) %>
+
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/availabilities?user_id=[371,453,456]`
+
+
+
+## Get Existing Availability
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/availabilities/10 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "availability": <%= print_json(data.objects['availability'], :minimal=>true).indent(2) %>,
+  "availabilityitems": [
+    <%= print_json(data.objects['availabilityitems'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>12,'availability_id'=>10,'day'=>1,'start_time'=>'08:00:00','end_time'=>'18:30:00'}).indent(4) %>,
+    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>13,'availability_id'=>10,'day'=>3,'start_time'=>'05:00:00','end_time'=>'14:00:00'}).indent(4) %>,   <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>14,'availability_id'=>10,'day'=>5,'start_time'=>'011:00:00','end_time'=>'23:15:00'}).indent(4) %>
+  ]
+
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/availabilities/{availability_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+availability id | ID of the availability object being requested.
+
+
+
+## Get Availability Items
+Get all availabilities for a specified group of users for a specified time-frame.
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/availabilities/items?user_id=[371]&start=2014-01-01 8:00am&2014-09-01 10:00pm \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "availability": <%= print_json(data.objects['availability'], :minimal=>true).indent(2) %>,
+  "availabilityitems": [
+    <%= print_json(data.objects['availabilityitems'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>12,'availability_id'=>10,'day'=>1,'start_time'=>'08:00:00','end_time'=>'18:30:00'}).indent(4) %>,
+    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>13,'availability_id'=>10,'day'=>3,'start_time'=>'05:00:00','end_time'=>'14:00:00'}).indent(4) %>,   <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>14,'availability_id'=>10,'day'=>5,'start_time'=>'011:00:00','end_time'=>'23:15:00'}).indent(4) %>
+  ]
+
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/availabilities/items?{user_ids_array}&{start_datetime}&{end_datetime}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+user ids array | An array of user IDs to search.
+start datetime | The start date and time you are searching in.
+end datetime | The end date and time you are searching in.
+
+
+
+
+## Create/Update Availability
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/availabilities/`
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/availabilities/{availability id}`
+
+### Parameters
+
+The `POST` and/or `PUT` body can include fields from the [Availability Object](#availabilities).
+
+
+## Delete Existing Availability
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/availabilities/10 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/availabilities/{availability_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+availability id | ID of the availability to be deleted.
+
+
+
+

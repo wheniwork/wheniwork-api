@@ -1,0 +1,107 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['position']) %>
+
+```
+
+Positions
+
+<%= print_table(data.objects['position'], :header => :position) %>
+
+
+## Listing Positions
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/positions \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "positions": [
+    <%= print_json(data.objects['position'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['position'], :minimal=>true, :include=>{'id'=>5,'name'=>'Bagger', 'color'=>'FF6666'}).indent(4) %>
+    <%= print_json(data.objects['position'], :minimal=>true, :include=>{'id'=>6,'name'=>'Cashier', 'color' => '0066FF'}).indent(4) %>
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/positions`
+
+
+
+## Get Existing Position
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/positions/32 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "position": <%= print_json(data.objects['position'], :minimal=>true).indent(2) %>
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/positions/{position_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+position id | ID of the position requested.
+
+
+## Create/Update Position
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/positions/`
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/positions/{position id}`
+
+### Parameters
+
+The `POST` and/or `PUT` body can include fields from the [Position Object](#positions).
+
+
+## Delete Existing Position
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/positions/9 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/positions/{position_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+position id | ID of the position to be deleted.
+
+
+
+
