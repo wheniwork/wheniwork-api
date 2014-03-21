@@ -1,0 +1,132 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['payroll']) %>
+
+```
+
+<%= print_table(data.objects['payroll'], :header => :user) %>
+
+## Listing Payrolls
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/payrolls \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "payrolls": [
+   <%= print_json(data.objects['payroll'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['payroll'], :minimal=>true, :include=>{'id'=>25, 'start_date'=>'Wed, 12 Feb 2014 00:00:00 -0600', 'end_date' => 'Tue, 25 Feb 2014 00:00:00 -0600'}).indent(4) %>,
+    <%= print_json(data.objects['payroll'], :minimal=>true, :include=>{'id'=>26, 'start_date'=>'Wed, 29 Jan 2014 00:00:00 -0600', 'end_date' => 'Tue, 11 Feb 2014 00:00:00 -0600'}).indent(4) %>,
+  ]
+}
+```
+
+This method allows you to list payroll periods or find ones within a specified date range
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/payrolls/?start={start_date}&end={end_date}
+
+### Parameters
+
+Key | Description
+--- | -----------
+start date| Start date of search range (YYYY-MM-DD)
+end date| End date of search range (YYYY-MM-DD)
+
+
+
+
+## Get Existing Payroll Period
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/payrolls/24 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "payroll": <%= print_json(data.objects['payroll'], :minimal=>true).indent(4) %>,
+  "payrollhours": [
+    <%= print_json(data.objects['payrollhours'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['payrollhours'], :minimal=>true, :include=>{'id'=>101,'hours'=>10,'rate'=>10,'total'=>100}).indent(4) %>,
+    <%= print_json(data.objects['payrollhours'], :minimal=>true, :include=>{'id'=>102,'hours'=>5,'rate'=>11,'total'=>55}).indent(4) %>
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/users/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the pay period requested.
+
+
+## Create / Update Payroll
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/payrolls/{id}`
+
+### Parameters
+
+The `PUT` body can include fields from the [Payroll Object](#payrolls).
+
+<aside class='alert'>
+Payrolls can not be manually created.
+</aside>
+
+
+
+## Create Payroll Hours
+`POST <%=@api_prefix%>/2/payrolls/24`
+
+
+
+
+
+## Delete Existing Payroll
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/payrolls/24 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/payrolls/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the payroll period to be deleted.
+
+
+
+
+
+
+
+

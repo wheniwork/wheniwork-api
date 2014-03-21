@@ -83,7 +83,7 @@
   "user": {
     "id": {
       "type": "integer",
-      "description": "Unique identifier for the shift.",
+      "description": "Unique identifier for the user.",
       "value": 4364,
       "show": true
     },
@@ -823,10 +823,318 @@
           "value": 0
       }
 
+  },
+  "payroll": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID for this payroll item.",
+          "value": 24,
+          "show": true
+      },
+      "account_id": {
+          "type": "integer",
+          "description": "The account ID that this payroll item belongs to.",
+          "value": 0
+      },
+      "creator_id": {
+          "type": "integer",
+          "description": "The user ID of the person who created the payroll item.",
+          "value": 0
+      },
+      "start_date": {
+          "type": "datetime",
+          "description": "The start date of the payroll period,",
+          "value": "Wed, 26 Feb 2014 00:00:00 -0600",
+          "show": true
+      },
+      "end_date": {
+          "type": "datetime",
+          "description": "The start date of the payroll period,",
+          "value":  "Tue, 11 Mar 2014 23:59:59 -0500",
+          "show": true
+      },
+      "notes": {
+          "type": "string",
+          "description": "Notes for the payroll period.",
+          "value": "",
+          "show": true
+      },
+      "is_closed": {
+          "type": "boolean",
+          "description": "True if the payroll period is closed",
+          "value": true
+      },
+      "is_finalized": {
+          "type": "boolean",
+          "description": "True if the payroll period has been finalized.",
+          "value": true
+      },
+      "finalized_at": {
+          "type": "datetime",
+          "description": "The date and time that the payroll period was finalized.",
+          "value": "Tue, 29 Nov -001 18:00:00 -0600",
+          "show": true
+      },
+      "created_at": {
+          "type": "datetime",
+          "description": "The date and time the payroll period was created.",
+          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+      },
+      "updated_at": {
+          "type": "datetime",
+          "description": "The date and time the payroll period was last updated.",
+          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+      }
+  },
+  "payrollhours": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID for this payrollhours item.",
+          "value": 100,
+          "show": true
+      },
+      "payroll_id": {
+          "type": "integer",
+          "description": "The ID of the payroll item this payrollhours object belongs to.",
+          "value": 24,
+          "show": true
+      },
+      "type": {
+          "type": "integer",
+          "description": "The type of hours being reported. (1=Regular, 2=OT, 3=PTO, 4=Holiday, 5=Double Time, 6=Sick)",
+          "value": 1,
+          "show": true
+      },
+      "user_id": {
+          "type": "integer",
+          "description": "The ID of the user who these hours belong to.",
+          "value": 4634,
+          "show": true
+      },
+      "position_id": {
+          "type": "integer",
+          "description": "The ID of the position that is associated with these hours.",
+          "value": 1,
+          "show": true
+      },
+      "hours": {
+          "type": "float",
+          "description": "The number of hours.",
+          "value": 20.25,
+          "show": true
+      },
+      "rate": {
+          "type": "float",
+          "description": "The hourly rate paid for these hours.",
+          "value": 15.75,
+          "show": true
+      },
+      "total": {
+          "type": "float",
+          "description": "The total wages for these hours.",
+          "value": 318.94
+      }
+  },
+  "times": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID for this time entry.",
+          "value": 11,
+          "show": true
+      },
+      "account_id": {
+          "type": "integer",
+          "description": "The ID of the account this entry is associated with.",
+          "value": 0
+      },
+      "user_id": {
+          "type": "integer",
+          "description": "The ID of the user that this time entry is for.",
+          "value": 4634,
+          "show": true
+      },
+      "creator_id": {
+          "type": "integer",
+          "description": "The ID of the user who created this time entry.",
+          "value": 4634,
+          "show": true
+      },
+      "position_id": {
+          "type": "integer",
+          "description": "The ID of the position that is associated with this entry.",
+          "value": 1,
+          "show": true
+      },
+      "location_id": {
+          "type": "integer",
+          "description": "The ID of the location that is associated with this entry.",
+          "value": 136,
+          "show": true
+      },
+      "site_id": {
+          "type": "integer",
+          "description": "The ID of the site that is associated with this time entry.",
+          "value": 9,
+          "show": true
+      },
+      "shift_id": {
+          "type": "integer",
+          "description": "The ID of the shift that correlates to this time entry.",
+          "value": 1000,
+          "show": true
+      },
+      "start_time": {
+          "type": "date time",
+          "description": "The start date and time of the time entry.",
+          "value": "Fri, 07 Mar 2014 08:30:00 -0600",
+          "show": true
+      },
+      "end_time": {
+          "type": "datetime",
+          "description": "End time of the time entry.",
+          "value": "Fri, 07 Mar 2014 14:30:00 -0600",
+          "show": true
+      },
+      "break_hours": {
+          "type": "float",
+          "description": "Hours of unpaid break.",
+          "value": 0.5
+      },
+      "length": {
+          "type": "float",
+          "description": "The length of the time entry.",
+          "value": 6,
+          "show": true
+      },
+      "hourly_rate": {
+          "type": "float",
+          "description": "Hourly rate for this time entry.",
+          "value": 20,
+          "show": true
+      },
+      "is_alerted": {
+          "type": "boolean",
+          "description": "True if an alert needs to be created for this shift.",
+          "value": true
+      },
+      "alert_type": {
+          "type": "integer",
+          "description": "The type of alert created.",
+          "value": 8
+      },
+      "is_approved": {
+          "type": "boolean",
+          "description": "True if the time entry has been approved.",
+          "value": true
+      },
+      "modified_by": {
+          "type": "integer",
+          "description": "The ID of the user who modified the time entry.",
+          "value": 202
+      },
+      "updated_at": {
+          "type": "date time",
+          "description": "The "
+      },
+      "created_at": {
+          "type": "datetime",
+          "description": "The date and time the time entry was created.",
+          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+      },
+      "updated_at": {
+          "type": "datetime",
+          "description": "The date and time the time entry was last updated.",
+          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+      }
+  },
+  "punch": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID for this punch.",
+          "value": 150134,
+          "show": true
+      },
+      "account_id": {
+          "type": "integer",
+          "description": "The ID of the account that this punch is associated with.",
+          "value": 0
+      },
+      "time_id": {
+          "type": "integer",
+          "description": "The ID of the time object this punch is connected to.",
+          "value": 11,
+          "show": true
+      },
+      "user_id": {
+          "type": "integer",
+          "description": "The ID of the user who punched in or out.",
+          "value": 4634,
+          "show": true
+      },
+      "location_id":{
+          "type": "integer",
+          "description": "The ID of the location that the punch is for.",
+          "value": 136,
+          "show": true
+      },
+      "site_id": {
+          "type": "integer",
+          "description": "The ID of the site that the punch is for.",
+          "value": 0,
+          "show": true
+      },
+      "type": {
+          "type": "integer",
+          "description": "Type of punch. (1 = Punch In, 2 = Punch Out)",
+          "value": 1,
+          "show": true
+      },
+      "latitude": {
+          "type": "float",
+          "description": "The latitude of the punch.",
+          "value": 34.2390664
+      },
+      "longitude": {
+          "type": "float",
+          "description": "The latitude of the punch.",
+          "value": -118.4332328
+      },
+      "accuracy": {
+          "type": "integer",
+          "description": "How close the user was to a location.",
+          "value": 0
+      },
+      "altitude": {
+          "type": "float",
+          "description": "The altitude of the punch.",
+          "value": "259.224731"
+      },
+      "ip_address": {
+          "type": "string",
+          "description": "The IP address of the device on which the punch occurred.",
+          "value": "127.0.0.1"
+      },
+      "is_alerted": {
+          "type": "boolean",
+          "description": "True if an alert needs to be created for this punch.",
+          "value": true
+      },
+      "alert_type": {
+          "type": "integer",
+          "description": "The type of alert created.",
+          "value": 8
+      },
+      "created_at": {
+          "type": "datetime",
+          "description": "The date and time the punch was created.",
+          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+      },
+      "updated_at": {
+          "type": "datetime",
+          "description": "The date and time the punch was last updated.",
+          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+      }
   }
-
-
-
 
 
 }
