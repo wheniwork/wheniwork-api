@@ -5,7 +5,7 @@
 
 ```
 
-Users provide a reference
+Users are the employees, supervisors, and managers that have access to your WhenIWork
 
 
 <%= print_table(data.objects['user'], :header => :user) %>
@@ -25,7 +25,7 @@ curl <%=@api_prefix%>/users/?location_id=1 \
 {
   "users": [
     <%= print_json(data.objects['user'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Garret'}).indent(4) %>
+    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Jennifer', 'last_name'=>'Parker', 'email'=>'jen.parker@example.com'}).indent(4) %>
   ]
 }
 ```

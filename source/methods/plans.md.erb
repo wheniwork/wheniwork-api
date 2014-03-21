@@ -1,0 +1,25 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['plan']) %>
+
+```
+
+Get all plans.
+<aside class='notify'>
+This list will include legacy plans. These plans, where is_legacy is true, cannot be applied to an account. The only exist to show information relating to current accounts.
+</aside>
+
+<%= print_table(data.objects['plan'], :header => :plan) %>
+
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/plans \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/plans`
+

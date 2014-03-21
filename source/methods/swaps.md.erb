@@ -1,0 +1,173 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['swap']) %>
+
+```
+
+Swaps
+
+<%= print_table(data.objects['swap'], :header => :swap) %>
+
+
+## Listing Swaps
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/swaps/ \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "swaps": [
+  <%= print_json(data.objects['swap'], :minimal=>true).indent(4) %>
+  ],
+  "messages" : [
+  <%= print_json(data.objects['message'], :minimal=>true, :include => { 'swap_id' => '2238' }).indent(4) %>
+  ],
+  "shifts" : [
+  <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>
+  ],
+  "users" : [
+  <%= print_json(data.objects['user'], :minimal=>true).indent(4) %>,
+  <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Emmett'}).indent(4) %>
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/swaps`
+
+
+
+## Get Existing Swap
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/swaps/22 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "swaps": [
+    <%= print_json(data.objects['swap'], :minimal=>true).indent(4) %>
+    ],
+    "messages" : [
+    <%= print_json(data.objects['message'], :minimal=>true, :include => { 'swap_id' => '2238' }).indent(4) %>
+    ],
+    "shifts" : [
+    <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>
+    ],
+    "users" : [
+    <%= print_json(data.objects['user'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Emmett'}).indent(4) %>
+    ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/swaps/{swap_id}`
+
+
+### Parameters
+
+Key | Description
+--- | -----------
+swap id | ID of the swap being requested.
+
+
+## Create/Update Swap
+> Example Request Object
+
+```json
+{
+    "shift_id":1046,
+    "type": 3,
+    "shifts":[1047],
+    "users":[134,132,110]
+
+}
+```
+
+> Example Response Object
+
+```json
+{
+    "swaps": [
+    <%= print_json(data.objects['swap'], :minimal=>true).indent(4) %>
+    ],
+    "messages" : [
+    <%= print_json(data.objects['message'], :minimal=>true, :include => { 'swap_id' => '2238' }).indent(4) %>
+    ],
+    "shifts" : [
+    <%= print_json(data.objects['shift'], :minimal=>true, :include => { 'id' => '1047' }).indent(4) %>,
+    <%= print_json(data.objects['shift'], :minimal=>true, :include => { 'id' => '1046' }).indent(4) %>
+    ],
+    "users" : [
+    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>134,'first_name'=>'Emmett','last_name'=>'Brown'}).indent(4) %>,
+    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>132,'first_name'=>'Lorraine','last_name'=>'Tannen'}).indent(4) %>,
+    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>110,'first_name'=>'Goldie','last_name'=>'Wilson'}).indent(4) %>
+    ]
+
+}
+```
+
+
+
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/swaps/`
+
+Key | Description
+--- | -----------
+shift id | ID of the shift being swapped.
+type | The type of swap to be created.
+shifts | The IDs of the shifts requested to be swapped for.
+users | The IDs of users available to take shifts.
+
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/swaps/{swap id}`
+
+### Parameters
+
+The `PUT` body can include fields from the [Swap Object](#swap).
+
+
+## Delete Existing Swap
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/swap/233 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/swap/{swap_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+swap id | ID of the swap to be deleted.
+
+
+
+

@@ -90,39 +90,44 @@
     "first_name": {
       "type": "string",
       "description": "First name of this user.",
-      "value": "Jackson",
+      "value": "Goldie",
       "show": true
     },
     "last_name": {
       "type": "string",
       "description": "Last name of this user.",
-      "value": "Smith",
+      "value": "Wilson",
       "show": true
     },
     "email":{
-          "type": "Valid Email Address",
-          "description": "The user's email address.",
-          "value": "bobsmith@example.com"
+       "type": "Valid Email Address",
+       "description": "The user's email address.",
+       "value": "goldiewilson@hillvalleycalifornia.gov",
+       "show": true
     },
     "phone_number": {
         "type": "string",
         "description": "The user's phone number.",
-        "value": "555-555-5555"
+        "value": "555-555-5555",
+        "show": true
     },
     "hours_preferred":{
         "type": "float",
         "description": "The preferred number of hours for the user.",
-        "value": 40
+        "value": 40,
+        "show": true
     },
     "hours_max": {
         "type": "float",
         "description": "Max hours an employee can work.",
-        "value": 40
+        "value": 40,
+        "show": true
     },
     "hourly_rate": {
         "type": "float",
         "description": "The employee's hourly rate.",
-        "value": 15.50
+        "value": 15.50,
+        "show": true
     },
     "role": {
         "type": "integer",
@@ -142,7 +147,7 @@
     "notes": {
         "type": "string",
         "description": "Notes about the user",
-        "value": "Bob doesn't like working with Suzie."
+        "value": ""
     },
     "activated": {
         "type": "integer",
@@ -152,7 +157,7 @@
     "password": {
         "type": "string",
         "description": "User's password. Works only upon user creation, not retrieval or update.",
-        "value": "myp@55w0rd!"
+        "value": "Th3m@y0R"
     }
 
   },
@@ -172,12 +177,14 @@
       "address": {
           "type": "string",
           "description": "The location's address.",
-          "value": "9303 Lyon Drive, Hill Valley, CA 12345"
+          "value": "9303 Lyon Drive, Hill Valley, CA 12345",
+          "show": true
       },
       "coordinates": {
           "type": "string",
           "description": "The coordinates of the location.",
-          "value": ["34.141362","-118.349732"]
+          "value": ["34.2390664","-118.4332328"],
+          "show": true
       },
       "created_at": {
           "type": "date",
@@ -207,7 +214,8 @@
       "locationid": {
           "type": "integer",
           "description": "The ID of the location that the site belongs to.",
-          "value": 136
+          "value": 136,
+          "show": true
       },
       "address": {
           "type": "string",
@@ -511,7 +519,7 @@
       "id": {
           "type": "integer",
           "description": "The unique ID of the swap.",
-          "value": "22",
+          "value": "2238",
           "show": true
       },
       "account_id": {
@@ -522,24 +530,301 @@
       "user_id": {
           "type": "integer",
           "description": "The ID of the user who initiated the swap.",
-          "value": 145
+          "value": 145,
+          "show": true
       },
       "type": {
           "type": "integer",
           "description": "The type of swap. (1 = swap, 2 = drop, 3 = alert)",
-          "value": 1
+          "value": 1,
+          "show": true
       },
       "status": {
           "type": "integer",
           "description": "The status of the swap. (0 = Pending, 1 = Approved, 2 = Declined, 3 = Completed, 4 = Canceled, 5 = Expired)",
-          "value": 0
+          "value": 0,
+          "show": true
       },
       "accepted_id": {
           "type": "integer",
           "description": "The ID of the user who took the shift",
+          "value": 0,
+          "show": true
+      },
+      "statuses": {
+          "type": "array",
+          "description": "An array of user shift acceptance statuses.",
+          "value": [
+              {
+                  "user_id": 23,
+                  "status": 0,
+                  "shift_id": 0
+              },
+              {
+                  "user_id": 24,
+                  "status": 0,
+                  "shift_id": 0
+              }
+
+          ]
+      }
+  },
+  "template": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the template.",
+          "value": 12,
+          "show": true
+      },
+      "account_id": {
+          "type": "integer",
+          "description": "The ID of the account the template belongs to.",
+          "value": 1946
+      },
+      "location_id": {
+          "type": "integer",
+          "description": "The location ID for the shift template.",
+          "value": 0,
+          "show": true
+      },
+      "user_id": {
+          "type": "integer",
+          "description": "The ID of the user who created the template.",
+          "value": 1,
+          "show": true
+      },
+      "start_date": {
+          "type": "date time",
+          "description": "The start date for the template.",
+          "value": "Mon, 17 Feb 2014",
+          "show": true
+      },
+      "end_date": {
+          "type": "date time",
+          "description": "The start date for the template.",
+          "value": "Sun, 23 Feb 2014",
+          "show": true
+      },
+      "name": {
+          "type": "string",
+          "description": "A name for the template.",
+          "value": "Winter Schedule",
+          "show": true
+      },
+      "description":{
+          "type": "string",
+          "description": "A description for the template",
+          "value": "Our weekly schedule for December - March.",
+          "show": true
+      },
+      "created_at":{
+          "type": "datetime",
+          "description": "The date and time the template was created.",
+          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+      },
+      "updated_at":{
+          "type": "datetime",
+          "description": "The date and time the template was last updated.",
+          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+      }
+
+  },
+  "templateshift": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the template shift.",
+          "value": "38383",
+          "show": true
+      },
+      "template_id": {
+          "type": "integer",
+          "description": "The ID of the template that the template shift is a part of.",
+          "value": 12,
+          "show": true
+      },
+      "user_id": {
+          "type": "integer",
+          "description": "The ID of the user assigned to the template shift.",
+          "value": 44,
+          "show": true
+      },
+      "location_id": {
+          "type": "integer",
+          "description": "The ID of the location associated with the template shift.",
+          "value": 15,
+          "show": true
+      },
+      "position_id": {
+          "type": "integer",
+          "description": "The ID of the position associated with the template shift.",
+          "value": 2,
+          "show": true
+      },
+      "site_id": {
+          "type": "integer",
+          "description": "The ID of the site associated with the template shift.",
+          "value": 0,
+          "show": true
+      },
+      "start_time": {
+          "type": "datetime",
+          "description": "Start time of the template shift.",
+          "value": "Tue, 18 Feb 2014 08:00:00 -0500",
+          "show": true
+      },
+      "end_time": {
+          "type": "datetime",
+          "description": "End time of the template shift.",
+          "value": "Tue, 18 Feb 2014 15:00:00 -0500",
+          "show": true
+      },
+      "break_time": {
+          "type": "float",
+          "description": "Number of unpaid hours allotted for a break during the shift.",
+          "value": 0.5
+      },
+      "color": {
+          "type": "hexadecimal",
+          "description": "The hexadecimal color value that the shift shows up as in the scheduler.",
+          "value": "9a8dd9"
+      },
+      "notes": {
+          "type": "string",
+          "description": "A note for the associated template shift.",
+          "value": "All company meeting!"
+      },
+      "linked_users": {
+          "type": "JSON",
+          "description": "A json encoded string of users that are eligible for the shift.",
+          "value": ""
+      }
+
+  },
+  "request": {
+       "id": {
+           "type": "integer",
+           "description": "The unique ID of the request.",
+           "value": 54,
+           "show": true
+       },
+       "account_id": {
+           "type": "integer",
+           "description": "The ID of the account this request belongs to. ",
+           "value": 0
+       },
+       "user_id": {
+           "type": "integer",
+           "description": "The ID of the user.",
+           "value": 135,
+           "show": true
+       },
+       "creator_id": {
+           "type": "integer",
+           "description": "The ID of the user creating the request.",
+           "value": 135,
+           "show": true
+       },
+       "status": {
+           "type": "integer",
+           "description": "Status of the request",
+           "value": 0,
+           "show": true
+       },
+       "type": {
+           "type": "integer",
+           "description": "Type of request.",
+           "value": 0,
+           "show": true
+       },
+       "start_time": {
+           "type": "datetime",
+           "description": "Start time of request.",
+           "value": "Fri, 14 Mar 2014 00:00:00 -0500",
+           "show": true
+
+       },
+       "end_time": {
+           "type": "datetime",
+           "description": "End time of request.",
+           "value": "Fri, 21 Mar 2014 00:00:00 -0500",
+           "show": true
+       },
+       "created_at": {
+           "type": "datetime",
+           "description": "The date and time the request was created.",
+           "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+       },
+       "updated_at": {
+           "type": "datetime",
+           "description": "The date and time the request was last updated.",
+           "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+       }
+  },
+  "plan": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the plan.",
+          "value": 1,
+          "show": true
+      },
+      "name": {
+          "type": "string",
+          "description": "The name of the plan.",
+          "value": "Free",
+          "show": true
+      },
+      "price": {
+          "type": "float",
+          "description": "The price of the plan",
+          "value": 0,
+          "show": true
+      },
+      "price_annual":{
+          "type": "float",
+          "description": "The annual cost of the plan.",
+          "value": 0,
+          "show": true
+      },
+      "wb_price": {
+          "type": "float",
+          "description": "The WageBase plan cost.",
+          "value": 0,
+          "show": true
+      },
+      "wb_annual": {
+          "type": "float",
+          "description": "The WageBase annual plan cost.",
+          "value": 0,
+          "show": true
+      },
+      "employees": {
+          "type": "integer",
+          "description": "The number of employees allowed on the plan.",
+          "value": "5"
+      },
+      "texting": {
+          "type": "boolean",
+          "description": "Is texting allowed on this account",
+          "value": false
+      },
+      "texting_price": {
+          "type": "float",
+          "description": "The texting cost.",
+          "value": 0
+      },
+      "is_legacy": {
+          "type": "boolean",
+          "description": "Is this a legacy plan?",
+          "value": false
+      },
+      "sort": {
+          "type": "integer",
+          "description": "The sort order of the plan.",
           "value": 0
       }
+
   }
+
 
 
 

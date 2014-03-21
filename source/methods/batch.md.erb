@@ -1,0 +1,54 @@
+> Example Post Data
+
+```json
+[{
+    "method":"get",
+    "url":"/rest/shifts",
+    "params":{
+        "start":"Sun, 15 Apr 2012 00:00:00",
+        "end":"Sat, 21 Apr 2012 23:59:59",
+        "unpublished":true,
+        "include_allopen":true
+    }
+},
+{
+    "method":"get",
+    "url":"/rest/requests",
+    "params":{
+        "start":"Sun, 15 Apr 2012 00:00:00",
+        "end":"Sat, 21 Apr 2012 23:59:59",
+        "include_pending":true,
+        "status":"0,2"
+    }
+},
+{
+    "method":"get",
+    "url":"/rest/availabilities/items",
+    "params":{
+        "start":"Sun, 15 Apr 2012 00:00:00",
+        "end":"Sat, 21 Apr 2012 23:59:59"
+    }
+}]
+
+```
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/batch \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+Batch allows you to execute multiple requests at the same time.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/batch`
+
+### Parameters
+
+Key | Description
+--- | -----------
+method | POST, GET, PUT or DELETE
+url | The method you are requesting
+params | The parameters of your request as defined in the individual methods.
+

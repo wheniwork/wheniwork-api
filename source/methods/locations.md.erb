@@ -5,7 +5,8 @@
 
 ```
 
-Locations
+Locations are the main physical locations where your business operates and where employees, managers, and supervisors are assigned.
+
 
 <%= print_table(data.objects['location'], :header => :location) %>
 
@@ -25,9 +26,10 @@ curl <%=@api_prefix%>/locations \
 {
   "locations": [
     <%= print_json(data.objects['location'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['location'], :minimal=>true, :include=>{'id'=>137,'name'=>'Uptown'}).indent(4) %>
+    <%= print_json(data.objects['location'], :minimal=>true, :include=>{'id'=>137,'name'=>'Uptown', 'address'=>'100 Courthouse Square, Hill Valley, CA 12345','coordinates'=>['34.141362','-118.349732']}).indent(4) %>
   ]
 }
+
 ```
 
 ### HTTP Request
@@ -73,25 +75,6 @@ id | ID of the location requested.
 ### Parameters
 
 The `POST` and/or `PUT` body can include fields from the [Location Object](#locations).
-
-## Sort Locations
-Sort locations by id
-
-> Example Request
-
-```shell
-curl <%=@api_prefix%>/locations/sort \
--H "W-Token: <%=@wiw_token%>"
-```
-
-> Example Response
-
-```json
-{
-  "success": true
-}
-```
-
 
 
 ## Delete Existing Location

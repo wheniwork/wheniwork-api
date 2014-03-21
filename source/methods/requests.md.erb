@@ -1,0 +1,176 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['request']) %>
+
+```
+
+Requests
+
+<%= print_table(data.objects['request'], :header => :request) %>
+
+
+## Listing Requests
+
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/requests?start=2012-03-01&end=2012-04-30&max_id=42 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "requests": [
+    <%= print_json(data.objects['request'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['request'], :minimal=>true, :include=>{'id'=>'55','start_time'=>'Mon, 24 Mar 2014 08:00:00 -0600','end_time'=>'Fri, 28 Mar 2014 08:00:00 -0600'}).indent(4) %>,
+  ],
+  "messages": [
+    <%= print_json(data.objects['message'], :minimal=>true, :include=>{'request_id'=>'54'}).indent(4) %>,
+    <%= print_json(data.objects['message'], :minimal=>true, :include=>{'id'=>'66','request_id'=>'54','title'=>'Request Approved','message'=>'This Request has been approved'}).indent(4) %>,
+    <%= print_json(data.objects['message'], :minimal=>true, :include=>{'id'=>'68','request_id'=>'55','title'=>'Request Approved','message'=>'This Request has been approved'}).indent(4) %>,
+  ],
+  "users": [
+   <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>135}).indent(4) %>,
+   <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Emmett','last_name'=>'Brown'}).indent(4) %>
+  ]
+}
+```
+
+List requests for given parameters
+### HTTP Request
+`GET <%=@api_prefix%>/2/requests?start=2012-03-01&end=2012-04-30&max_id=58`
+
+### Parameters
+
+Key | Description
+--- | -----------
+start| The start date for the request time-frame.
+end | End time for the request time-frame.
+since_id | Return all requests created since the request with given ID.
+max_id | Return all requests created before the request with the given ID.
+
+
+## Get Existing Request
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/requests/65 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "request": <%= print_json(data.objects['request'], :minimal=>true).indent(2) %>,
+  "messages": [
+   <%= print_json(data.objects['message'], :minimal=>true, :include=>{'request_id'=>'54'}).indent(4) %>,
+   <%= print_json(data.objects['message'], :minimal=>true, :include=>{'id'=>'66','request_id'=>'54','title'=>'Request Approved','message'=>'This Request has been approved'}).indent(4) %>,
+  ],
+  "users": [
+   <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>135}).indent(4) %>,
+   <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Emmett','last_name'=>'Brown'}).indent(4) %>
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/requests/{request_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+request id | ID of the request.
+
+
+## Create/Update Request
+
+> Example POST Data
+
+```json
+{
+   "user_id": "135",
+   "type": "1",
+   "start_time":"2012-02-25 8:00",
+   "end_time":"2012-05-25 17:00",
+   "status":0
+
+}
+```
+
+> Example Response
+
+```json
+{
+    "request": {
+    "id": 56,
+    "account_id": 3,
+    "user_id": 135,
+    "creator_id": 135,
+    "status": 0,
+    "type": 0,
+    "start_time": "Sat, 25 Feb 2012 08:00:00 -0600",
+    "end_time": "Fri, 25 May 2012 17:00:00 -0500",
+    "created_at": "Fri, 27 Apr 2012 11:33:53 -0500",
+    "updated_at": "Fri, 27 Apr 2012 11:33:53 -0500"
+    }
+}
+```
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/requests/'
+
+### Parameters
+
+Key | Description
+--- | -----------
+user_id | The ID of the user for whom the request is to be created.
+type | The type of request
+start_time | The start date and time for the request.
+end_time | The end date and time for the request.
+since_id | Return all requests created since the request with given ID.
+status | The status for the request to be created.
+
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/requests/{request id}`
+
+### Parameters
+
+The `PUT` body can include fields from the [Request Object](#requests).
+
+
+## Delete Existing Request
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/requests/54 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/requests/{request_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+request id | ID of the request to be deleted.
+
+
+
+

@@ -1,0 +1,154 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['template']) %>
+
+```
+
+Templates
+Templates allow you to create a group of shifts that can be used to make scheduling easier.
+
+<%= print_table(data.objects['template'], :header => :template) %>
+
+
+## Listing Templates
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/templates/ \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "templates": [
+    <%= print_json(data.objects['template'], :minimal=>true).indent(4) %>
+  ],
+  "templateshifts" : [
+     <%= print_json(data.objects['templateshift'], :minimal=>true).indent(4) %>
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/templates`
+
+
+
+## Get Existing template
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/templates/12 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "templates": [
+    <%= print_json(data.objects['template'], :minimal=>true).indent(4) %>
+  ],
+  "templateshifts" : [
+   <%= print_json(data.objects['templateshift'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['templateshift'], :minimal=>true, :include=>{'id'=>'144', 'start_time'=>'Tue, 18 Feb 2014 08:00:00 -0600', 'end_time'=>'Tue, 18 Feb 2014 17:00:00 -0600' }).indent(4) %>,
+    <%= print_json(data.objects['templateshift'], :minimal=>true, :include=>{'id'=>'148', 'start_time'=>'Wed, 19 Feb 2014 08:30:00 -0600', 'end_time'=>'Wed, 19 Feb 2014 16:00:00 -0600' }).indent(4) %>,
+  ]
+
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/templates/{template_id}`
+
+
+### Parameters
+
+Key | Description
+--- | -----------
+template id | ID of the template being requested.
+
+
+## Create/Update template
+
+> Example Request Object
+
+```json
+{
+      "name":"Cafe 80's October template",
+      "start":"2015-10-01",
+      "end":"2015-10-31",
+      "ids":[{"user_id":135,"location_id":137,"position_id":172}]
+
+}
+```
+
+> Example Response Object
+
+```json
+{
+
+  "templates": [
+    <%= print_json(data.objects['template'], :minimal=>true, :include=>{'name'=>'Cafe 80\'s February Shift Template', 'start'=>'2014-02-01','end'=>'2014-02-28','position_id'=>'172','user_id'=>'135','location_id'=>137 }).indent(4) %>
+  ],
+  "templateshifts" : [
+   <%= print_json(data.objects['templateshift'], :minimal=>true, :include=>{'position_id'=>'172','user_id'=>'135','location_id'=>137}).indent(4) %>,
+   ]
+
+}
+```
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/templates/`
+
+Key | Description
+--- | -----------
+name | The name of the new template.
+start | Start date for the new template.
+end | End of the time frame for the template.
+description | Description of the new template.
+ids | IDs of elements to be included in the template.
+
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/templates/{template id}`
+
+### Parameters
+
+The `PUT` body can include fields from the [Template Object](#template).
+
+
+## Delete Existing Template
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/template/12 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/template/{template_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+template id | ID of the template to be deleted.
+
+
+
+

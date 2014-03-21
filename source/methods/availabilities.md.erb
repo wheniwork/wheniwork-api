@@ -5,7 +5,7 @@
 
 ```
 
-Availabilities
+Availabilities are objects that define a user's availability to be assigned shifts during a certain period of time.
 
 <%= print_table(data.objects['availability'], :header => :availability) %>
 
@@ -54,7 +54,8 @@ curl <%=@api_prefix%>/availabilities/10 \
   "availabilityitems": [
     <%= print_json(data.objects['availabilityitems'], :minimal=>true).indent(4) %>,
     <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>12,'availability_id'=>10,'day'=>1,'start_time'=>'08:00:00','end_time'=>'18:30:00'}).indent(4) %>,
-    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>13,'availability_id'=>10,'day'=>3,'start_time'=>'05:00:00','end_time'=>'14:00:00'}).indent(4) %>,   <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>14,'availability_id'=>10,'day'=>5,'start_time'=>'011:00:00','end_time'=>'23:15:00'}).indent(4) %>
+    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>13,'availability_id'=>10,'day'=>3,'start_time'=>'05:00:00','end_time'=>'14:00:00'}).indent(4) %>,
+    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>14,'availability_id'=>10,'day'=>5,'start_time'=>'011:00:00','end_time'=>'23:15:00'}).indent(4) %>
   ]
 
 }
@@ -89,7 +90,8 @@ curl <%=@api_prefix%>/availabilities/items?user_id=[371]&start=2014-01-01 8:00am
   "availabilityitems": [
     <%= print_json(data.objects['availabilityitems'], :minimal=>true).indent(4) %>,
     <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>12,'availability_id'=>10,'day'=>1,'start_time'=>'08:00:00','end_time'=>'18:30:00'}).indent(4) %>,
-    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>13,'availability_id'=>10,'day'=>3,'start_time'=>'05:00:00','end_time'=>'14:00:00'}).indent(4) %>,   <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>14,'availability_id'=>10,'day'=>5,'start_time'=>'011:00:00','end_time'=>'23:15:00'}).indent(4) %>
+    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>13,'availability_id'=>10,'day'=>3,'start_time'=>'05:00:00','end_time'=>'14:00:00'}).indent(4) %>,
+    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>14,'availability_id'=>10,'day'=>5,'start_time'=>'011:00:00','end_time'=>'23:15:00'}).indent(4) %>
   ]
 
 }
