@@ -18,6 +18,13 @@ Shifts provide the basis for scheduling. Many other objects, including Locations
 curl <%=@api_prefix%>/shifts/?location_id=1&start_time=2014-03-05 \
  -H "W-Token: <%=@wiw_token%>"
 ```
+```php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get('shifts', array(
+                                'location_id'=>1, 
+                                'start_time'=>'2014-03-05'
+                              ));
+```
 
 > Example Response
 

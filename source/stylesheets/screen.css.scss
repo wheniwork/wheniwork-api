@@ -428,6 +428,7 @@ html, body {
   pre {
     @extend %code-font;
     padding-bottom: 2em;
+    padding-top: 0;
     &+blockquote {
       padding-top: 1em;
     }
@@ -435,9 +436,6 @@ html, body {
 
   blockquote {
     font-size: 14px;
-    &+pre {
-      padding-top: 0;
-    }
     &>p {
       text-transform: uppercase;
       color: #999;

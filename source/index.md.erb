@@ -16,6 +16,12 @@ The When I Work API is thorough, flexible, and restful. It's methods are logical
 
 Feel free to [contact us](http://support.wheniwork.com) if something seems out of place.
 
+## Libraries
+
+We currently offer the following API wrappers:
+
+* PHP: [wheniwork-api-php](https://github.com/dolfelt/wheniwork-api-php)
+
 # Authentication
 
 Server authentication is based on a token model. The developer with authenticate using a private developer key, along with the user's credentials. Your developer key can be used like the folling in the headers.
@@ -34,6 +40,13 @@ Authenticating in will return back a token that can be use for all further reque
 curl <%=@api_prefix%>/2/login \
   --data '{"username":"user@example.com","password":"*******"}' \
   -H "W-Key: <%=@wiw_key%>"
+```
+```php
+$result = Wheniwork::login(
+              "<%=@wiw_key%>",
+              "user@example.com",
+              "*******"
+          );
 ```
 
 > Example Response
@@ -74,14 +87,13 @@ Once you have the token, you must include it in all authenticated requests. The 
 
 <%= partial "methods/shifts" %>
 
-# Templates
-
-<%= partial "methods/templates" %>
-
 # Users
 
 <%= partial "methods/users" %>
 
+# Positions
+
+<%= partial "methods/positions" %>
 
 # Locations
 
@@ -91,45 +103,45 @@ Once you have the token, you must include it in all authenticated requests. The 
 
 <%= partial "methods/sites" %>
 
-# Positions
-
-<%= partial "methods/positions" %>
-
 # Blocks
 
 <%= partial "methods/blocks" %>
-
-# Availabilities
-
-<%= partial "methods/availabilities" %>
-
-# Messages
-
-<%= partial "methods/messages" %>
 
 # Requests
 
 <%= partial "methods/requests" %>
 
-# Swap
+# Swaps
 
 <%= partial "methods/swaps" %>
+
+# Availabilities
+
+<%= partial "methods/availabilities" %>
 
 # Payrolls
 
 <%= partial "methods/payrolls" %>
 
+# Batch
+
+<%= partial "methods/batch" %>
+
+# Messages
+
+<%= partial "methods/messages" %>
+
 # Send
 
 <%= partial "methods/send" %>
 
+# Templates
+
+<%= partial "methods/templates" %>
+
 # Plans
 
 <%= partial "methods/plans" %>
-
-# Batch
-
-<%= partial "methods/batch" %>
 
 
 # Errors

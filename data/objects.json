@@ -51,8 +51,7 @@
     "notes": {
       "type": "string",
       "description": "Notes about the shift. Max length 350.",
-      "value": "We need more cow bell.",
-      "show": true
+      "value": "We need more cow bell."
     },
     "published": {
       "type": "boolean",
@@ -114,20 +113,17 @@
     "hours_preferred":{
         "type": "float",
         "description": "The preferred number of hours for the user.",
-        "value": 40,
-        "show": true
+        "value": 40
     },
     "hours_max": {
         "type": "float",
         "description": "Max hours an employee can work.",
-        "value": 40,
-        "show": true
+        "value": 40
     },
     "hourly_rate": {
         "type": "float",
         "description": "The employee's hourly rate.",
-        "value": 15.50,
-        "show": true
+        "value": 15.50
     },
     "role": {
         "type": "integer",
