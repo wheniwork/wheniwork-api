@@ -81,6 +81,10 @@
 
 <h2 id="libraries">Libraries</h2>
 
+<blockquote>
+<p>&nbsp;</p>
+</blockquote>
+
 <p>We currently offer the following API wrappers:</p>
 
 <ul>
@@ -88,6 +92,10 @@
 </ul>
 
 <h1 id="authentication">Authentication</h1>
+
+<blockquote>
+<p>&nbsp;</p>
+</blockquote>
 
 <p>Server authentication is based on a token model. The developer with authenticate using a private developer key, along with the user&rsquo;s credentials. Your developer key can be used like the folling in the headers.</p>
 
@@ -105,11 +113,13 @@
 <pre class="highlight shell">curl https://api.wheniwork.com/2/login <span class="se">\</span>
   --data <span class="s1">'{"username":"user@example.com","password":"*******"}'</span> <span class="se">\</span>
   -H <span class="s2">"W-Key: iworksoharditsnotfunny"</span>
-</pre><pre class="highlight php">$result = Wheniwork::login(
-              "iworksoharditsnotfunny",
-              "user@example.com",
-              "*******"
-          );
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nx">Wheniwork</span><span class="o">::</span><span class="na">login</span><span class="p">(</span>
+              <span class="s2">"iworksoharditsnotfunny"</span><span class="p">,</span>
+              <span class="s2">"user@example.com"</span><span class="p">,</span>
+              <span class="s2">"*******"</span>
+          <span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -152,15 +162,15 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </thead><tbody>
 <tr>
 <td>username</td>
-<td>The email of the user logging in.</td>
+<td><strong>email</strong><br />The email of the user logging in.</td>
 </tr>
 <tr>
 <td>password</td>
-<td>Password of the user logging in.</td>
+<td><strong>string</strong><br />Password of the user logging in.</td>
 </tr>
 <tr>
-<td>key (optional)</td>
-<td>Developer key. Can be used instead of <code class="prettyprint">W-Key</code> in the headers.</td>
+<td>key</td>
+<td><strong>string</strong><br />Developer key. Can be used instead of <code class="prettyprint">W-Key</code> in the headers. Do not need both.</td>
 </tr>
 </tbody></table>
 
@@ -270,11 +280,13 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/shifts/?location_id<span class="o">=</span>1&amp;start_time<span class="o">=</span>2014-03-05 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
-</pre><pre class="highlight php">$wiw = new Wheniwork("ilovemyboss");
-$result = $wiw-&gt;get('shifts', array(
-                                'location_id'=&gt;1, 
-                                'start_time'=&gt;'2014-03-05'
-                              ));
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"shifts"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                                <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> 
+                                <span class="s2">"start_time"</span>  <span class="o">=&gt;</span> <span class="s2">"2014-03-05"</span>
+                              <span class="p">));</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -312,19 +324,19 @@ $result = $wiw-&gt;get('shifts', array(
 </thead><tbody>
 <tr>
 <td>start_time</td>
-<td>Start time for a search window</td>
+<td><strong>datetime</strong><br />Start time for a search window</td>
 </tr>
 <tr>
 <td>end_time</td>
-<td>End time for a search window</td>
+<td><strong>datetime</strong><br />End time for a search window</td>
 </tr>
 <tr>
 <td>user_id</td>
-<td>Only show shifts for a user, or multiple (e.g. 1,5,3)</td>
+<td><strong>integer, string array</strong><br />Only show shifts for a user, or multiple (e.g. 1,5,3)</td>
 </tr>
 <tr>
 <td>location_id</td>
-<td>Only show shifts for a location, or multiple.</td>
+<td><strong>integer, string array</strong><br />Only show shifts for a location, or multiple.</td>
 </tr>
 </tbody></table>
 
@@ -335,13 +347,17 @@ $result = $wiw-&gt;get('shifts', array(
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/shifts/1 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"shifts/1337"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"shift"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
     </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Come in early today."</span><span class="w">
@@ -368,6 +384,31 @@ $result = $wiw-&gt;get('shifts', array(
 
 <h2 id="create/update-shift">Create/Update Shift</h2>
 
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+
+<span class="c1">// Create a shift
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"shifts"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">));</span>
+
+<span class="c1">// Update a shift
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s2">"shifts/10000"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"shift"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Come in early today."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
 <h3 id="create-http-request">Create HTTP Request</h3>
 
 <p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/</code></p>
@@ -378,17 +419,7 @@ $result = $wiw-&gt;get('shifts', array(
 
 <h3 id="post/put-body">Post/Put Body</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>ID of the shift requested.</td>
-</tr>
-</tbody></table>
+<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#shifts">Shift Object</a>.</p>
 
 <h2 id="delete-existing-shift">Delete Existing Shift</h2>
 
@@ -397,6 +428,10 @@ $result = $wiw-&gt;get('shifts', array(
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/shifts/1 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"shifts/1337"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -443,12 +478,12 @@ $result = $wiw-&gt;get('shifts', array(
   </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="s2">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"Book Keeper"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Cashier"</span><span class="w">
+    </span><span class="mi">12284</span><span class="p">,</span><span class="w">
+    </span><span class="mi">9554</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"Uptown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Downtown"</span><span class="w">
+    </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="mi">58934</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"activated"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -479,11 +514,11 @@ $result = $wiw-&gt;get('shifts', array(
 </tr>
 <tr>
 <td>email</td>
-<td><strong>Valid Email Address</strong><br />The user&rsquo;s email address.</td>
+<td><strong>string</strong><br />The email address of this user.</td>
 </tr>
 <tr>
 <td>phone_number</td>
-<td><strong>string</strong><br />The user&rsquo;s phone number.</td>
+<td><strong>string</strong><br />The phone number of this user.</td>
 </tr>
 <tr>
 <td>hours_preferred</td>
@@ -491,23 +526,23 @@ $result = $wiw-&gt;get('shifts', array(
 </tr>
 <tr>
 <td>hours_max</td>
-<td><strong>float</strong><br />Max hours an employee can work.</td>
+<td><strong>float</strong><br />Max hours this user can work.</td>
 </tr>
 <tr>
 <td>hourly_rate</td>
-<td><strong>float</strong><br />The employee&rsquo;s hourly rate.</td>
+<td><strong>float</strong><br />The hourly rate for this user.</td>
 </tr>
 <tr>
 <td>role</td>
-<td><strong>integer</strong><br />The users role.<br> Allowed values:<br> 2 //manager<br> 3 //employee (default)</td>
+<td><strong>integer</strong><br />The user&rsquo;s role.<br> 2 = Manager<br> 5 = Supervisor<br> 3 = Employee (default)</td>
 </tr>
 <tr>
 <td>positions</td>
-<td><strong>Array (of strings)</strong><br />An array of positions to be assigned to the user.</td>
+<td><strong>array (of IDs)</strong><br />An array of positions to be assigned to the user.</td>
 </tr>
 <tr>
 <td>locations</td>
-<td><strong>Array (of strings)</strong><br />An array of locations to be applied to the user.</td>
+<td><strong>array (of IDs)</strong><br />An array of locations to be applied to the user.</td>
 </tr>
 <tr>
 <td>notes</td>
@@ -515,11 +550,11 @@ $result = $wiw-&gt;get('shifts', array(
 </tr>
 <tr>
 <td>activated</td>
-<td><strong>integer</strong><br />1 if the user has activated their account. 0 if they haven&rsquo;t.</td>
+<td><strong>boolean</strong><br />Whether the manager has activated this user.</td>
 </tr>
 <tr>
 <td>password</td>
-<td><strong>string</strong><br />User&rsquo;s password. Works only upon user creation, not retrieval or update.</td>
+<td><strong>string</strong><br />Set a password, but only on user creation, not update. (write only)</td>
 </tr>
 </tbody></table>
 
