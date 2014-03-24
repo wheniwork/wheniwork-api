@@ -99,14 +99,14 @@
       "show": true
     },
     "email":{
-       "type": "Valid Email Address",
-       "description": "The user's email address.",
+       "type": "string",
+       "description": "The email address of this user.",
        "value": "goldiewilson@hillvalleycalifornia.gov",
        "show": true
     },
     "phone_number": {
         "type": "string",
-        "description": "The user's phone number.",
+        "description": "The phone number of this user.",
         "value": "555-555-5555",
         "show": true
     },
@@ -117,28 +117,28 @@
     },
     "hours_max": {
         "type": "float",
-        "description": "Max hours an employee can work.",
+        "description": "Max hours this user can work.",
         "value": 40
     },
     "hourly_rate": {
         "type": "float",
-        "description": "The employee's hourly rate.",
+        "description": "The hourly rate for this user.",
         "value": 15.50
     },
     "role": {
         "type": "integer",
-        "description": "The users role.<br> Allowed values:<br> 2 //manager<br> 3 //employee (default)",
+        "description": "The user's role.<br> 2 = Manager<br> 5 = Supervisor<br> 3 = Employee (default)",
         "value": 2
     },
     "positions": {
-        "type": "Array (of strings)",
+        "type": "array (of IDs)",
         "description": "An array of positions to be assigned to the user.",
-        "value": ["Book Keeper", "Cashier"]
+        "value": [12284, 9554]
     },
     "locations": {
-        "type": "Array (of strings)",
+        "type": "array (of IDs)",
         "description": "An array of locations to be applied to the user.",
-        "value": ["Uptown", "Downtown"]
+        "value": [34, 58934]
     },
     "notes": {
         "type": "string",
@@ -146,13 +146,13 @@
         "value": ""
     },
     "activated": {
-        "type": "integer",
-        "description": "1 if the user has activated their account. 0 if they haven't.",
+        "type": "boolean",
+        "description": "Whether the manager has activated this user.",
         "value": 1
     },
     "password": {
         "type": "string",
-        "description": "User's password. Works only upon user creation, not retrieval or update.",
+        "description": "Set a password, but only on user creation, not update. (write only)",
         "value": "Th3m@y0R"
     }
 

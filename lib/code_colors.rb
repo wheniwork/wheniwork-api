@@ -5,6 +5,8 @@ class CodeColors < Rouge::CSSTheme
   palette string: "#ccff66"
   palette symbol: "#ff6666"
   palette punct:  "#ffffff"
+  palette keyword:"#9966ff"
+  palette attribute:"#66ccff"
 
   palette base00: "#151515"
   palette base02: "#ffffff"
@@ -15,7 +17,6 @@ class CodeColors < Rouge::CSSTheme
   palette base0A: "#f4bf75"
   palette base0C: "#75b5aa"
   palette base0D: "#6a9fb5"
-  palette base0E: "#aa759f"
   palette base0F: "#8f5536"
   
 
@@ -32,9 +33,9 @@ class CodeColors < Rouge::CSSTheme
 
   style Generic::Inserted, :fg => :string
   style Generic::Deleted, :fg => :base08
-  style Generic::Heading, :fg => :base0D, :bg => :base00, :bold => true
+  style Generic::Heading, :fg => :attribute, :bg => :base00, :bold => true
 
-  style Keyword, :fg => :base0E
+  style Keyword, :fg => :keyword
   style Keyword::Constant,
         Keyword::Type, :fg => :symbol
 
@@ -50,7 +51,7 @@ class CodeColors < Rouge::CSSTheme
         Name::Class,
         Name::Constant, :fg => :base0A
 
-  style Name::Attribute, :fg => :base0D
+  style Name::Attribute, :fg => :attribute
 
   style Literal::Number,
         Literal::String::Symbol, :fg => :string

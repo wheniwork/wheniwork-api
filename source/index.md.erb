@@ -18,11 +18,15 @@ Feel free to [contact us](http://support.wheniwork.com) if something seems out o
 
 ## Libraries
 
+> &nbsp;
+
 We currently offer the following API wrappers:
 
 * PHP: [wheniwork-api-php](https://github.com/dolfelt/wheniwork-api-php)
 
 # Authentication
+
+> &nbsp;
 
 Server authentication is based on a token model. The developer with authenticate using a private developer key, along with the user's credentials. Your developer key can be used like the folling in the headers.
 
@@ -42,11 +46,13 @@ curl <%=@api_prefix%>/2/login \
   -H "W-Key: <%=@wiw_key%>"
 ```
 ```php
+<?php
 $result = Wheniwork::login(
               "<%=@wiw_key%>",
               "user@example.com",
               "*******"
           );
+?>
 ```
 
 > Example Response
@@ -75,9 +81,9 @@ Remember — All post bodies must be JSON encoded data (no form data).
 
 Key | Description
 --------- | -----------
-username | The email of the user logging in.
-password | Password of the user logging in.
-key (optional) | Developer key. Can be used instead of `W-Key` in the headers.
+username | <strong>email</strong><br />The email of the user logging in.
+password | <strong>string</strong><br />Password of the user logging in.
+key | <strong>string</strong><br />Developer key. Can be used instead of `W-Key` in the headers. Do not need both.
 
 Once you have the token, you must include it in all authenticated requests. The `W-Key` does not need to be included.
 

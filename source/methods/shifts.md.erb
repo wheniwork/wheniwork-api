@@ -19,11 +19,13 @@ curl <%=@api_prefix%>/shifts/?location_id=1&start_time=2014-03-05 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
+<?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->get('shifts', array(
-                                'location_id'=>1, 
-                                'start_time'=>'2014-03-05'
+$result = $wiw->get("shifts", array(
+                                "location_id" => 1, 
+                                "start_time"  => "2014-03-05"
                               ));
+?>
 ```
 
 > Example Response
@@ -48,10 +50,10 @@ This method allows you to search for shifts. See the parameters below for all th
 
 Key | Description
 --- | -----------
-start_time | Start time for a search window
-end_time | End time for a search window
-user_id | Only show shifts for a user, or multiple (e.g. 1,5,3)
-location_id | Only show shifts for a location, or multiple.
+start_time | <strong>datetime</strong><br />Start time for a search window
+end_time | <strong>datetime</strong><br />End time for a search window
+user_id | <strong>integer, string array</strong><br />Only show shifts for a user, or multiple (e.g. 1,5,3)
+location_id | <strong>integer, string array</strong><br />Only show shifts for a location, or multiple.
 
 
 
@@ -63,12 +65,18 @@ location_id | Only show shifts for a location, or multiple.
 curl <%=@api_prefix%>/shifts/1 \
  -H "W-Token: <%=@wiw_token%>"
 ```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("shifts/1337");
+?>
+```
 
 > Example Response
 
 ```json
 {
-  "shift": <%= print_json(data.objects['shift'], :minimal=>true,:include=>{:notes=>"Come in early today."}).indent(2) %>
+  "shift": <%= print_json(data.objects['shift'], :minimal=>true,:include=>{:id=>1337, :notes=>"Come in early today."}).indent(2) %>
 }
 ```
 
@@ -85,6 +93,28 @@ id | ID of the shift requested.
 
 ## Create/Update Shift
 
+> Example Request
+
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+
+// Create a shift
+$result = $wiw->create("shifts", array(...));
+
+// Update a shift
+$result = $wiw->update("shifts/10000", array(...));
+?>
+```
+
+> Example Response
+
+```json
+{
+  "shift": <%= print_json(data.objects['shift'], :minimal=>true,:include=>{:notes=>"Come in early today."}).indent(2) %>
+}
+```
+
 ### Create HTTP Request
 `POST <%=@api_prefix%>/2/shifts/`
 
@@ -93,11 +123,7 @@ id | ID of the shift requested.
 
 ### Post/Put Body
 
-Key | Description
---- | -----------
-id | ID of the shift requested.
-
-
+The `POST` and/or `PUT` body can include fields from the [Shift Object](#shifts).
 
 
 ## Delete Existing Shift
@@ -107,6 +133,12 @@ id | ID of the shift requested.
 ```shell
 curl -X DELETE <%=@api_prefix%>/shifts/1 \
  -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->delete("shifts/1337");
+?>
 ```
 
 > Example Response
