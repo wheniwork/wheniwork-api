@@ -18,7 +18,12 @@ Users are the employees, supervisors, and managers that have access to your When
 curl <%=@api_prefix%>/users/?location_id=1 \
  -H "W-Token: <%=@wiw_token%>"
 ```
-
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("users");
+?>
+```
 > Example Response
 
 ```json
@@ -50,6 +55,12 @@ location_id | <strong>integer, string</strong><br />Only show shifts for a locat
 ```shell
 curl <%=@api_prefix%>/users/1 \
  -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("users/1");
+?>
 ```
 
 > Example Response
@@ -93,6 +104,12 @@ The `POST` and/or `PUT` body can include fields from the [User Object](#users).
 ```shell
 curl -X DELETE <%=@api_prefix%>/users/4364 \
  -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->delete("users4364");
+?>
 ```
 
 > Example Response

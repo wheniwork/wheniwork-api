@@ -18,6 +18,12 @@ Blocks
 curl <%=@api_prefix%>/blocks \
  -H "W-Token: <%=@wiw_token%>"
 ```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("blocks");
+?>
+```
 
 > Example Response
 
@@ -44,6 +50,12 @@ curl <%=@api_prefix%>/blocks \
 ```shell
 curl <%=@api_prefix%>/block/233 \
  -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("block/233");
+?>
 ```
 
 > Example Response
@@ -84,6 +96,12 @@ The `POST` and/or `PUT` body can include fields from the [Block Object](#blocks)
 ```shell
 curl -X DELETE <%=@api_prefix%>/blocks/233 \
  -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->delete("blocks/233");
+?>
 ```
 
 > Example Response

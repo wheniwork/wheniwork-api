@@ -19,7 +19,16 @@ Requests
 curl <%=@api_prefix%>/requests?start=2012-03-01&end=2012-04-30&max_id=42 \
  -H "W-Token: <%=@wiw_token%>"
 ```
-
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("requests", array(
+                                "start" => "2012-03-01",
+                                "end"  => "2012-04-3",
+                                "max_id" => 42
+                              ));
+?>
+```
 > Example Response
 
 ```json
@@ -62,6 +71,12 @@ max_id | Return all requests created before the request with the given ID.
 curl <%=@api_prefix%>/requests/65 \
  -H "W-Token: <%=@wiw_token%>"
 ```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("requests/65");
+?>
+```
 
 > Example Response
 
@@ -102,6 +117,20 @@ request id | ID of the request.
    "status":0
 
 }
+```
+> Example Request
+
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->create("requests", array(
+                                 "user_id" => "135",
+                                 "type" => "1",
+                                 "start_time" => "2012-02-25 8:00",
+                                 "end_time" => "2012-05-25 17:00",
+                                 "status" => 0
+                              ));
+?>
 ```
 
 > Example Response
@@ -153,7 +182,12 @@ The `PUT` body can include fields from the [Request Object](#requests).
 curl -X DELETE <%=@api_prefix%>/requests/54 \
  -H "W-Token: <%=@wiw_token%>"
 ```
-
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->delete("requests/54");
+?>
+```
 > Example Response
 
 ```json

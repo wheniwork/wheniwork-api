@@ -1,0 +1,188 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['times']) %>
+
+```
+
+<%= print_table(data.objects['times'], :header => :user) %>
+
+## Listing Times
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/times \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "times": [
+    <%= print_json(data.objects['times'], :minimal=>true).indent(4) %>,
+
+   ],
+  "punches": [
+    <%= print_json(data.objects['punch'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['punch'], :minimal=>true, :include=>{'id'=>150135,'type'=>2 }).indent(4) %>
+  ],
+  "shifts": [
+   <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>
+  ],
+  "users": [
+    <%= print_json(data.objects['user'], :minimal=>true).indent(4) %>
+  ]
+}
+```
+
+This method allows you to list times or find ones within a specified date range
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/times/?start={start_date}&end={end_date}
+
+### Parameters
+
+Key | Description
+--- | -----------
+start date| Start date of search range (YYYY-MM-DD)
+end date| End date of search range (YYYY-MM-DD)
+
+
+
+
+## Get Existing Time
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/times/11 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "times": [
+      <%= print_json(data.objects['times'], :minimal=>true).indent(4) %>,
+
+  ]
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/times/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the time requested.
+
+
+## Get User Times
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/times/user/4634 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+    "user": {
+        "id": 4634,
+        "email": "goldiewilson@hillvalleycalifornia.gov",
+        "first_name": "Goldie",
+        "last_name": "Wilson",
+        "positions": [
+            32,
+            5
+        ],
+        "locations": [
+            136
+        ],
+        "punch_state": {
+            "timestamp": "Wed, 02 Apr 2014 16:21:36 -0500",
+            "can_punch_in": false,
+            "can_punch_out": true,
+            "open_time_id": 158049,
+            "near_location_id": null,
+            "near_site_id": null,
+            "punch_in_shift_id": 1000
+        }
+    },
+    "times": [
+      <%= print_json(data.objects['times'], :minimal=>true).indent(4) %>
+    ],
+    "shifts": [
+      <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>
+    ],
+    "locations": [
+      <%= print_json(data.objects['location'], :minimal=>true).indent(4) %>
+    ],
+    "positions": [
+      <%= print_json(data.objects['position'], :minimal=>true).indent(4) %>
+    ]
+
+}
+```
+
+This method allows you to get times for a specific user. This request also gives you
+the user's punch state.
+
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/times/?start={start_date}&end={end_date}
+
+
+
+
+## Create / Update Times
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/times/{id}`
+
+### Parameters
+
+The `PUT` body can include fields from the [Times Object](#times).
+
+
+
+## Delete Existing Payroll
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/times/123 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/times/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the time object to be deleted.
+
+
+
+
+
+
+

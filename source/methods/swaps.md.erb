@@ -18,6 +18,12 @@ Swaps
 curl <%=@api_prefix%>/swaps/ \
  -H "W-Token: <%=@wiw_token%>"
 ```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("swaps");
+?>
+```
 
 > Example Response
 
@@ -52,6 +58,12 @@ curl <%=@api_prefix%>/swaps/ \
 curl <%=@api_prefix%>/swaps/22 \
  -H "W-Token: <%=@wiw_token%>"
 ```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("swaps/22");
+?>
+```
 
 > Example Response
 
@@ -85,7 +97,7 @@ swap id | ID of the swap being requested.
 
 
 ## Create/Update Swap
-> Example Request Object
+> Example Post Data
 
 ```json
 {
@@ -93,8 +105,20 @@ swap id | ID of the swap being requested.
     "type": 3,
     "shifts":[1047],
     "users":[134,132,110]
-
 }
+```
+> Example Request
+
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->create("swaps", array(
+                                 "shift_id" => 1046,
+                                 "type" => 3,
+                                 "shifts" => "1047",
+                                 "users" => array(134,132,110)
+                              ));
+?>
 ```
 
 > Example Response Object
@@ -149,6 +173,12 @@ The `PUT` body can include fields from the [Swap Object](#swap).
 ```shell
 curl -X DELETE <%=@api_prefix%>/swap/233 \
  -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->delete("swap/233");
+?>
 ```
 
 > Example Response

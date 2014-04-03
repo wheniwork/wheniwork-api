@@ -18,6 +18,12 @@ Availabilities are objects that define a user's availability to be assigned shif
 curl <%=@api_prefix%>/availabilities \
  -H "W-Token: <%=@wiw_token%>"
 ```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("availabilities");
+?>
+```
 
 > Example Response
 
@@ -44,6 +50,12 @@ curl <%=@api_prefix%>/availabilities \
 ```shell
 curl <%=@api_prefix%>/availabilities/10 \
  -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("availabilities/10");
+?>
 ```
 
 > Example Response
@@ -78,7 +90,7 @@ Get all availabilities for a specified group of users for a specified time-frame
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/availabilities/items?user_id=[371]&start=2014-01-01 8:00am&2014-09-01 10:00pm \
+curl <%=@api_prefix%>/availabilities/items?user_id=[371]&start=2014-01-01 8:00am&end=2014-09-01 10:00pm \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
@@ -131,6 +143,12 @@ The `POST` and/or `PUT` body can include fields from the [Availability Object](#
 ```shell
 curl -X DELETE <%=@api_prefix%>/availabilities/10 \
  -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->delete("availabilities/10");
+?>
 ```
 
 > Example Response

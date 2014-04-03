@@ -66,7 +66,7 @@ curl <%=@api_prefix%>/payrolls/24 \
 ```
 
 ### HTTP Request
-`GET <%=@api_prefix%>/2/users/{id}`
+`GET <%=@api_prefix%>/2/payrolls/{id}`
 
 ### Parameters
 
@@ -90,38 +90,11 @@ Payrolls can not be manually created.
 
 
 
-## Create Payroll Hours
-`POST <%=@api_prefix%>/2/payrolls/24`
-
-
-
-
-
 ## Delete Existing Payroll
 
-> Example Request
-
-```shell
-curl -X DELETE <%=@api_prefix%>/payrolls/24 \
- -H "W-Token: <%=@wiw_token%>"
-```
-
-> Example Response
-
-```json
-{
-  "success": true
-}
-```
-
-### HTTP Request
-`DELETE <%=@api_prefix%>/2/payrolls/{id}`
-
-### Parameters
-
-Key | Description
---- | -----------
-id | ID of the payroll period to be deleted.
+<aside class='alert'>
+Payrolls can not be deleted.
+</aside>
 
 
 

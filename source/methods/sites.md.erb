@@ -18,6 +18,12 @@ Sites are off-site locations where users of a location can be assigned and sched
 curl <%=@api_prefix%>/sites \
  -H "W-Token: <%=@wiw_token%>"
 ```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("sites");
+?>
+```
 
 > Example Response
 
@@ -42,6 +48,12 @@ curl <%=@api_prefix%>/sites \
 ```shell
 curl <%=@api_prefix%>/sites/9 \
  -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("sites/9");
+?>
 ```
 
 > Example Response
@@ -82,6 +94,12 @@ The `POST` and/or `PUT` body can include fields from the [Site Object](#sites).
 ```shell
 curl -X DELETE <%=@api_prefix%>/sites/9 \
  -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->delete("sites/9");
+?>
 ```
 
 > Example Response
