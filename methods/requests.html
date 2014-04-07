@@ -130,6 +130,14 @@
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/requests?start<span class="o">=</span>2012-03-01&amp;end<span class="o">=</span>2012-04-30&amp;max_id<span class="o">=</span>42 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"requests"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                                <span class="s2">"start"</span> <span class="o">=&gt;</span> <span class="s2">"2012-03-01"</span><span class="p">,</span>
+                                <span class="s2">"end"</span>  <span class="o">=&gt;</span> <span class="s2">"2012-04-3"</span><span class="p">,</span>
+                                <span class="s2">"max_id"</span> <span class="o">=&gt;</span> <span class="mi">42</span>
+                              <span class="p">));</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -237,6 +245,10 @@
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/requests/65 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"requests/65"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -319,6 +331,20 @@
 </span><span class="p">}</span><span class="w">
 </span></pre>
 <blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"requests"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                                 <span class="s2">"user_id"</span> <span class="o">=&gt;</span> <span class="s2">"135"</span><span class="p">,</span>
+                                 <span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="s2">"1"</span><span class="p">,</span>
+                                 <span class="s2">"start_time"</span> <span class="o">=&gt;</span> <span class="s2">"2012-02-25 8:00"</span><span class="p">,</span>
+                                 <span class="s2">"end_time"</span> <span class="o">=&gt;</span> <span class="s2">"2012-05-25 17:00"</span><span class="p">,</span>
+                                 <span class="s2">"status"</span> <span class="o">=&gt;</span> <span class="mi">0</span>
+                              <span class="p">));</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight json"><span class="p">{</span><span class="w">
@@ -389,6 +415,10 @@
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/requests/54 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"requests/54"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>

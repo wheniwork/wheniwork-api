@@ -113,6 +113,10 @@
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/locations <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"locations"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -152,6 +156,10 @@
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/locations/136 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"locations/136"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -207,6 +215,10 @@
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/locations/136 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"locations/136"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>

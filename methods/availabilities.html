@@ -135,6 +135,10 @@
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/availabilities <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"availabilities"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -174,6 +178,10 @@
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/availabilities/10 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"availabilities/10"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -243,7 +251,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/availabilities/items?user_id<span class="o">=[</span>371]&amp;start<span class="o">=</span>2014-01-01 8:00am&amp;2014-09-01 10:00pm <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/availabilities/items?user_id<span class="o">=[</span>371]&amp;start<span class="o">=</span>2014-01-01 8:00am&amp;end<span class="o">=</span>2014-09-01 10:00pm <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -336,6 +344,10 @@
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/availabilities/10 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"availabilities/10"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>

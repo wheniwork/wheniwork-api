@@ -565,6 +565,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/users/?location_id<span class="o">=</span>1 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"users"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -615,6 +619,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/users/1 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"users/1"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -669,6 +677,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/users/4364 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"users4364"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -754,6 +766,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/positions <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"positions"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -789,6 +805,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/positions/32 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"positions/32"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -840,6 +860,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/positions/9 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"positions/9"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -926,6 +950,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/locations <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"locations"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -965,6 +993,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/locations/136 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"locations/136"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1020,6 +1052,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/locations/136 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"locations/136"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1103,6 +1139,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/sites <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"sites"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1133,6 +1173,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/sites/9 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"sites/9"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1184,6 +1228,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/sites/9 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"sites/9"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1287,6 +1335,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/blocks <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"blocks"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1323,6 +1375,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/block/233 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"block/233"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1374,6 +1430,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/blocks/233 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"blocks/233"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1477,6 +1537,14 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/requests?start<span class="o">=</span>2012-03-01&amp;end<span class="o">=</span>2012-04-30&amp;max_id<span class="o">=</span>42 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"requests"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                                <span class="s2">"start"</span> <span class="o">=&gt;</span> <span class="s2">"2012-03-01"</span><span class="p">,</span>
+                                <span class="s2">"end"</span>  <span class="o">=&gt;</span> <span class="s2">"2012-04-3"</span><span class="p">,</span>
+                                <span class="s2">"max_id"</span> <span class="o">=&gt;</span> <span class="mi">42</span>
+                              <span class="p">));</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1584,6 +1652,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/requests/65 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"requests/65"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1666,6 +1738,20 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </span><span class="p">}</span><span class="w">
 </span></pre>
 <blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"requests"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                                 <span class="s2">"user_id"</span> <span class="o">=&gt;</span> <span class="s2">"135"</span><span class="p">,</span>
+                                 <span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="s2">"1"</span><span class="p">,</span>
+                                 <span class="s2">"start_time"</span> <span class="o">=&gt;</span> <span class="s2">"2012-02-25 8:00"</span><span class="p">,</span>
+                                 <span class="s2">"end_time"</span> <span class="o">=&gt;</span> <span class="s2">"2012-05-25 17:00"</span><span class="p">,</span>
+                                 <span class="s2">"status"</span> <span class="o">=&gt;</span> <span class="mi">0</span>
+                              <span class="p">));</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight json"><span class="p">{</span><span class="w">
@@ -1736,6 +1822,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/requests/54 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"requests/54"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1827,6 +1917,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/swaps/ <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"swaps"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1887,6 +1981,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/swaps/22 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"swaps/22"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -1957,16 +2055,28 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <h2 id="create/update-swap">Create/Update Swap</h2>
 
 <blockquote>
-<p>Example Request Object</p>
+<p>Example Post Data</p>
 </blockquote>
 <pre class="highlight json"><span class="p">{</span><span class="w">
     </span><span class="s2">"shift_id"</span><span class="p">:</span><span class="mi">1046</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shifts"</span><span class="p">:[</span><span class="mi">1047</span><span class="p">],</span><span class="w">
     </span><span class="s2">"users"</span><span class="p">:[</span><span class="mi">134</span><span class="p">,</span><span class="mi">132</span><span class="p">,</span><span class="mi">110</span><span class="p">]</span><span class="w">
-
 </span><span class="p">}</span><span class="w">
 </span></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"swaps"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                                 <span class="s2">"shift_id"</span> <span class="o">=&gt;</span> <span class="mi">1046</span><span class="p">,</span>
+                                 <span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+                                 <span class="s2">"shifts"</span> <span class="o">=&gt;</span> <span class="s2">"1047"</span><span class="p">,</span>
+                                 <span class="s2">"users"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">134</span><span class="p">,</span><span class="mi">132</span><span class="p">,</span><span class="mi">110</span><span class="p">)</span>
+                              <span class="p">));</span>
+<span class="cp">?&gt;</span>
+</pre>
 <blockquote>
 <p>Example Response Object</p>
 </blockquote>
@@ -2071,6 +2181,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/swap/233 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"swap/233"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -2179,6 +2293,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/availabilities <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"availabilities"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -2218,6 +2336,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl https://api.wheniwork.com/availabilities/10 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"availabilities/10"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -2287,7 +2409,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/availabilities/items?user_id<span class="o">=[</span>371]&amp;start<span class="o">=</span>2014-01-01 8:00am&amp;2014-09-01 10:00pm <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/availabilities/items?user_id<span class="o">=[</span>371]&amp;start<span class="o">=</span>2014-01-01 8:00am&amp;end<span class="o">=</span>2014-09-01 10:00pm <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -2380,6 +2502,10 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </blockquote>
 <pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/availabilities/10 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"availabilities/10"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
@@ -2594,7 +2720,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/users/{id}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/payrolls/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2624,28 +2750,246 @@ Remember — All post bodies must be JSON encoded data (no form data).
 Payrolls can not be manually created.
 </aside></p>
 
-<h2 id="create-payroll-hours">Create Payroll Hours</h2>
-
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/payrolls/24</code></p>
-
 <h2 id="delete-existing-payroll">Delete Existing Payroll</h2>
+
+<p><aside class='alert'>
+Payrolls can not be deleted.
+</aside></p>
+
+<h1 id="times">Times</h1>
+
+<blockquote>
+<p>Example Object</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"break_hours"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_alerted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"alert_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="mi">202</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<h3 id="user-object">User Object</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong><br />The unique ID for this time entry.</td>
+</tr>
+<tr>
+<td>account_id</td>
+<td><strong>integer</strong><br />The ID of the account this entry is associated with.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td><strong>integer</strong><br />The ID of the user that this time entry is for.</td>
+</tr>
+<tr>
+<td>creator_id</td>
+<td><strong>integer</strong><br />The ID of the user who created this time entry.</td>
+</tr>
+<tr>
+<td>position_id</td>
+<td><strong>integer</strong><br />The ID of the position that is associated with this entry.</td>
+</tr>
+<tr>
+<td>location_id</td>
+<td><strong>integer</strong><br />The ID of the location that is associated with this entry.</td>
+</tr>
+<tr>
+<td>site_id</td>
+<td><strong>integer</strong><br />The ID of the site that is associated with this time entry.</td>
+</tr>
+<tr>
+<td>shift_id</td>
+<td><strong>integer</strong><br />The ID of the shift that correlates to this time entry.</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td><strong>date time</strong><br />The start date and time of the time entry.</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td><strong>datetime</strong><br />End time of the time entry.</td>
+</tr>
+<tr>
+<td>break_hours</td>
+<td><strong>float</strong><br />Hours of unpaid break.</td>
+</tr>
+<tr>
+<td>length</td>
+<td><strong>float</strong><br />The length of the time entry.</td>
+</tr>
+<tr>
+<td>hourly_rate</td>
+<td><strong>float</strong><br />Hourly rate for this time entry.</td>
+</tr>
+<tr>
+<td>is_alerted</td>
+<td><strong>boolean</strong><br />True if an alert needs to be created for this shift.</td>
+</tr>
+<tr>
+<td>alert_type</td>
+<td><strong>integer</strong><br />The type of alert created.</td>
+</tr>
+<tr>
+<td>is_approved</td>
+<td><strong>boolean</strong><br />True if the time entry has been approved.</td>
+</tr>
+<tr>
+<td>modified_by</td>
+<td><strong>integer</strong><br />The ID of the user who modified the time entry.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><strong>datetime</strong><br />The date and time the time entry was last updated.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><strong>datetime</strong><br />The date and time the time entry was created.</td>
+</tr>
+</tbody></table>
+
+<h2 id="listing-times">Listing Times</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/payrolls/24 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/times <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="s2">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+   </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"punches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150134</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150135</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>This method allows you to list times or find ones within a specified date range</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start date</td>
+<td>Start date of search range (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>end date</td>
+<td>End date of search range (YYYY-MM-DD)</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-existing-time">Get Existing Time</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl https://api.wheniwork.com/times/11 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/payrolls/{id}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2657,7 +3001,134 @@ Payrolls can not be manually created.
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>ID of the payroll period to be deleted.</td>
+<td>ID of the time requested.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-user-times">Get User Times</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl https://api.wheniwork.com/times/user/4634 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">32</span><span class="p">,</span><span class="w">
+            </span><span class="mi">5</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">136</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"punch_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 02 Apr 2014 16:21:36 -0500"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"can_punch_in"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"open_time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">158049</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"near_location_id"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"near_site_id"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"punch_in_shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"34.2390664"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"-118.4332328"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stocker"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1174a6"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>This method allows you to get times for a specific user. This request also gives you
+the user&rsquo;s punch state.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}</p>
+
+<h2 id="create-/-update-times">Create / Update Times</h2>
+
+<h3 id="update-http-requests">Update HTTP Requests</h3>
+
+<p><code class="prettyprint">PUT https://api.wheniwork.com/2/times/{id}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#times">Times Object</a>.</p>
+
+<h2 id="delete-existing-payroll">Delete Existing Payroll</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/times/123 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/times/{id}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>ID of the time object to be deleted.</td>
 </tr>
 </tbody></table>
 

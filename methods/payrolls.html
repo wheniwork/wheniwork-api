@@ -241,7 +241,7 @@
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/users/{id}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/payrolls/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -271,42 +271,11 @@
 Payrolls can not be manually created.
 </aside></p>
 
-<h2 id="create-payroll-hours">Create Payroll Hours</h2>
-
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/payrolls/24</code></p>
-
 <h2 id="delete-existing-payroll">Delete Existing Payroll</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/payrolls/24 <span class="se">\</span>
- -H <span class="s2">"W-Token: ilovemyboss"</span>
-</pre>
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></pre>
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/payrolls/{id}</code></p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>ID of the payroll period to be deleted.</td>
-</tr>
-</tbody></table>
+<p><aside class='alert'>
+Payrolls can not be deleted.
+</aside></p>
 
       </div>
       <div class="dark-box">
