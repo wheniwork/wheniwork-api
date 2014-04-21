@@ -278,7 +278,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/shifts/?location_id<span class="o">=</span>1&amp;start_time<span class="o">=</span>2014-03-05 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/shifts/?location_id<span class="o">=</span>1&amp;start_time<span class="o">=</span>2014-03-05 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -345,7 +345,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/shifts/1 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/shifts/1 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -426,7 +426,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/shifts/1 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/shifts/1 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -563,7 +563,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/users/?location_id<span class="o">=</span>1 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/users/?location_id<span class="o">=</span>1 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -617,7 +617,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/users/1 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/users/1 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -675,7 +675,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/users/4364 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/users/4364 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -764,7 +764,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/positions <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/positions <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -803,7 +803,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/positions/32 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -858,7 +858,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/positions/9 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/positions/9 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -948,7 +948,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/locations <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/locations <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -991,7 +991,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/locations/136 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/locations/136 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1050,7 +1050,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/locations/136 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/locations/136 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1137,7 +1137,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/sites <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/sites <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1171,7 +1171,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/sites/9 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1226,7 +1226,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/sites/9 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1333,7 +1333,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/blocks <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/blocks <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1373,7 +1373,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/block/233 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/block/233 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1428,7 +1428,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/blocks/233 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/blocks/233 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1535,7 +1535,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/requests?start<span class="o">=</span>2012-03-01&amp;end<span class="o">=</span>2012-04-30&amp;max_id<span class="o">=</span>42 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/requests?start<span class="o">=</span>2012-03-01&amp;end<span class="o">=</span>2012-04-30&amp;max_id<span class="o">=</span>42 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1650,7 +1650,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/requests/65 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/requests/65 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1820,7 +1820,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/requests/54 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1915,7 +1915,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/swaps/ <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/swaps/ <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -1979,7 +1979,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/swaps/22 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/swaps/22 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -2179,7 +2179,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/swap/233 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/swap/233 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -2291,7 +2291,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/availabilities <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/availabilities <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -2327,14 +2327,14 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities?user_id=[371,453,456]</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities?user_id=371,453,456</code></p>
 
 <h2 id="get-existing-availability">Get Existing Availability</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/availabilities/10 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/availabilities/10 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -2409,7 +2409,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/availabilities/items?user_id<span class="o">=[</span>371]&amp;start<span class="o">=</span>2014-01-01 8:00am&amp;end<span class="o">=</span>2014-09-01 10:00pm <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/availabilities/items?user_id<span class="o">=</span>371&amp;start<span class="o">=</span>2014-01-01 8:00am&amp;end<span class="o">=</span>2014-09-01 10:00pm <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -2500,7 +2500,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/availabilities/10 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/availabilities/10 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
@@ -2610,7 +2610,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/payrolls <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/payrolls <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -2671,7 +2671,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/payrolls/24 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/payrolls/24 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -2874,7 +2874,7 @@ Payrolls can not be deleted.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/times <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/times <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -2962,7 +2962,7 @@ Payrolls can not be deleted.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/times/11 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/times/11 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -3010,7 +3010,7 @@ Payrolls can not be deleted.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/times/user/4634 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/times/user/4634 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -3104,7 +3104,7 @@ the user&rsquo;s punch state.</p>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/times/123 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/times/123 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -3170,7 +3170,7 @@ the user&rsquo;s punch state.</p>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/batch <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/batch <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <p>Batch allows you to execute multiple requests at the same time.</p>
@@ -3278,7 +3278,7 @@ the user&rsquo;s punch state.</p>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/messages?request_id<span class="o">=</span>123 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/messages?request_id<span class="o">=</span>123 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -3336,7 +3336,7 @@ the user&rsquo;s punch state.</p>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/messages/61 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/messages/61 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -3389,7 +3389,7 @@ the user&rsquo;s punch state.</p>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/messages/61 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/messages/61 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -3458,7 +3458,7 @@ the user&rsquo;s punch state.</p>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/send <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/send <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <h3 id="http-request">HTTP Request</h3>
@@ -3545,7 +3545,7 @@ Templates allow you to create a group of shifts that can be used to make schedul
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/templates/ <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/templates/ <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -3586,7 +3586,7 @@ Templates allow you to create a group of shifts that can be used to make schedul
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/templates/12 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/templates/12 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -3749,7 +3749,7 @@ Templates allow you to create a group of shifts that can be used to make schedul
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/template/12 <span class="se">\</span>
+<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/template/12 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <blockquote>
@@ -3860,7 +3860,7 @@ This list could include legacy plans. These plans, where is_legacy is true, cann
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/plans <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/plans <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre>
 <h3 id="http-request">HTTP Request</h3>
