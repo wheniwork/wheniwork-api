@@ -15,7 +15,7 @@ Shifts provide the basis for scheduling. Many other objects, including Locations
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/shifts/?location_id=1&start_time=2014-03-05 \
+curl <%=@api_prefix%>/2/shifts/?location_id=1&start_time=2014-03-05 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -62,7 +62,7 @@ location_id | <strong>integer, string array</strong><br />Only show shifts for a
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/shifts/1 \
+curl <%=@api_prefix%>/2/shifts/1 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -131,7 +131,7 @@ The `POST` and/or `PUT` body can include fields from the [Shift Object](#shifts)
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/shifts/1 \
+curl -X DELETE <%=@api_prefix%>/2/shifts/1 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php

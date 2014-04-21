@@ -16,7 +16,7 @@ List messages for given parameters
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/messages?request_id=123 \
+curl <%=@api_prefix%>/2/messages?request_id=123 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
@@ -50,7 +50,7 @@ Only one of the parameters is required, but they can also be combined.
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/messages/61 \
+curl <%=@api_prefix%>/2/messages/61 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
@@ -90,7 +90,7 @@ The `POST` and/or `PUT` body can include fields from the [Message Object](#messa
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/messages/61 \
+curl -X DELETE <%=@api_prefix%>/2/messages/61 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 

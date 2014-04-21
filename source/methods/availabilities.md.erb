@@ -15,7 +15,7 @@ Availabilities are objects that define a user's availability to be assigned shif
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/availabilities \
+curl <%=@api_prefix%>/2/availabilities \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -39,7 +39,7 @@ $result = $wiw->get("availabilities");
 ```
 
 ### HTTP Request
-`GET <%=@api_prefix%>/2/availabilities?user_id=[371,453,456]`
+`GET <%=@api_prefix%>/2/availabilities?user_id=371,453,456`
 
 
 
@@ -48,7 +48,7 @@ $result = $wiw->get("availabilities");
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/availabilities/10 \
+curl <%=@api_prefix%>/2/availabilities/10 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -90,7 +90,7 @@ Get all availabilities for a specified group of users for a specified time-frame
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/availabilities/items?user_id=[371]&start=2014-01-01 8:00am&end=2014-09-01 10:00pm \
+curl <%=@api_prefix%>/2/availabilities/items?user_id=371&start=2014-01-01 8:00am&end=2014-09-01 10:00pm \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
@@ -141,7 +141,7 @@ The `POST` and/or `PUT` body can include fields from the [Availability Object](#
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/availabilities/10 \
+curl -X DELETE <%=@api_prefix%>/2/availabilities/10 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php

@@ -16,7 +16,7 @@ Templates allow you to create a group of shifts that can be used to make schedul
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/templates/ \
+curl <%=@api_prefix%>/2/templates/ \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
@@ -43,7 +43,7 @@ curl <%=@api_prefix%>/templates/ \
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/templates/12 \
+curl <%=@api_prefix%>/2/templates/12 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
@@ -128,7 +128,7 @@ The `PUT` body can include fields from the [Template Object](#template).
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/template/12 \
+curl -X DELETE <%=@api_prefix%>/2/template/12 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 

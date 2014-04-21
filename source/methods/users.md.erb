@@ -15,7 +15,7 @@ Users are the employees, supervisors, and managers that have access to your When
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/users/?location_id=1 \
+curl <%=@api_prefix%>/2/users/?location_id=1 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -53,7 +53,7 @@ location_id | <strong>integer, string</strong><br />Only show shifts for a locat
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/users/1 \
+curl <%=@api_prefix%>/2/users/1 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -102,7 +102,7 @@ The `POST` and/or `PUT` body can include fields from the [User Object](#users).
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/users/4364 \
+curl -X DELETE <%=@api_prefix%>/2/users/4364 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php

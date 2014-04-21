@@ -12,7 +12,7 @@
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/times \
+curl <%=@api_prefix%>/2/times \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
@@ -57,7 +57,7 @@ end date| End date of search range (YYYY-MM-DD)
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/times/11 \
+curl <%=@api_prefix%>/2/times/11 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
@@ -87,7 +87,7 @@ id | ID of the time requested.
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/times/user/4634 \
+curl <%=@api_prefix%>/2/times/user/4634 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 
@@ -159,7 +159,7 @@ The `PUT` body can include fields from the [Times Object](#times).
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/times/123 \
+curl -X DELETE <%=@api_prefix%>/2/times/123 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 

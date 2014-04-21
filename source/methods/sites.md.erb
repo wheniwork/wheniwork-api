@@ -15,7 +15,7 @@ Sites are off-site locations where users of a location can be assigned and sched
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/sites \
+curl <%=@api_prefix%>/2/sites \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -46,7 +46,7 @@ $result = $wiw->get("sites");
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/sites/9 \
+curl <%=@api_prefix%>/2/sites/9 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -92,7 +92,7 @@ The `POST` and/or `PUT` body can include fields from the [Site Object](#sites).
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/sites/9 \
+curl -X DELETE <%=@api_prefix%>/2/sites/9 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php

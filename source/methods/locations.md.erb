@@ -16,7 +16,7 @@ Locations are the main physical locations where your business operates and where
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/locations \
+curl <%=@api_prefix%>/2/locations \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -48,7 +48,7 @@ $result = $wiw->get("locations");
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/locations/136 \
+curl <%=@api_prefix%>/2/locations/136 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -94,7 +94,7 @@ The `POST` and/or `PUT` body can include fields from the [Location Object](#loca
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/locations/136 \
+curl -X DELETE <%=@api_prefix%>/2/locations/136 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php

@@ -15,7 +15,7 @@ Positions are the different titles that employees can be grouped into.
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/positions \
+curl <%=@api_prefix%>/2/positions \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -46,7 +46,7 @@ $result = $wiw->get("positions");
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/positions/32 \
+curl <%=@api_prefix%>/2/positions/32 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -92,7 +92,7 @@ The `POST` and/or `PUT` body can include fields from the [Position Object](#posi
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/positions/9 \
+curl -X DELETE <%=@api_prefix%>/2/positions/9 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php

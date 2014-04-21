@@ -15,7 +15,7 @@ Blocks
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/blocks \
+curl <%=@api_prefix%>/2/blocks \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -48,7 +48,7 @@ $result = $wiw->get("blocks");
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/block/233 \
+curl <%=@api_prefix%>/2/block/233 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -94,7 +94,7 @@ The `POST` and/or `PUT` body can include fields from the [Block Object](#blocks)
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/blocks/233 \
+curl -X DELETE <%=@api_prefix%>/2/blocks/233 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php

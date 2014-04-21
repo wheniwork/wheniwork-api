@@ -16,7 +16,7 @@ Requests
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/requests?start=2012-03-01&end=2012-04-30&max_id=42 \
+curl <%=@api_prefix%>/2/requests?start=2012-03-01&end=2012-04-30&max_id=42 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -68,7 +68,7 @@ max_id | Return all requests created before the request with the given ID.
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/requests/65 \
+curl <%=@api_prefix%>/2/requests/65 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -179,7 +179,7 @@ The `PUT` body can include fields from the [Request Object](#requests).
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/requests/54 \
+curl -X DELETE <%=@api_prefix%>/2/requests/54 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php

@@ -15,7 +15,7 @@ Swaps
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/swaps/ \
+curl <%=@api_prefix%>/2/swaps/ \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -55,7 +55,7 @@ $result = $wiw->get("swaps");
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/swaps/22 \
+curl <%=@api_prefix%>/2/swaps/22 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -171,7 +171,7 @@ The `PUT` body can include fields from the [Swap Object](#swap).
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/swap/233 \
+curl -X DELETE <%=@api_prefix%>/2/swap/233 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
