@@ -991,14 +991,9 @@
           "value": "Fri, 07 Mar 2014 14:30:00 -0600",
           "show": true
       },
-      "break_hours": {
-          "type": "float",
-          "description": "Hours of unpaid break.",
-          "value": 0.5
-      },
       "length": {
           "type": "float",
-          "description": "The length of the time entry.",
+          "description": "The length of the time entry. (readonly)",
           "value": 6,
           "show": true
       },
