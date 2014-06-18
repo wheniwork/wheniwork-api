@@ -97,7 +97,63 @@ The `POST` and/or `PUT` body can include fields from the [User Object](#users).
 
 
 
-## Delete Existing User
+
+## Invite Users
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/users/invite/ \
+ --data '{"ids":[14,15,67]}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("users/invite/", array("ids"=>array(14,15,67)));
+?>
+```
+
+> Example Response
+
+```json
+{
+  "count": 3,
+  "email": 3,
+  "sms": 1,
+  "success": true
+}
+```
+
+Users can be invited by managers, or by supervisors. This will send them an email or text message inviting them to register. Users must already be created to be invited.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/users/invite/`
+
+### Parameters
+
+Key | Description
+--- | -----------
+ids | <strong>array</strong><br />List of IDs of users to invite.
+send_all | <strong>boolean</strong><br />Invite all users without a login. `ids` parameter is ignored.
+message | <strong>string</strong><br />An optional message to include in the email invite.
+
+You can also invite a single user with the following.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/users/invite/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | <strong>integer</strong><br />The ID of the user to invite.
+message | <strong>string</strong><br />An optional message to include in the email invite.
+
+
+
+
+## Delete User
 
 > Example Request
 
@@ -108,7 +164,7 @@ curl -X DELETE <%=@api_prefix%>/2/users/4364 \
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->delete("users4364");
+$result = $wiw->delete("users/4364");
 ?>
 ```
 

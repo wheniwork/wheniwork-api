@@ -54,6 +54,8 @@ start_time | <strong>datetime</strong><br />Start time for a search window
 end_time | <strong>datetime</strong><br />End time for a search window
 user_id | <strong>integer, string array</strong><br />Only show shifts for a user, or multiple (e.g. 1,5,3)
 location_id | <strong>integer, string array</strong><br />Only show shifts for a location, or multiple.
+site_id | <strong>integer, string array</strong><br />Only show shifts for a site, or multiple.
+position_id | <strong>integer, string array</strong><br />Only show shifts for a position, or multiple.
 
 
 
@@ -126,7 +128,126 @@ $result = $wiw->update("shifts/10000", array(...));
 The `POST` and/or `PUT` body can include fields from the [Shift Object](#shifts).
 
 
-## Delete Existing Shift
+## Publish/Unpublish Shifts
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/shifts/publish/ \
+ --data '{"ids":[1534,3543,65554,33444]}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("shifts/publish/", array("ids"=>array(34542,45434)));
+?>
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+These methods allow you to publish or unpublish a group of shifts.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/shifts/publish/`
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/shifts/unpublish/`
+
+
+### Parameters
+
+Key | Description
+--- | -----------
+ids | Post body parameter that can be used to publish multiple shifts. `[4543,23453]`
+
+
+
+## Notify Shifts
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/shifts/notify/ \
+ --data '{"start":"2014-05-16 00:00:00", "end":"2014-05-19 23:59:59"}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("shifts/notify/", array("start"=>"2014-05-16 00:00:00", "end"=>"2014-05-19 23:59:59"));
+?>
+```
+
+> Example Response
+
+```json
+{
+  "success": true,
+  "email": 12,
+  "sms": 4
+}
+```
+
+This method allows you to notify users about new or updated shifts.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/shifts/notify/`
+
+
+### Parameters
+
+Key | Description
+--- | -----------
+start | <strong>datetime</strong><br />Start time for a notify window
+end | <strong>datetime</strong><br />End time for a notify window
+user_id | <strong>integer, array</strong><br />Only notify shifts for a user, or multiple (e.g. `[1,5,3]`)
+location_id | <strong>integer, array</strong><br />Only notify shifts for a location, or multiple.
+position_id | <strong>integer, array</strong><br />Only notify shifts for a position, or multiple.
+site_id | <strong>integer, array</strong><br />Only notify shifts for a site, or multiple.
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/shifts/notify/47433 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("shifts/notify/47433");
+?>
+```
+
+> Example Response
+
+```json
+{
+  "success": true,
+  "email": 1,
+  "sms": 0
+}
+```
+
+You can also send a notification about just one shift using the following
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/shifts/notify/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | <strong>integer</strong><br />ID of the shift you want to notify.
+
+
+## Delete Shift
 
 > Example Request
 
