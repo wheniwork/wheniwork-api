@@ -97,7 +97,7 @@
 <p>&nbsp;</p>
 </blockquote>
 
-<p>Server authentication is based on a token model. The developer with authenticate using a private developer key, along with the user&rsquo;s credentials. Your developer key can be used like the folling in the headers.</p>
+<p>Server authentication is based on a token model. The developer with authenticate using a private developer key, along with the user&rsquo;s credentials. Your developer key can be used like the following in the headers.</p>
 
 <p><code class="prettyprint">W-Key: iworksoharditsnotfunny</code></p>
 
@@ -338,6 +338,14 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <td>location_id</td>
 <td><strong>integer, string array</strong><br />Only show shifts for a location, or multiple.</td>
 </tr>
+<tr>
+<td>site_id</td>
+<td><strong>integer, string array</strong><br />Only show shifts for a site, or multiple.</td>
+</tr>
+<tr>
+<td>position_id</td>
+<td><strong>integer, string array</strong><br />Only show shifts for a position, or multiple.</td>
+</tr>
 </tbody></table>
 
 <h2 id="get-existing-shift">Get Existing Shift</h2>
@@ -421,7 +429,152 @@ Remember — All post bodies must be JSON encoded data (no form data).
 
 <p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#shifts">Shift Object</a>.</p>
 
-<h2 id="delete-existing-shift">Delete Existing Shift</h2>
+<h2 id="publish/unpublish-shifts">Publish/Unpublish Shifts</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/shifts/publish/ <span class="se">\</span>
+ --data <span class="s1">'{"ids":[1534,3543,65554,33444]}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/publish/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"ids"</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span><span class="mi">34542</span><span class="p">,</span><span class="mi">45434</span><span class="p">)));</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>These methods allow you to publish or unpublish a group of shifts.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/publish/</code></p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/unpublish/</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td>Post body parameter that can be used to publish multiple shifts. <code class="prettyprint">[4543,23453]</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="notify-shifts">Notify Shifts</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/shifts/notify/ <span class="se">\</span>
+ --data <span class="s1">'{"start":"2014-05-16 00:00:00", "end":"2014-05-19 23:59:59"}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/notify/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"start"</span><span class="o">=&gt;</span><span class="s2">"2014-05-16 00:00:00"</span><span class="p">,</span> <span class="s2">"end"</span><span class="o">=&gt;</span><span class="s2">"2014-05-19 23:59:59"</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sms"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>This method allows you to notify users about new or updated shifts.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/notify/</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start</td>
+<td><strong>datetime</strong><br />Start time for a notify window</td>
+</tr>
+<tr>
+<td>end</td>
+<td><strong>datetime</strong><br />End time for a notify window</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td><strong>integer, array</strong><br />Only notify shifts for a user, or multiple (e.g. <code class="prettyprint">[1,5,3]</code>)</td>
+</tr>
+<tr>
+<td>location_id</td>
+<td><strong>integer, array</strong><br />Only notify shifts for a location, or multiple.</td>
+</tr>
+<tr>
+<td>position_id</td>
+<td><strong>integer, array</strong><br />Only notify shifts for a position, or multiple.</td>
+</tr>
+<tr>
+<td>site_id</td>
+<td><strong>integer, array</strong><br />Only notify shifts for a site, or multiple.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/shifts/notify/47433 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/notify/47433"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sms"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>You can also send a notification about just one shift using the following</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/notify/{id}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong><br />ID of the shift you want to notify.</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-shift">Delete Shift</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -670,7 +823,82 @@ Remember — All post bodies must be JSON encoded data (no form data).
 
 <p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#users">User Object</a>.</p>
 
-<h2 id="delete-existing-user">Delete Existing User</h2>
+<h2 id="invite-users">Invite Users</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/users/invite/ <span class="se">\</span>
+ --data <span class="s1">'{"ids":[14,15,67]}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"users/invite/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"ids"</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">67</span><span class="p">)));</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sms"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>Users can be invited by managers, or by supervisors. This will send them an email or text message inviting them to register. Users must already be created to be invited.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/invite/</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td><strong>array</strong><br />List of IDs of users to invite.</td>
+</tr>
+<tr>
+<td>send_all</td>
+<td><strong>boolean</strong><br />Invite all users without a login. <code class="prettyprint">ids</code> parameter is ignored.</td>
+</tr>
+<tr>
+<td>message</td>
+<td><strong>string</strong><br />An optional message to include in the email invite.</td>
+</tr>
+</tbody></table>
+
+<p>You can also invite a single user with the following.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/invite/{id}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong><br />The ID of the user to invite.</td>
+</tr>
+<tr>
+<td>message</td>
+<td><strong>string</strong><br />An optional message to include in the email invite.</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-user">Delete User</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -679,7 +907,7 @@ Remember — All post bodies must be JSON encoded data (no form data).
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"users4364"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"users/4364"</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </pre>
 <blockquote>
@@ -3482,8 +3710,7 @@ the user&rsquo;s punch state.</p>
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Templates
-Templates allow you to create a group of shifts that can be used to make scheduling easier.</p>
+<p>Templates allow you to create a group of shifts that can be used to make scheduling easier.</p>
 
 <h3 id="template-object">Template Object</h3>
 
