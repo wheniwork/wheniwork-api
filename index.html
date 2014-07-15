@@ -178,6 +178,40 @@ Remember — All post bodies must be JSON encoded data (no form data).
 
 <p><code class="prettyprint">W-Token: ilovemyboss</code></p>
 
+<h2 id="web-app-sso">Web App SSO</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/users/autologin <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"users/autologin"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ilovemyboss"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_auto_login_hash"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>If you find any need to send an authenticated user into the web app without requiring them to login, you can use the 
+autologin hash query parameter to accomplish this: <code class="prettyprint">al</code>. </p>
+
+<p>An example would be sending the user to the following URL.</p>
+
+<p><code class="prettyprint">http://app.wheniwork.com/scheduler?al=the_auto_login_hash</code></p>
+
 <h1 id="shifts">Shifts</h1>
 
 <blockquote>
@@ -822,6 +856,20 @@ Remember — All post bodies must be JSON encoded data (no form data).
 <h3 id="parameters">Parameters</h3>
 
 <p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#users">User Object</a>.</p>
+
+<h3 id="additional-params">Additional Params</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reactivate</td>
+<td><strong>boolean</strong><br />Pass this to reactivate a previously deleted user.</td>
+</tr>
+</tbody></table>
 
 <h2 id="invite-users">Invite Users</h2>
 
