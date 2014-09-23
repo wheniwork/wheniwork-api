@@ -97,11 +97,11 @@
 <p>&nbsp;</p>
 </blockquote>
 
-<p>Server authentication is based on a token model. The developer with authenticate using a private developer key, along with the user&rsquo;s credentials. Your developer key can be used like the following in the headers.</p>
+<p>Server authentication is based on a token model. The developer will authenticate using a private developer key, along with the user&rsquo;s credentials. Your developer key can be used like the following in the headers.</p>
 
 <p><code class="prettyprint">W-Key: iworksoharditsnotfunny</code></p>
 
-<p>Authenticating in will return back a token that can be use for all further requests. The token may be included in the headers, as a cookie or in the query string using the key <code class="prettyprint">W-Token</code>, like the following.</p>
+<p>Authenticating will return back a token that can be used for all future requests. The token may be included in the headers, as a cookie or in the query string using the key <code class="prettyprint">W-Token</code>, like the following.</p>
 
 <p><code class="prettyprint">W-Token: ilovemyboss</code></p>
 
@@ -843,42 +843,149 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
 </tr>
 </tbody></table>
 
-<h2 id="create/update-user">Create/Update User</h2>
-
-<h3 id="create-http-request">Create HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/</code></p>
-
-<h3 id="update-http-requests">Update HTTP Requests</h3>
-
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/users/{id}</code></p>
-
-<h3 id="parameters">Parameters</h3>
-
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#users">User Object</a>.</p>
-
-<h3 id="additional-params">Additional Params</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>reactivate</td>
-<td><strong>boolean</strong><br />Pass this to reactivate a previously deleted user.</td>
-</tr>
-</tbody></table>
-
-<h2 id="invite-users">Invite Users</h2>
+<h2 id="create-new-user">Create New User</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/users/invite/ <span class="se">\</span>
- --data <span class="s1">'{"ids":[14,15,67]}'</span> <span class="se">\</span>
- -H <span class="s2">"W-Token: ilovemyboss"</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/users --data <span class="s1">'{"first_name":"FirstName", "last_name": "LastName", "email": "user@email.com"}'</span> -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php">$wiw = new Wheniwork("ilovemyboss");
+$result = $wiw-&gt;post("users/", array("first_name"=&gt;"FirstName", "last_name"=&gt;"LastName", "email"=&gt;"user@email.com"));
+</pre>
+<blockquote>
+<p>Example Response
+&ldquo;`json
+{
+  &quot;user&rdquo;:
+  {
+    &ldquo;id&rdquo;:479,
+    &ldquo;account_id&rdquo;:23,
+    &ldquo;login_id&rdquo;:0,
+    &ldquo;timezone_id&rdquo;:0,
+    &ldquo;country_id&rdquo;:233,
+    &ldquo;migration_id&rdquo;:0,
+    &ldquo;role&rdquo;:3,
+    &ldquo;is_payroll&rdquo;:false,
+    &ldquo;is_trusted&rdquo;:0,
+    &ldquo;type&rdquo;:1,
+    &ldquo;email&rdquo;:&ldquo;user@email.com&rdquo;,
+    &ldquo;first_name&rdquo;:&ldquo;FirstName&rdquo;,
+    &ldquo;last_name&rdquo;:&ldquo;LastName&rdquo;,
+    &ldquo;phone_number&rdquo;:&ldquo;&rdquo;,
+    &ldquo;employee_code&rdquo;:&ldquo;&rdquo;,
+    &ldquo;avatar&rdquo;:
+    {
+      &ldquo;url&rdquo;:&ldquo;http:\/\/avatar.wheniwork.com\/wiw\/7c556820bbef6968e4bfc33418421fcd.png?s=%s&amp;t=479&rdquo;,
+      &ldquo;size&rdquo;:&ldquo;%s&rdquo;
+    },
+    &ldquo;password&rdquo;:false,
+    &ldquo;activated&rdquo;:true,
+    &ldquo;is_hidden&rdquo;:false,
+    &ldquo;uuid&rdquo;:&ldquo;21e0aca0a2137638e1d3eb6a940cd68e3007eab8&rdquo;,
+    &ldquo;notes&rdquo;:&ldquo;&rdquo;,
+    &ldquo;affiliate&rdquo;:0,
+    &ldquo;is_private&rdquo;:true,
+    &ldquo;infotips&rdquo;:&ldquo;&rdquo;,
+    &ldquo;hours_preferred&rdquo;:0,
+    &ldquo;hours_max&rdquo;:40,
+    &ldquo;hourly_rate&rdquo;:0,
+    &ldquo;alert_settings&rdquo;:
+    {
+      &ldquo;timeoff&rdquo;:
+      {
+        &ldquo;sms&rdquo;:false,
+        &ldquo;email&rdquo;:true
+      },
+      &ldquo;swaps&rdquo;:
+      {
+        &ldquo;sms&rdquo;:false,
+        &ldquo;email&rdquo;:true
+      },
+      &ldquo;schedule&rdquo;:
+      {
+        &ldquo;sms&rdquo;:false,
+        &ldquo;email&rdquo;:true
+      },
+      &ldquo;reminders&rdquo;:
+      {
+        &ldquo;sms&rdquo;:false,
+        &ldquo;email&rdquo;:true
+      },
+      &ldquo;availability&rdquo;:
+      {
+        &ldquo;sms&rdquo;:false,
+        &ldquo;email&rdquo;:true
+      },
+      &ldquo;new_employee&rdquo;:
+      {
+        &ldquo;sms&rdquo;:false,
+        &ldquo;email&rdquo;:true
+      },
+      &ldquo;attendance&rdquo;:
+      {
+        &ldquo;sms&rdquo;:false,
+        &ldquo;email&rdquo;:false
+      }
+    },
+    &ldquo;reminder_time&rdquo;:2,
+    &ldquo;sleep_start&rdquo;:&ldquo;23:00:00&rdquo;,
+    &ldquo;sleep_end&rdquo;:&ldquo;05:00:00&rdquo;,
+    &ldquo;my_positions&rdquo;:[],
+    &ldquo;last_login&rdquo;:&ldquo;Tue, 29 Nov -001 18:00:00 -0600&rdquo;,
+    &ldquo;notified_at&rdquo;:&ldquo;Tue, 29 Nov -001 18:00:00 -0600&rdquo;,
+    &ldquo;created_at&rdquo;:&ldquo;Tue, 23 Sep 2014 13:10:31 -0500&rdquo;,
+    &ldquo;updated_at&rdquo;:&ldquo;Tue, 23 Sep 2014 13:10:31 -0500&rdquo;,
+    &ldquo;is_deleted&rdquo;:false,
+    &ldquo;login_email&rdquo;:null,
+    &ldquo;positions&rdquo;:[],
+    &ldquo;locations&rdquo;:[9],
+    &ldquo;position_rates&rdquo;:[],
+    &ldquo;position_quality&rdquo;:[]
+  }
+}</p>
+</blockquote>
+<pre class="highlight plaintext">
+### HTTP Request
+
+`POST https://api.wheniwork.com/2/users`
+
+### Parameters
+
+The `POST` body can include fields from the [User Object](#users). You will need
+to include at least the 'email' field in the body of the request.
+
+### Additional Params
+
+Key | Description
+--- | -----------
+reactivate | &lt;strong&gt;boolean&lt;/strong&gt;&lt;br /&gt;Pass this to reactivate a previously deleted user.
+
+## Update Existing User
+
+### HTTP Request
+`PUT https://api.wheniwork.com/2/users/{id}`
+
+### Parameters
+
+The `PUT` body can include fields from the [User Object](#users).
+
+### Additional Params
+
+Key | Description
+--- | -----------
+reactivate | &lt;strong&gt;boolean&lt;/strong&gt;&lt;br /&gt;Pass this to reactivate a previously deleted user.
+
+
+
+
+## Invite Users
+
+&gt; Example Request
+
+```shell
+curl -X POST https://api.wheniwork.com/2/users/invite/ \
+ --data '{"ids":[14,15,67]}' \
+ -H "W-Token: ilovemyboss"
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"users/invite/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"ids"</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">67</span><span class="p">)));</span>
