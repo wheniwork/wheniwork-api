@@ -82,17 +82,133 @@ id | ID of the user requested.
 
 
 
-## Create/Update User
+## Create New User
+> Example Request
 
-### Create HTTP Request
-`POST <%=@api_prefix%>/2/users/`
+```shell
+curl <%=@api_prefix%>/2/users --data '{"first_name":"FirstName", "last_name": "LastName", "email": "user@email.com"}' -H "W-Token: <%=@wiw_token%>"
+```
+```php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("users/", array("first_name"=>"FirstName", "last_name"=>"LastName", "email"=>"user@email.com"));
+```
 
-### Update HTTP Requests
+> Example Response
+```json
+{
+  "user":
+  {
+    "id":479,
+    "account_id":23,
+    "login_id":0,
+    "timezone_id":0,
+    "country_id":233,
+    "migration_id":0,
+    "role":3,
+    "is_payroll":false,
+    "is_trusted":0,
+    "type":1,
+    "email":"user@email.com",
+    "first_name":"FirstName",
+    "last_name":"LastName",
+    "phone_number":"",
+    "employee_code":"",
+    "avatar":
+    {
+      "url":"http:\/\/avatar.wheniwork.com\/wiw\/7c556820bbef6968e4bfc33418421fcd.png?s=%s&t=479",
+      "size":"%s"
+    },
+    "password":false,
+    "activated":true,
+    "is_hidden":false,
+    "uuid":"21e0aca0a2137638e1d3eb6a940cd68e3007eab8",
+    "notes":"",
+    "affiliate":0,
+    "is_private":true,
+    "infotips":"",
+    "hours_preferred":0,
+    "hours_max":40,
+    "hourly_rate":0,
+    "alert_settings":
+    {
+      "timeoff":
+      {
+        "sms":false,
+        "email":true
+      },
+      "swaps":
+      {
+        "sms":false,
+        "email":true
+      },
+      "schedule":
+      {
+        "sms":false,
+        "email":true
+      },
+      "reminders":
+      {
+        "sms":false,
+        "email":true
+      },
+      "availability":
+      {
+        "sms":false,
+        "email":true
+      },
+      "new_employee":
+      {
+        "sms":false,
+        "email":true
+      },
+      "attendance":
+      {
+        "sms":false,
+        "email":false
+      }
+    },
+    "reminder_time":2,
+    "sleep_start":"23:00:00",
+    "sleep_end":"05:00:00",
+    "my_positions":[],
+    "last_login":"Tue, 29 Nov -001 18:00:00 -0600",
+    "notified_at":"Tue, 29 Nov -001 18:00:00 -0600",
+    "created_at":"Tue, 23 Sep 2014 13:10:31 -0500",
+    "updated_at":"Tue, 23 Sep 2014 13:10:31 -0500",
+    "is_deleted":false,
+    "login_email":null,
+    "positions":[],
+    "locations":[9],
+    "position_rates":[],
+    "position_quality":[]
+  }
+}
+
+```
+
+### HTTP Request
+
+`POST <%=@api_prefix%>/2/users`
+
+### Parameters
+
+The `POST` body can include fields from the [User Object](#users). You will need
+to include at least the 'email' field in the body of the request.
+
+### Additional Params
+
+Key | Description
+--- | -----------
+reactivate | <strong>boolean</strong><br />Pass this to reactivate a previously deleted user.
+
+## Update Existing User
+
+### HTTP Request
 `PUT <%=@api_prefix%>/2/users/{id}`
 
 ### Parameters
 
-The `POST` and/or `PUT` body can include fields from the [User Object](#users).
+The `PUT` body can include fields from the [User Object](#users).
 
 ### Additional Params
 
@@ -191,11 +307,3 @@ Users can be deleted by managers, or by supervisors. If a supervisor, the user m
 Key | Description
 --- | -----------
 id | ID of the shift requested.
-
-
-
-
-
-
-
-
