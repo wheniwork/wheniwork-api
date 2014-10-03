@@ -312,13 +312,13 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/2/shifts/?location_id<span class="o">=</span>1&amp;start_time<span class="o">=</span>2014-03-05 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/shifts/?location_id<span class="o">=</span>1&amp;start<span class="o">=</span>2014-03-05 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"shifts"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
                                 <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> 
-                                <span class="s2">"start_time"</span>  <span class="o">=&gt;</span> <span class="s2">"2014-03-05"</span>
+                                <span class="s2">"start"</span>  <span class="o">=&gt;</span> <span class="s2">"2014-03-05"</span>
                               <span class="p">));</span>
 <span class="cp">?&gt;</span>
 </pre>
@@ -357,11 +357,11 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
 </tr>
 </thead><tbody>
 <tr>
-<td>start_time</td>
+<td>start</td>
 <td><strong>datetime</strong><br />Start time for a search window</td>
 </tr>
 <tr>
-<td>end_time</td>
+<td>end</td>
 <td><strong>datetime</strong><br />End time for a search window</td>
 </tr>
 <tr>
@@ -3417,6 +3417,216 @@ the user&rsquo;s punch state.</p>
 <h3 id="parameters">Parameters</h3>
 
 <p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#times">Times Object</a>.</p>
+
+<h2 id="clock-in">Clock In</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/times/clockin/ <span class="se">\</span>
+ --data <span class="s1">'{"id":"14","position_id":"102","coordinates":[44.937422,-93.084009],"accuracy":"20"}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"times/clockin/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"id"</span><span class="o">:</span><span class="s2">"14"</span><span class="p">,</span><span class="s2">"position_id"</span><span class="o">:</span><span class="s2">"102"</span><span class="p">,</span><span class="s2">"coordinates"</span><span class="o">:</span><span class="p">[</span><span class="mf">44.937422</span><span class="p">,</span><span class="o">-</span><span class="mf">93.084009</span><span class="p">],</span><span class="s2">"accuracy"</span><span class="o">:</span><span class="s2">"20"</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
+<p>Example Post Data</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position_id"</span><span class="p">:</span><span class="mi">102</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">44.937422</span><span class="p">,</span><span class="mf">-93.084009</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"accuracy"</span><span class="p">:</span><span class="mi">20</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+     </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"punch_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                       </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 02 Oct 2014 20:53:40 -0500"</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"can_punch_in"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"open_time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2585161</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"near_location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100866</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"near_site_id"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"punch_in_shift_id"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"34.2390664"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"-118.4332328"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+     </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<h3 id="create-a-clock-in">Create A Clock-in</h3>
+
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/times/clockin</code></p>
+
+<h3 id="post-body">Post Body</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Example Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>14</td>
+<td>The ID of the user you are creating the clock-in for</td>
+</tr>
+<tr>
+<td>position_id</td>
+<td>102</td>
+<td>The ID of the position the user is clocking in as. This is an optional parameter</td>
+</tr>
+<tr>
+<td>coordinates</td>
+<td>[44.937422,-93.084009]</td>
+<td>The GPS coordinates of the clock-in. This is an optional parameter</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td>20</td>
+<td>The accuracy in meters of the coordinates being sent</td>
+</tr>
+</tbody></table>
+
+<h2 id="clock-out">Clock out</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/times/clockout/ <span class="se">\</span>
+ --data <span class="s1">'{"id":"14","position_id":"102","coordinates":[44.937422,-93.084009],"accuracy":"20"}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"times/clockout/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"id"</span><span class="o">:</span><span class="s2">"14"</span><span class="p">,</span><span class="s2">"position_id"</span><span class="o">:</span><span class="s2">"102"</span><span class="p">,</span><span class="s2">"coordinates"</span><span class="o">:</span><span class="p">[</span><span class="mf">44.937422</span><span class="p">,</span><span class="o">-</span><span class="mf">93.084009</span><span class="p">],</span><span class="s2">"accuracy"</span><span class="o">:</span><span class="s2">"20"</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
+<p>Example Post Data</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position_id"</span><span class="p">:</span><span class="mi">102</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">44.937422</span><span class="p">,</span><span class="mf">-93.084009</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"accuracy"</span><span class="p">:</span><span class="mi">20</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+     </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"punch_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                       </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 02 Oct 2014 20:53:40 -0500"</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"open_time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2585161</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"near_location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100866</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"near_site_id"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="p">,</span><span class="w">
+                       </span><span class="s2">"punch_out_shift_id"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"34.2390664"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"-118.4332328"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+     </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<h3 id="create-a-clock-out">Create A Clock-out</h3>
+
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/times/clockout</code></p>
+
+<h3 id="post-body">Post Body</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Example Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>14</td>
+<td>The ID of the user you are creating the clock-out for</td>
+</tr>
+<tr>
+<td>position_id</td>
+<td>102</td>
+<td>The ID of the position the user is clocking out as. This is an optional parameter</td>
+</tr>
+<tr>
+<td>coordinates</td>
+<td>[44.937422,-93.084009]</td>
+<td>The GPS coordinates of the clock-out. This is an optional parameter</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td>20</td>
+<td>The accuracy out meters of the coordinates being sent</td>
+</tr>
+</tbody></table>
 
 <h2 id="delete-existing-payroll">Delete Existing Payroll</h2>
 

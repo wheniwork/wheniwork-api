@@ -153,13 +153,13 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/2/shifts/?location_id<span class="o">=</span>1&amp;start_time<span class="o">=</span>2014-03-05 <span class="se">\</span>
+<pre class="highlight shell">curl https://api.wheniwork.com/2/shifts/?location_id<span class="o">=</span>1&amp;start<span class="o">=</span>2014-03-05 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </pre><pre class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"shifts"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
                                 <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> 
-                                <span class="s2">"start_time"</span>  <span class="o">=&gt;</span> <span class="s2">"2014-03-05"</span>
+                                <span class="s2">"start"</span>  <span class="o">=&gt;</span> <span class="s2">"2014-03-05"</span>
                               <span class="p">));</span>
 <span class="cp">?&gt;</span>
 </pre>
@@ -198,11 +198,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>start_time</td>
+<td>start</td>
 <td><strong>datetime</strong><br />Start time for a search window</td>
 </tr>
 <tr>
-<td>end_time</td>
+<td>end</td>
 <td><strong>datetime</strong><br />End time for a search window</td>
 </tr>
 <tr>
