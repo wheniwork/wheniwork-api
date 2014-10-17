@@ -54,6 +54,24 @@ $result = Wheniwork::login(
           );
 ?>
 ```
+```android
+LoginRequestBody loginReq = new LoginRequestBody("user@example.com", "******");
+WhenIWorkRestAPI api = WhenIWorkRestAdapter.getApi();
+api.login("<%=@wiw_key%>", loginReq, new Callback<LoginResponse>() {
+
+    @Override
+    public void success(LoginResponse userAccount, Response response) {
+      // Your auth token will be available here in userAccount.getUserToken().
+      // Be sure to store it so it can be reused later.
+    }
+
+    @Override
+    public void failure(RetrofitError error) {
+      // Report failure.
+    }
+});
+
+```
 
 > Example Response
 
@@ -63,7 +81,7 @@ $result = Wheniwork::login(
     <%= print_json(data.objects['user'], :minimal=>true, :include=>{:token=>@wiw_token}).indent(4) %>
   ],
   "accounts": [
-    
+
   ]
 }
 ```
@@ -116,8 +134,8 @@ $result = $wiw->post("users/autologin");
 ```
 
 
-If you find any need to send an authenticated user into the web app without requiring them to login, you can use the 
-autologin hash query parameter to accomplish this: `al`. 
+If you find any need to send an authenticated user into the web app without requiring them to login, you can use the
+autologin hash query parameter to accomplish this: `al`.
 
 An example would be sending the user to the following URL.
 

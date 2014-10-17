@@ -25,6 +25,20 @@ $wiw = new Wheniwork("<%=@wiw_token%>");
 $result = $wiw->get("locations");
 ?>
 ```
+```android
+WhenIWorkRestAPI api = WhenIWorkRestAdapter.getApi();
+api.listLocations("<%=@wiw_token%>", new Callback<LocationList>() {
+  @Override
+  public void success(LocationList aLocationList, Response aResponse) {
+    // Do something magic
+  }
+
+  @Override
+  public void failure(RetrofitError aError) {
+    // Do something less magic
+  }
+});
+```
 
 > Example Response
 
@@ -122,7 +136,3 @@ Locations can be deleted by managers.
 Key | Description
 --- | -----------
 id | ID of the location to be deleted.
-
-
-
-
