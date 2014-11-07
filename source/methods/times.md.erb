@@ -153,6 +153,148 @@ the user's punch state.
 The `PUT` body can include fields from the [Times Object](#times).
 
 
+## Clock In
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/times/clockin/ \
+ --data '{"id":"14","position_id":"102","coordinates":[44.937422,-93.084009],"accuracy":"20"}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("times/clockin/", array("id":"14","position_id":"102","coordinates":[44.937422,-93.084009],"accuracy":"20"));
+?>
+```
+
+> Example Post Data
+
+```json
+{
+    "id":14,
+    "position_id":102,
+    "coordinates": [44.937422,-93.084009],
+    "accuracy":20
+}
+```
+
+> Example Response
+
+```json
+{
+     "user": {
+            "id": 14,
+            "email": "goldiewilson@hillvalleycalifornia.gov",
+            "first_name": "Goldie",
+            "last_name": "Wilson",
+            "punch_state": {
+                       "timestamp": "Thu, 02 Oct 2014 20:53:40 -0500",
+                       "can_punch_in": true,
+                       "can_punch_out": false,
+                       "open_time_id": 2585161,
+                       "near_location_id": 100866,
+                       "near_site_id": null,
+                       "punch_in_shift_id": null
+            }
+     },
+     "times": [
+      <%= print_json(data.objects['times'], :minimal=>true).indent(6) %>
+     ],
+     "locations": [
+      <%= print_json(data.objects['location'], :minimal=>true).indent(6) %>
+     ]
+}
+```
+
+### Create A Clock-in
+`POST <%=@api_prefix%>/2/times/clockin`
+
+
+
+### Post Body
+
+Key | Example Value | Description
+--- | ------------- | -------------
+id | 14 | The ID of the user you are creating the clock-in for
+position_id | 102 | The ID of the position the user is clocking in as. This is an optional parameter
+coordinates | [44.937422,-93.084009] | The GPS coordinates of the clock-in. This is an optional parameter
+accuracy | 20 | The accuracy in meters of the coordinates being sent
+
+
+## Clock out
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/times/clockout/ \
+ --data '{"id":"14","position_id":"102","coordinates":[44.937422,-93.084009],"accuracy":"20"}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("times/clockout/", array("id":"14","position_id":"102","coordinates":[44.937422,-93.084009],"accuracy":"20"));
+?>
+```
+
+> Example Post Data
+
+```json
+{
+    "id":14,
+    "position_id":102,
+    "coordinates": [44.937422,-93.084009],
+    "accuracy":20
+}
+```
+
+> Example Response
+
+```json
+{
+     "user": {
+            "id": 14,
+            "email": "goldiewilson@hillvalleycalifornia.gov",
+            "first_name": "Goldie",
+            "last_name": "Wilson",
+            "punch_state": {
+                       "timestamp": "Thu, 02 Oct 2014 20:53:40 -0500",
+                       "can_punch_out": false,
+                       "can_punch_out": true,
+                       "open_time_id": 2585161,
+                       "near_location_id": 100866,
+                       "near_site_id": null,
+                       "punch_out_shift_id": null
+            }
+     },
+     "times": [
+      <%= print_json(data.objects['times'], :minimal=>true).indent(6) %>
+     ],
+     "locations": [
+      <%= print_json(data.objects['location'], :minimal=>true).indent(6) %>
+     ]
+}
+```
+
+### Create A Clock-out
+`POST <%=@api_prefix%>/2/times/clockout`
+
+
+
+### Post Body
+
+Key | Example Value | Description
+--- | ------------- | -------------
+id | 14 | The ID of the user you are creating the clock-out for
+position_id | 102 | The ID of the position the user is clocking out as. This is an optional parameter
+coordinates | [44.937422,-93.084009] | The GPS coordinates of the clock-out. This is an optional parameter
+accuracy | 20 | The accuracy out meters of the coordinates being sent
+
+
+
+
 
 ## Delete Existing Payroll
 
