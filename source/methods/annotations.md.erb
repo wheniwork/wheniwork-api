@@ -1,0 +1,149 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['annotation']) %>
+
+```
+
+Annotations convey important information to all staff for the given location(s) and date range.
+
+Any or none of the following tags may apply to an Annotation:
+
+* Time Off Not Allowed
+* Business Closed
+* Announcement
+
+The "Time Off Not Allowed" tag is the only tag that affects the behavior of another API.
+Time Off requests will be considered invalid if the request's date range overlaps an Annotation of the "Time Off Not Allowed" type for the user's location(s).
+
+<%= print_table(data.objects['annotation'], :header => :annotation) %>
+
+## Listing Annotations
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/annotations?start_date=2015-02-15&end_date=2015-02-21&location_id[]=7&location_id[]=8 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("annotations",
+    array(
+        "start_date" => "2015-02-15",
+        "end_date" => "2015-02-21",
+        "location_id" => array(7,8)
+    )
+);
+?>
+```
+
+> Example Response
+
+```json
+{
+  "annotations": [
+    <%= print_json(data.objects['annotation']).indent(4) %>
+  ]
+}
+
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/annotations`
+
+### Parameters
+All are optional.
+
+Key | Description
+--- | -----------
+start_date | <strong>string</strong><br /> Will be parsed as Account timezone if ambiguous
+end_date | <strong>string</strong><br /> Will be parsed as Account timezone if ambiguous
+location_id | <strong>integer, array</strong><br /> May be an integer of a single location_id, or an array of location_ids
+business_closed | <strong>boolean</strong>
+no_time_off | <strong>boolean</strong>
+announcement | <strong>boolean</strong>
+
+
+## Get Existing Annotation
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/annotations/41375 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("annotations/41375");
+?>
+```
+
+> Example Response
+
+```json
+{
+  "annotation": <%= print_json(data.objects['annotation']).indent(4) %>
+}
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/annotations/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the annotation.
+
+
+## Create/Update Annotation
+
+Annotations can be created by managers and supervisors who can supervise the related location(s).
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/annotations/`
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/annotations/{id}`
+
+### Parameters
+
+The `POST` and/or `PUT` body can include fields from the [Annotation Object](#annotations).
+
+
+## Delete Existing Annotation
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/2/annotations/136 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->delete("annotations/136");
+?>
+```
+
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+Annotations can be deleted by managers and supervisors who can supervise the related location(s).
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/annotations/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | ID of the annotation to be deleted.
