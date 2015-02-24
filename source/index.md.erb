@@ -4,6 +4,7 @@ title: API Reference
 language_tabs:
   - shell
   - php
+  - java: android
 
 toc_footers:
  - <a href='mailto:support@wheniwork.com?subject=Developer Key&body=I would like to request a developer key.%0D%0A%0D%0AName:%0D%0AApp Name:%0D%0AEmail:%0D%0A'>Sign Up for a Developer Key</a>
@@ -54,6 +55,24 @@ $result = Wheniwork::login(
           );
 ?>
 ```
+```java
+LoginRequestBody loginReq = new LoginRequestBody("user@example.com", "******");
+WhenIWorkRestAPI api = WhenIWorkRestAdapter.getApi();
+api.login("<%=@wiw_key%>", loginReq, new Callback<LoginResponse>() {
+
+    @Override
+    public void success(LoginResponse userAccount, Response response) {
+      // Your auth token will be available here in userAccount.getUserToken().
+      // Be sure to store it so it can be reused later.
+    }
+
+    @Override
+    public void failure(RetrofitError error) {
+      // Report failure.
+    }
+});
+```
+
 > Example Response
 
 ```json
@@ -209,4 +228,3 @@ Error Code | Meaning
 429 | Too Many Requests -- The server is not able to address the number of queries
 500 | Internal Server Error -- An internal server error occurred
 503 | Service Unavailable -- The service temporarily offline for maintenance
-
