@@ -54,7 +54,6 @@ $result = Wheniwork::login(
           );
 ?>
 ```
-
 > Example Response
 
 ```json
@@ -63,7 +62,7 @@ $result = Wheniwork::login(
     <%= print_json(data.objects['user'], :minimal=>true, :include=>{:token=>@wiw_token}).indent(4) %>
   ],
   "accounts": [
-    
+
   ]
 }
 ```
@@ -115,9 +114,8 @@ $result = $wiw->post("users/autologin");
 }
 ```
 
-
-If you find any need to send an authenticated user into the web app without requiring them to login, you can use the 
-autologin hash query parameter to accomplish this: `al`. 
+If you find any need to send an authenticated user into the web app without requiring them to login, you can use the
+autologin hash query parameter to accomplish this: `al`.
 
 An example would be sending the user to the following URL.
 
@@ -127,6 +125,10 @@ An example would be sending the user to the following URL.
 # Shifts
 
 <%= partial "methods/shifts" %>
+
+# Accounts
+
+<%= partial "methods/accounts" %>
 
 # Users
 
@@ -207,3 +209,4 @@ Error Code | Meaning
 429 | Too Many Requests -- The server is not able to address the number of queries
 500 | Internal Server Error -- An internal server error occurred
 503 | Service Unavailable -- The service temporarily offline for maintenance
+

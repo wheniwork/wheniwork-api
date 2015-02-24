@@ -1,0 +1,94 @@
+> Example Object
+
+```json
+<%= print_json(data.objects['account']) %>
+
+```
+
+Accounts are objects that define a business account with When I Work. Every user must be associated with an account in order to be able to access Shifts and other data.
+
+<%= print_table(data.objects['account'], :header => :account) %>
+
+
+## Listing Accounts
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/account \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("account");
+?>
+```
+
+> Example Response
+
+```json
+{
+  "account":
+    <%= print_json(data.objects['account'], :minimal=>true, :include=>{'id'=>11, 'master_id'=>11, 'company'=>'123 Company', 'subdomain'=>'123-company'}).indent(4) %>,
+  "accounts": [
+    <%= print_json(data.objects['account'], :minimal=>true, :include=>{'id'=>12, 'master_id'=>11, 'company'=>'ABC Company', 'subdomain'=>'ABC Company', 'logo'=>'https://s3.amazonaws.com/files.wheniwork.com/logos/19282.gif'}).indent(4) %>
+  ]
+}
+```
+
+### HTTP Request
+Listing accounts gives an object with two members: an `account` object, which specifies the primary account for a given user, and an array, `accounts`, containing all subaccounts of the primary account.
+
+`GET <%=@api_prefix%>/2/account?account_id=11,12`
+
+### Parameters
+
+Key | Description
+--- | -----------
+account_id | A list of account ids to retrieve (Optional; if not specified, will default to returning all accounts for a given user token)
+
+
+## Get Existing Account
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/account/11 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("account/11");
+?>
+```
+
+> Example Response
+
+```json
+  {
+    "account": <%= print_json(data.objects['account'], :minimal=>true, :include=>{'id'=>11, 'master_id'=>11, 'company'=>'123 Company', 'subdomain'=>'123-company'}).indent(4) %>
+  }
+```
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/account/{account_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+account_id | ID of the account object to be retrieved.
+
+## Create/Update Account
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/account/`
+
+### Update HTTP Requests
+`PUT <%=@api_prefix%>/2/account/{account id}`
+
+### Parameters
+
+The `POST` and/or `PUT` body can include fields from the [Account Object](#accounts).
