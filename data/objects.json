@@ -195,7 +195,7 @@
     },
     "role": {
         "type": "integer",
-        "description": "The user's role.<br> 2 = Manager<br> 5 = Supervisor<br> 3 = Employee (default)",
+        "description": "The user's role.<br> 1 = Admin<br> 2 = Manager<br> 3 = Employee (Default)<br> 4 = Lead (Unused)<br>5 = Supervisor<br> 6 = View Only",
         "value": 2
     },
     "positions": {
@@ -1194,7 +1194,4 @@
           "value": "Wed, 19 Feb 2014 10:51:33 -0600"
       }
   }
-
-
-
 }
