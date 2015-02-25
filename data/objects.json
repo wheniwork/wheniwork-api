@@ -1,4 +1,72 @@
 {
+  "account": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the account",
+      "value": 10000,
+      "show": "true"
+    },
+    "master_id" : {
+      "type": "integer",
+      "description": "The id of the parent account (if this is a subaccount)",
+      "value": 0,
+      "show": "true"
+    },
+    "type" : {
+      "type": "integer",
+      "description": "Account type. Must be one of:<br> 1 = SCHEDULING<br> 2 = ATTENDANCE<br> 3 = BOTH",
+      "value": 3,
+      "show": "true"
+    },
+    "logo" : {
+      "type" : "string",
+      "description": "Path to the image file for the company's logo",
+      "value": "https:\/\/s3.amazonaws.com\/files.wheniwork.com\/logos\/16434.gif",
+      "show": "true"
+    },
+    "company": {
+      "type": "string",
+      "description": "Name of the company for which this account is in use",
+      "value": "ABC Company",
+      "show": "true"
+    },
+    "subdomain": {
+      "type": "string",
+      "description": "Subdomain of wheniwork.com to access company-specific When I Work web application",
+      "value": "abc-company",
+      "show": "true"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether this account object is enabled",
+      "value": "true",
+      "show": "true"
+    },
+    "plan_expires": {
+      "type": "datetime",
+      "description": "Date and time when the plan for the current account expires",
+      "value": "Sun, 14 Feb 2016 00:00:00 -0600",
+      "show": "true"
+    },
+    "timezone_id": {
+      "type": "integer",
+      "description": "Identifier for time zone specified at: http://php.net/manual/en/class.datetimezone.php",
+      "value": "11",
+      "show": "true"
+    },
+    "timezone_name": {
+      "type": "string",
+      "description": "Name for the timezone specified in the timezone_id",
+      "value": "America\/Chicago",
+      "show": "true"
+    },
+    "settings": {
+      "type": "json",
+      "description": "A list of settings for this account",
+      "value": "...",
+      "show": "false"
+    }
+  },
   "shift": {
     "id": {
       "type": "integer",
