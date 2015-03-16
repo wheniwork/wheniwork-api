@@ -275,7 +275,7 @@
           "value": "Twin Pines",
           "show": true
       },
-      "locationid": {
+      "location_id": {
           "type": "integer",
           "description": "The ID of the location that the site belongs to.",
           "value": 136,
