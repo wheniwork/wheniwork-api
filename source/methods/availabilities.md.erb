@@ -9,6 +9,21 @@ Availabilities are objects that define a user's availability to be assigned shif
 
 <%= print_table(data.objects['availability'], :header => :availability) %>
 
+Availability Items are individual components of a greater Availability object.
+Where an Availability is an object that defines a user's availability (in
+general), each Availability object is made up of Availability Items, each of
+which contains information about a specific day/time for which the user has
+specified non-default availability.
+
+> Example Object
+
+```json
+<%= print_json(data.objects['availabilityitem'], :minimal=>true) %>
+
+```
+
+<%= print_table(data.objects['availabilityitem'], :header => :availability_item) %>
+
 
 ## Listing Availabilities
 
@@ -64,10 +79,10 @@ $result = $wiw->get("availabilities/10");
 {
   "availability": <%= print_json(data.objects['availability'], :minimal=>true).indent(2) %>,
   "availabilityitems": [
-    <%= print_json(data.objects['availabilityitems'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>12,'availability_id'=>10,'day'=>1,'start_time'=>'08:00:00','end_time'=>'18:30:00'}).indent(4) %>,
-    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>13,'availability_id'=>10,'day'=>3,'start_time'=>'05:00:00','end_time'=>'14:00:00'}).indent(4) %>,
-    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>14,'availability_id'=>10,'day'=>5,'start_time'=>'011:00:00','end_time'=>'23:15:00'}).indent(4) %>
+    <%= print_json(data.objects['availabilityitem'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['availabilityitem'], :minimal=>true, :include=>{'id'=>12,'availability_id'=>10,'day'=>1,'start_time'=>'08:00:00','end_time'=>'18:30:00'}).indent(4) %>,
+    <%= print_json(data.objects['availabilityitem'], :minimal=>true, :include=>{'id'=>13,'availability_id'=>10,'day'=>3,'start_time'=>'05:00:00','end_time'=>'14:00:00'}).indent(4) %>,
+    <%= print_json(data.objects['availabilityitem'], :minimal=>true, :include=>{'id'=>14,'availability_id'=>10,'day'=>5,'start_time'=>'011:00:00','end_time'=>'23:15:00'}).indent(4) %>
   ]
 
 }
@@ -100,10 +115,10 @@ curl <%=@api_prefix%>/2/availabilities/items?user_id=371&start=2014-01-01 8:00am
 {
   "availability": <%= print_json(data.objects['availability'], :minimal=>true).indent(2) %>,
   "availabilityitems": [
-    <%= print_json(data.objects['availabilityitems'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>12,'availability_id'=>10,'day'=>1,'start_time'=>'08:00:00','end_time'=>'18:30:00'}).indent(4) %>,
-    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>13,'availability_id'=>10,'day'=>3,'start_time'=>'05:00:00','end_time'=>'14:00:00'}).indent(4) %>,
-    <%= print_json(data.objects['availabilityitems'], :minimal=>true, :include=>{'id'=>14,'availability_id'=>10,'day'=>5,'start_time'=>'011:00:00','end_time'=>'23:15:00'}).indent(4) %>
+    <%= print_json(data.objects['availabilityitem'], :minimal=>true).indent(4) %>,
+    <%= print_json(data.objects['availabilityitem'], :minimal=>true, :include=>{'id'=>12,'availability_id'=>10,'day'=>1,'start_time'=>'08:00:00','end_time'=>'18:30:00'}).indent(4) %>,
+    <%= print_json(data.objects['availabilityitem'], :minimal=>true, :include=>{'id'=>13,'availability_id'=>10,'day'=>3,'start_time'=>'05:00:00','end_time'=>'14:00:00'}).indent(4) %>,
+    <%= print_json(data.objects['availabilityitem'], :minimal=>true, :include=>{'id'=>14,'availability_id'=>10,'day'=>5,'start_time'=>'011:00:00','end_time'=>'23:15:00'}).indent(4) %>
   ]
 
 }
@@ -167,7 +182,3 @@ $result = $wiw->delete("availabilities/10");
 Key | Description
 --- | -----------
 availability id | ID of the availability to be deleted.
-
-
-
-

@@ -446,8 +446,7 @@
       }
 
   },
-  "availabilityitems": {
-
+  "availabilityitem": {
       "id": {
           "type": "integer",
           "description": "The unique ID of the availability item",
@@ -473,8 +472,9 @@
       },
       "type": {
           "type": "integer",
-          "description": "The type of availability item.",
-          "value": 1
+          "description": "The type of the availability item. (1 = Preferred, 2 = Unavailable)",
+          "value": 1,
+          "show": true
       },
       "start_time": {
           "type": "date time",
@@ -499,7 +499,6 @@
           "description": "Date the availability item was most recently updated.",
           "value": "Thu, 06 Mar 2014 22:17:14 -0600"
       }
-
   },
   "message": {
       "id": {
