@@ -1192,5 +1192,87 @@
           "description": "The date and time the punch was last updated.",
           "value": "Wed, 19 Feb 2014 10:51:33 -0600"
       }
+  },
+  "annotation": {
+    "id": {
+      "type": "integer",
+      "description": "The unique ID for this annotation.",
+      "value": 41375,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account that this annotation is tied to.",
+      "value": 77
+    },
+    "creator_id": {
+      "type": "integer",
+      "description": "ID of the user who originally created the annotation.",
+      "value": 46753
+    },
+    "all_locations": {
+      "type": "boolean",
+      "description": "Determines if this annotation applies to all locations on the account.",
+      "value": false
+    },
+    "start_date": {
+      "type": "string",
+      "description": "ISO8601 timestamp of when the annotation's range begins.",
+      "value": "2015-02-19T06:00:00+0000"
+    },
+    "end_date": {
+      "type": "string",
+      "description": "ISO8601 timestamp of when the annotation's range ends.",
+      "value": "2015-02-22T05:59:59+0000"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title for annotation (required).",
+      "value": "Closed for painting"
+    },
+    "message": {
+      "type": "string",
+      "description": "Message detailing the annotation (optional).",
+      "value": "We are closed while we have the Minneapolis Store painted."
+    },
+    "color": {
+      "type": "string",
+      "description": "Hex color code to represent this annotation (optional).",
+      "value": "93c31f"
+    },
+    "business_closed": {
+      "type": "boolean",
+      "description": "Business Closed tag",
+      "value": true
+    },
+    "no_time_off": {
+      "type": "boolean",
+      "description": "Time Off Not Allowed tag",
+      "value": true
+    },
+    "announcement": {
+      "type": "boolean",
+      "description": "Announcement tag",
+      "value": false
+    },
+    "location_id": {
+      "type": "array, integer",
+      "description": "INPUT ONLY: include location_id parameter when listing, creating, or updating annotations."
+    },
+    "locations": {
+      "type": "array",
+      "description": "OUTPUT ONLY: If all_locations = false, this field will contain an array of related location objects in the response body.",
+      "value": [{"id":7,"name":"Minneapolis Store"}]
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "The date and time the punch was created.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "The date and time the punch was last updated.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    }
   }
 }
