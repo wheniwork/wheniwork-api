@@ -24,3 +24,7 @@ You're going to need:
 You can now see the docs at <http://localhost:4567>. And as you edit `source/index.md`, your server should automatically update! Whoa! That was fast!
 
 Now that the API docs are all set up your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax).
+
+### Deploying
+
+To deploy the API docs, run 'rake build', and then 'rake publish' from the repository's root directory. You'll need to have proper permissions in order to perform this task. 
