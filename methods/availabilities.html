@@ -128,6 +128,70 @@
 </tr>
 </tbody></table>
 
+<p>Availability Items are individual components of a greater Availability object.
+Where an Availability is an object that defines a user&rsquo;s availability (in
+general), each Availability object is made up of Availability Items, each of
+which contains information about a specific day/time for which the user has
+specified non-default availability.</p>
+
+<blockquote>
+<p>Example Object</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<h3 id="availability_item-object">Availability_item Object</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong><br />The unique ID of the availability item</td>
+</tr>
+<tr>
+<td>availability_id</td>
+<td><strong>integer</strong><br />The ID of the availability object the item is associated with.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td><strong>integer</strong><br />The ID of the user that the availability item is associated with.</td>
+</tr>
+<tr>
+<td>day</td>
+<td><strong>integer</strong><br />The day of the week (0-6) for the availability item.</td>
+</tr>
+<tr>
+<td>type</td>
+<td><strong>integer</strong><br />The type of the availability item. (1 = Preferred, 2 = Unavailable)</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td><strong>date time</strong><br />The start time of the availability for the specified day.</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td><strong>date time</strong><br />The end time of the availability for the specified day.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><strong>datetime</strong><br />Date at which the availability item was created.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><strong>datetime</strong><br />Date the availability item was most recently updated.</td>
+</tr>
+</tbody></table>
+
 <h2 id="listing-availabilities">Listing Availabilities</h2>
 
 <blockquote>
@@ -198,6 +262,7 @@
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
       </span><span class="s2">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
       </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -205,6 +270,7 @@
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
       </span><span class="s2">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
       </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18:30:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -212,6 +278,7 @@
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
       </span><span class="s2">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
       </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:00:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -219,6 +286,7 @@
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
       </span><span class="s2">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
       </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"011:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:15:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -269,6 +337,7 @@
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
       </span><span class="s2">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
       </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -276,6 +345,7 @@
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
       </span><span class="s2">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
       </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18:30:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -283,6 +353,7 @@
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
       </span><span class="s2">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
       </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:00:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -290,6 +361,7 @@
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
       </span><span class="s2">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
       </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"011:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:15:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">

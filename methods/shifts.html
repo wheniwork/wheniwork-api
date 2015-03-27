@@ -304,6 +304,47 @@
 
 <p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#shifts">Shift Object</a>.</p>
 
+<h2 id="acknowledge-shifts">Acknowledge Shifts</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/shifts/acknowledge/ <span class="se">\</span>
+ --data <span class="s1">'{"ids":[3543,3344]}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/acknowledge/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"ids"</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span><span class="mi">34542</span><span class="p">,</span><span class="mi">45434</span><span class="p">)));</span>
+<span class="cp">?&gt;</span>
+</pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"acknowledged"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>This method allows you to acknowledge a group of shifts.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/acknowledge/</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td>Post body parameter of mulitiple shift identifiers. <code class="prettyprint">[4543,23453]</code></td>
+</tr>
+</tbody></table>
+
 <h2 id="publish/unpublish-shifts">Publish/Unpublish Shifts</h2>
 
 <blockquote>
