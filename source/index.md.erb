@@ -32,9 +32,13 @@ Server authentication is based on a token model. The developer will authenticate
 
 `W-Key: <%=@wiw_key%>`
 
-Authenticating will return back a token that can be used for all future requests. The token may be included in the headers, as a cookie or in the query string using the key `W-Token`, like the following.
+Authenticating will return back a login object containing a token that can be used for all future requests. The token may be included in the headers, as a cookie or in the query string using the key `W-Token`, like the following.
 
 `W-Token: <%=@wiw_token%>`
+
+Authenticating will also return back a user object, or list of user objects if your login has access to multiple accounts. Future requests to the API will also need to include the header W-UserId along with the id of the user you'd like to use, .like the following.
+
+`W-UserId: 5`
 
 ## Login
 
@@ -58,11 +62,10 @@ $result = Wheniwork::login(
 
 ```json
 {
+  "login": 
+  <%= print_json(data.objects['login']).indent(4) %>
   "users": [
-    <%= print_json(data.objects['user'], :minimal=>true, :include=>{:token=>@wiw_token}).indent(4) %>
-  ],
-  "accounts": [
-
+  <%= print_json(data.objects['user'],:minimal=>true).indent(4) %> 
   ]
 }
 ```
@@ -70,7 +73,7 @@ $result = Wheniwork::login(
 >> Be sure to replace `<%=@wiw_key%>` with your requested Developer Key.
 
 
-The first thing to do after you receive your Developer Key is to login and replace that with a token. This token will be used for all future authenticated requests.
+The first thing to do after you receive your Developer Key is to login to get your token. After receiving your token, you will make all future requests using your token in the header of the request.
 
 <aside class="notice">
 Remember — All post bodies must be JSON encoded data (no form data).

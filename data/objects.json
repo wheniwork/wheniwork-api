@@ -1274,5 +1274,37 @@
       "description": "The date and time the punch was last updated.",
       "value": "Wed, 19 Feb 2014 10:51:33 -0600"
     }
+  },
+  "login": {
+    "id": {
+      "type": "integer",
+      "description": "The unique ID for this login object",
+      "value": 5,
+      "show": true
+    },
+    "first_name": {
+      "type": "string",
+      "description": "The first name of the user",
+      "value": "Goldie",
+      "show": true
+    },
+    "last_name": {
+      "type": "string",
+      "description": "The last name of the user",
+      "value": "Wilson",
+      "show": true
+    }, 
+    "email": {
+      "type": "string",
+      "description": "The email address of the user",
+      "value": "goldiewilson@hillvalleygov.org",
+      "show": true
+    },
+    "token": {
+      "type": "string",
+      "description": "This user's unique login token",
+      "value": "ilovemyboss",
+      "show": true
+    }
   }
 }
