@@ -139,7 +139,40 @@ Key | Description
 reactivate | <strong>boolean</strong><br />Pass this to reactivate a previously deleted user.
 
 
+## Update User Alert Settings
 
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/users/alerts/ \
+ --data '<%= print_json(data.objects['user_alert_settings']) %>' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+```php
+$result = $wiw->post("users/alerts",
+                     array("timeoff" => array("sms" => "true",
+                                              "email" => "false")));
+```
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+
+`POST <%=@api_prefix%>/2/users/alerts`
+
+### Parameters
+
+The `POST` body can include fields from the Alert Settings Object:
+
+<%= print_table(data.objects['user_alert_settings'], :header => :"user alert settings") %>
+
+<%= print_table(data.objects['alert_setting'], :header => :"<a name=\"alertsetting\">alert setting</a>") %>
 
 ## Invite Users
 

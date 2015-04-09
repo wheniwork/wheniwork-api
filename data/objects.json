@@ -1293,7 +1293,7 @@
       "description": "The last name of the user",
       "value": "Wilson",
       "show": true
-    }, 
+    },
     "email": {
       "type": "string",
       "description": "The email address of the user",
@@ -1304,6 +1304,66 @@
       "type": "string",
       "description": "This user's unique login token",
       "value": "ilovemyboss",
+      "show": true
+    }
+  },
+  "user_alert_settings" : {
+    "timeoff": {
+      "type": "[Alert Setting Object](#alertsetting)",
+      "description": "Whether the user wishes to receive alerts when time off requests change status.",
+      "value": "{'sms': true, 'email': false}",
+      "show": true
+    },
+    "swaps": {
+      "type": "[Alert Setting Object](#alertsetting)",
+      "description": "Whether the user wishes to receive alerts when a swap or drop changes status.",
+      "value": "{'sms': true, 'email': false}",
+      "show": true
+    },
+    "schedule" : {
+      "type": "[Alert Setting Object](#alertsetting)",
+      "description": "Whether the user wishes to receive alerts when the schedule changes.",
+      "value": "{'sms': true, 'email': false}",
+      "show": true
+    },
+    "newemployee": {
+      "type": "[Alert Setting Object](#alertsetting)",
+      "description": "Whether the user wishes to receive alerts when a new employee is added.",
+      "value": "{'sms': true, 'email': false}",
+      "show": true
+
+    },
+    "availability": {
+      "type": "[Alert Setting Object](#alertsetting)",
+      "description": "Whether the user wishes to receive alerts for changes in availability.",
+      "value": "{'sms': true, 'email': false}",
+      "show": true
+
+    },
+    "reminders": {
+      "type": "[Alert Setting Object](#alertsetting)",
+      "description": "Whether the user wishes to receive alerts for reminders prior to shifts.",
+      "value": "{'sms': true, 'email': false}",
+      "show": true
+    },
+    "reminder_time": {
+      "type": "float",
+      "description": "Time before an event that a user should be sent notifications, in hours.",
+      "value": "2.0",
+      "show": true
+    }
+  },
+  "alert_setting": {
+    "sms" : {
+      "type": "boolean",
+      "description": "Whether or not SMS messages should be sent for events of this alert type.",
+      "value": "false",
+      "show": true
+    },
+    "email" : {
+      "type": "boolean",
+      "description": "Whether or not email messages should be sent for events of this alert type.",
+      "value": "false",
       "show": true
     }
   }
