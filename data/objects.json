@@ -789,13 +789,13 @@
        },
        "status": {
            "type": "integer",
-           "description": "Status of the request",
+           "description": "The current status of the request (0 = Pending, 1 = Canceled, 2 = Accepted, 3 = Expired).",
            "value": 0,
            "show": true
        },
        "type": {
            "type": "integer",
-           "description": "Type of request.",
+           "description": "The type of the request (0 = Unpaid Time Off, 1 = Paid Time Off, 2 = Sick Leave, 3 = Holiday).",
            "value": 0,
            "show": true
        },
