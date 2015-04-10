@@ -138,6 +138,44 @@ Key | Description
 --- | -----------
 reactivate | <strong>boolean</strong><br />Pass this to reactivate a previously deleted user.
 
+## Update User Profile Settings
+
+> Example Request
+
+```shell
+
+curl -X POST <%=@api_prefix%>/2/users/profile/ \
+ --data '<%= print_json(data.objects['user_profile_settings']) %>' \
+ -H "W-Token: <%=@wiw_token%>"
+
+```
+
+```php
+$result = $wiw->post("users/alerts", <%= print_json_as_php_array(data.objects['user_profile_settings'],
+                                       :include => {'first_name'=>'Jimmy',
+                                                    'last_name'=>'Buffett',
+                                                    'email'=>'parrothead1@margaritaville.com',
+                                                    'phone_number'=>'+15552128716'}) %>);
+
+```
+
+> Example Response
+
+```json
+
+<%= print_json(data.objects['user'], :include => {'first_name'=>'Jimmy', 'last_name'=>'Buffett', 'email'=>'parrothead1@margaritaville.com', 'phone_number'=>'+15552128716'}) %>
+
+```
+
+### HTTP Request
+
+`POST <%=@api_prefix%>/2/users/profile`
+
+### Parameters
+
+The POST body can include fields from the User Profile Object:
+
+<%= print_table(data.objects['user_profile_settings'], :header => :"user profile") %>
 
 ## Update User Alert Settings
 
