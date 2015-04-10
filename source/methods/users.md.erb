@@ -5,7 +5,7 @@
 
 ```
 
-Users are the employees, supervisors, and managers that have access to your WhenIWork
+Users are the employees, supervisors, and managers that have access to your WhenIWork instance.
 
 
 <%= print_table(data.objects['user'], :header => :user) %>
@@ -93,7 +93,7 @@ curl <%=@api_prefix%>/2/users --data '{"first_name":"FirstName", "last_name": "L
 $wiw = new Wheniwork("<%=@wiw_token%>");
 $result = $wiw->post("users/", array(
             "first_name"=>"Goldie",
-            "last_name"=>"Wilson", 
+            "last_name"=>"Wilson",
             "email"=>"goldiewilson@hillvalleycalifornia.gov"
         ));
 ?>
@@ -139,7 +139,40 @@ Key | Description
 reactivate | <strong>boolean</strong><br />Pass this to reactivate a previously deleted user.
 
 
+## Update User Alert Settings
 
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/users/alerts/ \
+ --data '<%= print_json(data.objects['user_alert_settings']) %>' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+```php
+$result = $wiw->post("users/alerts",
+                     array("timeoff" => array("sms" => "true",
+                                              "email" => "false")));
+```
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
+
+### HTTP Request
+
+`POST <%=@api_prefix%>/2/users/alerts`
+
+### Parameters
+
+The `POST` body can include fields from the Alert Settings Object:
+
+<%= print_table(data.objects['user_alert_settings'], :header => :"user alert settings") %>
+
+<%= print_table(data.objects['alert_setting'], :header => :"<a name=\"alertsetting\">alert setting</a>") %>
 
 ## Invite Users
 
