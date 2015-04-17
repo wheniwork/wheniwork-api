@@ -9,7 +9,7 @@ class ApiObjects < Middleman::Extension
     app.extend ApiAppMethods
   end
   module ApiAppMethods
-    
+
   end
   helpers do
     def print_table(object, options={})
@@ -25,6 +25,18 @@ class ApiObjects < Middleman::Extension
         html << "#{key} | <strong>#{obj['type']}</strong><br />#{obj['description']}\n"
       end
       return html
+    end
+    def print_json_as_php_array(object, options={})
+      formatted = {}
+      inc = (options[:include]||{}).inject({}) { |h,(k,v)| h[k] = {'show' => true, 'value' => v}; h }
+      object.merge(inc).each do |key,obj|
+        if !options[:minimal] || obj['show']
+          formatted.merge!(key=>obj['value'])
+        end
+      end
+
+      json_text = JSON.generate(formatted)
+      return json_text.gsub(/\{(.*)\}/, 'array(\1)').gsub(/\:/, ' => ')
     end
     def print_json(object, options={})
       formatted = {}
@@ -44,7 +56,7 @@ class String
   def indent (num = 2)
     s = " " * num
     lineone = lines.first
-    
+
     i = lines.to_a[1..-1].join.gsub(/^/, s)
 
     "#{lineone}#{i}"

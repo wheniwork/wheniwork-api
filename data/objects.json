@@ -1366,5 +1366,31 @@
       "value": "false",
       "show": true
     }
+  },
+  "user_profile_settings": {
+    "first_name": {
+      "type": "string",
+      "description": "User's first name",
+      "value": "Jimmy",
+      "show": true
+    },
+    "last_name": {
+      "type": "string",
+      "description": "User's last name (surname)",
+      "value": "Buffett",
+      "show": true
+    },
+    "email": {
+      "type": "string",
+      "description": "User's email address",
+      "value": "parrothead1@margaritaville.com",
+      "show": true
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "User's phone number for SMS messages",
+      "value": "555-212-8716",
+      "show": true
+    }
   }
 }
