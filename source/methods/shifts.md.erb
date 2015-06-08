@@ -56,6 +56,8 @@ user_id | <strong>integer, string array</strong><br />Only show shifts for a use
 location_id | <strong>integer, string array</strong><br />Only show shifts for a location, or multiple.
 site_id | <strong>integer, string array</strong><br />Only show shifts for a site, or multiple.
 position_id | <strong>integer, string array</strong><br />Only show shifts for a position, or multiple.
+include_allopen | <strong>boolean</strong><br />Include Open Shifts in the results.
+include_onlyopen | <strong>boolean</strong><br />Only return Open Shifts in the results
 
 
 
@@ -316,9 +318,6 @@ Key | Description
 --- | -----------
 id | ID of the shift requested.
 ids | Optional query parameter that can be used to delete multiple shifts. `?ids=5,2,34`
-
-
-
 
 
 

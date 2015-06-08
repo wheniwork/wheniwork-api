@@ -121,6 +121,11 @@
       "description": "Notes about the shift. Max length 350.",
       "value": "We need more cow bell."
     },
+    "instances": {
+      "type": "integer",
+      "description": "Number of instances. Will be 1 if it is a shift assigned to an emplopyee. The value can be any integer greater than 0 if it is an Open Shift.",
+      "value": 1
+    },
     "published": {
       "type": "boolean",
       "description": "Published shifts show to employees.",
