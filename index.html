@@ -88,7 +88,7 @@
 <p>We currently offer the following API wrappers:</p>
 
 <ul>
-<li>PHP: <a href="https://github.com/dolfelt/wheniwork-api-php">wheniwork-api-php</a></li>
+<li>PHP: <a target="_blank" href="https://github.com/dolfelt/wheniwork-api-php">wheniwork-api-php</a></li>
 </ul>
 
 <h1 id="authentication">Authentication</h1>
@@ -236,6 +236,7 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
   </span><span class="s2">"break_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
   </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc0000"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We need more cow bell."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"instances"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"published_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"notified_at"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="p">,</span><span class="w">
@@ -292,6 +293,10 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
 <tr>
 <td>notes</td>
 <td><strong>string</strong><br />Notes about the shift. Max length 350.</td>
+</tr>
+<tr>
+<td>instances</td>
+<td><strong>integer</strong><br />Number of instances. Will be 1 if it is a shift assigned to an emplopyee. The value can be any integer greater than 0 if it is an Open Shift.</td>
 </tr>
 <tr>
 <td>published</td>
@@ -387,6 +392,14 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
 <tr>
 <td>position_id</td>
 <td><strong>integer, string array</strong><br />Only show shifts for a position, or multiple.</td>
+</tr>
+<tr>
+<td>include_allopen</td>
+<td><strong>boolean</strong><br />Include Open Shifts in the results.</td>
+</tr>
+<tr>
+<td>include_onlyopen</td>
+<td><strong>boolean</strong><br />Only return Open Shifts in the results</td>
 </tr>
 </tbody></table>
 
@@ -2519,7 +2532,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </span></pre>
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p>`POST https://api.wheniwork.com/2/requests/&lsquo;</p>
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/requests/&#39;</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3466,7 +3479,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET https://api.wheniwork.com/2/payrolls/?start={start_date}&amp;end={end_date}</p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/payrolls/?start={start_date}&amp;end={end_date}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3572,7 +3585,8 @@ Payrolls can not be manually created.
 
 <h2 id="delete-existing-payroll">Delete Existing Payroll</h2>
 
-<p><aside class='alert'>
+<p>&nbsp;
+<aside class='alert'>
 Payrolls can not be deleted.
 </aside></p>
 
@@ -3752,7 +3766,7 @@ Payrolls can not be deleted.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}</p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3902,7 +3916,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}</p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}</code></p>
 
 <h2 id="create-/-update-times">Create / Update Times</h2>
 
