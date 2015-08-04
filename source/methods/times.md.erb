@@ -21,9 +21,8 @@ curl <%=@api_prefix%>/2/times \
 ```json
 {
   "times": [
-    <%= print_json(data.objects['times'], :minimal=>true).indent(4) %>,
-
-   ],
+    <%= print_json(data.objects['times'], :minimal=>true).indent(4) %>
+  ],
   "punches": [
     <%= print_json(data.objects['punch'], :minimal=>true).indent(4) %>,
     <%= print_json(data.objects['punch'], :minimal=>true, :include=>{'id'=>150135,'type'=>2 }).indent(4) %>
@@ -37,17 +36,18 @@ curl <%=@api_prefix%>/2/times \
 }
 ```
 
-This method allows you to list times or find ones within a specified date range
+This method allows you to list times or find ones within a specified date range.
 
 ### HTTP Request
-`GET <%=@api_prefix%>/2/times/?start={start_date}&end={end_date}`
+`GET <%=@api_prefix%>/2/times/?start={start_date}&end={end_date}&user_id={user_id}`
 
 ### Parameters
 
 Key | Description
 --- | -----------
-start date| Start date of search range (YYYY-MM-DD)
-end date| End date of search range (YYYY-MM-DD)
+start_date | Start date of search range (YYYY-MM-DD)
+end_date | End date of search range (YYYY-MM-DD)
+user_id | The ID of the user to get times for. To get times for multiple users, you can enter multiple ids separated by commas.
 
 
 
@@ -95,41 +95,40 @@ curl <%=@api_prefix%>/2/times/user/4634 \
 
 ```json
 {
-    "user": {
-        "id": 4634,
-        "email": "goldiewilson@hillvalleycalifornia.gov",
-        "first_name": "Goldie",
-        "last_name": "Wilson",
-        "positions": [
-            32,
-            5
-        ],
-        "locations": [
-            136
-        ],
-        "punch_state": {
-            "timestamp": "Wed, 02 Apr 2014 16:21:36 -0500",
-            "can_punch_in": false,
-            "can_punch_out": true,
-            "open_time_id": 158049,
-            "near_location_id": null,
-            "near_site_id": null,
-            "punch_in_shift_id": 1000
-        }
-    },
-    "times": [
-      <%= print_json(data.objects['times'], :minimal=>true).indent(4) %>
-    ],
-    "shifts": [
-      <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>
+  "user": {
+    "id": 4634,
+    "email": "goldiewilson@hillvalleycalifornia.gov",
+    "first_name": "Goldie",
+    "last_name": "Wilson",
+    "positions": [
+      32,
+      5
     ],
     "locations": [
-      <%= print_json(data.objects['location'], :minimal=>true).indent(4) %>
+      136
     ],
-    "positions": [
-      <%= print_json(data.objects['position'], :minimal=>true).indent(4) %>
-    ]
-
+    "punch_state": {
+      "timestamp": "Wed, 02 Apr 2014 16:21:36 -0500",
+      "can_punch_in": false,
+      "can_punch_out": true,
+      "open_time_id": 158049,
+      "near_location_id": null,
+      "near_site_id": null,
+      "punch_in_shift_id": 1000
+    }
+  },
+  "times": [
+    <%= print_json(data.objects['times'], :minimal=>true).indent(4) %>
+  ],
+  "shifts": [
+    <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>
+  ],
+  "locations": [
+    <%= print_json(data.objects['location'], :minimal=>true).indent(4) %>
+  ],
+  "positions": [
+    <%= print_json(data.objects['position'], :minimal=>true).indent(4) %>
+  ]
 }
 ```
 
@@ -138,7 +137,18 @@ the user's punch state.
 
 
 ### HTTP Request
-`GET <%=@api_prefix%>/2/times/?start={start_date}&end={end_date}`
+`GET <%=@api_prefix%>/2/times/user/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+id | The ID of the user to get times for.
+
+<aside class='notice'>
+This endpoint does not support start and end times for your query. To filter a user's times
+by a start and end date, use the `/times` endpoint instead.
+</aside>
 
 
 
