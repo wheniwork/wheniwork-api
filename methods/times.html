@@ -186,9 +186,8 @@
       </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-
-   </span><span class="p">],</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="s2">"punches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150134</span><span class="p">,</span><span class="w">
@@ -225,11 +224,11 @@
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>This method allows you to list times or find ones within a specified date range</p>
+<p>This method allows you to list times or find ones within a specified date range.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}&amp;user_id={user_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -240,12 +239,16 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>start date</td>
+<td>start_date</td>
 <td>Start date of search range (YYYY-MM-DD)</td>
 </tr>
 <tr>
-<td>end date</td>
+<td>end_date</td>
 <td>End date of search range (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>The ID of the user to get times for. To get times for multiple users, you can enter multiple ids separated by commas.</td>
 </tr>
 </tbody></table>
 
@@ -309,30 +312,30 @@
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight json"><span class="p">{</span><span class="w">
-    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="mi">32</span><span class="p">,</span><span class="w">
-            </span><span class="mi">5</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="mi">136</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"punch_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 02 Apr 2014 16:21:36 -0500"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"can_punch_in"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"open_time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">158049</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"near_location_id"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"near_site_id"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"punch_in_shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">32</span><span class="p">,</span><span class="w">
+      </span><span class="mi">5</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">136</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"punch_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 02 Apr 2014 16:21:36 -0500"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"can_punch_in"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"open_time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">158049</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"near_location_id"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"near_site_id"</span><span class="p">:</span><span class="w"> </span><span class="err">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"punch_in_shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
       </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
       </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
@@ -345,16 +348,16 @@
       </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
       </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
@@ -363,15 +366,14 @@
         </span><span class="s2">"-118.4332328"</span><span class="w">
       </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stocker"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1174a6"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
 <p>This method allows you to get times for a specific user. This request also gives you
@@ -379,7 +381,26 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/user/{id}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the user to get times for.</td>
+</tr>
+</tbody></table>
+
+<p><aside class='notice'>
+This endpoint does not support start and end times for your query. To filter a user&rsquo;s times
+by a start and end date, use the <code class="prettyprint">/times</code> endpoint instead.
+</aside></p>
 
 <h2 id="create-/-update-times">Create / Update Times</h2>
 
