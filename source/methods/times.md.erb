@@ -39,14 +39,14 @@ curl <%=@api_prefix%>/2/times \
 This method allows you to list times or find ones within a specified date range.
 
 ### HTTP Request
-`GET <%=@api_prefix%>/2/times/?start={start_date}&end={end_date}&user_id={user_id}`
+`GET <%=@api_prefix%>/2/times/`
 
 ### Parameters
 
 Key | Description
 --- | -----------
-start_date | Start date of search range (YYYY-MM-DD)
-end_date | End date of search range (YYYY-MM-DD)
+start | Start date of search range (YYYY-MM-DD)
+end | End date of search range (YYYY-MM-DD)
 user_id | The ID of the user to get times for. To get times for multiple users, you can enter multiple ids separated by commas.
 
 
@@ -146,8 +146,7 @@ Key | Description
 id | The ID of the user to get times for.
 
 <aside class='notice'>
-This endpoint does not support start and end times for your query. To filter a user's times
-by a start and end date, use the `/times` endpoint instead.
+This endpoint does not support start and end times for your query. To filter a user's times by a start and end date, use the [Listing Times](#listing-times) endpoint instead.
 </aside>
 
 
@@ -227,10 +226,10 @@ $result = $wiw->post("times/clockin/", array("id":"14","position_id":"102","coor
 
 Key | Example Value | Description
 --- | ------------- | -------------
-id | 14 | The ID of the user you are creating the clock-in for
-position_id | 102 | The ID of the position the user is clocking in as. This is an optional parameter
-coordinates | [44.937422,-93.084009] | The GPS coordinates of the clock-in. This is an optional parameter
-accuracy | 20 | The accuracy in meters of the coordinates being sent
+id | 14 | The ID of the user you are creating the clock-in for.
+position_id | 102 | The ID of the position the user is clocking in as. This is an optional parameter.
+coordinates | [44.937422,-93.084009] | The GPS coordinates of the clock-in. This is an optional parameter.
+accuracy | 20 | The accuracy in meters of the coordinates being sent.
 
 
 ## Clock out
@@ -297,16 +296,16 @@ $result = $wiw->post("times/clockout/", array("id":"14","position_id":"102","coo
 
 Key | Example Value | Description
 --- | ------------- | -------------
-id | 14 | The ID of the user you are creating the clock-out for
-position_id | 102 | The ID of the position the user is clocking out as. This is an optional parameter
-coordinates | [44.937422,-93.084009] | The GPS coordinates of the clock-out. This is an optional parameter
-accuracy | 20 | The accuracy out meters of the coordinates being sent
+id | 14 | The ID of the user you are creating the clock-out for.
+position_id | 102 | The ID of the position the user is clocking out as. This is an optional parameter.
+coordinates | [44.937422,-93.084009] | The GPS coordinates of the clock-out. This is an optional parameter.
+accuracy | 20 | The accuracy out meters of the coordinates being sent.
 
 
 
 
 
-## Delete Existing Payroll
+## Delete Existing Time
 
 > Example Request
 

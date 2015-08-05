@@ -5,8 +5,6 @@
 
 ```
 
-Swaps
-
 <%= print_table(data.objects['swap'], :header => :swap) %>
 
 
@@ -159,11 +157,11 @@ users | The IDs of users available to take shifts.
 
 
 ### Update HTTP Requests
-`PUT <%=@api_prefix%>/2/swaps/{swap id}`
+`PUT <%=@api_prefix%>/2/swaps/{swap_id}`
 
 ### Parameters
 
-The `PUT` body can include fields from the [Swap Object](#swap).
+The `POST` or `PUT` body can include fields from the [Swap Object](#swap).
 
 
 ## Delete Existing Swap
@@ -196,7 +194,7 @@ $result = $wiw->delete("swap/233");
 
 Key | Description
 --- | -----------
-swap id | ID of the swap to be deleted.
+swap_id | ID of the swap to be deleted.
 
 
 

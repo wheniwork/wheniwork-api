@@ -5,8 +5,6 @@
 
 ```
 
-Requests
-
 <%= print_table(data.objects['request'], :header => :request) %>
 
 
@@ -49,9 +47,8 @@ $result = $wiw->get("requests", array(
 }
 ```
 
-List requests for given parameters
 ### HTTP Request
-`GET <%=@api_prefix%>/2/requests?start=2012-03-01&end=2012-04-30&max_id=58`
+`GET <%=@api_prefix%>/2/requests`
 
 ### Parameters
 
@@ -101,7 +98,7 @@ $result = $wiw->get("requests/65");
 
 Key | Description
 --- | -----------
-request id | ID of the request.
+request_id | ID of the request.
 
 
 ## Create/Update Request
@@ -152,7 +149,7 @@ $result = $wiw->create("requests", array(
 }
 ```
 ### Create HTTP Request
-`POST <%=@api_prefix%>/2/requests/'`
+`POST <%=@api_prefix%>/2/requests`
 
 ### Parameters
 
@@ -167,11 +164,11 @@ status | The status for the request to be created.
 
 
 ### Update HTTP Requests
-`PUT <%=@api_prefix%>/2/requests/{request id}`
+`PUT <%=@api_prefix%>/2/requests/{request_id}`
 
 ### Parameters
 
-The `PUT` body can include fields from the [Request Object](#requests).
+The `POST` or `PUT` body can include fields from the [Request Object](#requests).
 
 
 ## Delete Existing Request

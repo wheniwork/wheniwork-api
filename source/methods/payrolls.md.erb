@@ -28,17 +28,17 @@ curl <%=@api_prefix%>/2/payrolls \
 }
 ```
 
-This method allows you to list payroll periods or find ones within a specified date range
+This method allows you to list payroll periods or find ones within a specified date range.
 
 ### HTTP Request
-`GET <%=@api_prefix%>/2/payrolls/?start={start_date}&end={end_date}`
+`GET <%=@api_prefix%>/2/payrolls/`
 
 ### Parameters
 
 Key | Description
 --- | -----------
-start date| Start date of search range (YYYY-MM-DD)
-end date| End date of search range (YYYY-MM-DD)
+start | <strong>datetime</strong><br />Start date of search range (YYYY-MM-DD)
+end | <strong>datetime</strong><br />End date of search range (YYYY-MM-DD)
 
 
 

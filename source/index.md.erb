@@ -12,7 +12,7 @@ toc_footers:
 
 # Introduction
 
-The When I Work API is thorough, flexible, and restful. It's methods are logically grouped, and follow standard conventions. Make a selection from the left to jump to the method group you would like to know more about.
+The When I Work API is thorough, flexible, and restful. Its methods are logically grouped and follow standard conventions. Make a selection from the left to jump to the method group you would like to know more about.
 
 Feel free to [contact us](http://support.wheniwork.com) if something seems out of place.
 
@@ -32,11 +32,11 @@ Server authentication is based on a token model. The developer will authenticate
 
 `W-Key: <%=@wiw_key%>`
 
-Authenticating will return back a login object containing a token that can be used for all future requests. The token may be included in the headers, as a cookie or in the query string using the key `W-Token`, like the following.
+Authenticating will return back a login object containing a token that can be used for all future requests. The token may be included in the headers, as a cookie, or in the query string using the key `W-Token`, like the following.
 
 `W-Token: <%=@wiw_token%>`
 
-Authenticating will also return back a user object, or list of user objects if your login has access to multiple accounts. Future requests to the API will also need to include the header W-UserId along with the id of the user you'd like to use, like the following.
+Authenticating will also return back a user object, or a list of user objects if your login has access to multiple accounts. Future requests to the API will also need to include the header `W-UserId` along with the id of the user you'd like to use, like the following.
 
 `W-UserId: 5`
 
@@ -84,8 +84,8 @@ Remember — All post bodies must be JSON encoded data (no form data).
 Key | Description
 --------- | -----------
 username | <strong>email</strong><br />The email of the user logging in.
-password | <strong>string</strong><br />Password of the user logging in.
-key | <strong>string</strong><br />Developer key. Can be used instead of `W-Key` in the headers. Do not need both.
+password | <strong>string</strong><br />The password of the user logging in.
+key | <strong>string</strong><br />Your developer key. This can be used instead of `W-Key` in the headers. You do not need both.
 
 Once you have the token, you must include it in all authenticated requests. The `W-Key` does not need to be included.
 
@@ -117,12 +117,11 @@ $result = $wiw->post("users/autologin");
 }
 ```
 
-If you find any need to send an authenticated user into the web app without requiring them to login, you can use the
-autologin hash query parameter to accomplish this: `al`.
+If you find any need to send an authenticated user into the web app without requiring them to log in, you can generate a unique hash that will log them into the app automatically.
 
-An example would be sending the user to the following URL.
+You can then use the `al` (autologin) query parameter to accomplish this. An example would be sending the user to the following URL:
 
-`http://app.wheniwork.com/scheduler?al=the_auto_login_hash`
+`http://app.wheniwork.com/scheduler?al={the_auto_login_hash}`
 
 
 # Shifts
@@ -214,5 +213,5 @@ Error Code | Meaning
 418 | An undefined error occurred
 429 | Too Many Requests -- The server is not able to address the number of queries
 500 | Internal Server Error -- An internal server error occurred
-503 | Service Unavailable -- The service temporarily offline for maintenance
+503 | Service Unavailable -- The service is temporarily offline for maintenance
 

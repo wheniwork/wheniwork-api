@@ -5,7 +5,7 @@
 
 ```
 
-Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites and Users all link through Shifts.
+Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites, and Users, all link through Shifts.
 
 
 <%= print_table(data.objects['shift'], :header => :shift) %>
@@ -56,8 +56,8 @@ user_id | <strong>integer, string array</strong><br />Only show shifts for a use
 location_id | <strong>integer, string array</strong><br />Only show shifts for a location, or multiple.
 site_id | <strong>integer, string array</strong><br />Only show shifts for a site, or multiple.
 position_id | <strong>integer, string array</strong><br />Only show shifts for a position, or multiple.
-include_allopen | <strong>boolean</strong><br />Include Open Shifts in the results.
-include_onlyopen | <strong>boolean</strong><br />Only return Open Shifts in the results
+include_allopen | <strong>boolean</strong><br />Include OpenShifts in the results.
+include_onlyopen | <strong>boolean</strong><br />Only return OpenShifts in the results
 
 
 
@@ -274,7 +274,7 @@ $result = $wiw->post("shifts/notify/47433");
 }
 ```
 
-You can also send a notification about just one shift using the following
+You can also send a notification about just one shift using the following:
 
 ### HTTP Request
 `POST <%=@api_prefix%>/2/shifts/notify/{id}`

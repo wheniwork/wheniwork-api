@@ -44,13 +44,13 @@
     },
     "plan_expires": {
       "type": "datetime",
-      "description": "Date and time when the plan for the current account expires",
+      "description": "Date and time when this account's plan expires",
       "value": "Sun, 14 Feb 2016 00:00:00 -0600",
       "show": "true"
     },
     "timezone_id": {
       "type": "integer",
-      "description": "Identifier for time zone specified at: http://php.net/manual/en/class.datetimezone.php",
+      "description": "Identifier for time zone, as specified in the [PHP docs](http://php.net/manual/en/class.datetimezone.php).",
       "value": "11",
       "show": "true"
     },
@@ -70,7 +70,7 @@
   "shift": {
     "id": {
       "type": "integer",
-      "description": "Unique identifier for the shift",
+      "description": "Unique identifier for the shift.",
       "value": 10000,
       "show": true
     },
@@ -123,7 +123,7 @@
     },
     "instances": {
       "type": "integer",
-      "description": "Number of instances. Will be 1 if it is a shift assigned to an emplopyee. The value can be any integer greater than 0 if it is an Open Shift.",
+      "description": "Number of instances. Will be 1 if it is a shift assigned to an employee. The value can be any integer greater than 0 if it is an OpenShift.",
       "value": 1
     },
     "published": {
@@ -431,7 +431,7 @@
       },
       "ongoing": {
           "type": "boolean",
-          "description": "Is the availability the user's ongoing availability.",
+          "description": "Whether the availability is the user's ongoing availability.",
           "value": false
       },
       "repeat": {
@@ -911,13 +911,13 @@
       },
       "start_date": {
           "type": "datetime",
-          "description": "The start date of the payroll period,",
+          "description": "The start date of the payroll period.",
           "value": "Wed, 26 Feb 2014 00:00:00 -0600",
           "show": true
       },
       "end_date": {
           "type": "datetime",
-          "description": "The start date of the payroll period,",
+          "description": "The end date of the payroll period.",
           "value":  "Tue, 11 Mar 2014 23:59:59 -0500",
           "show": true
       },
@@ -929,7 +929,7 @@
       },
       "is_closed": {
           "type": "boolean",
-          "description": "True if the payroll period is closed",
+          "description": "Whether the payroll period is closed",
           "value": true
       },
       "is_finalized": {
@@ -1315,13 +1315,13 @@
   "user_alert_settings" : {
     "timeoff": {
       "type": "[Alert Setting Object](#alertsetting)",
-      "description": "Whether the user wishes to receive alerts when time off requests change status.",
+      "description": "Whether the user wishes to receive alerts when the status of a time off request changes.",
       "value": "{'sms': true, 'email': false}",
       "show": true
     },
     "swaps": {
       "type": "[Alert Setting Object](#alertsetting)",
-      "description": "Whether the user wishes to receive alerts when a swap or drop changes status.",
+      "description": "Whether the user wishes to receive alerts when the status of a swap or drop request changes.",
       "value": "{'sms': true, 'email': false}",
       "show": true
     },
@@ -1353,7 +1353,7 @@
     },
     "reminder_time": {
       "type": "float",
-      "description": "Time before an event that a user should be sent notifications, in hours.",
+      "description": "Time before an event when a user should be sent notifications, in hours.",
       "value": "2.0",
       "show": true
     }

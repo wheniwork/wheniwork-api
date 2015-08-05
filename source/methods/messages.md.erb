@@ -5,8 +5,6 @@
 
 ```
 
-Messages
-
 <%= print_table(data.objects['message'], :header => :message) %>
 
 
@@ -34,13 +32,15 @@ curl <%=@api_prefix%>/2/messages?request_id=123 \
 ```
 
 ### HTTP Request
-`GET <%=@api_prefix%>/2/messages?swap_id={swap_id}&request_id={request_id}&conversation_id={conversation_id}`
+`GET <%=@api_prefix%>/2/messages`
 
 ### Parameters
 
 Key | Description
 --- | -----------
-swap| ID of the shift block being requested.
+swap_id | ID of the swap to get messages for.
+request_id | ID of the request to get messages for.
+conversation_id | ID of the conversation to get messages for.
 
 Only one of the parameters is required, but they can also be combined.
 
@@ -69,7 +69,7 @@ curl <%=@api_prefix%>/2/messages/61 \
 
 Key | Description
 --- | -----------
-message id | ID of the shift block being requested.
+message_id | ID of the message being requested.
 
 
 ## Create/Update Message
@@ -82,7 +82,7 @@ message id | ID of the shift block being requested.
 
 ### Parameters
 
-The `POST` and/or `PUT` body can include fields from the [Message Object](#messages).
+The `POST` or `PUT` body can include fields from the [Message Object](#messages).
 
 
 ## Delete Existing Message

@@ -5,7 +5,7 @@
 
 ```
 
-Users are the employees, supervisors, and managers that have access to your WhenIWork instance.
+Users are the employees, supervisors, and managers that have access to your business on When I Work.
 
 
 <%= print_table(data.objects['user'], :header => :user) %>
@@ -206,7 +206,7 @@ $result = $wiw->post("users/alerts",
 
 ### Parameters
 
-The `POST` body can include fields from the Alert Settings Object:
+The `POST` body can include fields from the Alert Settings Object.
 
 <%= print_table(data.objects['user_alert_settings'], :header => :"user alert settings") %>
 
@@ -252,7 +252,7 @@ ids | <strong>array</strong><br />List of IDs of users to invite.
 send_all | <strong>boolean</strong><br />Invite all users without a login. `ids` parameter is ignored.
 message | <strong>string</strong><br />An optional message to include in the email invite.
 
-You can also invite a single user with the following.
+You can also invite a single user with the following:
 
 ### HTTP Request
 `POST <%=@api_prefix%>/2/users/invite/{id}`
@@ -290,7 +290,7 @@ $result = $wiw->delete("users/4364");
 }
 ```
 
-Users can be deleted by managers, or by supervisors. If a supervisor, the user must be able to manage all locations the user is attached to.
+Users can be deleted by managers, or by supervisors. If a supervisor is deleting the user, the supervisor must be able to manage all locations the user is attached to.
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/users/{id}`
@@ -299,4 +299,4 @@ Users can be deleted by managers, or by supervisors. If a supervisor, the user m
 
 Key | Description
 --- | -----------
-id | ID of the shift requested.
+id | ID of the user to delete.
