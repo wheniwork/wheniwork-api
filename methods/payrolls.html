@@ -94,11 +94,11 @@
 </tr>
 <tr>
 <td>start_date</td>
-<td><strong>datetime</strong><br />The start date of the payroll period,</td>
+<td><strong>datetime</strong><br />The start date of the payroll period.</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td><strong>datetime</strong><br />The start date of the payroll period,</td>
+<td><strong>datetime</strong><br />The end date of the payroll period.</td>
 </tr>
 <tr>
 <td>notes</td>
@@ -106,7 +106,7 @@
 </tr>
 <tr>
 <td>is_closed</td>
-<td><strong>boolean</strong><br />True if the payroll period is closed</td>
+<td><strong>boolean</strong><br />Whether the payroll period is closed</td>
 </tr>
 <tr>
 <td>is_finalized</td>
@@ -163,11 +163,11 @@
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>This method allows you to list payroll periods or find ones within a specified date range</p>
+<p>This method allows you to list payroll periods or find ones within a specified date range.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/payrolls/?start={start_date}&amp;end={end_date}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/payrolls/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -178,12 +178,12 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>start date</td>
-<td>Start date of search range (YYYY-MM-DD)</td>
+<td>start</td>
+<td><strong>datetime</strong><br />Start date of search range (YYYY-MM-DD)</td>
 </tr>
 <tr>
-<td>end date</td>
-<td>End date of search range (YYYY-MM-DD)</td>
+<td>end</td>
+<td><strong>datetime</strong><br />End date of search range (YYYY-MM-DD)</td>
 </tr>
 </tbody></table>
 

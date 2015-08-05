@@ -228,7 +228,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}&amp;user_id={user_id}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -239,11 +239,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>start_date</td>
+<td>start</td>
 <td>Start date of search range (YYYY-MM-DD)</td>
 </tr>
 <tr>
-<td>end_date</td>
+<td>end</td>
 <td>End date of search range (YYYY-MM-DD)</td>
 </tr>
 <tr>
@@ -398,8 +398,7 @@ the user&rsquo;s punch state.</p>
 </tbody></table>
 
 <p><aside class='notice'>
-This endpoint does not support start and end times for your query. To filter a user&rsquo;s times
-by a start and end date, use the <code class="prettyprint">/times</code> endpoint instead.
+This endpoint does not support start and end times for your query. To filter a user&rsquo;s times by a start and end date, use the <a href="#listing-times">Listing Times</a> endpoint instead.
 </aside></p>
 
 <h2 id="create-/-update-times">Create / Update Times</h2>
@@ -498,22 +497,22 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
 <tr>
 <td>id</td>
 <td>14</td>
-<td>The ID of the user you are creating the clock-in for</td>
+<td>The ID of the user you are creating the clock-in for.</td>
 </tr>
 <tr>
 <td>position_id</td>
 <td>102</td>
-<td>The ID of the position the user is clocking in as. This is an optional parameter</td>
+<td>The ID of the position the user is clocking in as. This is an optional parameter.</td>
 </tr>
 <tr>
 <td>coordinates</td>
 <td>[44.937422,-93.084009]</td>
-<td>The GPS coordinates of the clock-in. This is an optional parameter</td>
+<td>The GPS coordinates of the clock-in. This is an optional parameter.</td>
 </tr>
 <tr>
 <td>accuracy</td>
 <td>20</td>
-<td>The accuracy in meters of the coordinates being sent</td>
+<td>The accuracy in meters of the coordinates being sent.</td>
 </tr>
 </tbody></table>
 
@@ -603,26 +602,26 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
 <tr>
 <td>id</td>
 <td>14</td>
-<td>The ID of the user you are creating the clock-out for</td>
+<td>The ID of the user you are creating the clock-out for.</td>
 </tr>
 <tr>
 <td>position_id</td>
 <td>102</td>
-<td>The ID of the position the user is clocking out as. This is an optional parameter</td>
+<td>The ID of the position the user is clocking out as. This is an optional parameter.</td>
 </tr>
 <tr>
 <td>coordinates</td>
 <td>[44.937422,-93.084009]</td>
-<td>The GPS coordinates of the clock-out. This is an optional parameter</td>
+<td>The GPS coordinates of the clock-out. This is an optional parameter.</td>
 </tr>
 <tr>
 <td>accuracy</td>
 <td>20</td>
-<td>The accuracy out meters of the coordinates being sent</td>
+<td>The accuracy out meters of the coordinates being sent.</td>
 </tr>
 </tbody></table>
 
-<h2 id="delete-existing-payroll">Delete Existing Payroll</h2>
+<h2 id="delete-existing-time">Delete Existing Time</h2>
 
 <blockquote>
 <p>Example Request</p>

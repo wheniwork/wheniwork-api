@@ -71,8 +71,6 @@
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Messages</p>
-
 <h3 id="message-object">Message Object</h3>
 
 <table><thead>
@@ -165,7 +163,7 @@
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/messages?swap_id={swap_id}&amp;request_id={request_id}&amp;conversation_id={conversation_id}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/messages</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -176,8 +174,16 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>swap</td>
-<td>ID of the shift block being requested.</td>
+<td>swap_id</td>
+<td>ID of the swap to get messages for.</td>
+</tr>
+<tr>
+<td>request_id</td>
+<td>ID of the request to get messages for.</td>
+</tr>
+<tr>
+<td>conversation_id</td>
+<td>ID of the conversation to get messages for.</td>
 </tr>
 </tbody></table>
 
@@ -217,8 +223,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>message id</td>
-<td>ID of the shift block being requested.</td>
+<td>message_id</td>
+<td>ID of the message being requested.</td>
 </tr>
 </tbody></table>
 
@@ -234,7 +240,7 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#messages">Message Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#messages">Message Object</a>.</p>
 
 <h2 id="delete-existing-message">Delete Existing Message</h2>
 

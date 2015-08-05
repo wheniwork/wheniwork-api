@@ -81,7 +81,7 @@
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Th3m@y0R"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Users are the employees, supervisors, and managers that have access to your WhenIWork instance.</p>
+<p>Users are the employees, supervisors, and managers that have access to your business on When I Work.</p>
 
 <h3 id="user-object">User Object</h3>
 
@@ -439,7 +439,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> body can include fields from the Alert Settings Object:</p>
+<p>The <code class="prettyprint">POST</code> body can include fields from the Alert Settings Object.</p>
 
 <h3 id="user-alert-settings-object">User alert settings Object</h3>
 
@@ -451,11 +451,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </thead><tbody>
 <tr>
 <td>timeoff</td>
-<td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when time off requests change status.</td>
+<td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when the status of a time off request changes.</td>
 </tr>
 <tr>
 <td>swaps</td>
-<td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when a swap or drop changes status.</td>
+<td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when the status of a swap or drop request changes.</td>
 </tr>
 <tr>
 <td>schedule</td>
@@ -475,7 +475,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 <tr>
 <td>reminder_time</td>
-<td><strong>float</strong><br />Time before an event that a user should be sent notifications, in hours.</td>
+<td><strong>float</strong><br />Time before an event when a user should be sent notifications, in hours.</td>
 </tr>
 </tbody></table>
 
@@ -548,7 +548,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 </tbody></table>
 
-<p>You can also invite a single user with the following.</p>
+<p>You can also invite a single user with the following:</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -591,7 +591,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Users can be deleted by managers, or by supervisors. If a supervisor, the user must be able to manage all locations the user is attached to.</p>
+<p>Users can be deleted by managers, or by supervisors. If a supervisor is deleting the user, the supervisor must be able to manage all locations the user is attached to.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -607,7 +607,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>ID of the shift requested.</td>
+<td>ID of the user to delete.</td>
 </tr>
 </tbody></table>
 

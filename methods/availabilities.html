@@ -112,7 +112,7 @@
 </tr>
 <tr>
 <td>ongoing</td>
-<td><strong>boolean</strong><br />Is the availability the user&rsquo;s ongoing availability.</td>
+<td><strong>boolean</strong><br />Whether the availability is the user&rsquo;s ongoing availability.</td>
 </tr>
 <tr>
 <td>repeat</td>
@@ -307,7 +307,7 @@ specified non-default availability.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>availability id</td>
+<td>availability_id</td>
 <td>ID of the availability object being requested.</td>
 </tr>
 </tbody></table>
@@ -371,7 +371,7 @@ specified non-default availability.</p>
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities/items?{user_ids_array}&amp;{start_datetime}&amp;{end_datetime}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities/items</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -382,16 +382,16 @@ specified non-default availability.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>user ids array</td>
-<td>An array of user IDs to search.</td>
+<td>user_id</td>
+<td><strong>array</strong><br />An array of user IDs to search.</td>
 </tr>
 <tr>
-<td>start datetime</td>
-<td>The start date and time you are searching in.</td>
+<td>start</td>
+<td><strong>datetime</strong><br />The start date and time you are searching in.</td>
 </tr>
 <tr>
-<td>end datetime</td>
-<td>The end date and time you are searching in.</td>
+<td>end</td>
+<td><strong>datetime</strong><br />The end date and time you are searching in.</td>
 </tr>
 </tbody></table>
 
@@ -407,7 +407,7 @@ specified non-default availability.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#availabilities">Availability Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#availabilities">Availability Object</a>.</p>
 
 <h2 id="delete-existing-availability">Delete Existing Availability</h2>
 
@@ -441,7 +441,7 @@ specified non-default availability.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>availability id</td>
+<td>availability_id</td>
 <td>ID of the availability to be deleted.</td>
 </tr>
 </tbody></table>

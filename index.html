@@ -75,7 +75,7 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>The When I Work API is thorough, flexible, and restful. It&rsquo;s methods are logically grouped, and follow standard conventions. Make a selection from the left to jump to the method group you would like to know more about.</p>
+<p>The When I Work API is thorough, flexible, and restful. Its methods are logically grouped and follow standard conventions. Make a selection from the left to jump to the method group you would like to know more about.</p>
 
 <p>Feel free to <a href="http://support.wheniwork.com">contact us</a> if something seems out of place.</p>
 
@@ -101,11 +101,11 @@
 
 <p><code class="prettyprint">W-Key: iworksoharditsnotfunny</code></p>
 
-<p>Authenticating will return back a login object containing a token that can be used for all future requests. The token may be included in the headers, as a cookie or in the query string using the key <code class="prettyprint">W-Token</code>, like the following.</p>
+<p>Authenticating will return back a login object containing a token that can be used for all future requests. The token may be included in the headers, as a cookie, or in the query string using the key <code class="prettyprint">W-Token</code>, like the following.</p>
 
 <p><code class="prettyprint">W-Token: ilovemyboss</code></p>
 
-<p>Authenticating will also return back a user object, or list of user objects if your login has access to multiple accounts. Future requests to the API will also need to include the header W-UserId along with the id of the user you&rsquo;d like to use, like the following.</p>
+<p>Authenticating will also return back a user object, or a list of user objects if your login has access to multiple accounts. Future requests to the API will also need to include the header <code class="prettyprint">W-UserId</code> along with the id of the user you&rsquo;d like to use, like the following.</p>
 
 <p><code class="prettyprint">W-UserId: 5</code></p>
 
@@ -174,11 +174,11 @@ Remember — All post bodies must be JSON encoded data (no form data).
 </tr>
 <tr>
 <td>password</td>
-<td><strong>string</strong><br />Password of the user logging in.</td>
+<td><strong>string</strong><br />The password of the user logging in.</td>
 </tr>
 <tr>
 <td>key</td>
-<td><strong>string</strong><br />Developer key. Can be used instead of <code class="prettyprint">W-Key</code> in the headers. Do not need both.</td>
+<td><strong>string</strong><br />Your developer key. This can be used instead of <code class="prettyprint">W-Key</code> in the headers. You do not need both.</td>
 </tr>
 </tbody></table>
 
@@ -213,12 +213,11 @@ Remember — All post bodies must be JSON encoded data (no form data).
   </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_auto_login_hash"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>If you find any need to send an authenticated user into the web app without requiring them to login, you can use the
-autologin hash query parameter to accomplish this: <code class="prettyprint">al</code>.</p>
+<p>If you find any need to send an authenticated user into the web app without requiring them to log in, you can generate a unique hash that will log them into the app automatically.</p>
 
-<p>An example would be sending the user to the following URL.</p>
+<p>You can then use the <code class="prettyprint">al</code> (autologin) query parameter to accomplish this. An example would be sending the user to the following URL:</p>
 
-<p><code class="prettyprint">http://app.wheniwork.com/scheduler?al=the_auto_login_hash</code></p>
+<p><code class="prettyprint">http://app.wheniwork.com/scheduler?al={the_auto_login_hash}</code></p>
 
 <h1 id="shifts">Shifts</h1>
 
@@ -244,7 +243,7 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites and Users all link through Shifts.</p>
+<p>Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites, and Users, all link through Shifts.</p>
 
 <h3 id="shift-object">Shift Object</h3>
 
@@ -256,7 +255,7 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
 </thead><tbody>
 <tr>
 <td>id</td>
-<td><strong>integer</strong><br />Unique identifier for the shift</td>
+<td><strong>integer</strong><br />Unique identifier for the shift.</td>
 </tr>
 <tr>
 <td>user_id</td>
@@ -296,7 +295,7 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
 </tr>
 <tr>
 <td>instances</td>
-<td><strong>integer</strong><br />Number of instances. Will be 1 if it is a shift assigned to an emplopyee. The value can be any integer greater than 0 if it is an Open Shift.</td>
+<td><strong>integer</strong><br />Number of instances. Will be 1 if it is a shift assigned to an employee. The value can be any integer greater than 0 if it is an OpenShift.</td>
 </tr>
 <tr>
 <td>published</td>
@@ -395,11 +394,11 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
 </tr>
 <tr>
 <td>include_allopen</td>
-<td><strong>boolean</strong><br />Include Open Shifts in the results.</td>
+<td><strong>boolean</strong><br />Include OpenShifts in the results.</td>
 </tr>
 <tr>
 <td>include_onlyopen</td>
-<td><strong>boolean</strong><br />Only return Open Shifts in the results</td>
+<td><strong>boolean</strong><br />Only return OpenShifts in the results</td>
 </tr>
 </tbody></table>
 
@@ -650,7 +649,7 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
   </span><span class="s2">"sms"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>You can also send a notification about just one shift using the following</p>
+<p>You can also send a notification about just one shift using the following:</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -770,11 +769,11 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
 </tr>
 <tr>
 <td>plan_expires</td>
-<td><strong>datetime</strong><br />Date and time when the plan for the current account expires</td>
+<td><strong>datetime</strong><br />Date and time when this account&rsquo;s plan expires</td>
 </tr>
 <tr>
 <td>timezone_id</td>
-<td><strong>integer</strong><br />Identifier for time zone specified at: http://php.net/manual/en/class.datetimezone.php</td>
+<td><strong>integer</strong><br />Identifier for time zone, as specified in the <a href="http://php.net/manual/en/class.datetimezone.php">PHP docs</a>.</td>
 </tr>
 <tr>
 <td>timezone_name</td>
@@ -944,7 +943,7 @@ autologin hash query parameter to accomplish this: <code class="prettyprint">al<
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Th3m@y0R"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Users are the employees, supervisors, and managers that have access to your WhenIWork instance.</p>
+<p>Users are the employees, supervisors, and managers that have access to your business on When I Work.</p>
 
 <h3 id="user-object">User Object</h3>
 
@@ -1302,7 +1301,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> body can include fields from the Alert Settings Object:</p>
+<p>The <code class="prettyprint">POST</code> body can include fields from the Alert Settings Object.</p>
 
 <h3 id="user-alert-settings-object">User alert settings Object</h3>
 
@@ -1314,11 +1313,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </thead><tbody>
 <tr>
 <td>timeoff</td>
-<td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when time off requests change status.</td>
+<td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when the status of a time off request changes.</td>
 </tr>
 <tr>
 <td>swaps</td>
-<td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when a swap or drop changes status.</td>
+<td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when the status of a swap or drop request changes.</td>
 </tr>
 <tr>
 <td>schedule</td>
@@ -1338,7 +1337,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 <tr>
 <td>reminder_time</td>
-<td><strong>float</strong><br />Time before an event that a user should be sent notifications, in hours.</td>
+<td><strong>float</strong><br />Time before an event when a user should be sent notifications, in hours.</td>
 </tr>
 </tbody></table>
 
@@ -1411,7 +1410,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 </tbody></table>
 
-<p>You can also invite a single user with the following.</p>
+<p>You can also invite a single user with the following:</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1454,7 +1453,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Users can be deleted by managers, or by supervisors. If a supervisor, the user must be able to manage all locations the user is attached to.</p>
+<p>Users can be deleted by managers, or by supervisors. If a supervisor is deleting the user, the supervisor must be able to manage all locations the user is attached to.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1470,7 +1469,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>ID of the shift requested.</td>
+<td>ID of the user to delete.</td>
 </tr>
 </tbody></table>
 
@@ -1599,7 +1598,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 </thead><tbody>
 <tr>
-<td>position id</td>
+<td>position_id</td>
 <td>ID of the position requested.</td>
 </tr>
 </tbody></table>
@@ -1616,7 +1615,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#positions">Position Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#positions">Position Object</a>.</p>
 
 <h2 id="delete-existing-position">Delete Existing Position</h2>
 
@@ -1808,7 +1807,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#locations">Location Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#locations">Location Object</a>.</p>
 
 <h2 id="delete-existing-location">Delete Existing Location</h2>
 
@@ -1984,7 +1983,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#sites">Site Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#sites">Site Object</a>.</p>
 
 <h2 id="delete-existing-site">Delete Existing Site</h2>
 
@@ -2041,8 +2040,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Blocks</p>
-
 <h3 id="block-object">Block Object</h3>
 
 <table><thead>
@@ -2186,7 +2183,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#blocks">Block Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#blocks">Block Object</a>.</p>
 
 <h2 id="delete-existing-shift-block">Delete Existing Shift Block</h2>
 
@@ -2243,8 +2240,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Requests</p>
-
 <h3 id="request-object">Request Object</h3>
 
 <table><thead>
@@ -2378,11 +2373,9 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>List requests for given parameters</p>
-
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/requests?start=2012-03-01&amp;end=2012-04-30&amp;max_id=58</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/requests</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2483,7 +2476,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 </thead><tbody>
 <tr>
-<td>request id</td>
+<td>request_id</td>
 <td>ID of the request.</td>
 </tr>
 </tbody></table>
@@ -2536,7 +2529,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </span></pre>
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/requests/&#39;</code></p>
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/requests</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2574,11 +2567,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/requests/{request id}</code></p>
+<p><code class="prettyprint">PUT https://api.wheniwork.com/2/requests/{request_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#requests">Request Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#requests">Request Object</a>.</p>
 
 <h2 id="delete-existing-request">Delete Existing Request</h2>
 
@@ -2635,8 +2628,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Swaps</p>
-
 <h3 id="swap-object">Swap Object</h3>
 
 <table><thead>
@@ -2933,11 +2924,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/swaps/{swap id}</code></p>
+<p><code class="prettyprint">PUT https://api.wheniwork.com/2/swaps/{swap_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#swap">Swap Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#swap">Swap Object</a>.</p>
 
 <h2 id="delete-existing-swap">Delete Existing Swap</h2>
 
@@ -2971,7 +2962,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 </thead><tbody>
 <tr>
-<td>swap id</td>
+<td>swap_id</td>
 <td>ID of the swap to be deleted.</td>
 </tr>
 </tbody></table>
@@ -3035,7 +3026,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 <tr>
 <td>ongoing</td>
-<td><strong>boolean</strong><br />Is the availability the user&rsquo;s ongoing availability.</td>
+<td><strong>boolean</strong><br />Whether the availability is the user&rsquo;s ongoing availability.</td>
 </tr>
 <tr>
 <td>repeat</td>
@@ -3230,7 +3221,7 @@ specified non-default availability.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>availability id</td>
+<td>availability_id</td>
 <td>ID of the availability object being requested.</td>
 </tr>
 </tbody></table>
@@ -3294,7 +3285,7 @@ specified non-default availability.</p>
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities/items?{user_ids_array}&amp;{start_datetime}&amp;{end_datetime}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities/items</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3305,16 +3296,16 @@ specified non-default availability.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>user ids array</td>
-<td>An array of user IDs to search.</td>
+<td>user_id</td>
+<td><strong>array</strong><br />An array of user IDs to search.</td>
 </tr>
 <tr>
-<td>start datetime</td>
-<td>The start date and time you are searching in.</td>
+<td>start</td>
+<td><strong>datetime</strong><br />The start date and time you are searching in.</td>
 </tr>
 <tr>
-<td>end datetime</td>
-<td>The end date and time you are searching in.</td>
+<td>end</td>
+<td><strong>datetime</strong><br />The end date and time you are searching in.</td>
 </tr>
 </tbody></table>
 
@@ -3330,7 +3321,7 @@ specified non-default availability.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#availabilities">Availability Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#availabilities">Availability Object</a>.</p>
 
 <h2 id="delete-existing-availability">Delete Existing Availability</h2>
 
@@ -3364,7 +3355,7 @@ specified non-default availability.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>availability id</td>
+<td>availability_id</td>
 <td>ID of the availability to be deleted.</td>
 </tr>
 </tbody></table>
@@ -3410,11 +3401,11 @@ specified non-default availability.</p>
 </tr>
 <tr>
 <td>start_date</td>
-<td><strong>datetime</strong><br />The start date of the payroll period,</td>
+<td><strong>datetime</strong><br />The start date of the payroll period.</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td><strong>datetime</strong><br />The start date of the payroll period,</td>
+<td><strong>datetime</strong><br />The end date of the payroll period.</td>
 </tr>
 <tr>
 <td>notes</td>
@@ -3422,7 +3413,7 @@ specified non-default availability.</p>
 </tr>
 <tr>
 <td>is_closed</td>
-<td><strong>boolean</strong><br />True if the payroll period is closed</td>
+<td><strong>boolean</strong><br />Whether the payroll period is closed</td>
 </tr>
 <tr>
 <td>is_finalized</td>
@@ -3479,11 +3470,11 @@ specified non-default availability.</p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>This method allows you to list payroll periods or find ones within a specified date range</p>
+<p>This method allows you to list payroll periods or find ones within a specified date range.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/payrolls/?start={start_date}&amp;end={end_date}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/payrolls/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3494,12 +3485,12 @@ specified non-default availability.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>start date</td>
-<td>Start date of search range (YYYY-MM-DD)</td>
+<td>start</td>
+<td><strong>datetime</strong><br />Start date of search range (YYYY-MM-DD)</td>
 </tr>
 <tr>
-<td>end date</td>
-<td>End date of search range (YYYY-MM-DD)</td>
+<td>end</td>
+<td><strong>datetime</strong><br />End date of search range (YYYY-MM-DD)</td>
 </tr>
 </tbody></table>
 
@@ -3769,7 +3760,7 @@ Payrolls can not be deleted.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/?start={start_date}&amp;end={end_date}&amp;user_id={user_id}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3780,11 +3771,11 @@ Payrolls can not be deleted.
 </tr>
 </thead><tbody>
 <tr>
-<td>start_date</td>
+<td>start</td>
 <td>Start date of search range (YYYY-MM-DD)</td>
 </tr>
 <tr>
-<td>end_date</td>
+<td>end</td>
 <td>End date of search range (YYYY-MM-DD)</td>
 </tr>
 <tr>
@@ -3939,8 +3930,7 @@ the user&rsquo;s punch state.</p>
 </tbody></table>
 
 <p><aside class='notice'>
-This endpoint does not support start and end times for your query. To filter a user&rsquo;s times
-by a start and end date, use the <code class="prettyprint">/times</code> endpoint instead.
+This endpoint does not support start and end times for your query. To filter a user&rsquo;s times by a start and end date, use the <a href="#listing-times">Listing Times</a> endpoint instead.
 </aside></p>
 
 <h2 id="create-/-update-times">Create / Update Times</h2>
@@ -4039,22 +4029,22 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
 <tr>
 <td>id</td>
 <td>14</td>
-<td>The ID of the user you are creating the clock-in for</td>
+<td>The ID of the user you are creating the clock-in for.</td>
 </tr>
 <tr>
 <td>position_id</td>
 <td>102</td>
-<td>The ID of the position the user is clocking in as. This is an optional parameter</td>
+<td>The ID of the position the user is clocking in as. This is an optional parameter.</td>
 </tr>
 <tr>
 <td>coordinates</td>
 <td>[44.937422,-93.084009]</td>
-<td>The GPS coordinates of the clock-in. This is an optional parameter</td>
+<td>The GPS coordinates of the clock-in. This is an optional parameter.</td>
 </tr>
 <tr>
 <td>accuracy</td>
 <td>20</td>
-<td>The accuracy in meters of the coordinates being sent</td>
+<td>The accuracy in meters of the coordinates being sent.</td>
 </tr>
 </tbody></table>
 
@@ -4144,26 +4134,26 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
 <tr>
 <td>id</td>
 <td>14</td>
-<td>The ID of the user you are creating the clock-out for</td>
+<td>The ID of the user you are creating the clock-out for.</td>
 </tr>
 <tr>
 <td>position_id</td>
 <td>102</td>
-<td>The ID of the position the user is clocking out as. This is an optional parameter</td>
+<td>The ID of the position the user is clocking out as. This is an optional parameter.</td>
 </tr>
 <tr>
 <td>coordinates</td>
 <td>[44.937422,-93.084009]</td>
-<td>The GPS coordinates of the clock-out. This is an optional parameter</td>
+<td>The GPS coordinates of the clock-out. This is an optional parameter.</td>
 </tr>
 <tr>
 <td>accuracy</td>
 <td>20</td>
-<td>The accuracy out meters of the coordinates being sent</td>
+<td>The accuracy out meters of the coordinates being sent.</td>
 </tr>
 </tbody></table>
 
-<h2 id="delete-existing-payroll">Delete Existing Payroll</h2>
+<h2 id="delete-existing-time">Delete Existing Time</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -4283,8 +4273,6 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Messages</p>
-
 <h3 id="message-object">Message Object</h3>
 
 <table><thead>
@@ -4377,7 +4365,7 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
 </span></pre>
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/messages?swap_id={swap_id}&amp;request_id={request_id}&amp;conversation_id={conversation_id}</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/messages</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4388,8 +4376,16 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
 </tr>
 </thead><tbody>
 <tr>
-<td>swap</td>
-<td>ID of the shift block being requested.</td>
+<td>swap_id</td>
+<td>ID of the swap to get messages for.</td>
+</tr>
+<tr>
+<td>request_id</td>
+<td>ID of the request to get messages for.</td>
+</tr>
+<tr>
+<td>conversation_id</td>
+<td>ID of the conversation to get messages for.</td>
 </tr>
 </tbody></table>
 
@@ -4429,8 +4425,8 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
 </tr>
 </thead><tbody>
 <tr>
-<td>message id</td>
-<td>ID of the shift block being requested.</td>
+<td>message_id</td>
+<td>ID of the message being requested.</td>
 </tr>
 </tbody></table>
 
@@ -4446,7 +4442,7 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#messages">Message Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#messages">Message Object</a>.</p>
 
 <h2 id="delete-existing-message">Delete Existing Message</h2>
 
@@ -4495,7 +4491,7 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We have an open shift available on Tuesday from 1:00 PM to 10:00 PM"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Send and email to a group of users.</p>
+<p>Send an email to a group of users.</p>
 
 <h3 id="send-object">Send Object</h3>
 
@@ -4715,7 +4711,7 @@ by a start and end date, use the <code class="prettyprint">/times</code> endpoin
 </tr>
 </thead><tbody>
 <tr>
-<td>template id</td>
+<td>template_id</td>
 <td>ID of the template being requested.</td>
 </tr>
 </tbody></table>
@@ -5200,7 +5196,7 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#annotations">Annotation Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#annotations">Annotation Object</a>.</p>
 
 <h2 id="delete-existing-annotation">Delete Existing Annotation</h2>
 
@@ -5293,7 +5289,7 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable &ndash; The service temporarily offline for maintenance</td>
+<td>Service Unavailable &ndash; The service is temporarily offline for maintenance</td>
 </tr>
 </tbody></table>
 

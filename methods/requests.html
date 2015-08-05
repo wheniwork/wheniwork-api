@@ -71,8 +71,6 @@
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>Requests</p>
-
 <h3 id="request-object">Request Object</h3>
 
 <table><thead>
@@ -206,11 +204,9 @@
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
-<p>List requests for given parameters</p>
-
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/requests?start=2012-03-01&amp;end=2012-04-30&amp;max_id=58</code></p>
+<p><code class="prettyprint">GET https://api.wheniwork.com/2/requests</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -311,7 +307,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>request id</td>
+<td>request_id</td>
 <td>ID of the request.</td>
 </tr>
 </tbody></table>
@@ -364,7 +360,7 @@
 </span></pre>
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/requests/&#39;</code></p>
+<p><code class="prettyprint">POST https://api.wheniwork.com/2/requests</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -402,11 +398,11 @@
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/requests/{request id}</code></p>
+<p><code class="prettyprint">PUT https://api.wheniwork.com/2/requests/{request_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#requests">Request Object</a>.</p>
+<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#requests">Request Object</a>.</p>
 
 <h2 id="delete-existing-request">Delete Existing Request</h2>
 
