@@ -75,9 +75,9 @@ $result = Wheniwork::login(
 
 The first thing to do after you receive your Developer Key is to login to get your token. After receiving your token, you will make all future requests using your token in the header of the request.
 
-<aside class="notice">
-Remember — All post bodies must be JSON encoded data (no form data).
-</aside>
+<% aside do %>
+  Remember — All post bodies must be JSON encoded data (no form data).
+<% end %>
 
 ### Parameters
 
@@ -148,7 +148,9 @@ By default, all responses from the API will include related objects. For example
 
 Including related objects is controlled by the `include_objects` parameter, which can either be boolean, a comma-separated list, or an array. Boolean values are recognized as `true`, `yes`, `on`, and `1` and the inverse of each. To completely disable the inclusion of related objects, use `false`.
 
-<aside class="notice">The default value for `include_objects` is `true`.</aside>
+<% aside do %>
+  The default value for `include_objects` is `true`.
+<% end %>
 
 # Shifts
 

@@ -1,7 +1,10 @@
 require "lib/api_objects"
+require "lib/common"
 ::Middleman::Extensions.register(:api_objects, ApiObjects)
+::Middleman::Extensions.register(:common, Common)
 
 activate :api_objects
+activate :common
 
 set :css_dir, 'stylesheets'
 
@@ -32,6 +35,7 @@ page "*" do
   @api_prefix = "https://api.wheniwork.com"
   @wiw_key = "iworksoharditsnotfunny"
   @wiw_token = "ilovemyboss"
+  @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(), {})
 end
 
 

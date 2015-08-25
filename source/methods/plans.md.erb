@@ -6,9 +6,10 @@
 ```
 
 Get all plans.
-<aside class='warning'>
-This list could include legacy plans. These plans, where is_legacy is true, cannot be applied to an account. The only exist to show information relating to the current account.
-</aside>
+
+<% aside :class => 'warning' do %>
+  This list could include legacy plans. These plans, where is_legacy is true, cannot be applied to an account. The only exist to show information relating to the current account.
+<% end %>
 
 <%= print_table(data.objects['plan'], :header => :plan) %>
 
