@@ -391,6 +391,11 @@ html, body {
       @extend %icon-ok-sign;
       line-height: 1.4;
     }
+
+    p {
+      line-height: inherit;
+      display: inline;
+    }
   }
 
   a {
