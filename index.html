@@ -144,8 +144,7 @@
 
 <p>The first thing to do after you receive your Developer Key is to login to get your token. After receiving your token, you will make all future requests using your token in the header of the request.</p>
 
-<aside class="notice">
-Remember — All post bodies must be JSON encoded data (no form data).
+<aside class="notice"><p>Remember — All post bodies must be JSON encoded data (no form data).</p>
 </aside>
 
 <h3 id="parameters">Parameters</h3>
@@ -230,7 +229,8 @@ Remember — All post bodies must be JSON encoded data (no form data).
 
 <p>Including related objects is controlled by the <code class="prettyprint">include_objects</code> parameter, which can either be boolean, a comma-separated list, or an array. Boolean values are recognized as <code class="prettyprint">true</code>, <code class="prettyprint">yes</code>, <code class="prettyprint">on</code>, and <code class="prettyprint">1</code> and the inverse of each. To completely disable the inclusion of related objects, use <code class="prettyprint">false</code>.</p>
 
-<aside class="notice">The default value for `include_objects` is `true`.</aside>
+<aside class="notice"><p>The default value for <code>include_objects</code> is <code>true</code>.</p>
+</aside>
 
 <h1 id="shifts">Shifts</h1>
 
@@ -3882,16 +3882,15 @@ specified non-default availability.</p>
 
 <p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#payrolls">Payroll Object</a>.</p>
 
-<aside class='alert'>
-Payrolls can not be manually created.
+<aside class="notice"><p>Payrolls can not be manually created.</p>
 </aside>
 
 <h2 id="delete-existing-payroll">Delete Existing Payroll</h2>
 
 <p>&nbsp;
-<aside class='alert'>
-Payrolls can not be deleted.
-</aside></p>
+<aside class="notice"><p>Payrolls can not be deleted.</p>
+
+<p></aside></p></p>
 
 <h1 id="times">Times</h1>
 
@@ -4252,8 +4251,7 @@ the user&rsquo;s punch state.</p>
 </tr>
 </tbody></table>
 
-<aside class='notice'>
-This endpoint does not support start and end times for your query. To filter a user&rsquo;s times by a start and end date, use the [Listing Times](#listing-times) endpoint instead.
+<aside class="notice"><p>This endpoint does not support start and end times for your query. To filter a user&rsquo;s times by a start and end date, use the <a href="#listing-times">Listing Times</a> endpoint instead.</p>
 </aside>
 
 <h2 id="create-update-times">Create / Update Times</h2>
@@ -5244,10 +5242,10 @@ This endpoint does not support start and end times for your query. To filter a u
 
 </span></code></pre>
 
-<p>Get all plans.
-<aside class='warning'>
-This list could include legacy plans. These plans, where is_legacy is true, cannot be applied to an account. The only exist to show information relating to the current account.
-</aside></p>
+<p>Get all plans.</p>
+
+<aside class="warning"><p>This list could include legacy plans. These plans, where is_legacy is true, cannot be applied to an account. The only exist to show information relating to the current account.</p>
+</aside>
 
 <h3 id="plan-object">Plan Object</h3>
 
