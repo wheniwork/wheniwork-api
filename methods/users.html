@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
   <head>
@@ -10,11 +9,11 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>API Documentation</title>
 
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic" media="screen" rel="stylesheet" type="text/css" />
-    <link href="../stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="../stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic" rel="stylesheet" />
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="../javascripts/all.js" type="text/javascript"></script>
+    <script src="../javascripts/all.js"></script>
 
     <script>
       $(function() {
@@ -40,7 +39,6 @@
           toc.setOption("showEffectSpeed", 180);
         },50);
         setupLanguages([
-          
         ]);
       });
     </script>
@@ -51,36 +49,37 @@
       <img src="../images/logo.svg" />
       <div id="toc">
       </div>
-      
     </div>
     <div class="page-wrapper">
       <div class="content">
         <blockquote>
 <p>Example Object</p>
 </blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">12284</span><span class="p">,</span><span class="w">
     </span><span class="mi">9554</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">34</span><span class="p">,</span><span class="w">
     </span><span class="mi">58934</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"activated"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Th3m@y0R"</span><span class="w">
+  </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"activated"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Th3m@y0R"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+
+</span></code></pre>
+
 <p>Users are the employees, supervisors, and managers that have access to your business on When I Work.</p>
 
 <h3 id="user-object">User Object</h3>
@@ -154,35 +153,38 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/2/users/?location_id<span class="o">=</span>1 <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/users/?location_id<span class="o">=</span>1 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
-</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"users"</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
-</pre>
+</code></pre>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27384</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jennifer"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parker"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jen.parker@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27384</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jennifer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parker"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jen.parker@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+</span></code></pre>
+
 <p>This method allows you to search for users. See the parameters below for all the options.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -212,27 +214,30 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/2/users/1 <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/users/1 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
-</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"users/1"</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
-</pre>
+</code></pre>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This user excels at awesome."</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This user excels at awesome."</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+</span></code></pre>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET https://api.wheniwork.com/2/users/{id}</code></p>
@@ -256,8 +261,9 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/2/users --data <span class="s1">'{"first_name":"FirstName", "last_name": "LastName", "email": "user@email.com"}'</span> -H <span class="s2">"W-Token: ilovemyboss"</span>
-</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/users --data <span class="s1">'{"first_name":"FirstName", "last_name": "LastName", "email": "user@email.com"}'</span> -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"users/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
             <span class="s2">"first_name"</span><span class="o">=&gt;</span><span class="s2">"Goldie"</span><span class="p">,</span>
@@ -265,21 +271,23 @@
             <span class="s2">"email"</span><span class="o">=&gt;</span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span>
         <span class="p">));</span>
 <span class="cp">?&gt;</span>
-</pre>
+</code></pre>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></pre>
+</span></code></pre>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">POST https://api.wheniwork.com/2/users</code></p>
@@ -332,7 +340,7 @@ to include at least the &lsquo;email&rsquo; field in the body of the request.</p
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">
+<pre class="highlight shell"><code>
 curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span>
  --data <span class="s1">'{
   "first_name": "Jimmy",
@@ -342,36 +350,40 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 }'</span> <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 
-</pre><pre class="highlight php">$result = $wiw-&gt;post("users/alerts", array("first_name" =&gt; "Jimmy","last_name" =&gt; "Buffett","email" =&gt; "parrothead1@margaritaville.com","phone_number" =&gt; "+15552128716"));
+</code></pre>
+<pre class="highlight php"><code>$result = $wiw-&gt;post("users/alerts", array("first_name" =&gt; "Jimmy","last_name" =&gt; "Buffett","email" =&gt; "parrothead1@margaritaville.com","phone_number" =&gt; "+15552128716"));
 
-</pre>
+</code></pre>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><span class="w">
+<pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buffett"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parrothead1@margaritaville.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+15552128716"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buffett"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parrothead1@margaritaville.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+15552128716"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">12284</span><span class="p">,</span><span class="w">
     </span><span class="mi">9554</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">34</span><span class="p">,</span><span class="w">
     </span><span class="mi">58934</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"activated"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Th3m@y0R"</span><span class="w">
+  </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"activated"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Th3m@y0R"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+
+</span></code></pre>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">POST https://api.wheniwork.com/2/users/profile</code></p>
@@ -411,7 +423,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/users/alerts/ <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/users/alerts/ <span class="se">\</span>
  --data <span class="s1">'{
   "timeoff": "{'</span>sms<span class="s1">': true, '</span>email<span class="s1">': false}",
   "swaps": "{'</span>sms<span class="s1">': true, '</span>email<span class="s1">': false}",
@@ -422,17 +434,20 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   "reminder_time": "2.0"
 }'</span> <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
-</pre><pre class="highlight php">$result = $wiw-&gt;post("users/alerts",
+</code></pre>
+<pre class="highlight php"><code>$result = $wiw-&gt;post("users/alerts",
                      array("timeoff" =&gt; array("sms" =&gt; "true",
                                               "email" =&gt; "false")));
-</pre>
+</code></pre>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+</span></code></pre>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">POST https://api.wheniwork.com/2/users/alerts</code></p>
@@ -502,24 +517,27 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X POST https://api.wheniwork.com/2/users/invite/ <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/users/invite/ <span class="se">\</span>
  --data <span class="s1">'{"ids":[14,15,67]}'</span> <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
-</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"users/invite/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"ids"</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">67</span><span class="p">)));</span>
 <span class="cp">?&gt;</span>
-</pre>
+</code></pre>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"sms"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+</span></code></pre>
+
 <p>Users can be invited by managers, or by supervisors. This will send them an email or text message inviting them to register. Users must already be created to be invited.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -577,20 +595,23 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl -X DELETE https://api.wheniwork.com/2/users/4364 <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X DELETE https://api.wheniwork.com/2/users/4364 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
-</pre><pre class="highlight php"><span class="cp">&lt;?php</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"users/4364"</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
-</pre>
+</code></pre>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+</span></code></pre>
+
 <p>Users can be deleted by managers, or by supervisors. If a supervisor is deleting the user, the supervisor must be able to manage all locations the user is attached to.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -614,7 +635,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </div>
       <div class="dark-box">
         <div id="lang-selector">
-          
         </div>
       </div>
     </div>

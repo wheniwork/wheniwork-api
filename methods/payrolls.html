@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
   <head>
@@ -10,11 +9,11 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>API Documentation</title>
 
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic" media="screen" rel="stylesheet" type="text/css" />
-    <link href="../stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="../stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic" rel="stylesheet" />
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="../javascripts/all.js" type="text/javascript"></script>
+    <script src="../javascripts/all.js"></script>
 
     <script>
       $(function() {
@@ -40,7 +39,6 @@
           toc.setOption("showEffectSpeed", 180);
         },50);
         setupLanguages([
-          
         ]);
       });
     </script>
@@ -51,27 +49,28 @@
       <img src="../images/logo.svg" />
       <div id="toc">
       </div>
-      
     </div>
     <div class="page-wrapper">
       <div class="content">
         <blockquote>
 <p>Example Object</p>
 </blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 26 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Mar 2014 23:59:59 -0500"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"is_finalized"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 26 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Mar 2014 23:59:59 -0500"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_finalized"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+
+</span></code></pre>
+
 <h3 id="user-object">User Object</h3>
 
 <table><thead>
@@ -131,38 +130,40 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/2/payrolls <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/payrolls <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
-</pre>
+</code></pre>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"payrolls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"payrolls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 26 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Mar 2014 23:59:59 -0500"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 26 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Mar 2014 23:59:59 -0500"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 12 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 25 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 12 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 25 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 29 Jan 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 29 Jan 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
     </span><span class="p">},</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+</span></code></pre>
+
 <p>This method allows you to list payroll periods or find ones within a specified date range.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -179,11 +180,11 @@
 </thead><tbody>
 <tr>
 <td>start</td>
-<td><strong>datetime</strong><br />Start date of search range (YYYY-MM-DD)</td>
+<td><strong>datetime</strong><br />Start date of search range</td>
 </tr>
 <tr>
 <td>end</td>
-<td><strong>datetime</strong><br />End date of search range (YYYY-MM-DD)</td>
+<td><strong>datetime</strong><br />End date of search range</td>
 </tr>
 </tbody></table>
 
@@ -192,53 +193,55 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell">curl https://api.wheniwork.com/2/payrolls/24 <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/payrolls/24 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
-</pre>
+</code></pre>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"payroll"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 26 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Mar 2014 23:59:59 -0500"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"payroll"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 26 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Mar 2014 23:59:59 -0500"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"payrollhours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"payrollhours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"payroll_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.25</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.75</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"payroll_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"payroll_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.25</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.75</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"payroll_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"payroll_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"payroll_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+</span></code></pre>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET https://api.wheniwork.com/2/payrolls/{id}</code></p>
@@ -257,7 +260,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="create-/-update-payroll">Create / Update Payroll</h2>
+<h2 id="create-update-payroll">Create / Update Payroll</h2>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
@@ -267,9 +270,9 @@
 
 <p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#payrolls">Payroll Object</a>.</p>
 
-<p><aside class='alert'>
+<aside class='alert'>
 Payrolls can not be manually created.
-</aside></p>
+</aside>
 
 <h2 id="delete-existing-payroll">Delete Existing Payroll</h2>
 
@@ -281,7 +284,6 @@ Payrolls can not be deleted.
       </div>
       <div class="dark-box">
         <div id="lang-selector">
-          
         </div>
       </div>
     </div>
