@@ -144,11 +144,11 @@ curl <%=@api_prefix%>/2/shifts?include_objects=positions,locations
 curl <%=@api_prefix%>/2/shifts?include_objects[]=positions&include_objects[]=locations
 ```
 
->> The default value for `include_objects` is `true`.
+By default, all responses from the API will include related objects. For example, when calling the `shifts` endpoint, the response will also include a `users` array with all the employees for those shifts.
 
-By default all response from the API will include related objects. For example, when calling the `shifts` endpoint, the response will also include a `users` array of all the employees for those shifts. Including related objects is controlled by the `include_objects` parameter, which can either be boolean, a comma-separated list, or an array.
+Including related objects is controlled by the `include_objects` parameter, which can either be boolean, a comma-separated list, or an array. Boolean values are recognized as `true`, `yes`, `on`, and `1` and the inverse of each. To completely disable the inclusion of related objects, use `false`.
 
-Boolean values are recognized as `true`, `yes`, `on`, and `1` and the inverse of each. To completely disable the inclusion of related objects, use `false`.
+<aside class="notice">The default value for `include_objects` is `true`.</aside>
 
 # Shifts
 
