@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['request']) %>
-
-```
+<% end %>
 
 <%= print_table(data.objects['request'], :header => :request) %>
 
@@ -29,23 +28,45 @@ $result = $wiw->get("requests", array(
 ```
 > Example Response
 
-```json
+<% json do %>
 {
   "requests": [
-    <%= print_json(data.objects['request'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['request'], :minimal=>true, :include=>{'id'=>'55','start_time'=>'Mon, 24 Mar 2014 08:00:00 -0600','end_time'=>'Fri, 28 Mar 2014 08:00:00 -0600'}).indent(4) %>,
+    <%= print_json(data.objects['request'], :minimal => true) %>,
+    <%= print_json(data.objects['request'], :minimal => true, :include => {
+      'id' => '55',
+      'start_time' => 'Mon, 24 Mar 2014 08:00:00 -0600',
+      'end_time' => 'Fri, 28 Mar 2014 08:00:00 -0600'
+    }) %>
   ],
   "messages": [
-    <%= print_json(data.objects['message'], :minimal=>true, :include=>{'request_id'=>'54'}).indent(4) %>,
-    <%= print_json(data.objects['message'], :minimal=>true, :include=>{'id'=>'66','request_id'=>'54','title'=>'Request Approved','message'=>'This Request has been approved'}).indent(4) %>,
-    <%= print_json(data.objects['message'], :minimal=>true, :include=>{'id'=>'68','request_id'=>'55','title'=>'Request Approved','message'=>'This Request has been approved'}).indent(4) %>,
+    <%= print_json(data.objects['message'], :minimal => true, :include => {
+      'request_id' => '54'
+    }) %>,
+    <%= print_json(data.objects['message'], :minimal => true, :include => {
+      'id' => '66',
+      'request_id' => '54',
+      'title' => 'Request Approved',
+      'message' => 'This Request has been approved'
+    }) %>,
+    <%= print_json(data.objects['message'], :minimal => true, :include => {
+      'id' => '68',
+      'request_id' => '55',
+      'title' => 'Request Approved',
+      'message' => 'This Request has been approved'
+    }) %>
   ],
   "users": [
-   <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>135}).indent(4) %>,
-   <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Emmett','last_name'=>'Brown'}).indent(4) %>
+    <%= print_json(data.objects['user'], :minimal => true, :include => {
+      'id' => 135
+    }) %>,
+    <%= print_json(data.objects['user'], :minimal => true, :include => {
+      'id' => 27384,
+      'first_name' => 'Emmett',
+      'last_name' => 'Brown'
+    }) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/requests`
@@ -77,19 +98,32 @@ $result = $wiw->get("requests/65");
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "request": <%= print_json(data.objects['request'], :minimal=>true).indent(2) %>,
+  "request": <%= print_json(data.objects['request'], :minimal => true) %>,
   "messages": [
-   <%= print_json(data.objects['message'], :minimal=>true, :include=>{'request_id'=>'54'}).indent(4) %>,
-   <%= print_json(data.objects['message'], :minimal=>true, :include=>{'id'=>'66','request_id'=>'54','title'=>'Request Approved','message'=>'This Request has been approved'}).indent(4) %>,
+    <%= print_json(data.objects['message'], :minimal => true, :include => {
+      'request_id' => '54'
+    }) %>,
+    <%= print_json(data.objects['message'], :minimal => true, :include => {
+      'id' => '66',
+      'request_id' => '54',
+      'title' => 'Request Approved',
+      'message' => 'This Request has been approved'
+    }) %>
   ],
   "users": [
-   <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>135}).indent(4) %>,
-   <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Emmett','last_name'=>'Brown'}).indent(4) %>
+    <%= print_json(data.objects['user'], :minimal => true, :include => {
+      'id' => 135
+    }) %>,
+    <%= print_json(data.objects['user'], :minimal => true, :include => {
+      'id' => 27384,
+      'first_name' => 'Emmett',
+      'last_name' => 'Brown'
+    }) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/requests/{request_id}`
@@ -105,16 +139,16 @@ request_id | ID of the request.
 
 > Example POST Data
 
-```json
+<% json do %>
 {
-   "user_id": "135",
-   "type": "1",
-   "start_time":"2012-02-25 8:00",
-   "end_time":"2012-05-25 17:00",
-   "status":0
-
+  "user_id": "135",
+  "type": "1",
+  "start_time": "2012-02-25 8:00",
+  "end_time": "2012-05-25 17:00",
+  "status": 0
 }
-```
+<% end %>
+
 > Example Request
 
 ```php
@@ -132,9 +166,9 @@ $result = $wiw->create("requests", array(
 
 > Example Response
 
-```json
+<% json do %>
 {
-    "request": {
+  "request": {
     "id": 56,
     "account_id": 3,
     "user_id": 135,
@@ -145,9 +179,10 @@ $result = $wiw->create("requests", array(
     "end_time": "Fri, 25 May 2012 17:00:00 -0500",
     "created_at": "Fri, 27 Apr 2012 11:33:53 -0500",
     "updated_at": "Fri, 27 Apr 2012 11:33:53 -0500"
-    }
+  }
 }
-```
+<% end %>
+
 ### Create HTTP Request
 `POST <%=@api_prefix%>/2/requests`
 
@@ -187,11 +222,11 @@ $result = $wiw->delete("requests/54");
 ```
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/requests/{request_id}`

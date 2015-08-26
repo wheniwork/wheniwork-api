@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['user']) %>
-
-```
+<% end %>
 
 Users are the employees, supervisors, and managers that have access to your business on When I Work.
 
@@ -26,14 +25,19 @@ $result = $wiw->get("users");
 ```
 > Example Response
 
-```json
+<% json do %>
 {
   "users": [
-    <%= print_json(data.objects['user'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Jennifer', 'last_name'=>'Parker', 'email'=>'jen.parker@example.com'}).indent(4) %>
+    <%= print_json(data.objects['user'], :minimal => true) %>,
+    <%= print_json(data.objects['user'], :minimal => true, :include => {
+      'id' => 27384,
+      'first_name' => 'Jennifer',
+      'last_name' => 'Parker',
+      'email' => 'jen.parker@example.com'
+    }) %>
   ]
 }
-```
+<% end %>
 
 This method allows you to search for users. See the parameters below for all the options.
 
@@ -65,11 +69,13 @@ $result = $wiw->get("users/1");
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "user": <%= print_json(data.objects['user'], :minimal=>true,:include=>{:notes=>"This user excels at awesome."}).indent(2) %>
+  "user": <%= print_json(data.objects['user'], :minimal => true, :include => {
+    :notes => "This user excels at awesome."
+  }) %>
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/users/{id}`
@@ -101,12 +107,11 @@ $result = $wiw->post("users/", array(
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "user": <%= print_json(data.objects['user'], :minimal=>true).indent(2) %>
+  "user": <%= print_json(data.objects['user'], :minimal => true) %>
 }
-
-```
+<% end %>
 
 ### HTTP Request
 
@@ -161,11 +166,14 @@ $result = $wiw->post("users/alerts", <%= print_json_as_php_array(data.objects['u
 
 > Example Response
 
-```json
-
-<%= print_json(data.objects['user'], :include => {'first_name'=>'Jimmy', 'last_name'=>'Buffett', 'email'=>'parrothead1@margaritaville.com', 'phone_number'=>'+15552128716'}) %>
-
-```
+<% json do %>
+<%= print_json(data.objects['user'], :include => {
+  'first_name' => 'Jimmy',
+  'last_name' => 'Buffett',
+  'email' => 'parrothead1@margaritaville.com',
+  'phone_number' => '+15552128716'
+}) %>
+<% end %>
 
 ### HTTP Request
 
@@ -194,11 +202,11 @@ $result = $wiw->post("users/alerts",
 ```
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 ### HTTP Request
 
@@ -230,14 +238,14 @@ $result = $wiw->post("users/invite/", array("ids"=>array(14,15,67)));
 
 > Example Response
 
-```json
+<% json do %>
 {
   "count": 3,
   "email": 3,
   "sms": 1,
   "success": true
 }
-```
+<% end %>
 
 Users can be invited by managers, or by supervisors. This will send them an email or text message inviting them to register. Users must already be created to be invited.
 
@@ -284,11 +292,11 @@ $result = $wiw->delete("users/4364");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 Users can be deleted by managers, or by supervisors. If a supervisor is deleting the user, the supervisor must be able to manage all locations the user is attached to.
 

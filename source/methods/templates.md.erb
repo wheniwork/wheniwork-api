@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['template']) %>
-
-```
+<% end %>
 
 Templates allow you to create a group of shifts that can be used to make scheduling easier.
 
@@ -21,16 +20,16 @@ curl <%=@api_prefix%>/2/templates/ \
 
 > Example Response
 
-```json
+<% json do %>
 {
   "templates": [
-    <%= print_json(data.objects['template'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['template'], :minimal => true) %>
   ],
   "templateshifts" : [
-     <%= print_json(data.objects['templateshift'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['templateshift'], :minimal => true) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/templates`
@@ -48,19 +47,26 @@ curl <%=@api_prefix%>/2/templates/12 \
 
 > Example Response
 
-```json
+<% json do %>
 {
   "templates": [
-    <%= print_json(data.objects['template'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['template'], :minimal => true) %>
   ],
   "templateshifts" : [
-   <%= print_json(data.objects['templateshift'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['templateshift'], :minimal=>true, :include=>{'id'=>'144', 'start_time'=>'Tue, 18 Feb 2014 08:00:00 -0600', 'end_time'=>'Tue, 18 Feb 2014 17:00:00 -0600' }).indent(4) %>,
-    <%= print_json(data.objects['templateshift'], :minimal=>true, :include=>{'id'=>'148', 'start_time'=>'Wed, 19 Feb 2014 08:30:00 -0600', 'end_time'=>'Wed, 19 Feb 2014 16:00:00 -0600' }).indent(4) %>,
+    <%= print_json(data.objects['templateshift'], :minimal => true) %>,
+    <%= print_json(data.objects['templateshift'], :minimal => true, :include => {
+      'id' => '144',
+      'start_time' => 'Tue, 18 Feb 2014 08:00:00 -0600',
+      'end_time' => 'Tue, 18 Feb 2014 17:00:00 -0600'
+    }) %>,
+    <%= print_json(data.objects['templateshift'], :minimal => true, :include => {
+      'id' => '148',
+      'start_time' => 'Wed, 19 Feb 2014 08:30:00 -0600',
+      'end_time' => 'Wed, 19 Feb 2014 16:00:00 -0600'
+    }) %>
   ]
-
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/templates/{template_id}`
@@ -77,30 +83,44 @@ template_id | ID of the template being requested.
 
 > Example Request Object
 
-```json
+<% json do %>
 {
-      "name":"Cafe 80's October template",
-      "start":"2015-10-01",
-      "end":"2015-10-31",
-      "ids":[{"user_id":135,"location_id":137,"position_id":172}]
-
+  "name": "Cafe 80's October template",
+  "start": "2015-10-01",
+  "end": "2015-10-31",
+  "ids": [
+    {
+      "user_id": 135,
+      "location_id": 137,
+      "position_id": 172
+    }
+  ]
 }
-```
+<% end %>
 
 > Example Response Object
 
-```json
+<% json do %>
 {
-
   "templates": [
-    <%= print_json(data.objects['template'], :minimal=>true, :include=>{'name'=>'Cafe 80\'s February Shift Template', 'start'=>'2014-02-01','end'=>'2014-02-28','position_id'=>'172','user_id'=>'135','location_id'=>137 }).indent(4) %>
+    <%= print_json(data.objects['template'], :minimal => true, :include => {
+      'name' => 'Cafe 80\'s February Shift Template',
+      'start' => '2014-02-01',
+      'end' => '2014-02-28',
+      'position_id' => '172',
+      'user_id' => '135',
+      'location_id' => 137
+    }) %>
   ],
   "templateshifts" : [
-   <%= print_json(data.objects['templateshift'], :minimal=>true, :include=>{'position_id'=>'172','user_id'=>'135','location_id'=>137}).indent(4) %>,
-   ]
-
+    <%= print_json(data.objects['templateshift'], :minimal => true, :include => {
+      'position_id' => '172',
+      'user_id' => '135',
+      'location_id' => 137
+    }) %>
+  ]
 }
-```
+<% end %>
 
 ### Create HTTP Request
 `POST <%=@api_prefix%>/2/templates/`
@@ -133,11 +153,11 @@ curl -X DELETE <%=@api_prefix%>/2/template/12 \
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/template/{template_id}`

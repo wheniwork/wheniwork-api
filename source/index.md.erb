@@ -60,18 +60,16 @@ $result = Wheniwork::login(
 ```
 > Example Response
 
-```json
+<% json do %>
 {
-  "login": 
-  <%= print_json(data.objects['login']).indent(4) %>
+  "login": <%= print_json(data.objects['login']) %>,
   "users": [
-  <%= print_json(data.objects['user'],:minimal=>true).indent(4) %> 
+    <%= print_json(data.objects['user'],:minimal=>true) %> 
   ]
 }
-```
+<% end %>
 
 >> Be sure to replace `<%=@wiw_key%>` with your requested Developer Key.
-
 
 The first thing to do after you receive your Developer Key is to login to get your token. After receiving your token, you will make all future requests using your token in the header of the request.
 
@@ -110,12 +108,14 @@ $result = $wiw->post("users/autologin");
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "user": <%= print_json(data.objects['user'], :minimal=>true, :include=>{:token=>@wiw_token}).indent(2) %>,
+  "user": <%= print_json(data.objects['user'], :minimal=>true, :include=>{
+    :token=>@wiw_token
+  }) %>,
   "hash": "the_auto_login_hash"
 }
-```
+<% end %>
 
 If you find any need to send an authenticated user into the web app without requiring them to log in, you can generate a unique hash that will log them into the app automatically.
 

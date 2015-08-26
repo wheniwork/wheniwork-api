@@ -1,3 +1,5 @@
+require 'json'
+
 class Common < Middleman::Extension
   def initialize(app, options_hash={}, &block)
     super
@@ -27,6 +29,21 @@ class Common < Middleman::Extension
       end
 
       concat "<aside class=\"#{asideClass}\">#{@markdown.render(content)}</aside>"
+    end
+
+    def json(options={})
+      indent = options[:indent] || 2
+
+      content = capture do yield end
+      output = ""
+
+      formattedJSON = JSON.pretty_generate(JSON.parse(content), indent: ' ' * indent)
+
+      output << "```json\n"
+      output << formattedJSON
+      output << "\n```"
+
+      concat output
     end
     
   end

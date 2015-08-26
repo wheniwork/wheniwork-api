@@ -1,36 +1,37 @@
 > Example Post Data
 
-```json
-[{
+<% json do %>
+[
+  {
     "method":"get",
     "url":"/rest/shifts",
     "params":{
-        "start":"Sun, 15 Apr 2012 00:00:00",
-        "end":"Sat, 21 Apr 2012 23:59:59",
-        "unpublished":true,
-        "include_allopen":true
+      "start":"Sun, 15 Apr 2012 00:00:00",
+      "end":"Sat, 21 Apr 2012 23:59:59",
+      "unpublished":true,
+      "include_allopen":true
     }
-},
-{
+  },
+  {
     "method":"get",
     "url":"/rest/requests",
     "params":{
-        "start":"Sun, 15 Apr 2012 00:00:00",
-        "end":"Sat, 21 Apr 2012 23:59:59",
-        "include_pending":true,
-        "status":"0,2"
+      "start":"Sun, 15 Apr 2012 00:00:00",
+      "end":"Sat, 21 Apr 2012 23:59:59",
+      "include_pending":true,
+      "status":"0,2"
     }
-},
-{
+  },
+  {
     "method":"get",
     "url":"/rest/availabilities/items",
     "params":{
-        "start":"Sun, 15 Apr 2012 00:00:00",
-        "end":"Sat, 21 Apr 2012 23:59:59"
+      "start":"Sun, 15 Apr 2012 00:00:00",
+      "end":"Sat, 21 Apr 2012 23:59:59"
     }
-}]
-
-```
+  }
+]
+<% end %>
 
 > Example Request
 

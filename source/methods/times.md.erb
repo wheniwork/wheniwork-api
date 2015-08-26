@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['times']) %>
-
-```
+<% end %>
 
 <%= print_table(data.objects['times'], :header => :user) %>
 
@@ -18,23 +17,26 @@ curl <%=@api_prefix%>/2/times \
 
 > Example Response
 
-```json
+<% json do %>
 {
   "times": [
-    <%= print_json(data.objects['times'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['times'], :minimal => true) %>
   ],
   "punches": [
-    <%= print_json(data.objects['punch'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['punch'], :minimal=>true, :include=>{'id'=>150135,'type'=>2 }).indent(4) %>
+    <%= print_json(data.objects['punch'], :minimal => true) %>,
+    <%= print_json(data.objects['punch'], :minimal => true, :include => {
+      'id' => 150135,
+      'type' => 2
+    }) %>
   ],
   "shifts": [
-   <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['shift'], :minimal => true) %>
   ],
   "users": [
-    <%= print_json(data.objects['user'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['user'], :minimal => true) %>
   ]
 }
-```
+<% end %>
 
 This method allows you to list times or find ones within a specified date range.
 
@@ -63,14 +65,13 @@ curl <%=@api_prefix%>/2/times/11 \
 
 > Example Response
 
-```json
+<% json do %>
 {
   "times": [
-      <%= print_json(data.objects['times'], :minimal=>true).indent(4) %>,
-
+    <%= print_json(data.objects['times'], :minimal => true) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/times/{id}`
@@ -93,7 +94,7 @@ curl <%=@api_prefix%>/2/times/user/4634 \
 
 > Example Response
 
-```json
+<% json do %>
 {
   "user": {
     "id": 4634,
@@ -118,19 +119,19 @@ curl <%=@api_prefix%>/2/times/user/4634 \
     }
   },
   "times": [
-    <%= print_json(data.objects['times'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['times'], :minimal => true) %>
   ],
   "shifts": [
-    <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['shift'], :minimal => true) %>
   ],
   "locations": [
-    <%= print_json(data.objects['location'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['location'], :minimal => true) %>
   ],
   "positions": [
-    <%= print_json(data.objects['position'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['position'], :minimal => true) %>
   ]
 }
-```
+<% end %>
 
 This method allows you to get times for a specific user. This request also gives you
 the user's punch state.
@@ -180,42 +181,42 @@ $result = $wiw->post("times/clockin/", array("id":"14","position_id":"102","coor
 
 > Example Post Data
 
-```json
+<% json do %>
 {
-    "id":14,
-    "position_id":102,
-    "coordinates": [44.937422,-93.084009],
-    "accuracy":20
+  "id":14,
+  "position_id":102,
+  "coordinates": [44.937422,-93.084009],
+  "accuracy":20
 }
-```
+<% end %>
 
 > Example Response
 
-```json
+<% json do %>
 {
-     "user": {
-            "id": 14,
-            "email": "goldiewilson@hillvalleycalifornia.gov",
-            "first_name": "Goldie",
-            "last_name": "Wilson",
-            "punch_state": {
-                       "timestamp": "Thu, 02 Oct 2014 20:53:40 -0500",
-                       "can_punch_in": true,
-                       "can_punch_out": false,
-                       "open_time_id": 2585161,
-                       "near_location_id": 100866,
-                       "near_site_id": null,
-                       "punch_in_shift_id": null
-            }
-     },
-     "times": [
-      <%= print_json(data.objects['times'], :minimal=>true).indent(6) %>
-     ],
-     "locations": [
-      <%= print_json(data.objects['location'], :minimal=>true).indent(6) %>
-     ]
+  "user": {
+    "id": 14,
+    "email": "goldiewilson@hillvalleycalifornia.gov",
+    "first_name": "Goldie",
+    "last_name": "Wilson",
+    "punch_state": {
+      "timestamp": "Thu, 02 Oct 2014 20:53:40 -0500",
+      "can_punch_in": true,
+      "can_punch_out": false,
+      "open_time_id": 2585161,
+      "near_location_id": 100866,
+      "near_site_id": null,
+      "punch_in_shift_id": null
+    }
+  },
+  "times": [
+    <%= print_json(data.objects['times'], :minimal => true) %>
+  ],
+  "locations": [
+    <%= print_json(data.objects['location'], :minimal => true) %>
+  ]
 }
-```
+<% end %>
 
 ### Create A Clock-in
 `POST <%=@api_prefix%>/2/times/clockin`
@@ -250,42 +251,42 @@ $result = $wiw->post("times/clockout/", array("id":"14","position_id":"102","coo
 
 > Example Post Data
 
-```json
+<% json do %>
 {
-    "id":14,
-    "position_id":102,
-    "coordinates": [44.937422,-93.084009],
-    "accuracy":20
+  "id":14,
+  "position_id":102,
+  "coordinates": [44.937422,-93.084009],
+  "accuracy":20
 }
-```
+<% end %>
 
 > Example Response
 
-```json
+<% json do %>
 {
-     "user": {
-            "id": 14,
-            "email": "goldiewilson@hillvalleycalifornia.gov",
-            "first_name": "Goldie",
-            "last_name": "Wilson",
-            "punch_state": {
-                       "timestamp": "Thu, 02 Oct 2014 20:53:40 -0500",
-                       "can_punch_out": false,
-                       "can_punch_out": true,
-                       "open_time_id": 2585161,
-                       "near_location_id": 100866,
-                       "near_site_id": null,
-                       "punch_out_shift_id": null
-            }
-     },
-     "times": [
-      <%= print_json(data.objects['times'], :minimal=>true).indent(6) %>
-     ],
-     "locations": [
-      <%= print_json(data.objects['location'], :minimal=>true).indent(6) %>
-     ]
+  "user": {
+    "id": 14,
+    "email": "goldiewilson@hillvalleycalifornia.gov",
+    "first_name": "Goldie",
+    "last_name": "Wilson",
+    "punch_state": {
+      "timestamp": "Thu, 02 Oct 2014 20:53:40 -0500",
+      "can_punch_out": false,
+      "can_punch_out": true,
+      "open_time_id": 2585161,
+      "near_location_id": 100866,
+      "near_site_id": null,
+      "punch_out_shift_id": null
+    }
+  },
+  "times": [
+    <%= print_json(data.objects['times'], :minimal => true) %>
+  ],
+  "locations": [
+    <%= print_json(data.objects['location'], :minimal => true) %>
+  ]
 }
-```
+<% end %>
 
 ### Create A Clock-out
 `POST <%=@api_prefix%>/2/times/clockout`
@@ -316,11 +317,11 @@ curl -X DELETE <%=@api_prefix%>/2/times/123 \
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/times/{id}`

@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['shift']) %>
-
-```
+<% end %>
 
 Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites, and Users, all link through Shifts.
 
@@ -30,16 +29,18 @@ $result = $wiw->get("shifts", array(
 
 > Example Response
 
-```json
+<% json do %>
 {
   "start": "Wed, 05 Mar 2014 00:00:00 -0600",
   "end": "Sat, 08 Mar 2014 23:59:59 -0600",
   "shifts": [
-    <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['shift'], :minimal=>true, :include=>{'id'=>27384}).indent(4) %>
+    <%= print_json(data.objects['shift'], :minimal=>true) %>,
+    <%= print_json(data.objects['shift'], :minimal=>true, :include=>{
+      'id'=>27384
+    }) %>
   ]
 }
-```
+<% end %>
 
 This method allows you to search for shifts. See the parameters below for all the options.
 
@@ -66,7 +67,7 @@ include_onlyopen | <strong>boolean</strong><br />Only return OpenShifts in the r
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/2/shifts/1 \
+curl <%=@api_prefix%>/2/shifts/1337 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -78,11 +79,14 @@ $result = $wiw->get("shifts/1337");
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "shift": <%= print_json(data.objects['shift'], :minimal=>true,:include=>{:id=>1337, :notes=>"Come in early today."}).indent(2) %>
+  "shift": <%= print_json(data.objects['shift'], :minimal => true, :include => {
+    :id => 1337,
+    :notes => "Come in early today."
+  }) %>
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/shifts/{id}`
@@ -113,11 +117,13 @@ $result = $wiw->update("shifts/10000", array(...));
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "shift": <%= print_json(data.objects['shift'], :minimal=>true,:include=>{:notes=>"Come in early today."}).indent(2) %>
+  "shift": <%= print_json(data.objects['shift'], :minimal => true, :include => {
+    :notes=>"Come in early today."
+  }) %>
 }
-```
+<% end %>
 
 ### Create HTTP Request
 `POST <%=@api_prefix%>/2/shifts/`
@@ -148,12 +154,12 @@ $result = $wiw->post("shifts/acknowledge/", array("ids"=>array(34542,45434)));
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true,
   "acknowledged": 2
 }
-```
+<% end %>
 
 This method allows you to acknowledge a group of shifts.
 
@@ -185,11 +191,11 @@ $result = $wiw->post("shifts/publish/", array("ids"=>array(34542,45434)));
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 These methods allow you to publish or unpublish a group of shifts.
 
@@ -226,13 +232,13 @@ $result = $wiw->post("shifts/notify/", array("start"=>"2014-05-16 00:00:00", "en
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true,
   "email": 12,
   "sms": 4
 }
-```
+<% end %>
 
 This method allows you to notify users about new or updated shifts.
 
@@ -266,13 +272,13 @@ $result = $wiw->post("shifts/notify/47433");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true,
   "email": 1,
   "sms": 0
 }
-```
+<% end %>
 
 You can also send a notification about just one shift using the following:
 
@@ -303,11 +309,11 @@ $result = $wiw->delete("shifts/1337");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/shifts/{id}`

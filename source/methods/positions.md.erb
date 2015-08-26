@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['position']) %>
-
-```
+<% end %>
 
 Positions are the different titles that employees can be grouped into.
 
@@ -26,15 +25,23 @@ $result = $wiw->get("positions");
 ```
 > Example Response
 
-```json
+<% json do %>
 {
   "positions": [
-    <%= print_json(data.objects['position'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['position'], :minimal=>true, :include=>{'id'=>5,'name'=>'Bagger', 'color'=>'FF6666'}).indent(4) %>
-    <%= print_json(data.objects['position'], :minimal=>true, :include=>{'id'=>6,'name'=>'Cashier', 'color' => '0066FF'}).indent(4) %>
+    <%= print_json(data.objects['position'], :minimal => true) %>,
+    <%= print_json(data.objects['position'], :minimal => true, :include => {
+        'id' => 5,
+        'name' => 'Bagger',
+        'color' => 'FF6666'
+    }) %>,
+    <%= print_json(data.objects['position'], :minimal => true, :include => {
+        'id' => 6,
+        'name' => 'Cashier',
+        'color' => '0066FF'
+    }) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/positions`
@@ -58,11 +65,11 @@ $result = $wiw->get("positions/32");
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "position": <%= print_json(data.objects['position'], :minimal=>true).indent(2) %>
+  "position": <%= print_json(data.objects['position'], :minimal => true) %>
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/positions/{position_id}`
@@ -103,11 +110,11 @@ $result = $wiw->delete("positions/9");
 ```
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/positions/{position_id}`

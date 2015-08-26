@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['site']) %>
-
-```
+<% end %>
 
 Sites are off-site locations where users of a location can be assigned and scheduled.
 
@@ -27,14 +26,17 @@ $result = $wiw->get("sites");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "sites": [
-    <%= print_json(data.objects['site'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['site'], :minimal=>true, :include=>{'id'=>4,'name'=>'Lone Pine'}).indent(4) %>
+    <%= print_json(data.objects['site'], :minimal => true) %>,
+    <%= print_json(data.objects['site'], :minimal => true, :include => {
+      'id' => 4,
+      'name' => 'Lone Pine'
+    }) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/sites`
@@ -58,11 +60,11 @@ $result = $wiw->get("sites/9");
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "site": <%= print_json(data.objects['site'], :minimal=>true).indent(2) %>
+  "site": <%= print_json(data.objects['site'], :minimal => true) %>
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/sites/{id}`
@@ -104,11 +106,11 @@ $result = $wiw->delete("sites/9");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/sites/{site_id}`
