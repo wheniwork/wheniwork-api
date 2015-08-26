@@ -440,6 +440,10 @@ html, body {
     &+blockquote {
       padding-top: 1em;
     }
+
+    code {
+      padding: 0;
+    }
   }
 
   blockquote {
