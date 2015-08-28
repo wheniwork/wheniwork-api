@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['swap']) %>
-
-```
+<% end %>
 
 <%= print_table(data.objects['swap'], :header => :swap) %>
 
@@ -25,23 +24,28 @@ $result = $wiw->get("swaps");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "swaps": [
-  <%= print_json(data.objects['swap'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['swap'], :minimal => true) %>
   ],
   "messages" : [
-  <%= print_json(data.objects['message'], :minimal=>true, :include => { 'swap_id' => '2238' }).indent(4) %>
+    <%= print_json(data.objects['message'], :minimal => true, :include => {
+      'swap_id' => '2238'
+    }) %>
   ],
   "shifts" : [
-  <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>
+    <%= print_json(data.objects['shift'], :minimal => true) %>
   ],
   "users" : [
-  <%= print_json(data.objects['user'], :minimal=>true).indent(4) %>,
-  <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Emmett'}).indent(4) %>
+    <%= print_json(data.objects['user'], :minimal => true) %>,
+    <%= print_json(data.objects['user'], :minimal => true, :include => {
+      'id' => 27384,
+      'first_name' => 'Emmett'
+    }) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/swaps`
@@ -65,23 +69,28 @@ $result = $wiw->get("swaps/22");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "swaps": [
-    <%= print_json(data.objects['swap'], :minimal=>true).indent(4) %>
-    ],
-    "messages" : [
-    <%= print_json(data.objects['message'], :minimal=>true, :include => { 'swap_id' => '2238' }).indent(4) %>
-    ],
-    "shifts" : [
-    <%= print_json(data.objects['shift'], :minimal=>true).indent(4) %>
-    ],
-    "users" : [
-    <%= print_json(data.objects['user'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>27384,'first_name'=>'Emmett'}).indent(4) %>
-    ]
+    <%= print_json(data.objects['swap'], :minimal => true) %>
+  ],
+  "messages" : [
+    <%= print_json(data.objects['message'], :minimal => true, :include => {
+      'swap_id' => '2238'
+    }) %>
+  ],
+  "shifts" : [
+    <%= print_json(data.objects['shift'], :minimal => true) %>
+  ],
+  "users" : [
+    <%= print_json(data.objects['user'], :minimal => true) %>,
+    <%= print_json(data.objects['user'], :minimal => true, :include => {
+      'id' => 27384,
+      'first_name' => 'Emmett'
+    }) %>
+  ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/swaps/{swap_id}`
@@ -121,26 +130,43 @@ $result = $wiw->create("swaps", array(
 
 > Example Response Object
 
-```json
+<% json do %>
 {
-    "swaps": [
-    <%= print_json(data.objects['swap'], :minimal=>true).indent(4) %>
-    ],
-    "messages" : [
-    <%= print_json(data.objects['message'], :minimal=>true, :include => { 'swap_id' => '2238' }).indent(4) %>
-    ],
-    "shifts" : [
-    <%= print_json(data.objects['shift'], :minimal=>true, :include => { 'id' => '1047' }).indent(4) %>,
-    <%= print_json(data.objects['shift'], :minimal=>true, :include => { 'id' => '1046' }).indent(4) %>
-    ],
-    "users" : [
-    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>134,'first_name'=>'Emmett','last_name'=>'Brown'}).indent(4) %>,
-    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>132,'first_name'=>'Lorraine','last_name'=>'Tannen'}).indent(4) %>,
-    <%= print_json(data.objects['user'], :minimal=>true, :include=>{'id'=>110,'first_name'=>'Goldie','last_name'=>'Wilson'}).indent(4) %>
-    ]
-
+  "swaps": [
+    <%= print_json(data.objects['swap'], :minimal => true) %>
+  ],
+  "messages": [
+    <%= print_json(data.objects['message'], :minimal => true, :include => {
+      'swap_id' => '2238'
+    }) %>
+  ],
+  "shifts": [
+    <%= print_json(data.objects['shift'], :minimal => true, :include => {
+      'id' => '1047'
+    }) %>,
+    <%= print_json(data.objects['shift'], :minimal => true, :include => {
+      'id' => '1046'
+    }) %>
+  ],
+  "users": [
+    <%= print_json(data.objects['user'], :minimal => true, :include => {
+      'id' => 134,
+      'first_name' => 'Emmett',
+      'last_name' => 'Brown'
+    }) %>,
+    <%= print_json(data.objects['user'], :minimal => true, :include => {
+      'id' => 132,
+      'first_name' => 'Lorraine',
+      'last_name' => 'Tannen'
+    }) %>,
+    <%= print_json(data.objects['user'], :minimal => true, :include => {
+      'id' => 110,
+      'first_name' => 'Goldie',
+      'last_name' => 'Wilson'
+    }) %>
+  ]
 }
-```
+<% end %>
 
 
 
@@ -181,11 +207,11 @@ $result = $wiw->delete("swap/233");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/swap/{swap_id}`

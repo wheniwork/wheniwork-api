@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['account']) %>
-
-```
+<% end %>
 
 Accounts are objects that define a business account with When I Work. Every user must be associated with an account in order to be able to access Shifts and other data.
 
@@ -27,15 +26,25 @@ $result = $wiw->get("account");
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "account":
-    <%= print_json(data.objects['account'], :minimal=>true, :include=>{'id'=>11, 'master_id'=>11, 'company'=>'123 Company', 'subdomain'=>'123-company'}).indent(4) %>,
+  "account": <%= print_json(data.objects['account'], :minimal => true, :include => {
+      'id' => 11,
+      'master_id' => 11,
+      'company' => '123 Company',
+      'subdomain' => '123-company'
+  }) %>,
   "accounts": [
-    <%= print_json(data.objects['account'], :minimal=>true, :include=>{'id'=>12, 'master_id'=>11, 'company'=>'ABC Company', 'subdomain'=>'ABC Company', 'logo'=>'https://s3.amazonaws.com/files.wheniwork.com/logos/19282.gif'}).indent(4) %>
+    <%= print_json(data.objects['account'], :minimal => true, :include => {
+      'id' => 12,
+      'master_id' => 11,
+      'company' => 'ABC Company',
+      'subdomain' => 'ABC Company',
+      'logo' => 'https://s3.amazonaws.com/files.wheniwork.com/logos/19282.gif'
+    }) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 Listing accounts gives an object with two members: an `account` object, which specifies the primary account for a given user, and an array, `accounts`, containing all subaccounts of the primary account.
@@ -66,11 +75,16 @@ $result = $wiw->get("account/11");
 
 > Example Response
 
-```json
-  {
-    "account": <%= print_json(data.objects['account'], :minimal=>true, :include=>{'id'=>11, 'master_id'=>11, 'company'=>'123 Company', 'subdomain'=>'123-company'}).indent(4) %>
-  }
-```
+<% json do %>
+{
+  "account": <%= print_json(data.objects['account'], :minimal => true, :include => {
+    'id' => 11,
+    'master_id' => 11,
+    'company' => '123 Company',
+    'subdomain' => '123-company'
+  }) %>
+}
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/account/{account_id}`

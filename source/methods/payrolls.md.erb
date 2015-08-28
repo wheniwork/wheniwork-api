@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['payroll']) %>
-
-```
+<% end %>
 
 <%= print_table(data.objects['payroll'], :header => :user) %>
 
@@ -18,15 +17,23 @@ curl <%=@api_prefix%>/2/payrolls \
 
 > Example Response
 
-```json
+<% json do %>
 {
   "payrolls": [
-   <%= print_json(data.objects['payroll'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['payroll'], :minimal=>true, :include=>{'id'=>25, 'start_date'=>'Wed, 12 Feb 2014 00:00:00 -0600', 'end_date' => 'Tue, 25 Feb 2014 00:00:00 -0600'}).indent(4) %>,
-    <%= print_json(data.objects['payroll'], :minimal=>true, :include=>{'id'=>26, 'start_date'=>'Wed, 29 Jan 2014 00:00:00 -0600', 'end_date' => 'Tue, 11 Feb 2014 00:00:00 -0600'}).indent(4) %>,
+    <%= print_json(data.objects['payroll'], :minimal => true) %>,
+    <%= print_json(data.objects['payroll'], :minimal => true, :include => {
+      'id' => 25,
+      'start_date' => 'Wed, 12 Feb 2014 00:00:00 -0600',
+      'end_date'  =>  'Tue, 25 Feb 2014 00:00:00 -0600'
+    }) %>,
+    <%= print_json(data.objects['payroll'], :minimal => true, :include => {
+      'id' => 26,
+      'start_date' => 'Wed, 29 Jan 2014 00:00:00 -0600', 
+      'end_date'  =>  'Tue, 11 Feb 2014 00:00:00 -0600'
+    }) %>
   ]
 }
-```
+<% end %>
 
 This method allows you to list payroll periods or find ones within a specified date range.
 
@@ -54,16 +61,26 @@ curl <%=@api_prefix%>/2/payrolls/24 \
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "payroll": <%= print_json(data.objects['payroll'], :minimal=>true).indent(4) %>,
+  "payroll": <%= print_json(data.objects['payroll'], :minimal => true) %>,
   "payrollhours": [
-    <%= print_json(data.objects['payrollhours'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['payrollhours'], :minimal=>true, :include=>{'id'=>101,'hours'=>10,'rate'=>10,'total'=>100}).indent(4) %>,
-    <%= print_json(data.objects['payrollhours'], :minimal=>true, :include=>{'id'=>102,'hours'=>5,'rate'=>11,'total'=>55}).indent(4) %>
+    <%= print_json(data.objects['payrollhours'], :minimal => true) %>,
+    <%= print_json(data.objects['payrollhours'], :minimal => true, :include => {
+      'id' => 101,
+      'hours' => 10,
+      'rate' => 10,
+      'total' => 100
+    }) %>,
+    <%= print_json(data.objects['payrollhours'], :minimal => true, :include => {
+      'id' => 102,
+      'hours' => 5,
+      'rate' => 11,
+      'total' => 55
+    }) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/payrolls/{id}`

@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['message']) %>
-
-```
+<% end %>
 
 <%= print_table(data.objects['message'], :header => :message) %>
 
@@ -20,16 +19,25 @@ curl <%=@api_prefix%>/2/messages?request_id=123 \
 
 > Example Response
 
-```json
+<% json do %>
 {
   "messages": [
-    <%= print_json(data.objects['message'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['message'], :minimal=>true, :include=>{'id'=>456,'user_id'=>14, 'title'=>'Approved','content'=>'This request has been approved'}).indent(4) %>
-    <%= print_json(data.objects['message'], :minimal=>true, :include=>{'id'=>789,'user_id'=>14, 'title' => 'Canceled', 'content'=>'This request has been canceled again.'}).indent(4) %>
-
+    <%= print_json(data.objects['message'], :minimal => true) %>,
+    <%= print_json(data.objects['message'], :minimal => true, :include => {
+      'id' => 456,
+      'user_id' => 14,
+      'title' => 'Approved',
+      'content' => 'This request has been approved'
+    }) %>,
+    <%= print_json(data.objects['message'], :minimal => true, :include => {
+      'id' => 789,
+      'user_id' => 14,
+      'title' => 'Canceled',
+      'content' => 'This request has been canceled again.'
+    }) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/messages`
@@ -56,11 +64,11 @@ curl <%=@api_prefix%>/2/messages/61 \
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "message": <%= print_json(data.objects['message'], :minimal=>true).indent(2) %>
+  "message": <%= print_json(data.objects['message'], :minimal => true) %>
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/messages/{message_id}`
@@ -96,11 +104,11 @@ curl -X DELETE <%=@api_prefix%>/2/messages/61 \
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/messages/{message_id}`

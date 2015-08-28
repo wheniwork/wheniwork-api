@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['annotation']) %>
-
-```
+<% end %>
 
 Annotations convey important information to all staff for the given location(s) and date range.
 
@@ -41,14 +40,13 @@ $result = $wiw->get("annotations",
 
 > Example Response
 
-```json
+<% json do %>
 {
   "annotations": [
-    <%= print_json(data.objects['annotation']).indent(4) %>
+    <%= print_json(data.objects['annotation']) %>
   ]
 }
-
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/annotations`
@@ -83,11 +81,11 @@ $result = $wiw->get("annotations/41375");
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "annotation": <%= print_json(data.objects['annotation']).indent(4) %>
+  "annotation": <%= print_json(data.objects['annotation']) %>
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/annotations/{id}`
@@ -131,11 +129,11 @@ $result = $wiw->delete("annotations/136");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 Annotations can be deleted by managers and supervisors who can supervise the related location(s).
 

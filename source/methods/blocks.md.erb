@@ -1,9 +1,8 @@
 > Example Object
 
-```json
+<% json do %>
 <%= print_json(data.objects['block']) %>
-
-```
+<% end %>
 
 <%= print_table(data.objects['block'], :header => :block) %>
 
@@ -25,16 +24,23 @@ $result = $wiw->get("blocks");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "blocks": [
-    <%= print_json(data.objects['block'], :minimal=>true).indent(4) %>,
-    <%= print_json(data.objects['block'], :minimal=>true, :include=>{'id'=>183,'start_time'=>'06:00:00', 'end_time'=>'14:30:00'}).indent(4) %>
-    <%= print_json(data.objects['block'], :minimal=>true, :include=>{'id'=>204,'start_time'=>'08:45:00', 'end_time'=>'16:30:00'}).indent(4) %>
-
+    <%= print_json(data.objects['block'], :minimal => true) %>,
+    <%= print_json(data.objects['block'], :minimal => true, :include => {
+      'id' => 183,
+      'start_time' => '06:00:00',
+      'end_time' => '14:30:00'
+    }) %>,
+    <%= print_json(data.objects['block'], :minimal => true, :include => {
+      'id' => 204,
+      'start_time' => '08:45:00',
+      'end_time' => '16:30:00'
+    }) %>
   ]
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/blocks`
@@ -58,11 +64,11 @@ $result = $wiw->get("block/233");
 
 > Example Response
 
-```json
+<% json do %>
 {
-  "block": <%= print_json(data.objects['block'], :minimal=>true).indent(2) %>
+  "block": <%= print_json(data.objects['block'], :minimal => true) %>
 }
-```
+<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/blocks/{block_id}`
@@ -104,11 +110,11 @@ $result = $wiw->delete("blocks/233");
 
 > Example Response
 
-```json
+<% json do %>
 {
   "success": true
 }
-```
+<% end %>
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/blocks/{block_id}`
