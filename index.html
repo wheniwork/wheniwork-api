@@ -116,22 +116,21 @@
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"login"</span><span class="p">:</span><span class="w"> 
-  </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleygov.org"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ilovemyboss"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="s2">"users"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"login"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleygov.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ilovemyboss"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
-    </span><span class="p">}</span><span class="w"> 
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -256,7 +255,6 @@
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites, and Users, all link through Shifts.</p>
@@ -430,7 +428,7 @@
 <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/shifts/1 <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/shifts/1337 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 
@@ -791,7 +789,6 @@
   </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Accounts are objects that define a business account with When I Work. Every user must be associated with an account in order to be able to access Shifts and other data.</p>
@@ -871,20 +868,19 @@
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"account"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -943,21 +939,21 @@
 <p>Example Response</p>
 </blockquote>
 
-<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -1020,7 +1016,6 @@
   </span><span class="nt">"activated"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Th3m@y0R"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Users are the employees, supervisors, and managers that have access to your business on When I Work.</p>
@@ -1237,7 +1232,6 @@
     </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -1313,8 +1307,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 <p>Example Response</p>
 </blockquote>
 
-<pre class="highlight json"><code><span class="w">
-</span><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buffett"</span><span class="p">,</span><span class="w">
@@ -1336,7 +1329,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="nt">"activated"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Th3m@y0R"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -1610,7 +1602,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Positions are the different titles that employees can be grouped into.</p>
@@ -1680,7 +1671,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bagger"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FF6666"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cashier"</span><span class="p">,</span><span class="w">
@@ -1815,7 +1806,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 26 Oct 1985 01:20:00 -0500"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, Oct 21 2015 16:29:00 -0500"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Locations are the main physical locations where your business operates and where employees, managers, and supervisors are assigned.</p>
@@ -1896,7 +1886,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -2029,7 +2018,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
     </span><span class="s2">"-117.9264044"</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Sites are off-site locations where users of a location can be assigned and scheduled.</p>
@@ -2226,7 +2214,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="block-object">Block Object</h3>
@@ -2310,13 +2297,12 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">183</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:30:00"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:45:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:30:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2447,7 +2433,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="request-object">Request Object</h3>
@@ -2543,7 +2528,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 24 Mar 2014 08:00:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 28 Mar 2014 08:00:00 -0600"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -2568,17 +2553,17 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Approved"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-   </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-   </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27384</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brown"</span><span class="p">,</span><span class="w">
@@ -2650,31 +2635,31 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
     </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 21 Mar 2014 00:00:00 -0500"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-   </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="w">
     </span><span class="p">},</span><span class="w">
-   </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Approved"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-   </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-   </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27384</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brown"</span><span class="p">,</span><span class="w">
@@ -2710,12 +2695,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"start_time"</span><span class="p">:</span><span class="s2">"2012-02-25 8:00"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"end_time"</span><span class="p">:</span><span class="s2">"2012-05-25 17:00"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"status"</span><span class="p">:</span><span class="mi">0</span><span class="w">
-
+  </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-02-25 8:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-05-25 17:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2740,7 +2724,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">56</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
@@ -2751,7 +2735,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
     </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 25 May 2012 17:00:00 -0500"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 27 Apr 2012 11:33:53 -0500"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 27 Apr 2012 11:33:53 -0500"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2870,7 +2854,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="swap-object">Swap Object</h3>
@@ -2933,7 +2916,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2238"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -2941,8 +2924,8 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"accepted_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"messages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
@@ -2951,22 +2934,22 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"shifts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"users"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27384</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
@@ -3010,8 +2993,8 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"accepted_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"messages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
@@ -3020,15 +3003,15 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"shifts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"users"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
@@ -3043,7 +3026,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3099,7 +3082,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2238"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
@@ -3107,8 +3090,8 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"accepted_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"messages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
@@ -3117,8 +3100,8 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"shifts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1047"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
@@ -3129,8 +3112,8 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"users"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">134</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett"</span><span class="p">,</span><span class="w">
@@ -3152,8 +3135,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3255,7 +3237,6 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Availabilities are objects that define a user&rsquo;s availability to be assigned shifts during a certain period of time.</p>
@@ -3332,7 +3313,6 @@ specified non-default availability.</p>
   </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="availability_item-object">Availability_item Object</h3>
@@ -3414,14 +3394,13 @@ specified non-default availability.</p>
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George's availability"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George M.'s School Year Availability"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorraine's availability"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorraine B.'s Winter Availability"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3491,7 +3470,6 @@ specified non-default availability.</p>
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:15:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
-
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3570,7 +3548,6 @@ specified non-default availability.</p>
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:15:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
-
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3676,7 +3653,6 @@ specified non-default availability.</p>
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="user-object">User Object</h3>
@@ -3749,7 +3725,7 @@ specified non-default availability.</p>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"payrolls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-   </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 26 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Mar 2014 23:59:59 -0500"</span><span class="p">,</span><span class="w">
@@ -3769,7 +3745,7 @@ specified non-default availability.</p>
       </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3814,12 +3790,12 @@ specified non-default availability.</p>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"payroll"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 26 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Mar 2014 23:59:59 -0500"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 26 Feb 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 11 Mar 2014 23:59:59 -0500"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Nov -001 18:00:00 -0600"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"payrollhours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
@@ -3918,7 +3894,6 @@ specified non-default availability.</p>
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="user-object">User Object</h3>
@@ -4052,7 +4027,7 @@ specified non-default availability.</p>
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-   </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="w">
@@ -4114,7 +4089,7 @@ specified non-default availability.</p>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
       </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
@@ -4126,8 +4101,7 @@ specified non-default availability.</p>
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
       </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4286,10 +4260,13 @@ the user&rsquo;s punch state.</p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"position_id"</span><span class="p">:</span><span class="mi">102</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">44.937422</span><span class="p">,</span><span class="mf">-93.084009</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"accuracy"</span><span class="p">:</span><span class="mi">20</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mf">44.937422</span><span class="p">,</span><span class="w">
+    </span><span class="mf">-93.084009</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"accuracy"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4298,47 +4275,47 @@ the user&rsquo;s punch state.</p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-     </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"punch_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                       </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 02 Oct 2014 20:53:40 -0500"</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"can_punch_in"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"open_time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2585161</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"near_location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100866</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"near_site_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"punch_in_shift_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-     </span><span class="p">},</span><span class="w">
-     </span><span class="nt">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-     </span><span class="p">],</span><span class="w">
-     </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="s2">"34.2390664"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"-118.4332328"</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-     </span><span class="p">]</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"punch_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 02 Oct 2014 20:53:40 -0500"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"can_punch_in"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"open_time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2585161</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"near_location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100866</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"near_site_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"punch_in_shift_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"34.2390664"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"-118.4332328"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4399,10 +4376,13 @@ the user&rsquo;s punch state.</p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"position_id"</span><span class="p">:</span><span class="mi">102</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">44.937422</span><span class="p">,</span><span class="mf">-93.084009</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"accuracy"</span><span class="p">:</span><span class="mi">20</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mf">44.937422</span><span class="p">,</span><span class="w">
+    </span><span class="mf">-93.084009</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"accuracy"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4411,47 +4391,46 @@ the user&rsquo;s punch state.</p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-     </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"punch_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                       </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 02 Oct 2014 20:53:40 -0500"</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"open_time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2585161</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"near_location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100866</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"near_site_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                       </span><span class="nt">"punch_out_shift_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-     </span><span class="p">},</span><span class="w">
-     </span><span class="nt">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-     </span><span class="p">],</span><span class="w">
-     </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="s2">"34.2390664"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"-118.4332328"</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-     </span><span class="p">]</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"punch_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 02 Oct 2014 20:53:40 -0500"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"can_punch_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"open_time_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2585161</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"near_location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100866</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"near_site_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"punch_out_shift_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"34.2390664"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"-118.4332328"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4533,35 +4512,36 @@ the user&rsquo;s punch state.</p>
 <p>Example Post Data</p>
 </blockquote>
 
-<pre class="highlight json"><code><span class="p">[{</span><span class="w">
-    </span><span class="nt">"method"</span><span class="p">:</span><span class="s2">"get"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"/rest/shifts"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"params"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"start"</span><span class="p">:</span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"end"</span><span class="p">:</span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"unpublished"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"include_allopen"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rest/shifts"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"unpublished"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"include_allopen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nt">"method"</span><span class="p">:</span><span class="s2">"get"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"/rest/requests"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"params"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"start"</span><span class="p">:</span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"end"</span><span class="p">:</span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"include_pending"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"0,2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rest/requests"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"include_pending"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0,2"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nt">"method"</span><span class="p">:</span><span class="s2">"get"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"/rest/availabilities/items"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"params"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"start"</span><span class="p">:</span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"end"</span><span class="p">:</span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rest/availabilities/items"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">}]</span><span class="w">
-
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 
 <blockquote>
@@ -4618,7 +4598,6 @@ the user&rsquo;s punch state.</p>
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="message-object">Message Object</h3>
@@ -4702,7 +4681,7 @@ the user&rsquo;s punch state.</p>
       </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been approved"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">789</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
@@ -4710,7 +4689,6 @@ the user&rsquo;s punch state.</p>
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canceled"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled again."</span><span class="w">
     </span><span class="p">}</span><span class="w">
-
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4851,7 +4829,6 @@ the user&rsquo;s punch state.</p>
   </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open shift up for grabs!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We have an open shift available on Tuesday from 1:00 PM to 10:00 PM"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Send an email to a group of users.</p>
@@ -4912,7 +4889,6 @@ the user&rsquo;s punch state.</p>
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Templates allow you to create a group of shifts that can be used to make scheduling easier.</p>
@@ -4993,8 +4969,8 @@ the user&rsquo;s punch state.</p>
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our weekly schedule for December - March."</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"templateshifts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-     </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"templateshifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38383"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"template_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
@@ -5038,8 +5014,8 @@ the user&rsquo;s punch state.</p>
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our weekly schedule for December - March."</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"templateshifts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-   </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"templateshifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38383"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"template_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
@@ -5068,9 +5044,8 @@ the user&rsquo;s punch state.</p>
       </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 16:00:00 -0600"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
-
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -5099,11 +5074,16 @@ the user&rsquo;s punch state.</p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Cafe 80's October template"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start"</span><span class="p">:</span><span class="s2">"2015-10-01"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end"</span><span class="p">:</span><span class="s2">"2015-10-31"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ids"</span><span class="p">:[{</span><span class="nt">"user_id"</span><span class="p">:</span><span class="mi">135</span><span class="p">,</span><span class="nt">"location_id"</span><span class="p">:</span><span class="mi">137</span><span class="p">,</span><span class="nt">"position_id"</span><span class="p">:</span><span class="mi">172</span><span class="p">}]</span><span class="w">
-
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe 80's October template"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-01"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-31"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">137</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">172</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -5112,7 +5092,6 @@ the user&rsquo;s punch state.</p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-
   </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -5127,8 +5106,8 @@ the user&rsquo;s punch state.</p>
       </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"templateshifts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-   </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"templateshifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38383"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"template_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135"</span><span class="p">,</span><span class="w">
@@ -5137,9 +5116,8 @@ the user&rsquo;s punch state.</p>
       </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 08:00:00 -0500"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 15:00:00 -0500"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-   </span><span class="p">]</span><span class="w">
-
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -5239,7 +5217,6 @@ the user&rsquo;s punch state.</p>
   </span><span class="nt">"is_legacy"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Get all plans.</p>
@@ -5344,7 +5321,6 @@ the user&rsquo;s punch state.</p>
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Annotations convey important information to all staff for the given location(s) and date range.</p>
@@ -5487,7 +5463,6 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -5552,28 +5527,28 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"annotation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41375</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">46753</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"all_locations"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-19T06:00:00+0000"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-22T05:59:59+0000"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed for painting"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We are closed while we have the Minneapolis Store painted."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93c31f"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"business_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"no_time_off"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"announcement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Minneapolis Store"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41375</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">46753</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"all_locations"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-19T06:00:00+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-22T05:59:59+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed for painting"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We are closed while we have the Minneapolis Store painted."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93c31f"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"business_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"no_time_off"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"announcement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Minneapolis Store"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 

@@ -68,7 +68,6 @@
   </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
 <p>Accounts are objects that define a business account with When I Work. Every user must be associated with an account in order to be able to access Shifts and other data.</p>
@@ -145,20 +144,19 @@
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"account"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -214,21 +212,21 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <h3 id="http-request">HTTP Request</h3>

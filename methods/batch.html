@@ -55,35 +55,36 @@
         <blockquote>
 <p>Example Post Data</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[{</span><span class="w">
-    </span><span class="nt">"method"</span><span class="p">:</span><span class="s2">"get"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"/rest/shifts"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"params"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"start"</span><span class="p">:</span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"end"</span><span class="p">:</span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"unpublished"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"include_allopen"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rest/shifts"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"unpublished"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"include_allopen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nt">"method"</span><span class="p">:</span><span class="s2">"get"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"/rest/requests"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"params"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"start"</span><span class="p">:</span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"end"</span><span class="p">:</span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"include_pending"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"0,2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rest/requests"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"include_pending"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0,2"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nt">"method"</span><span class="p">:</span><span class="s2">"get"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"/rest/availabilities/items"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"params"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"start"</span><span class="p">:</span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"end"</span><span class="p">:</span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rest/availabilities/items"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 15 Apr 2012 00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 21 Apr 2012 23:59:59"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">}]</span><span class="w">
-
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 
 <blockquote>
