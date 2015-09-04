@@ -18,7 +18,9 @@ class APIHtmlRenderer < ::Redcarpet::Render::HTML
   end
 
   def block_code(code, language)
-    return Middleman::Syntax::Highlighter.highlight(code, language) unless language == 'json' && code.include?("SECTION_START")
+    return Middleman::Syntax::Highlighter.highlight(code, language) unless language == 'json' && (code.include?("SECTION_START") || code.include?("SECTION_END"))
+
+    verify_startend(code)
 
     # -------------------------------------------------------
     # This lets us show/hide lines in code examples on the
@@ -32,14 +34,21 @@ class APIHtmlRenderer < ::Redcarpet::Render::HTML
     # Make sure "SECTION_START" or "SECTION_END" is the
     # only thing on that line to ensure that it colors
     # and replaces as expected
-    code.gsub!(/^.*SECTION_START.*\n/, 'SECTION_START')
-    code.gsub!(/^.*SECTION_END.*\n/, 'SECTION_END')
+    code.gsub!(/^.*SECTION_START.*$/, "SECTION_START")
+    code.gsub!(/^.*SECTION_END.*$/, "SECTION_END")
+
+    # Attempt to remove invalid final commas, if present
+    while commaIndex = code.index(/,\s*(SECTION_START|SECTION_END)?\s*(\}|\])/)
+      code.slice!(commaIndex)
+    end
 
     # Color the code and replace start/end tags with
     # actual HTML tags
     output = Middleman::Syntax::Highlighter.highlight(code, language)
-    output.gsub!('<span class="err">SECTION_START</span>', '<span class="hide-section">')
-    output.gsub!('<span class="err">SECTION_END</span>', '</span>')
+    output.gsub!("<span class=\"err\">SECTION_START</span><span class=\"w\">\n", '<span class="hide-section"><span class="w">')
+    output.gsub!("<span class=\"err\">SECTION_END</span><span class=\"w\">\n", '</span>')
+
+    output.strip!
 
     # Give the code block its unique ID
     output.gsub!('<pre', "<pre id=\"code-collapse-#{@code_section_counter}\"")
@@ -54,6 +63,38 @@ class APIHtmlRenderer < ::Redcarpet::Render::HTML
   end
 
   private
+
+  def verify_startend(code)
+    needs_end = false
+
+    output = ["For code:\n#{code}"]
+
+    for token in code.split
+      if token.include?("SECTION_START")
+        output.push("Found SECTION_START")
+        if needs_end
+          raise "Unexpected SECTION_START in JSON block"
+        end
+        
+        needs_end = true
+        output.push("needs_end is now true")
+      end
+
+      if token.include?("SECTION_END")
+        output.push("Found SECTION_END")
+        if !needs_end
+          raise "Unexpected SECTION_END in JSON block"
+        end
+
+        needs_end = false
+        output.push("needs_end is now false")
+      end
+    end
+
+    if needs_end
+      raise "Missing SECTION_END in JSON block"
+    end
+  end
 
   def toggle_link(klass, selector, message)
     "<a class=\"#{klass}\" onclick=\"toggleSection('#{selector}')\">#{message}</a>"
