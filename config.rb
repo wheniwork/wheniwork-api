@@ -1,5 +1,7 @@
 require "lib/api_objects"
 require "lib/common"
+require "lib/api_html_renderer"
+
 ::Middleman::Extensions.register(:api_objects, ApiObjects)
 ::Middleman::Extensions.register(:common, Common)
 
@@ -14,16 +16,19 @@ set :images_dir, 'images'
 
 set :fonts_dir, 'fonts'
 
-set :markdown_engine, :redcarpet
 
-set :markdown, 
+# Set rendering options. :with_toc_data is ignored for some
+# reason unless we put it in the renderer's constructor.
+set :markdown_engine, :redcarpet
+set :markdown,
       :fenced_code_blocks => true, 
       :smartypants => true, 
       :disable_indented_code_blocks => true, 
       :prettify => true, 
-      :tables => true, 
-      :with_toc_data => true, 
-      :no_intra_emphasis => true
+      :tables => true,
+      :no_intra_emphasis => true,
+      :renderer => APIHtmlRenderer.new(:with_toc_data => true)
+
 
 # Activate the syntax highlighter
 activate :syntax

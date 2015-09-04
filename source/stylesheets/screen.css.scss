@@ -444,6 +444,39 @@ html, body {
     code {
       padding: 0;
     }
+
+    .hide-section {
+      display: none;
+    }
+
+    .expand-link, .collapse-link {
+      cursor: pointer;
+      font-style: italic;
+      color: #ccc;
+      border-color: #aaa;
+    }
+
+    .expand-link {
+      display: inline;
+    }
+
+    .collapse-link {
+      display: none;
+    }
+
+    &.expanded {
+      .hide-section {
+        display: inline;
+      }
+
+      .expand-link {
+        display: none;
+      }
+
+      .collapse-link {
+        display: inline;
+      }
+    }
   }
 
   blockquote {
