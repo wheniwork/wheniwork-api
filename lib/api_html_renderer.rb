@@ -13,6 +13,9 @@ class APIHtmlRenderer < ::Redcarpet::Render::HTML
   def initialize(options={})
     @local_options = options.dup
     @code_section_counter = 0
+    @table_section_counter = 0
+    @table_section_active = false
+    @table_section_needs_spacer = false
 
     super
   end
@@ -55,11 +58,73 @@ class APIHtmlRenderer < ::Redcarpet::Render::HTML
 
     # Make and add show/hide links
     selector = "\#code-collapse-#{@code_section_counter}"
-    expand_link = expand_link(selector)
-    collapse_link = collapse_link(selector)
+    expand_link = expand_code_link(selector)
+    collapse_link = collapse_code_link(selector)
     output.gsub!('</pre>', "#{expand_link}#{collapse_link}</pre>")
 
     return output
+  end
+
+  def table(header, body)
+    @table_section_counter += 1
+
+    output = "";
+    can_collapse = body.include?("<tr class=\"collapse\">")
+
+    if can_collapse
+      output << "<table id=\"table-collapse-#{@table_section_counter}\">"
+    else
+      output << "<table>"
+    end
+
+    if !header.strip.empty?
+      output << "<thead>#{header}</thead>"
+    end
+    if !body.strip.empty?
+      output << "<tbody>#{body}</tbody>"
+    end
+
+    output << "</table>"
+
+    if can_collapse
+      output << "<p class=\"collapse-links\">"
+      output << expand_table_link("\#table-collapse-#{@table_section_counter}")
+      output << collapse_table_link("\#table-collapse-#{@table_section_counter}")
+      output << "</p>"
+    end
+
+    return output
+  end
+  
+  def table_row(content)
+    if content.include?("SECTION_START")
+      if @table_section_active
+        raise "Unexpected SECTION_START in table"
+      end
+
+      @table_section_active = true
+      @table_section_needs_spacer = false
+      return ""
+    end
+    if content.include?("SECTION_END")
+      if !@table_section_active
+        raise "Unexpected SECTION_END in table"
+      end
+
+      @table_section_active = false
+      if @table_section_needs_spacer
+        return "<tr class=\"spacer\"></tr>"
+      else
+        return ""
+      end
+    end
+
+    if @table_section_active
+      @table_section_needs_spacer = !@table_section_needs_spacer
+      return "<tr class=\"collapse\">#{content}</tr>"
+    else
+      return "<tr>#{content}</tr>"
+    end
   end
 
   private
@@ -67,27 +132,21 @@ class APIHtmlRenderer < ::Redcarpet::Render::HTML
   def verify_startend(code)
     needs_end = false
 
-    output = ["For code:\n#{code}"]
-
     for token in code.split
       if token.include?("SECTION_START")
-        output.push("Found SECTION_START")
         if needs_end
           raise "Unexpected SECTION_START in JSON block"
         end
         
         needs_end = true
-        output.push("needs_end is now true")
       end
 
       if token.include?("SECTION_END")
-        output.push("Found SECTION_END")
         if !needs_end
           raise "Unexpected SECTION_END in JSON block"
         end
 
         needs_end = false
-        output.push("needs_end is now false")
       end
     end
 
@@ -96,15 +155,27 @@ class APIHtmlRenderer < ::Redcarpet::Render::HTML
     end
   end
 
-  def toggle_link(klass, selector, message)
-    "<a class=\"#{klass}\" onclick=\"toggleSection('#{selector}')\">#{message}</a>"
+  def toggle_code_link(klass, selector, message)
+    "<a class=\"#{klass}\" onclick=\"toggleCodeSection('#{selector}')\">#{message}</a>"
   end
 
-  def expand_link(selector, message = "Show more fields")
-    toggle_link('expand-link', selector, message)
+  def expand_code_link(selector, message = "Show more fields")
+    toggle_code_link('expand-link', selector, message)
   end
 
-  def collapse_link(selector, message = "Hide extra fields")
-    toggle_link('collapse-link', selector, message)
+  def collapse_code_link(selector, message = "Hide extra fields")
+    toggle_code_link('collapse-link', selector, message)
+  end
+
+  def toggle_table_link(klass, selector, message)
+    "<a href=\"#{selector}\" class=\"#{klass}\" onclick=\"toggleTable('#{selector}')\">#{message}</a>"
+  end
+
+  def expand_table_link(selector, message = "Show more parameters")
+    toggle_table_link('expand-link', selector, message)
+  end
+
+  def collapse_table_link(selector, message = "Hide extra parameters")
+    toggle_table_link('collapse-link', selector, message)
   end
 end
