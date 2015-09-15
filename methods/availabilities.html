@@ -70,7 +70,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Availabilities are objects that define a user&rsquo;s availability to be assigned shifts during a certain period of time.</p>
+<p>Availabilities are objects that define a user&#39;s availability to be assigned shifts during a certain period of time.</p>
 
 <h3 id="availability-object">Availability Object</h3>
 
@@ -86,7 +86,7 @@
 </tr>
 <tr>
 <td>account_id</td>
-<td><strong>integer</strong><br />The ID of the account that this user&rsquo;s availability is tied to.</td>
+<td><strong>integer</strong><br />The ID of the account that this user&#39;s availability is tied to.</td>
 </tr>
 <tr>
 <td>user_id</td>
@@ -110,7 +110,7 @@
 </tr>
 <tr>
 <td>ongoing</td>
-<td><strong>boolean</strong><br />Whether the availability is the user&rsquo;s ongoing availability.</td>
+<td><strong>boolean</strong><br />Whether the availability is the user&#39;s ongoing availability.</td>
 </tr>
 <tr>
 <td>repeat</td>
@@ -127,7 +127,7 @@
 </tbody></table>
 
 <p>Availability Items are individual components of a greater Availability object.
-Where an Availability is an object that defines a user&rsquo;s availability (in
+Where an Availability is an object that defines a user&#39;s availability (in
 general), each Availability object is made up of Availability Items, each of
 which contains information about a specific day/time for which the user has
 specified non-default availability.</p>
@@ -234,7 +234,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities?user_id=371,453,456</code></p>
+<p><code>GET https://api.wheniwork.com/2/availabilities?user_id=371,453,456</code></p>
 
 <h2 id="get-existing-availability">Get Existing Availability</h2>
 
@@ -299,7 +299,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -375,7 +375,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities/items</code></p>
+<p><code>GET https://api.wheniwork.com/2/availabilities/items</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -403,15 +403,15 @@ specified non-default availability.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/availabilities/</code></p>
+<p><code>POST https://api.wheniwork.com/2/availabilities/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/availabilities/{availability id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/availabilities/{availability id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#availabilities">Availability Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#availabilities">Availability Object</a>.</p>
 
 <h2 id="delete-existing-availability">Delete Existing Availability</h2>
 
@@ -437,7 +437,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 

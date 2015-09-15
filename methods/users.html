@@ -123,7 +123,7 @@
 </tr>
 <tr>
 <td>role</td>
-<td><strong>integer</strong><br />The user&rsquo;s role.<br> 1 = Admin<br> 2 = Manager<br> 3 = Employee (Default)<br> 4 = Lead (Unused)<br>5 = Supervisor</td>
+<td><strong>integer</strong><br />The user&#39;s role.<br> 1 = Admin<br> 2 = Manager<br> 3 = Employee (Default)<br> 4 = Lead (Unused)<br>5 = Supervisor</td>
 </tr>
 <tr>
 <td>positions</td>
@@ -188,7 +188,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/users</code></p>
+<p><code>GET https://api.wheniwork.com/2/users</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -239,7 +239,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/users/{id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/users/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -288,12 +288,12 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users</code></p>
+<p><code>POST https://api.wheniwork.com/2/users</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> body can include fields from the <a href="#users">User Object</a>. You will need
-to include at least the &lsquo;email&rsquo; field in the body of the request.</p>
+<p>The <code>POST</code> body can include fields from the <a href="#users">User Object</a>. You will need
+to include at least the &#39;email&#39; field in the body of the request.</p>
 
 <h3 id="additional-params">Additional Params</h3>
 
@@ -313,11 +313,11 @@ to include at least the &lsquo;email&rsquo; field in the body of the request.</p
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/users/{id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/users/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#users">User Object</a>.</p>
+<p>The <code>PUT</code> body can include fields from the <a href="#users">User Object</a>.</p>
 
 <h3 id="additional-params">Additional Params</h3>
 
@@ -382,7 +382,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/profile</code></p>
+<p><code>POST https://api.wheniwork.com/2/users/profile</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -398,19 +398,19 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </thead><tbody>
 <tr>
 <td>first_name</td>
-<td><strong>string</strong><br />User&rsquo;s first name</td>
+<td><strong>string</strong><br />User&#39;s first name</td>
 </tr>
 <tr>
 <td>last_name</td>
-<td><strong>string</strong><br />User&rsquo;s last name (surname)</td>
+<td><strong>string</strong><br />User&#39;s last name (surname)</td>
 </tr>
 <tr>
 <td>email</td>
-<td><strong>string</strong><br />User&rsquo;s email address</td>
+<td><strong>string</strong><br />User&#39;s email address</td>
 </tr>
 <tr>
 <td>phone_number</td>
-<td><strong>string</strong><br />User&rsquo;s phone number for SMS messages</td>
+<td><strong>string</strong><br />User&#39;s phone number for SMS messages</td>
 </tr>
 </tbody></table>
 
@@ -446,11 +446,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/alerts</code></p>
+<p><code>POST https://api.wheniwork.com/2/users/alerts</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> body can include fields from the Alert Settings Object.</p>
+<p>The <code>POST</code> body can include fields from the Alert Settings Object.</p>
 
 <h3 id="user-alert-settings-object">User alert settings Object</h3>
 
@@ -538,7 +538,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/invite/</code></p>
+<p><code>POST https://api.wheniwork.com/2/users/invite/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -554,7 +554,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 <tr>
 <td>send_all</td>
-<td><strong>boolean</strong><br />Invite all users without a login. <code class="prettyprint">ids</code> parameter is ignored.</td>
+<td><strong>boolean</strong><br />Invite all users without a login. <code>ids</code> parameter is ignored.</td>
 </tr>
 <tr>
 <td>message</td>
@@ -566,7 +566,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/invite/{id}</code></p>
+<p><code>POST https://api.wheniwork.com/2/users/invite/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -612,7 +612,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/users/{id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/users/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 

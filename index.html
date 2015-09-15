@@ -82,17 +82,17 @@
 <p>&nbsp;</p>
 </blockquote>
 
-<p>Server authentication is based on a token model. The developer will authenticate using a private developer key, along with the user&rsquo;s credentials. Your developer key can be used like the following in the headers.</p>
+<p>Server authentication is based on a token model. The developer will authenticate using a private developer key, along with the user&#39;s credentials. Your developer key can be used like the following in the headers.</p>
 
-<p><code class="prettyprint">W-Key: iworksoharditsnotfunny</code></p>
+<p><code>W-Key: iworksoharditsnotfunny</code></p>
 
-<p>Authenticating will return back a login object containing a token that can be used for all future requests. The token may be included in the headers, as a cookie, or in the query string using the key <code class="prettyprint">W-Token</code>, like the following.</p>
+<p>Authenticating will return back a login object containing a token that can be used for all future requests. The token may be included in the headers, as a cookie, or in the query string using the key <code>W-Token</code>, like the following.</p>
 
-<p><code class="prettyprint">W-Token: ilovemyboss</code></p>
+<p><code>W-Token: ilovemyboss</code></p>
 
-<p>Authenticating will also return back a user object, or a list of user objects if your login has access to multiple accounts. Future requests to the API will also need to include the header <code class="prettyprint">W-UserId</code> along with the id of the user you&rsquo;d like to use, like the following.</p>
+<p>Authenticating will also return back a user object, or a list of user objects if your login has access to multiple accounts. Future requests to the API will also need to include the header <code>W-UserId</code> along with the id of the user you&#39;d like to use, like the following.</p>
 
-<p><code class="prettyprint">W-UserId: 5</code></p>
+<p><code>W-UserId: 5</code></p>
 
 <h2 id="login">Login</h2>
 
@@ -137,7 +137,7 @@
 
 <blockquote>
 <blockquote>
-<p>Be sure to replace <code class="prettyprint">iworksoharditsnotfunny</code> with your requested Developer Key.</p>
+<p>Be sure to replace <code>iworksoharditsnotfunny</code> with your requested Developer Key.</p>
 </blockquote>
 </blockquote>
 
@@ -164,13 +164,13 @@
 </tr>
 <tr>
 <td>key</td>
-<td><strong>string</strong><br />Your developer key. This can be used instead of <code class="prettyprint">W-Key</code> in the headers. You do not need both.</td>
+<td><strong>string</strong><br />Your developer key. This can be used instead of <code>W-Key</code> in the headers. You do not need both.</td>
 </tr>
 </tbody></table>
 
-<p>Once you have the token, you must include it in all authenticated requests. The <code class="prettyprint">W-Key</code> does not need to be included.</p>
+<p>Once you have the token, you must include it in all authenticated requests. The <code>W-Key</code> does not need to be included.</p>
 
-<p><code class="prettyprint">W-Token: ilovemyboss</code></p>
+<p><code>W-Token: ilovemyboss</code></p>
 
 <h2 id="web-app-sso">Web App SSO</h2>
 
@@ -204,9 +204,9 @@
 
 <p>If you find any need to send an authenticated user into the web app without requiring them to log in, you can generate a unique hash that will log them into the app automatically.</p>
 
-<p>You can then use the <code class="prettyprint">al</code> (autologin) query parameter to accomplish this. An example would be sending the user to the following URL:</p>
+<p>You can then use the <code>al</code> (autologin) query parameter to accomplish this. An example would be sending the user to the following URL:</p>
 
-<p><code class="prettyprint">http://app.wheniwork.com/scheduler?al={the_auto_login_hash}</code></p>
+<p><code>http://app.wheniwork.com/scheduler?al={the_auto_login_hash}</code></p>
 
 <h2 id="related-objects">Related Objects</h2>
 
@@ -224,9 +224,9 @@
 <pre class="highlight shell"><code>curl https://api.wheniwork.com/2/shifts?include_objects[]<span class="o">=</span>positions&amp;include_objects[]<span class="o">=</span>locations
 </code></pre>
 
-<p>By default, all responses from the API will include related objects. For example, when calling the <code class="prettyprint">shifts</code> endpoint, the response will also include a <code class="prettyprint">users</code> array with all the employees for those shifts.</p>
+<p>By default, all responses from the API will include related objects. For example, when calling the <code>shifts</code> endpoint, the response will also include a <code>users</code> array with all the employees for those shifts.</p>
 
-<p>Including related objects is controlled by the <code class="prettyprint">include_objects</code> parameter, which can either be boolean, a comma-separated list, or an array. Boolean values are recognized as <code class="prettyprint">true</code>, <code class="prettyprint">yes</code>, <code class="prettyprint">on</code>, and <code class="prettyprint">1</code> and the inverse of each. To completely disable the inclusion of related objects, use <code class="prettyprint">false</code>.</p>
+<p>Including related objects is controlled by the <code>include_objects</code> parameter, which can either be boolean, a comma-separated list, or an array. Boolean values are recognized as <code>true</code>, <code>yes</code>, <code>on</code>, and <code>1</code> and the inverse of each. To completely disable the inclusion of related objects, use <code>false</code>.</p>
 
 <aside class="notice"><p>The default value for <code>include_objects</code> is <code>true</code>.</p>
 </aside>
@@ -378,7 +378,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/shifts</code></p>
+<p><code>GET https://api.wheniwork.com/2/shifts</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -454,7 +454,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/shifts/{id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/shifts/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -503,15 +503,15 @@
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/</code></p>
+<p><code>POST https://api.wheniwork.com/2/shifts/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/shifts/{id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/shifts/{id}</code></p>
 
 <h3 id="post-put-body">Post/Put Body</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#shifts">Shift Object</a>.</p>
+<p>The <code>POST</code> and/or <code>PUT</code> body can include fields from the <a href="#shifts">Shift Object</a>.</p>
 
 <h2 id="acknowledge-shifts">Acknowledge Shifts</h2>
 
@@ -544,7 +544,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/acknowledge/</code></p>
+<p><code>POST https://api.wheniwork.com/2/shifts/acknowledge/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -556,7 +556,7 @@
 </thead><tbody>
 <tr>
 <td>ids</td>
-<td>Post body parameter of mulitiple shift identifiers. <code class="prettyprint">[4543,23453]</code></td>
+<td>Post body parameter of mulitiple shift identifiers. <code>[4543,23453]</code></td>
 </tr>
 </tbody></table>
 
@@ -590,11 +590,11 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/publish/</code></p>
+<p><code>POST https://api.wheniwork.com/2/shifts/publish/</code></p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/unpublish/</code></p>
+<p><code>POST https://api.wheniwork.com/2/shifts/unpublish/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -606,7 +606,7 @@
 </thead><tbody>
 <tr>
 <td>ids</td>
-<td>Post body parameter that can be used to publish multiple shifts. <code class="prettyprint">[4543,23453]</code></td>
+<td>Post body parameter that can be used to publish multiple shifts. <code>[4543,23453]</code></td>
 </tr>
 </tbody></table>
 
@@ -642,7 +642,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/notify/</code></p>
+<p><code>POST https://api.wheniwork.com/2/shifts/notify/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -662,7 +662,7 @@
 </tr>
 <tr>
 <td>user_id</td>
-<td><strong>integer, array</strong><br />Only notify shifts for a user, or multiple (e.g. <code class="prettyprint">[1,5,3]</code>)</td>
+<td><strong>integer, array</strong><br />Only notify shifts for a user, or multiple (e.g. <code>[1,5,3]</code>)</td>
 </tr>
 <tr>
 <td>location_id</td>
@@ -707,7 +707,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/shifts/notify/{id}</code></p>
+<p><code>POST https://api.wheniwork.com/2/shifts/notify/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -750,7 +750,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/shifts/{id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/shifts/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -766,7 +766,7 @@
 </tr>
 <tr>
 <td>ids</td>
-<td>Optional query parameter that can be used to delete multiple shifts. <code class="prettyprint">?ids=5,2,34</code></td>
+<td>Optional query parameter that can be used to delete multiple shifts. <code>?ids=5,2,34</code></td>
 </tr>
 </tbody></table>
 
@@ -815,7 +815,7 @@
 </tr>
 <tr>
 <td>logo</td>
-<td><strong>string</strong><br />Path to the image file for the company&rsquo;s logo</td>
+<td><strong>string</strong><br />Path to the image file for the company&#39;s logo</td>
 </tr>
 <tr>
 <td>company</td>
@@ -831,7 +831,7 @@
 </tr>
 <tr>
 <td>plan_expires</td>
-<td><strong>datetime</strong><br />Date and time when this account&rsquo;s plan expires</td>
+<td><strong>datetime</strong><br />Date and time when this account&#39;s plan expires</td>
 </tr>
 <tr>
 <td>timezone_id</td>
@@ -901,9 +901,9 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>Listing accounts gives an object with two members: an <code class="prettyprint">account</code> object, which specifies the primary account for a given user, and an array, <code class="prettyprint">accounts</code>, containing all subaccounts of the primary account.</p>
+<p>Listing accounts gives an object with two members: an <code>account</code> object, which specifies the primary account for a given user, and an array, <code>accounts</code>, containing all subaccounts of the primary account.</p>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/account?account_id=11,12</code></p>
+<p><code>GET https://api.wheniwork.com/2/account?account_id=11,12</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -958,7 +958,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/account/{account_id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/account/{account_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -978,15 +978,15 @@
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/account/</code></p>
+<p><code>POST https://api.wheniwork.com/2/account/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/account/{account id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/account/{account id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> and/or <code class="prettyprint">PUT</code> body can include fields from the <a href="#accounts">Account Object</a>.</p>
+<p>The <code>POST</code> and/or <code>PUT</code> body can include fields from the <a href="#accounts">Account Object</a>.</p>
 
 <h1 id="users">Users</h1>
 
@@ -1062,7 +1062,7 @@
 </tr>
 <tr>
 <td>role</td>
-<td><strong>integer</strong><br />The user&rsquo;s role.<br> 1 = Admin<br> 2 = Manager<br> 3 = Employee (Default)<br> 4 = Lead (Unused)<br>5 = Supervisor</td>
+<td><strong>integer</strong><br />The user&#39;s role.<br> 1 = Admin<br> 2 = Manager<br> 3 = Employee (Default)<br> 4 = Lead (Unused)<br>5 = Supervisor</td>
 </tr>
 <tr>
 <td>positions</td>
@@ -1130,7 +1130,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/users</code></p>
+<p><code>GET https://api.wheniwork.com/2/users</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1184,7 +1184,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/users/{id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/users/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1236,12 +1236,12 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users</code></p>
+<p><code>POST https://api.wheniwork.com/2/users</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> body can include fields from the <a href="#users">User Object</a>. You will need
-to include at least the &lsquo;email&rsquo; field in the body of the request.</p>
+<p>The <code>POST</code> body can include fields from the <a href="#users">User Object</a>. You will need
+to include at least the &#39;email&#39; field in the body of the request.</p>
 
 <h3 id="additional-params">Additional Params</h3>
 
@@ -1261,11 +1261,11 @@ to include at least the &lsquo;email&rsquo; field in the body of the request.</p
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/users/{id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/users/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#users">User Object</a>.</p>
+<p>The <code>PUT</code> body can include fields from the <a href="#users">User Object</a>.</p>
 
 <h3 id="additional-params">Additional Params</h3>
 
@@ -1333,7 +1333,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/profile</code></p>
+<p><code>POST https://api.wheniwork.com/2/users/profile</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1349,19 +1349,19 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </thead><tbody>
 <tr>
 <td>first_name</td>
-<td><strong>string</strong><br />User&rsquo;s first name</td>
+<td><strong>string</strong><br />User&#39;s first name</td>
 </tr>
 <tr>
 <td>last_name</td>
-<td><strong>string</strong><br />User&rsquo;s last name (surname)</td>
+<td><strong>string</strong><br />User&#39;s last name (surname)</td>
 </tr>
 <tr>
 <td>email</td>
-<td><strong>string</strong><br />User&rsquo;s email address</td>
+<td><strong>string</strong><br />User&#39;s email address</td>
 </tr>
 <tr>
 <td>phone_number</td>
-<td><strong>string</strong><br />User&rsquo;s phone number for SMS messages</td>
+<td><strong>string</strong><br />User&#39;s phone number for SMS messages</td>
 </tr>
 </tbody></table>
 
@@ -1400,11 +1400,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/alerts</code></p>
+<p><code>POST https://api.wheniwork.com/2/users/alerts</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> body can include fields from the Alert Settings Object.</p>
+<p>The <code>POST</code> body can include fields from the Alert Settings Object.</p>
 
 <h3 id="user-alert-settings-object">User alert settings Object</h3>
 
@@ -1495,7 +1495,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/invite/</code></p>
+<p><code>POST https://api.wheniwork.com/2/users/invite/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1511,7 +1511,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 <tr>
 <td>send_all</td>
-<td><strong>boolean</strong><br />Invite all users without a login. <code class="prettyprint">ids</code> parameter is ignored.</td>
+<td><strong>boolean</strong><br />Invite all users without a login. <code>ids</code> parameter is ignored.</td>
 </tr>
 <tr>
 <td>message</td>
@@ -1523,7 +1523,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/users/invite/{id}</code></p>
+<p><code>POST https://api.wheniwork.com/2/users/invite/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1572,7 +1572,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/users/{id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/users/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1628,7 +1628,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 <tr>
 <td>color</td>
-<td><strong>hexadecimal</strong><br />The position&rsquo;s color in the schedule.</td>
+<td><strong>hexadecimal</strong><br />The position&#39;s color in the schedule.</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -1683,7 +1683,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/positions</code></p>
+<p><code>GET https://api.wheniwork.com/2/positions</code></p>
 
 <h2 id="get-existing-position">Get Existing Position</h2>
 
@@ -1716,7 +1716,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/positions/{position_id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/positions/{position_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1736,15 +1736,15 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/positions/</code></p>
+<p><code>POST https://api.wheniwork.com/2/positions/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/positions/{position id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/positions/{position id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#positions">Position Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#positions">Position Object</a>.</p>
 
 <h2 id="delete-existing-position">Delete Existing Position</h2>
 
@@ -1773,7 +1773,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/positions/{position_id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/positions/{position_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1828,7 +1828,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 <tr>
 <td>address</td>
-<td><strong>string</strong><br />The location&rsquo;s address.</td>
+<td><strong>string</strong><br />The location&#39;s address.</td>
 </tr>
 <tr>
 <td>coordinates</td>
@@ -1890,7 +1890,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/locations</code></p>
+<p><code>GET https://api.wheniwork.com/2/locations</code></p>
 
 <h2 id="get-existing-location">Get Existing Location</h2>
 
@@ -1927,7 +1927,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/locations/{id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/locations/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1947,15 +1947,15 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/locations/</code></p>
+<p><code>POST https://api.wheniwork.com/2/locations/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/locations/{id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/locations/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#locations">Location Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#locations">Location Object</a>.</p>
 
 <h2 id="delete-existing-location">Delete Existing Location</h2>
 
@@ -1986,7 +1986,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/locations/{id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/locations/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2090,7 +2090,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/sites</code></p>
+<p><code>GET https://api.wheniwork.com/2/sites</code></p>
 
 <h2 id="get-existing-site">Get Existing Site</h2>
 
@@ -2123,7 +2123,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/sites/{id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/sites/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2143,15 +2143,15 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/sites/</code></p>
+<p><code>POST https://api.wheniwork.com/2/sites/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/sites/{id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/sites/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#sites">Site Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#sites">Site Object</a>.</p>
 
 <h2 id="delete-existing-site">Delete Existing Site</h2>
 
@@ -2180,7 +2180,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/sites/{site_id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/sites/{site_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2309,7 +2309,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/blocks</code></p>
+<p><code>GET https://api.wheniwork.com/2/blocks</code></p>
 
 <h2 id="get-existing-shift-block">Get Existing Shift Block</h2>
 
@@ -2342,7 +2342,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/blocks/{block_id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/blocks/{block_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2362,15 +2362,15 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/blocks/</code></p>
+<p><code>POST https://api.wheniwork.com/2/blocks/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/blocks/{block id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/blocks/{block id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#blocks">Block Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#blocks">Block Object</a>.</p>
 
 <h2 id="delete-existing-shift-block">Delete Existing Shift Block</h2>
 
@@ -2399,7 +2399,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/blocks/{block_id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/blocks/{block_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2576,7 +2576,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/requests</code></p>
+<p><code>GET https://api.wheniwork.com/2/requests</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2672,7 +2672,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/requests/{request_id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/requests/{request_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2741,7 +2741,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/requests</code></p>
+<p><code>POST https://api.wheniwork.com/2/requests</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2779,11 +2779,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/requests/{request_id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/requests/{request_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#requests">Request Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#requests">Request Object</a>.</p>
 
 <h2 id="delete-existing-request">Delete Existing Request</h2>
 
@@ -2812,7 +2812,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/requests/{request_id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/requests/{request_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2962,7 +2962,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/swaps</code></p>
+<p><code>GET https://api.wheniwork.com/2/swaps</code></p>
 
 <h2 id="get-existing-swap">Get Existing Swap</h2>
 
@@ -3032,7 +3032,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/swaps/{swap_id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/swaps/{swap_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3141,7 +3141,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/swaps/</code></p>
+<p><code>POST https://api.wheniwork.com/2/swaps/</code></p>
 
 <table><thead>
 <tr>
@@ -3169,11 +3169,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/swaps/{swap_id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/swaps/{swap_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#swap">Swap Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#swap">Swap Object</a>.</p>
 
 <h2 id="delete-existing-swap">Delete Existing Swap</h2>
 
@@ -3202,7 +3202,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/swap/{swap_id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/swap/{swap_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3239,7 +3239,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Availabilities are objects that define a user&rsquo;s availability to be assigned shifts during a certain period of time.</p>
+<p>Availabilities are objects that define a user&#39;s availability to be assigned shifts during a certain period of time.</p>
 
 <h3 id="availability-object">Availability Object</h3>
 
@@ -3255,7 +3255,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 <tr>
 <td>account_id</td>
-<td><strong>integer</strong><br />The ID of the account that this user&rsquo;s availability is tied to.</td>
+<td><strong>integer</strong><br />The ID of the account that this user&#39;s availability is tied to.</td>
 </tr>
 <tr>
 <td>user_id</td>
@@ -3279,7 +3279,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tr>
 <tr>
 <td>ongoing</td>
-<td><strong>boolean</strong><br />Whether the availability is the user&rsquo;s ongoing availability.</td>
+<td><strong>boolean</strong><br />Whether the availability is the user&#39;s ongoing availability.</td>
 </tr>
 <tr>
 <td>repeat</td>
@@ -3296,7 +3296,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 </tbody></table>
 
 <p>Availability Items are individual components of a greater Availability object.
-Where an Availability is an object that defines a user&rsquo;s availability (in
+Where an Availability is an object that defines a user&#39;s availability (in
 general), each Availability object is made up of Availability Items, each of
 which contains information about a specific day/time for which the user has
 specified non-default availability.</p>
@@ -3407,7 +3407,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities?user_id=371,453,456</code></p>
+<p><code>GET https://api.wheniwork.com/2/availabilities?user_id=371,453,456</code></p>
 
 <h2 id="get-existing-availability">Get Existing Availability</h2>
 
@@ -3475,7 +3475,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3553,7 +3553,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/availabilities/items</code></p>
+<p><code>GET https://api.wheniwork.com/2/availabilities/items</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3581,15 +3581,15 @@ specified non-default availability.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/availabilities/</code></p>
+<p><code>POST https://api.wheniwork.com/2/availabilities/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/availabilities/{availability id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/availabilities/{availability id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#availabilities">Availability Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#availabilities">Availability Object</a>.</p>
 
 <h2 id="delete-existing-availability">Delete Existing Availability</h2>
 
@@ -3618,7 +3618,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3754,7 +3754,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/payrolls/</code></p>
+<p><code>GET https://api.wheniwork.com/2/payrolls/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3832,7 +3832,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/payrolls/{id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/payrolls/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3852,11 +3852,11 @@ specified non-default availability.</p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/payrolls/{id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/payrolls/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#payrolls">Payroll Object</a>.</p>
+<p>The <code>PUT</code> body can include fields from the <a href="#payrolls">Payroll Object</a>.</p>
 
 <aside class="notice"><p>Payrolls can not be manually created.</p>
 </aside>
@@ -4049,7 +4049,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/</code></p>
+<p><code>GET https://api.wheniwork.com/2/times/</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4108,7 +4108,7 @@ specified non-default availability.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/{id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/times/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4205,11 +4205,11 @@ specified non-default availability.</p>
 </span></code></pre>
 
 <p>This method allows you to get times for a specific user. This request also gives you
-the user&rsquo;s punch state.</p>
+the user&#39;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/times/user/{id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/times/user/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4225,18 +4225,18 @@ the user&rsquo;s punch state.</p>
 </tr>
 </tbody></table>
 
-<aside class="notice"><p>This endpoint does not support start and end times for your query. To filter a user&rsquo;s times by a start and end date, use the <a href="#listing-times">Listing Times</a> endpoint instead.</p>
+<aside class="notice"><p>This endpoint does not support start and end times for your query. To filter a user&#39;s times by a start and end date, use the <a href="#listing-times">Listing Times</a> endpoint instead.</p>
 </aside>
 
 <h2 id="create-update-times">Create / Update Times</h2>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/times/{id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/times/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#times">Times Object</a>.</p>
+<p>The <code>PUT</code> body can include fields from the <a href="#times">Times Object</a>.</p>
 
 <h2 id="clock-in">Clock In</h2>
 
@@ -4321,7 +4321,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="create-a-clock-in">Create A Clock-in</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/times/clockin</code></p>
+<p><code>POST https://api.wheniwork.com/2/times/clockin</code></p>
 
 <h3 id="post-body">Post Body</h3>
 
@@ -4436,7 +4436,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="create-a-clock-out">Create A Clock-out</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/times/clockout</code></p>
+<p><code>POST https://api.wheniwork.com/2/times/clockout</code></p>
 
 <h3 id="post-body">Post Body</h3>
 
@@ -4490,7 +4490,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/times/{id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/times/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4556,7 +4556,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/batch</code></p>
+<p><code>POST https://api.wheniwork.com/2/batch</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4695,7 +4695,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/messages</code></p>
+<p><code>GET https://api.wheniwork.com/2/messages</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4748,7 +4748,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/messages/{message_id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/messages/{message_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4768,15 +4768,15 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/messages/</code></p>
+<p><code>POST https://api.wheniwork.com/2/messages/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/messages/{message id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/messages/{message id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#messages">Message Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#messages">Message Object</a>.</p>
 
 <h2 id="delete-existing-message">Delete Existing Message</h2>
 
@@ -4799,7 +4799,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/messages/{message_id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/messages/{message_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4865,7 +4865,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/send</code></p>
+<p><code>POST https://api.wheniwork.com/2/send</code></p>
 
 <h3 id="response">Response</h3>
 
@@ -4986,7 +4986,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/templates</code></p>
+<p><code>GET https://api.wheniwork.com/2/templates</code></p>
 
 <h2 id="get-existing-template">Get Existing template</h2>
 
@@ -5051,7 +5051,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/templates/{template_id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/templates/{template_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -5123,7 +5123,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/templates/</code></p>
+<p><code>POST https://api.wheniwork.com/2/templates/</code></p>
 
 <table><thead>
 <tr>
@@ -5155,11 +5155,11 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/templates/{template id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/templates/{template id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">PUT</code> body can include fields from the <a href="#template">Template Object</a>.</p>
+<p>The <code>PUT</code> body can include fields from the <a href="#template">Template Object</a>.</p>
 
 <h2 id="delete-existing-template">Delete Existing Template</h2>
 
@@ -5182,7 +5182,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/template/{template_id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/template/{template_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -5290,7 +5290,7 @@ the user&rsquo;s punch state.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/plans</code></p>
+<p><code>POST https://api.wheniwork.com/2/plans</code></p>
 
 <h1 id="annotations">Annotations</h1>
 
@@ -5333,8 +5333,8 @@ the user&rsquo;s punch state.</p>
 <li>Announcement</li>
 </ul>
 
-<p>The &ldquo;Time Off Not Allowed&rdquo; tag is the only tag that affects the behavior of another API.
-Time Off requests will be considered invalid if the request&rsquo;s date range overlaps an Annotation of the &ldquo;Time Off Not Allowed&rdquo; type for the user&rsquo;s location(s).</p>
+<p>The &quot;Time Off Not Allowed&quot; tag is the only tag that affects the behavior of another API.
+Time Off requests will be considered invalid if the request&#39;s date range overlaps an Annotation of the &quot;Time Off Not Allowed&quot; type for the user&#39;s location(s).</p>
 
 <h3 id="annotation-object">Annotation Object</h3>
 
@@ -5362,11 +5362,11 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 </tr>
 <tr>
 <td>start_date</td>
-<td><strong>string</strong><br />ISO8601 timestamp of when the annotation&rsquo;s range begins.</td>
+<td><strong>string</strong><br />ISO8601 timestamp of when the annotation&#39;s range begins.</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td><strong>string</strong><br />ISO8601 timestamp of when the annotation&rsquo;s range ends.</td>
+<td><strong>string</strong><br />ISO8601 timestamp of when the annotation&#39;s range ends.</td>
 </tr>
 <tr>
 <td>title</td>
@@ -5467,7 +5467,7 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/annotations</code></p>
+<p><code>GET https://api.wheniwork.com/2/annotations</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -5554,7 +5554,7 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.wheniwork.com/2/annotations/{id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/annotations/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -5576,15 +5576,15 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.wheniwork.com/2/annotations/</code></p>
+<p><code>POST https://api.wheniwork.com/2/annotations/</code></p>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
-<p><code class="prettyprint">PUT https://api.wheniwork.com/2/annotations/{id}</code></p>
+<p><code>PUT https://api.wheniwork.com/2/annotations/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>The <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> body can include fields from the <a href="#annotations">Annotation Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#annotations">Annotation Object</a>.</p>
 
 <h2 id="delete-existing-annotation">Delete Existing Annotation</h2>
 
@@ -5615,7 +5615,7 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.wheniwork.com/2/annotations/{id}</code></p>
+<p><code>DELETE https://api.wheniwork.com/2/annotations/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -5631,6 +5631,166 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 </tr>
 </tbody></table>
 
+<h1 id="devices">Devices</h1>
+
+<blockquote>
+<p>Example Object</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">371</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"android"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APA91bEDFLRqprN4M0AyQ6uAIvlXjtpQFWjFORuvFWakrpRreQ_D9Gwb-EplzXhDJvNMdW6TyqX74RogKM4P_48BlqhoBnBKrW_KBhuSwV7hhaq9jApzSYbp1wT-kWF1FMQS69h0Ii5M"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Devices receive push notifications to communicate important information to staff.</p>
+
+<p>Mobile apps use the POST endpoint to register a device and the DELETE endpoint to unregister.</p>
+
+<h3 id="device-object">Device Object</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong><br />The unique ID for this device object</td>
+</tr>
+<tr>
+<td>account_id</td>
+<td><strong>integer</strong><br />The ID of the account that the device belongs to.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td><strong>integer</strong><br />The ID of the user that the device belongs to.</td>
+</tr>
+<tr>
+<td>login_id</td>
+<td><strong>integer</strong><br />The ID of the login that the device belongs to.</td>
+</tr>
+<tr>
+<td>type</td>
+<td><strong>string</strong><br />The type of device (currently &#39;android&#39; or &#39;ios&#39;).</td>
+</tr>
+<tr>
+<td>token</td>
+<td><strong>string</strong><br />The device&#39;s push token from GCM or APNS.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><strong>datetime</strong><br />Date at which the device was created.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><strong>datetime</strong><br />Date the device was most recently updated.</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-device">Create Device</h2>
+
+<blockquote>
+<p>Example POST Data</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"android"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/devices/ <span class="se">\</span>
+ --data <span class="s1">'{"token":"Abc123","type":"android"}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"devices/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<p>Devices are registered with the server after receiving a push token from Google Cloud Messaging (GCM) or Apple Push Notification Service (APNS).</p>
+
+<h3 id="create-http-request">Create HTTP Request</h3>
+
+<p><code>POST https://api.wheniwork.com/2/devices/</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>Push token of the device to register.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Type of device (&quot;android&quot; or &quot;ios&quot;).</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-existing-device">Delete Existing Device</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl -X DELETE https://api.wheniwork.com/2/devices?token<span class="o">=</span>Abc123 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"devices?token=Abc123"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Devices are unregistered from the server after the user logs out of the mobile app.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>DELETE https://api.wheniwork.com/devices?token={token}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>Push token to be deleted.</td>
+</tr>
+</tbody></table>
+
 <h1 id="errors">Errors</h1>
 
 <p>When I Work uses the following error codes:</p>
@@ -5643,31 +5803,31 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; The request is not valid</td>
+<td>Bad Request -- The request is not valid</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; The API key is wrong or the query is misplaced</td>
+<td>Unauthorized -- The API key is wrong or the query is misplaced</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The request is below the required permission level</td>
+<td>Forbidden -- The request is below the required permission level</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified request could not be found</td>
+<td>Not Found -- The specified request could not be found</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a user with an invalid method</td>
+<td>Method Not Allowed -- You tried to access a user with an invalid method</td>
 </tr>
 <tr>
 <td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t JSON</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t JSON</td>
 </tr>
 <tr>
 <td>410</td>
-<td>Gone &ndash; The user requested has been removed</td>
+<td>Gone -- The user requested has been removed</td>
 </tr>
 <tr>
 <td>418</td>
@@ -5675,15 +5835,15 @@ Time Off requests will be considered invalid if the request&rsquo;s date range o
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests &ndash; The server is not able to address the number of queries</td>
+<td>Too Many Requests -- The server is not able to address the number of queries</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error &ndash; An internal server error occurred</td>
+<td>Internal Server Error -- An internal server error occurred</td>
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable &ndash; The service is temporarily offline for maintenance</td>
+<td>Service Unavailable -- The service is temporarily offline for maintenance</td>
 </tr>
 </tbody></table>
 
