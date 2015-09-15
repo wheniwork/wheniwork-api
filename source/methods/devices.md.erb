@@ -1,0 +1,82 @@
+> Example Object
+
+<% json do %>
+<%= print_json(data.objects['device']) %>
+<% end %>
+
+Devices receive push notifications to communicate important information to staff.
+
+Mobile apps use the POST endpoint to register a device and the DELETE endpoint to unregister.
+
+<%= print_table(data.objects['device'], :header => :device) %>
+
+## Create Device
+
+> Example POST Data
+
+<% json do %>
+{
+  "token": "Abc123",
+  "type": "android"
+}
+<% end %>
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/devices/ \
+ --data '{"token":"Abc123","type":"android"}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("devices/", array(...));
+?>
+```
+
+Devices are registered with the server after receiving a push token from Google Cloud Messaging (GCM) or Apple Push Notification Service (APNS).
+
+### Create HTTP Request
+`POST <%=@api_prefix%>/2/devices/`
+
+### Parameters
+
+Key | Description
+--- | -----------
+token | Push token of the device to register.
+type | Type of device ("android" or "ios").
+
+## Delete Existing Device
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/2/devices?token=Abc123 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->delete("devices?token=Abc123");
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "success": true
+}
+<% end %>
+
+Devices are unregistered from the server after the user logs out of the mobile app.
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/devices?token={token}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+token | Push token to be deleted.

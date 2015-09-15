@@ -1397,5 +1397,51 @@
       "value": "555-212-8716",
       "show": true
     }
+  },
+  "device": {
+    "id": {
+      "type": "integer",
+      "description": "The unique ID for this device object",
+      "value": 5,
+      "show": true
+    },
+    "account_id": {
+        "type": "integer",
+        "description": "The ID of the account that the device belongs to.",
+        "value": 3
+    },
+    "user_id": {
+        "type": "integer",
+        "description": "The ID of the user that the device belongs to.",
+        "value": 371,
+        "show": true
+    },
+    "login_id": {
+      "type": "integer",
+      "description": "The ID of the login that the device belongs to.",
+      "value": 5,
+      "show": true
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of device (currently 'android' or 'ios').",
+      "value": "android"
+    },
+    "token": {
+      "type": "string",
+      "description": "The device's push token from GCM or APNS.",
+      "value": "APA91bEDFLRqprN4M0AyQ6uAIvlXjtpQFWjFORuvFWakrpRreQ_D9Gwb-EplzXhDJvNMdW6TyqX74RogKM4P_48BlqhoBnBKrW_KBhuSwV7hhaq9jApzSYbp1wT-kWF1FMQS69h0Ii5M",
+      "show": true
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "Date at which the device was created.",
+      "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "Date the device was most recently updated.",
+      "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+    }
   }
 }
