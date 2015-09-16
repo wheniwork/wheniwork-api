@@ -64,7 +64,7 @@ $(document).ready(function() {
         var linkTarget = $(this).attr("href");
         
         var scrollTo = $(linkTarget).offset().top - 40;
-        if ($(document).scrollTop() > scrollTo) {
+        if ($(this).hasClass("collapse-link") && $(document).scrollTop() > scrollTo) {
             $("html, body").scrollTop($(linkTarget).offset().top - 40);
         }
     });
