@@ -319,7 +319,7 @@ html, body {
       padding: 10px;
     }
 
-    tr:last-child {
+    tbody {
       border-bottom: 2px solid #ccc;
     }
 
@@ -329,6 +329,36 @@ html, body {
 
     tr:nth-child(even)>td {
       background-color: $main-bg;
+    }
+
+    tr.spacer, tr.collapse {
+      display: none;
+    }
+
+    &.expanded tr.collapse {
+      display: table-row;
+    }
+
+    & + .collapse-links {
+      font-style: italic;
+      
+      .expand-link {
+        display: block;
+      }
+
+      .collapse-link {
+        display: none;
+      }
+    }
+
+    &.expanded + .collapse-links {
+      .expand-link {
+        display: none;
+      }
+
+      .collapse-link {
+        display: block;
+      }
     }
   }
 
