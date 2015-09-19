@@ -74,9 +74,14 @@
       "value": 10000,
       "show": true
     },
+    "account_id": {
+      "type": "integer",
+      "description": "Link identifier for the Account to which this shift is attached.",
+      "value": 10000
+    },
     "user_id": {
       "type": "integer",
-      "description": "Link identifier for the User attached to this shift. 0 means OpenShift.",
+      "description": "Link identifier for the User attached to this shift. `0` means the shift is an OpenShift.",
       "value": 101
     },
     "location_id": {
@@ -86,12 +91,12 @@
     },
     "position_id": {
       "type": "integer",
-      "description": "Link identifier for the Position attached to this shift.",
+      "description": "Link identifier for the Position assigned to this shift.",
       "value": 19483
     },
     "site_id": {
       "type": "integer",
-      "description": "Link identifier for the Site attached to this shift.",
+      "description": "Link identifier for the Site assigned to this shift.",
       "value": 4351
     },
     "start_time": {
@@ -108,7 +113,7 @@
     },
     "break_time": {
       "type": "float",
-      "description": "Hours of unpaid break.",
+      "description": "Hours of unpaid break during the shift.",
       "value": 0.5
     },
     "color": {
@@ -118,17 +123,17 @@
     },
     "notes": {
       "type": "string",
-      "description": "Notes about the shift. Max length 350.",
-      "value": "We need more cow bell."
+      "description": "Notes about the shift. The maximum length is 350 characters.",
+      "value": "We need more cowbell."
     },
     "instances": {
       "type": "integer",
-      "description": "Number of instances. Will be 1 if it is a shift assigned to an employee. The value can be any integer greater than 0 if it is an OpenShift.",
+      "description": "For OpenShifts, how many instances of that shift are available to assign to employees. In the UI, this is indicated by the red badge on the OpenShift. For normal shifts, this will be `1`.",
       "value": 1
     },
     "published": {
       "type": "boolean",
-      "description": "Published shifts show to employees.",
+      "description": "Whether the shift has been published. Published shifts are visible to all employees.",
       "value": true
     },
     "published_date": {
@@ -138,18 +143,37 @@
     },
     "notified_at": {
       "type": "datetime",
-      "description": "Date the shift was most recently notified.",
+      "description": "Date when notifications about the shift were most recently sent.",
       "value": null
     },
     "created_at": {
       "type": "datetime",
-      "description": "Date at which the shift was created.",
+      "description": "Date the shift was created.",
       "value": "Thu, 06 Mar 2014 21:12:14 -0600"
     },
     "updated_at": {
       "type": "datetime",
       "description": "Date the shift was most recently updated.",
       "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+    },
+    "acknowledged": {
+      "type": "integer",
+      "description": "Whether the shift has been acknowledged by the employee. (`0` for false, `1` for true.)",
+      "value": 0
+    },
+    "acknowledged_at": {
+      "type": "datetime",
+      "description": "The time, if any, when the shift was acknowledged by the employee.",
+      "value": ""
+    },
+    "creator_id": {
+      "type": "integer",
+      "description": "The id of the user who created the shift.",
+      "value": 101
+    },
+    "is_open": {
+      "type": "boolean",
+      "description": "Whether the shift is an OpenShift."
     }
   },
   "user": {
