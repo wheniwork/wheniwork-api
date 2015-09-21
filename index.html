@@ -147,27 +147,15 @@
 </aside>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>username</td>
+</tr></thead><tbody><tr><td>username</td>
 <td><strong>email</strong><br />The email of the user logging in.</td>
-</tr>
-<tr>
-<td>password</td>
+</tr><tr><td>password</td>
 <td><strong>string</strong><br />The password of the user logging in.</td>
-</tr>
-<tr>
-<td>key</td>
+</tr><tr><td>key</td>
 <td><strong>string</strong><br />Your developer key. This can be used instead of <code>W-Key</code> in the headers. You do not need both.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <p>Once you have the token, you must include it in all authenticated requests. The <code>W-Key</code> does not need to be included.</p>
 
 <p><code>W-Token: ilovemyboss</code></p>
@@ -261,77 +249,41 @@
 
 <h3 id="shift-object">Shift Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />Unique identifier for the shift.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />Link identifier for the User attached to this shift. 0 means OpenShift.</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer</strong><br />Link identifier for the Location to which this shift is attached.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td><strong>integer</strong><br />Link identifier for the Position attached to this shift.</td>
-</tr>
-<tr>
-<td>site_id</td>
+</tr><tr><td>site_id</td>
 <td><strong>integer</strong><br />Link identifier for the Site attached to this shift.</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td><strong>datetime</strong><br />Start time of the shift.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td><strong>datetime</strong><br />End time of the shift.</td>
-</tr>
-<tr>
-<td>break_time</td>
+</tr><tr><td>break_time</td>
 <td><strong>float</strong><br />Hours of unpaid break.</td>
-</tr>
-<tr>
-<td>color</td>
+</tr><tr><td>color</td>
 <td><strong>hex</strong><br />Hex color used to identify the shift in the UI.</td>
-</tr>
-<tr>
-<td>notes</td>
+</tr><tr><td>notes</td>
 <td><strong>string</strong><br />Notes about the shift. Max length 350.</td>
-</tr>
-<tr>
-<td>instances</td>
+</tr><tr><td>instances</td>
 <td><strong>integer</strong><br />Number of instances. Will be 1 if it is a shift assigned to an employee. The value can be any integer greater than 0 if it is an OpenShift.</td>
-</tr>
-<tr>
-<td>published</td>
+</tr><tr><td>published</td>
 <td><strong>boolean</strong><br />Published shifts show to employees.</td>
-</tr>
-<tr>
-<td>published_date</td>
+</tr><tr><td>published_date</td>
 <td><strong>datetime</strong><br />Date the shift was most recently published.</td>
-</tr>
-<tr>
-<td>notified_at</td>
+</tr><tr><td>notified_at</td>
 <td><strong>datetime</strong><br />Date the shift was most recently notified.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the shift was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the shift was most recently updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-shifts">Listing Shifts</h2>
 
@@ -382,45 +334,25 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start</td>
+</tr></thead><tbody><tr><td>start</td>
 <td><strong>datetime</strong><br />Start time for a search window</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td><strong>datetime</strong><br />End time for a search window</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer, string array</strong><br />Only show shifts for a user, or multiple (e.g. 1,5,3)</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer, string array</strong><br />Only show shifts for a location, or multiple.</td>
-</tr>
-<tr>
-<td>site_id</td>
+</tr><tr><td>site_id</td>
 <td><strong>integer, string array</strong><br />Only show shifts for a site, or multiple.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td><strong>integer, string array</strong><br />Only show shifts for a position, or multiple.</td>
-</tr>
-<tr>
-<td>include_allopen</td>
+</tr><tr><td>include_allopen</td>
 <td><strong>boolean</strong><br />Include OpenShifts in the results.</td>
-</tr>
-<tr>
-<td>include_onlyopen</td>
+</tr><tr><td>include_onlyopen</td>
 <td><strong>boolean</strong><br />Only return OpenShifts in the results</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="get-existing-shift">Get Existing Shift</h2>
 
@@ -458,17 +390,11 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the shift requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-shift">Create/Update Shift</h2>
 
@@ -548,17 +474,11 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ids</td>
+</tr></thead><tbody><tr><td>ids</td>
 <td>Post body parameter of mulitiple shift identifiers. <code>[4543,23453]</code></td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="publish-unpublish-shifts">Publish/Unpublish Shifts</h2>
 
@@ -598,17 +518,11 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ids</td>
+</tr></thead><tbody><tr><td>ids</td>
 <td>Post body parameter that can be used to publish multiple shifts. <code>[4543,23453]</code></td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="notify-shifts">Notify Shifts</h2>
 
@@ -646,37 +560,21 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start</td>
+</tr></thead><tbody><tr><td>start</td>
 <td><strong>datetime</strong><br />Start time for a notify window</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td><strong>datetime</strong><br />End time for a notify window</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer, array</strong><br />Only notify shifts for a user, or multiple (e.g. <code>[1,5,3]</code>)</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer, array</strong><br />Only notify shifts for a location, or multiple.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td><strong>integer, array</strong><br />Only notify shifts for a position, or multiple.</td>
-</tr>
-<tr>
-<td>site_id</td>
+</tr><tr><td>site_id</td>
 <td><strong>integer, array</strong><br />Only notify shifts for a site, or multiple.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <blockquote>
 <p>Example Request</p>
@@ -711,17 +609,11 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />ID of the shift you want to notify.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="delete-shift">Delete Shift</h2>
 
@@ -754,21 +646,13 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the shift requested.</td>
-</tr>
-<tr>
-<td>ids</td>
+</tr><tr><td>ids</td>
 <td>Optional query parameter that can be used to delete multiple shifts. <code>?ids=5,2,34</code></td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="accounts">Accounts</h1>
 
@@ -795,57 +679,31 @@
 
 <h3 id="account-object">Account Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />Unique identifier for the account</td>
-</tr>
-<tr>
-<td>master_id</td>
+</tr><tr><td>master_id</td>
 <td><strong>integer</strong><br />The id of the parent account (if this is a subaccount)</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td><strong>integer</strong><br />Account type. Must be one of:<br> 1 = SCHEDULING<br> 2 = ATTENDANCE<br> 3 = BOTH</td>
-</tr>
-<tr>
-<td>logo</td>
+</tr><tr><td>logo</td>
 <td><strong>string</strong><br />Path to the image file for the company&#39;s logo</td>
-</tr>
-<tr>
-<td>company</td>
+</tr><tr><td>company</td>
 <td><strong>string</strong><br />Name of the company for which this account is in use</td>
-</tr>
-<tr>
-<td>subdomain</td>
+</tr><tr><td>subdomain</td>
 <td><strong>string</strong><br />Subdomain of wheniwork.com to access company-specific When I Work web application</td>
-</tr>
-<tr>
-<td>enabled</td>
+</tr><tr><td>enabled</td>
 <td><strong>boolean</strong><br />Whether this account object is enabled</td>
-</tr>
-<tr>
-<td>plan_expires</td>
+</tr><tr><td>plan_expires</td>
 <td><strong>datetime</strong><br />Date and time when this account&#39;s plan expires</td>
-</tr>
-<tr>
-<td>timezone_id</td>
+</tr><tr><td>timezone_id</td>
 <td><strong>integer</strong><br />Identifier for time zone, as specified in the <a href="http://php.net/manual/en/class.datetimezone.php">PHP docs</a>.</td>
-</tr>
-<tr>
-<td>timezone_name</td>
+</tr><tr><td>timezone_name</td>
 <td><strong>string</strong><br />Name for the timezone specified in the timezone_id</td>
-</tr>
-<tr>
-<td>settings</td>
+</tr><tr><td>settings</td>
 <td><strong>json</strong><br />A list of settings for this account</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-accounts">Listing Accounts</h2>
 
@@ -907,17 +765,11 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>account_id</td>
+</tr></thead><tbody><tr><td>account_id</td>
 <td>A list of account ids to retrieve (Optional; if not specified, will default to returning all accounts for a given user token)</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="get-existing-account">Get Existing Account</h2>
 
@@ -962,17 +814,11 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>account_id</td>
+</tr></thead><tbody><tr><td>account_id</td>
 <td>ID of the account object to be retrieved.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-account">Create/Update Account</h2>
 
@@ -1000,6 +846,7 @@
   </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"employee_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1020"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
   </span><span class="nt">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
   </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
@@ -1022,69 +869,39 @@
 
 <h3 id="user-object">User Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />Unique identifier for the user.</td>
-</tr>
-<tr>
-<td>first_name</td>
+</tr><tr><td>first_name</td>
 <td><strong>string</strong><br />First name of this user.</td>
-</tr>
-<tr>
-<td>last_name</td>
+</tr><tr><td>last_name</td>
 <td><strong>string</strong><br />Last name of this user.</td>
-</tr>
-<tr>
-<td>email</td>
+</tr><tr><td>email</td>
 <td><strong>string</strong><br />The email address of this user.</td>
-</tr>
-<tr>
-<td>phone_number</td>
+</tr><tr><td>phone_number</td>
 <td><strong>string</strong><br />The phone number of this user.</td>
-</tr>
-<tr>
-<td>hours_preferred</td>
+</tr><tr><td>employee_code</td>
+<td><strong>string</strong><br />The user&#39;s employee code. This code can be used to clock in instead of the user&#39;s email address, or it can be used to help map users in When I Work to other services.</td>
+</tr><tr><td>hours_preferred</td>
 <td><strong>float</strong><br />The preferred number of hours for the user.</td>
-</tr>
-<tr>
-<td>hours_max</td>
+</tr><tr><td>hours_max</td>
 <td><strong>float</strong><br />Max hours this user can work.</td>
-</tr>
-<tr>
-<td>hourly_rate</td>
+</tr><tr><td>hourly_rate</td>
 <td><strong>float</strong><br />The hourly rate for this user.</td>
-</tr>
-<tr>
-<td>role</td>
+</tr><tr><td>role</td>
 <td><strong>integer</strong><br />The user&#39;s role.<br> 1 = Admin<br> 2 = Manager<br> 3 = Employee (Default)<br> 4 = Lead (Unused)<br>5 = Supervisor</td>
-</tr>
-<tr>
-<td>positions</td>
+</tr><tr><td>positions</td>
 <td><strong>array (of IDs)</strong><br />An array of positions to be assigned to the user.</td>
-</tr>
-<tr>
-<td>locations</td>
+</tr><tr><td>locations</td>
 <td><strong>array (of IDs)</strong><br />An array of locations to be applied to the user.</td>
-</tr>
-<tr>
-<td>notes</td>
+</tr><tr><td>notes</td>
 <td><strong>string</strong><br />Notes about the user</td>
-</tr>
-<tr>
-<td>activated</td>
+</tr><tr><td>activated</td>
 <td><strong>boolean</strong><br />Whether the manager has activated this user.</td>
-</tr>
-<tr>
-<td>password</td>
+</tr><tr><td>password</td>
 <td><strong>string</strong><br />Set a password, but only on user creation, not update. (write only)</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-users">Listing Users</h2>
 
@@ -1134,21 +951,13 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>location_id</td>
+</tr></thead><tbody><tr><td>location_id</td>
 <td><strong>integer, string</strong><br />Only show shifts for a location, or multiple (e.g. 1,5,3).</td>
-</tr>
-<tr>
-<td>ids</td>
+</tr><tr><td>ids</td>
 <td><strong>array</strong><br />Comma-separated array of IDs of users objects to retrieve (e.g. 9,17,42)</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="get-existing-user">Get Existing User</h2>
 
@@ -1188,17 +997,11 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the user requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-new-user">Create New User</h2>
 
@@ -1245,17 +1048,11 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 
 <h3 id="additional-params">Additional Params</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>reactivate</td>
+</tr></thead><tbody><tr><td>reactivate</td>
 <td><strong>boolean</strong><br />Pass this to reactivate a previously deleted user.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="update-existing-user">Update Existing User</h2>
 
@@ -1269,17 +1066,11 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 
 <h3 id="additional-params">Additional Params</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>reactivate</td>
+</tr></thead><tbody><tr><td>reactivate</td>
 <td><strong>boolean</strong><br />Pass this to reactivate a previously deleted user.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="update-user-profile-settings">Update User Profile Settings</h2>
 
@@ -1313,6 +1104,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
   </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buffett"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parrothead1@margaritaville.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+15552128716"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"employee_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1020"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
   </span><span class="nt">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
   </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
@@ -1341,29 +1133,17 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="user-profile-object">User profile Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>first_name</td>
+</tr></thead><tbody><tr><td>first_name</td>
 <td><strong>string</strong><br />User&#39;s first name</td>
-</tr>
-<tr>
-<td>last_name</td>
+</tr><tr><td>last_name</td>
 <td><strong>string</strong><br />User&#39;s last name (surname)</td>
-</tr>
-<tr>
-<td>email</td>
+</tr><tr><td>email</td>
 <td><strong>string</strong><br />User&#39;s email address</td>
-</tr>
-<tr>
-<td>phone_number</td>
+</tr><tr><td>phone_number</td>
 <td><strong>string</strong><br />User&#39;s phone number for SMS messages</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="update-user-alert-settings">Update User Alert Settings</h2>
 
@@ -1408,59 +1188,33 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="user-alert-settings-object">User alert settings Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>timeoff</td>
+</tr></thead><tbody><tr><td>timeoff</td>
 <td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when the status of a time off request changes.</td>
-</tr>
-<tr>
-<td>swaps</td>
+</tr><tr><td>swaps</td>
 <td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when the status of a swap or drop request changes.</td>
-</tr>
-<tr>
-<td>schedule</td>
+</tr><tr><td>schedule</td>
 <td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when the schedule changes.</td>
-</tr>
-<tr>
-<td>newemployee</td>
+</tr><tr><td>newemployee</td>
 <td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when a new employee is added.</td>
-</tr>
-<tr>
-<td>availability</td>
+</tr><tr><td>availability</td>
 <td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts for changes in availability.</td>
-</tr>
-<tr>
-<td>reminders</td>
+</tr><tr><td>reminders</td>
 <td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts for reminders prior to shifts.</td>
-</tr>
-<tr>
-<td>reminder_time</td>
+</tr><tr><td>reminder_time</td>
 <td><strong>float</strong><br />Time before an event when a user should be sent notifications, in hours.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h3 id="alert-setting-object"><a name="alertsetting">alert setting</a> Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>sms</td>
+</tr></thead><tbody><tr><td>sms</td>
 <td><strong>boolean</strong><br />Whether or not SMS messages should be sent for events of this alert type.</td>
-</tr>
-<tr>
-<td>email</td>
+</tr><tr><td>email</td>
 <td><strong>boolean</strong><br />Whether or not email messages should be sent for events of this alert type.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="invite-users">Invite Users</h2>
 
@@ -1499,25 +1253,15 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ids</td>
+</tr></thead><tbody><tr><td>ids</td>
 <td><strong>array</strong><br />List of IDs of users to invite.</td>
-</tr>
-<tr>
-<td>send_all</td>
+</tr><tr><td>send_all</td>
 <td><strong>boolean</strong><br />Invite all users without a login. <code>ids</code> parameter is ignored.</td>
-</tr>
-<tr>
-<td>message</td>
+</tr><tr><td>message</td>
 <td><strong>string</strong><br />An optional message to include in the email invite.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <p>You can also invite a single user with the following:</p>
 
@@ -1527,21 +1271,13 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The ID of the user to invite.</td>
-</tr>
-<tr>
-<td>message</td>
+</tr><tr><td>message</td>
 <td><strong>string</strong><br />An optional message to include in the email invite.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="delete-user">Delete User</h2>
 
@@ -1576,17 +1312,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the user to delete.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="positions">Positions</h1>
 
@@ -1608,37 +1338,21 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="position-object">Position Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the position.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account that the position belongs to.</td>
-</tr>
-<tr>
-<td>name</td>
+</tr><tr><td>name</td>
 <td><strong>string</strong><br />The name of the position.</td>
-</tr>
-<tr>
-<td>color</td>
+</tr><tr><td>color</td>
 <td><strong>hexadecimal</strong><br />The position&#39;s color in the schedule.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the position was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the position was most recently updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-positions">Listing Positions</h2>
 
@@ -1720,17 +1434,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>position_id</td>
+</tr></thead><tbody><tr><td>position_id</td>
 <td>ID of the position requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-position">Create/Update Position</h2>
 
@@ -1777,17 +1485,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>position id</td>
+</tr></thead><tbody><tr><td>position id</td>
 <td>ID of the position to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="locations">Locations</h1>
 
@@ -1812,37 +1514,21 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="location-object">Location Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique id of the location.</td>
-</tr>
-<tr>
-<td>name</td>
+</tr><tr><td>name</td>
 <td><strong>string</strong><br />The name of the location.</td>
-</tr>
-<tr>
-<td>address</td>
+</tr><tr><td>address</td>
 <td><strong>string</strong><br />The location&#39;s address.</td>
-</tr>
-<tr>
-<td>coordinates</td>
+</tr><tr><td>coordinates</td>
 <td><strong>string</strong><br />The coordinates of the location.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>date</strong><br />The date the location was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>date</strong><br />The last time the location was updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-locations">Listing Locations</h2>
 
@@ -1931,17 +1617,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the location requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-location">Create/Update Location</h2>
 
@@ -1990,17 +1670,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the location to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="sites">Sites</h1>
 
@@ -2024,33 +1698,19 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="site-object">Site Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the site.</td>
-</tr>
-<tr>
-<td>name</td>
+</tr><tr><td>name</td>
 <td><strong>string</strong><br />The name of the site.</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer</strong><br />The ID of the location that the site belongs to.</td>
-</tr>
-<tr>
-<td>address</td>
+</tr><tr><td>address</td>
 <td><strong>string</strong><br />The address of the site.</td>
-</tr>
-<tr>
-<td>coordinates</td>
+</tr><tr><td>coordinates</td>
 <td><strong>array</strong><br />The new coordinates for the site, as an array of comma separated values.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-sites">Listing Sites</h2>
 
@@ -2127,17 +1787,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the site requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-site">Create/Update Site</h2>
 
@@ -2184,17 +1838,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>site id</td>
+</tr></thead><tbody><tr><td>site id</td>
 <td>ID of the site to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="blocks">Blocks</h1>
 
@@ -2218,53 +1866,29 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="block-object">Block Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the shift block.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account the shift block is attached to.</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer</strong><br />The ID of the location the shift block is for.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td><strong>integer</strong><br />The ID of the position that the shift is designated for.</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td><strong>date time</strong><br />The start time for the shift block.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td><strong>date time</strong><br />The end time for the shift block.</td>
-</tr>
-<tr>
-<td>color</td>
+</tr><tr><td>color</td>
 <td><strong>hexadecimal</strong><br />The hexadecimal value of the color for the shift block.</td>
-</tr>
-<tr>
-<td>break_time</td>
+</tr><tr><td>break_time</td>
 <td><strong>float</strong><br />The unpaid break time (in hours) for the shift block</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the shift block was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the shift block was most recently updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-shift-blocks">Listing Shift Blocks</h2>
 
@@ -2346,17 +1970,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>block id</td>
+</tr></thead><tbody><tr><td>block id</td>
 <td>ID of the shift block being requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-shift-block">Create/Update Shift Block</h2>
 
@@ -2403,17 +2021,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>block id</td>
+</tr></thead><tbody><tr><td>block id</td>
 <td>ID of the shift block to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="requests">Requests</h1>
 
@@ -2437,53 +2049,29 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="request-object">Request Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the request.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account this request belongs to.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user.</td>
-</tr>
-<tr>
-<td>creator_id</td>
+</tr><tr><td>creator_id</td>
 <td><strong>integer</strong><br />The ID of the user creating the request.</td>
-</tr>
-<tr>
-<td>status</td>
+</tr><tr><td>status</td>
 <td><strong>integer</strong><br />The current status of the request (0 = Pending, 1 = Canceled, 2 = Accepted, 3 = Expired).</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td><strong>integer</strong><br />The type of the request (0 = Unpaid Time Off, 1 = Paid Time Off, 2 = Sick Leave, 3 = Holiday).</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td><strong>datetime</strong><br />Start time of request.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td><strong>datetime</strong><br />End time of request.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the request was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />The date and time the request was last updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-requests">Listing Requests</h2>
 
@@ -2580,29 +2168,17 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start</td>
+</tr></thead><tbody><tr><td>start</td>
 <td>The start date for the request time-frame.</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td>End time for the request time-frame.</td>
-</tr>
-<tr>
-<td>since_id</td>
+</tr><tr><td>since_id</td>
 <td>Return all requests created since the request with given ID.</td>
-</tr>
-<tr>
-<td>max_id</td>
+</tr><tr><td>max_id</td>
 <td>Return all requests created before the request with the given ID.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="get-existing-request">Get Existing Request</h2>
 
@@ -2676,17 +2252,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>request_id</td>
+</tr></thead><tbody><tr><td>request_id</td>
 <td>ID of the request.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-request">Create/Update Request</h2>
 
@@ -2745,37 +2315,21 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>user_id</td>
+</tr></thead><tbody><tr><td>user_id</td>
 <td>The ID of the user for whom the request is to be created.</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td>The type of request</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td>The start date and time for the request.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td>The end date and time for the request.</td>
-</tr>
-<tr>
-<td>since_id</td>
+</tr><tr><td>since_id</td>
 <td>Return all requests created since the request with given ID.</td>
-</tr>
-<tr>
-<td>status</td>
+</tr><tr><td>status</td>
 <td>The status for the request to be created.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
@@ -2816,17 +2370,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>request id</td>
+</tr></thead><tbody><tr><td>request id</td>
 <td>ID of the request to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="swaps">Swaps</h1>
 
@@ -2858,41 +2406,23 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="swap-object">Swap Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the swap.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account associated with the swap.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user who initiated the swap.</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td><strong>integer</strong><br />The type of swap. (1 = swap, 2 = drop, 3 = alert)</td>
-</tr>
-<tr>
-<td>status</td>
+</tr><tr><td>status</td>
 <td><strong>integer</strong><br />The status of the swap. (0 = Pending, 1 = Approved, 2 = Declined, 3 = Completed, 4 = Canceled, 5 = Expired)</td>
-</tr>
-<tr>
-<td>accepted_id</td>
+</tr><tr><td>accepted_id</td>
 <td><strong>integer</strong><br />The ID of the user who took the shift</td>
-</tr>
-<tr>
-<td>statuses</td>
+</tr><tr><td>statuses</td>
 <td><strong>array</strong><br />An array of user shift acceptance statuses.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-swaps">Listing Swaps</h2>
 
@@ -3036,17 +2566,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>swap id</td>
+</tr></thead><tbody><tr><td>swap id</td>
 <td>ID of the swap being requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-swap">Create/Update Swap</h2>
 
@@ -3143,29 +2667,17 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <p><code>POST https://api.wheniwork.com/2/swaps/</code></p>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>shift id</td>
+</tr></thead><tbody><tr><td>shift id</td>
 <td>ID of the shift being swapped.</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td>The type of swap to be created.</td>
-</tr>
-<tr>
-<td>shifts</td>
+</tr><tr><td>shifts</td>
 <td>The IDs of the shifts requested to be swapped for.</td>
-</tr>
-<tr>
-<td>users</td>
+</tr><tr><td>users</td>
 <td>The IDs of users available to take shifts.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
@@ -3206,17 +2718,11 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>swap_id</td>
+</tr></thead><tbody><tr><td>swap_id</td>
 <td>ID of the swap to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="availabilities">Availabilities</h1>
 
@@ -3243,57 +2749,31 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <h3 id="availability-object">Availability Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the availability.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account that this user&#39;s availability is tied to.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user tied to the availability.</td>
-</tr>
-<tr>
-<td>name</td>
+</tr><tr><td>name</td>
 <td><strong>string</strong><br />The name of the availability.</td>
-</tr>
-<tr>
-<td>description</td>
+</tr><tr><td>description</td>
 <td><strong>string</strong><br />The description for the availability</td>
-</tr>
-<tr>
-<td>start_date</td>
+</tr><tr><td>start_date</td>
 <td><strong>date</strong><br />The starting date of the time period the availability is designated for.</td>
-</tr>
-<tr>
-<td>end_date</td>
+</tr><tr><td>end_date</td>
 <td><strong>date</strong><br />The ending date of the time period the availability is designated for.</td>
-</tr>
-<tr>
-<td>ongoing</td>
+</tr><tr><td>ongoing</td>
 <td><strong>boolean</strong><br />Whether the availability is the user&#39;s ongoing availability.</td>
-</tr>
-<tr>
-<td>repeat</td>
+</tr><tr><td>repeat</td>
 <td><strong>integer</strong><br />The repeat value for availability.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the availability was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the availability was most recently updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <p>Availability Items are individual components of a greater Availability object.
 Where an Availability is an object that defines a user&#39;s availability (in
@@ -3317,49 +2797,27 @@ specified non-default availability.</p>
 
 <h3 id="availability_item-object">Availability_item Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the availability item</td>
-</tr>
-<tr>
-<td>availability_id</td>
+</tr><tr><td>availability_id</td>
 <td><strong>integer</strong><br />The ID of the availability object the item is associated with.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user that the availability item is associated with.</td>
-</tr>
-<tr>
-<td>day</td>
+</tr><tr><td>day</td>
 <td><strong>integer</strong><br />The day of the week (0-6) for the availability item.</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td><strong>integer</strong><br />The type of the availability item. (1 = Preferred, 2 = Unavailable)</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td><strong>date time</strong><br />The start time of the availability for the specified day.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td><strong>date time</strong><br />The end time of the availability for the specified day.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the availability item was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the availability item was most recently updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-availabilities">Listing Availabilities</h2>
 
@@ -3479,17 +2937,11 @@ specified non-default availability.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>availability_id</td>
+</tr></thead><tbody><tr><td>availability_id</td>
 <td>ID of the availability object being requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="get-availability-items">Get Availability Items</h2>
 
@@ -3557,25 +3009,15 @@ specified non-default availability.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>user_id</td>
+</tr></thead><tbody><tr><td>user_id</td>
 <td><strong>array</strong><br />An array of user IDs to search.</td>
-</tr>
-<tr>
-<td>start</td>
+</tr><tr><td>start</td>
 <td><strong>datetime</strong><br />The start date and time you are searching in.</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td><strong>datetime</strong><br />The end date and time you are searching in.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-availability">Create/Update Availability</h2>
 
@@ -3622,17 +3064,11 @@ specified non-default availability.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>availability_id</td>
+</tr></thead><tbody><tr><td>availability_id</td>
 <td>ID of the availability to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="payrolls">Payrolls</h1>
 
@@ -3657,57 +3093,31 @@ specified non-default availability.</p>
 
 <h3 id="user-object">User Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID for this payroll item.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The account ID that this payroll item belongs to.</td>
-</tr>
-<tr>
-<td>creator_id</td>
+</tr><tr><td>creator_id</td>
 <td><strong>integer</strong><br />The user ID of the person who created the payroll item.</td>
-</tr>
-<tr>
-<td>start_date</td>
+</tr><tr><td>start_date</td>
 <td><strong>datetime</strong><br />The start date of the payroll period.</td>
-</tr>
-<tr>
-<td>end_date</td>
+</tr><tr><td>end_date</td>
 <td><strong>datetime</strong><br />The end date of the payroll period.</td>
-</tr>
-<tr>
-<td>notes</td>
+</tr><tr><td>notes</td>
 <td><strong>string</strong><br />Notes for the payroll period.</td>
-</tr>
-<tr>
-<td>is_closed</td>
+</tr><tr><td>is_closed</td>
 <td><strong>boolean</strong><br />Whether the payroll period is closed</td>
-</tr>
-<tr>
-<td>is_finalized</td>
+</tr><tr><td>is_finalized</td>
 <td><strong>boolean</strong><br />True if the payroll period has been finalized.</td>
-</tr>
-<tr>
-<td>finalized_at</td>
+</tr><tr><td>finalized_at</td>
 <td><strong>datetime</strong><br />The date and time that the payroll period was finalized.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the payroll period was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />The date and time the payroll period was last updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-payrolls">Listing Payrolls</h2>
 
@@ -3758,21 +3168,13 @@ specified non-default availability.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start</td>
+</tr></thead><tbody><tr><td>start</td>
 <td><strong>datetime</strong><br />Start date of search range</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td><strong>datetime</strong><br />End date of search range</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="get-existing-payroll-period">Get Existing Payroll Period</h2>
 
@@ -3836,17 +3238,11 @@ specified non-default availability.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the pay period requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-payroll">Create / Update Payroll</h2>
 
@@ -3898,85 +3294,45 @@ specified non-default availability.</p>
 
 <h3 id="user-object">User Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID for this time entry.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account this entry is associated with.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user that this time entry is for.</td>
-</tr>
-<tr>
-<td>creator_id</td>
+</tr><tr><td>creator_id</td>
 <td><strong>integer</strong><br />The ID of the user who created this time entry.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td><strong>integer</strong><br />The ID of the position that is associated with this entry.</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer</strong><br />The ID of the location that is associated with this entry.</td>
-</tr>
-<tr>
-<td>site_id</td>
+</tr><tr><td>site_id</td>
 <td><strong>integer</strong><br />The ID of the site that is associated with this time entry.</td>
-</tr>
-<tr>
-<td>shift_id</td>
+</tr><tr><td>shift_id</td>
 <td><strong>integer</strong><br />The ID of the shift that correlates to this time entry.</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td><strong>date time</strong><br />The start date and time of the time entry.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td><strong>datetime</strong><br />End time of the time entry.</td>
-</tr>
-<tr>
-<td>length</td>
+</tr><tr><td>length</td>
 <td><strong>float</strong><br />The length of the time entry. (readonly)</td>
-</tr>
-<tr>
-<td>hourly_rate</td>
+</tr><tr><td>hourly_rate</td>
 <td><strong>float</strong><br />Hourly rate for this time entry.</td>
-</tr>
-<tr>
-<td>is_alerted</td>
+</tr><tr><td>is_alerted</td>
 <td><strong>boolean</strong><br />True if an alert needs to be created for this shift.</td>
-</tr>
-<tr>
-<td>alert_type</td>
+</tr><tr><td>alert_type</td>
 <td><strong>integer</strong><br />The type of alert created.</td>
-</tr>
-<tr>
-<td>is_approved</td>
+</tr><tr><td>is_approved</td>
 <td><strong>boolean</strong><br />True if the time entry has been approved.</td>
-</tr>
-<tr>
-<td>modified_by</td>
+</tr><tr><td>modified_by</td>
 <td><strong>integer</strong><br />The ID of the user who modified the time entry.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />The date and time the time entry was last updated.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the time entry was created.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-times">Listing Times</h2>
 
@@ -4053,25 +3409,15 @@ specified non-default availability.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start</td>
+</tr></thead><tbody><tr><td>start</td>
 <td>Start date of search range</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td>End date of search range</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td>The ID of the user to get times for. To get times for multiple users, you can enter multiple ids separated by commas.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="get-existing-time">Get Existing Time</h2>
 
@@ -4112,17 +3458,11 @@ specified non-default availability.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the time requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="get-user-times">Get User Times</h2>
 
@@ -4213,17 +3553,11 @@ the user&#39;s punch state.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>The ID of the user to get times for.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <aside class="notice"><p>This endpoint does not support start and end times for your query. To filter a user&#39;s times by a start and end date, use the <a href="#listing-times">Listing Times</a> endpoint instead.</p>
 </aside>
@@ -4325,34 +3659,22 @@ the user&#39;s punch state.</p>
 
 <h3 id="post-body">Post Body</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Example Value</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>14</td>
 <td>The ID of the user you are creating the clock-in for.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td>102</td>
 <td>The ID of the position the user is clocking in as. This is an optional parameter.</td>
-</tr>
-<tr>
-<td>coordinates</td>
+</tr><tr><td>coordinates</td>
 <td>[44.937422,-93.084009]</td>
 <td>The GPS coordinates of the clock-in. This is an optional parameter.</td>
-</tr>
-<tr>
-<td>accuracy</td>
+</tr><tr><td>accuracy</td>
 <td>20</td>
 <td>The accuracy in meters of the coordinates being sent.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="clock-out">Clock out</h2>
 
@@ -4440,34 +3762,22 @@ the user&#39;s punch state.</p>
 
 <h3 id="post-body">Post Body</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Example Value</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>14</td>
 <td>The ID of the user you are creating the clock-out for.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td>102</td>
 <td>The ID of the position the user is clocking out as. This is an optional parameter.</td>
-</tr>
-<tr>
-<td>coordinates</td>
+</tr><tr><td>coordinates</td>
 <td>[44.937422,-93.084009]</td>
 <td>The GPS coordinates of the clock-out. This is an optional parameter.</td>
-</tr>
-<tr>
-<td>accuracy</td>
+</tr><tr><td>accuracy</td>
 <td>20</td>
 <td>The accuracy out meters of the coordinates being sent.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="delete-existing-time">Delete Existing Time</h2>
 
@@ -4494,17 +3804,11 @@ the user&#39;s punch state.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the time object to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="batch">Batch</h1>
 
@@ -4560,25 +3864,15 @@ the user&#39;s punch state.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>method</td>
+</tr></thead><tbody><tr><td>method</td>
 <td>POST, GET, PUT or DELETE</td>
-</tr>
-<tr>
-<td>url</td>
+</tr><tr><td>url</td>
 <td>The method you are requesting</td>
-</tr>
-<tr>
-<td>params</td>
+</tr><tr><td>params</td>
 <td>The parameters of your request as defined in the individual methods.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="messages">Messages</h1>
 
@@ -4602,53 +3896,29 @@ the user&#39;s punch state.</p>
 
 <h3 id="message-object">Message Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the message.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The account ID that the message is associated with.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user.</td>
-</tr>
-<tr>
-<td>request_id</td>
+</tr><tr><td>request_id</td>
 <td><strong>integer</strong><br />The ID of the request the message is for.</td>
-</tr>
-<tr>
-<td>swap_id</td>
+</tr><tr><td>swap_id</td>
 <td><strong>integer</strong><br />The ID of the swap the message is for.</td>
-</tr>
-<tr>
-<td>conversation_id</td>
+</tr><tr><td>conversation_id</td>
 <td><strong>integer</strong><br />The ID of the conversation the message is a part of.</td>
-</tr>
-<tr>
-<td>title</td>
+</tr><tr><td>title</td>
 <td><strong>string</strong><br />The title of the message.</td>
-</tr>
-<tr>
-<td>content</td>
+</tr><tr><td>content</td>
 <td><strong>string</strong><br />The content of the message.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the message was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the message was most recently updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-messages">Listing Messages</h2>
 
@@ -4699,25 +3969,15 @@ the user&#39;s punch state.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>swap_id</td>
+</tr></thead><tbody><tr><td>swap_id</td>
 <td>ID of the swap to get messages for.</td>
-</tr>
-<tr>
-<td>request_id</td>
+</tr><tr><td>request_id</td>
 <td>ID of the request to get messages for.</td>
-</tr>
-<tr>
-<td>conversation_id</td>
+</tr><tr><td>conversation_id</td>
 <td>ID of the conversation to get messages for.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <p>Only one of the parameters is required, but they can also be combined.</p>
 
@@ -4752,17 +4012,11 @@ the user&#39;s punch state.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>message_id</td>
+</tr></thead><tbody><tr><td>message_id</td>
 <td>ID of the message being requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-message">Create/Update Message</h2>
 
@@ -4803,17 +4057,11 @@ the user&#39;s punch state.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>message id</td>
+</tr></thead><tbody><tr><td>message id</td>
 <td>ID of the message to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="send">Send</h1>
 
@@ -4835,25 +4083,15 @@ the user&#39;s punch state.</p>
 
 <h3 id="send-object">Send Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ids</td>
+</tr></thead><tbody><tr><td>ids</td>
 <td><strong>array</strong><br />An array of user IDs to send the email to.</td>
-</tr>
-<tr>
-<td>subject</td>
+</tr><tr><td>subject</td>
 <td><strong>string</strong><br />The subject of the email notification.</td>
-</tr>
-<tr>
-<td>message</td>
+</tr><tr><td>message</td>
 <td><strong>string</strong><br />The email notification message content.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <blockquote>
 <p>Example Request</p>
@@ -4895,53 +4133,29 @@ the user&#39;s punch state.</p>
 
 <h3 id="template-object">Template Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the template.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account the template belongs to.</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer</strong><br />The location ID for the shift template.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user who created the template.</td>
-</tr>
-<tr>
-<td>start_date</td>
+</tr><tr><td>start_date</td>
 <td><strong>date time</strong><br />The start date for the template.</td>
-</tr>
-<tr>
-<td>end_date</td>
+</tr><tr><td>end_date</td>
 <td><strong>date time</strong><br />The start date for the template.</td>
-</tr>
-<tr>
-<td>name</td>
+</tr><tr><td>name</td>
 <td><strong>string</strong><br />A name for the template.</td>
-</tr>
-<tr>
-<td>description</td>
+</tr><tr><td>description</td>
 <td><strong>string</strong><br />A description for the template</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the template was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />The date and time the template was last updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-templates">Listing Templates</h2>
 
@@ -5055,17 +4269,11 @@ the user&#39;s punch state.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>template_id</td>
+</tr></thead><tbody><tr><td>template_id</td>
 <td>ID of the template being requested.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-template">Create/Update template</h2>
 
@@ -5125,33 +4333,19 @@ the user&#39;s punch state.</p>
 
 <p><code>POST https://api.wheniwork.com/2/templates/</code></p>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
+</tr></thead><tbody><tr><td>name</td>
 <td>The name of the new template.</td>
-</tr>
-<tr>
-<td>start</td>
+</tr><tr><td>start</td>
 <td>Start date for the new template.</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td>End of the time frame for the template.</td>
-</tr>
-<tr>
-<td>description</td>
+</tr><tr><td>description</td>
 <td>Description of the new template.</td>
-</tr>
-<tr>
-<td>ids</td>
+</tr><tr><td>ids</td>
 <td>IDs of elements to be included in the template.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
@@ -5186,17 +4380,11 @@ the user&#39;s punch state.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>template id</td>
+</tr></thead><tbody><tr><td>template id</td>
 <td>ID of the template to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="plans">Plans</h1>
 
@@ -5226,57 +4414,31 @@ the user&#39;s punch state.</p>
 
 <h3 id="plan-object">Plan Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the plan.</td>
-</tr>
-<tr>
-<td>name</td>
+</tr><tr><td>name</td>
 <td><strong>string</strong><br />The name of the plan.</td>
-</tr>
-<tr>
-<td>price</td>
+</tr><tr><td>price</td>
 <td><strong>float</strong><br />The price of the plan</td>
-</tr>
-<tr>
-<td>price_annual</td>
+</tr><tr><td>price_annual</td>
 <td><strong>float</strong><br />The annual cost of the plan.</td>
-</tr>
-<tr>
-<td>wb_price</td>
+</tr><tr><td>wb_price</td>
 <td><strong>float</strong><br />The WageBase plan cost.</td>
-</tr>
-<tr>
-<td>wb_annual</td>
+</tr><tr><td>wb_annual</td>
 <td><strong>float</strong><br />The WageBase annual plan cost.</td>
-</tr>
-<tr>
-<td>employees</td>
+</tr><tr><td>employees</td>
 <td><strong>integer</strong><br />The number of employees allowed on the plan.</td>
-</tr>
-<tr>
-<td>texting</td>
+</tr><tr><td>texting</td>
 <td><strong>boolean</strong><br />Is texting allowed on this account</td>
-</tr>
-<tr>
-<td>texting_price</td>
+</tr><tr><td>texting_price</td>
 <td><strong>float</strong><br />The texting cost.</td>
-</tr>
-<tr>
-<td>is_legacy</td>
+</tr><tr><td>is_legacy</td>
 <td><strong>boolean</strong><br />Is this a legacy plan?</td>
-</tr>
-<tr>
-<td>sort</td>
+</tr><tr><td>sort</td>
 <td><strong>integer</strong><br />The sort order of the plan.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-plans">Listing Plans</h2>
 
@@ -5338,77 +4500,41 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 
 <h3 id="annotation-object">Annotation Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID for this annotation.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account that this annotation is tied to.</td>
-</tr>
-<tr>
-<td>creator_id</td>
+</tr><tr><td>creator_id</td>
 <td><strong>integer</strong><br />ID of the user who originally created the annotation.</td>
-</tr>
-<tr>
-<td>all_locations</td>
+</tr><tr><td>all_locations</td>
 <td><strong>boolean</strong><br />Determines if this annotation applies to all locations on the account.</td>
-</tr>
-<tr>
-<td>start_date</td>
+</tr><tr><td>start_date</td>
 <td><strong>string</strong><br />ISO8601 timestamp of when the annotation&#39;s range begins.</td>
-</tr>
-<tr>
-<td>end_date</td>
+</tr><tr><td>end_date</td>
 <td><strong>string</strong><br />ISO8601 timestamp of when the annotation&#39;s range ends.</td>
-</tr>
-<tr>
-<td>title</td>
+</tr><tr><td>title</td>
 <td><strong>string</strong><br />Title for annotation (required).</td>
-</tr>
-<tr>
-<td>message</td>
+</tr><tr><td>message</td>
 <td><strong>string</strong><br />Message detailing the annotation (optional).</td>
-</tr>
-<tr>
-<td>color</td>
+</tr><tr><td>color</td>
 <td><strong>string</strong><br />Hex color code to represent this annotation (optional).</td>
-</tr>
-<tr>
-<td>business_closed</td>
+</tr><tr><td>business_closed</td>
 <td><strong>boolean</strong><br />Business Closed tag</td>
-</tr>
-<tr>
-<td>no_time_off</td>
+</tr><tr><td>no_time_off</td>
 <td><strong>boolean</strong><br />Time Off Not Allowed tag</td>
-</tr>
-<tr>
-<td>announcement</td>
+</tr><tr><td>announcement</td>
 <td><strong>boolean</strong><br />Announcement tag</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>array, integer</strong><br />INPUT ONLY: include location_id parameter when listing, creating, or updating annotations.</td>
-</tr>
-<tr>
-<td>locations</td>
+</tr><tr><td>locations</td>
 <td><strong>array</strong><br />OUTPUT ONLY: If all_locations = false, this field will contain an array of related location objects in the response body.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the punch was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />The date and time the punch was last updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="listing-annotations">Listing Annotations</h2>
 
@@ -5473,37 +4599,21 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 
 <p>All are optional.</p>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start_date</td>
+</tr></thead><tbody><tr><td>start_date</td>
 <td><strong>string</strong><br /> Will be parsed as Account timezone if ambiguous</td>
-</tr>
-<tr>
-<td>end_date</td>
+</tr><tr><td>end_date</td>
 <td><strong>string</strong><br /> Will be parsed as Account timezone if ambiguous</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer, array</strong><br /> May be an integer of a single location_id, or an array of location_ids</td>
-</tr>
-<tr>
-<td>business_closed</td>
+</tr><tr><td>business_closed</td>
 <td><strong>boolean</strong></td>
-</tr>
-<tr>
-<td>no_time_off</td>
+</tr><tr><td>no_time_off</td>
 <td><strong>boolean</strong></td>
-</tr>
-<tr>
-<td>announcement</td>
+</tr><tr><td>announcement</td>
 <td><strong>boolean</strong></td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="get-existing-annotation">Get Existing Annotation</h2>
 
@@ -5558,17 +4668,11 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the annotation.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-update-annotation">Create/Update Annotation</h2>
 
@@ -5619,17 +4723,11 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the annotation to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="devices">Devices</h1>
 
@@ -5655,45 +4753,25 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 
 <h3 id="device-object">Device Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID for this device object</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account that the device belongs to.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user that the device belongs to.</td>
-</tr>
-<tr>
-<td>login_id</td>
+</tr><tr><td>login_id</td>
 <td><strong>integer</strong><br />The ID of the login that the device belongs to.</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td><strong>string</strong><br />The type of device (currently &#39;android&#39; or &#39;ios&#39;).</td>
-</tr>
-<tr>
-<td>token</td>
+</tr><tr><td>token</td>
 <td><strong>string</strong><br />The device&#39;s push token from GCM or APNS.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the device was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the device was most recently updated.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="create-device">Create Device</h2>
 
@@ -5730,21 +4808,13 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>token</td>
+</tr></thead><tbody><tr><td>token</td>
 <td>Push token of the device to register.</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td>Type of device (&quot;android&quot; or &quot;ios&quot;).</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h2 id="delete-existing-device">Delete Existing Device</h2>
 
@@ -5779,74 +4849,40 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>token</td>
+</tr></thead><tbody><tr><td>token</td>
 <td>Push token to be deleted.</td>
-</tr>
-</tbody></table>
+</tr></tbody></table>
 
 <h1 id="errors">Errors</h1>
 
 <p>When I Work uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
+<table><thead><tr><th>Error Code</th>
 <th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
+</tr></thead><tbody><tr><td>400</td>
 <td>Bad Request -- The request is not valid</td>
-</tr>
-<tr>
-<td>401</td>
+</tr><tr><td>401</td>
 <td>Unauthorized -- The API key is wrong or the query is misplaced</td>
-</tr>
-<tr>
-<td>403</td>
+</tr><tr><td>403</td>
 <td>Forbidden -- The request is below the required permission level</td>
-</tr>
-<tr>
-<td>404</td>
+</tr><tr><td>404</td>
 <td>Not Found -- The specified request could not be found</td>
-</tr>
-<tr>
-<td>405</td>
+</tr><tr><td>405</td>
 <td>Method Not Allowed -- You tried to access a user with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
+</tr><tr><td>406</td>
 <td>Not Acceptable -- You requested a format that isn&#39;t JSON</td>
-</tr>
-<tr>
-<td>410</td>
+</tr><tr><td>410</td>
 <td>Gone -- The user requested has been removed</td>
-</tr>
-<tr>
-<td>418</td>
+</tr><tr><td>418</td>
 <td>An undefined error occurred</td>
-</tr>
-<tr>
-<td>429</td>
+</tr><tr><td>429</td>
 <td>Too Many Requests -- The server is not able to address the number of queries</td>
-</tr>
-<tr>
-<td>500</td>
+</tr><tr><td>500</td>
 <td>Internal Server Error -- An internal server error occurred</td>
-</tr>
-<tr>
-<td>503</td>
+</tr><tr><td>503</td>
 <td>Service Unavailable -- The service is temporarily offline for maintenance</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">

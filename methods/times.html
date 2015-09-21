@@ -78,87 +78,45 @@
 </span></code></pre>
 
 <h3 id="user-object">User Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID for this time entry.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account this entry is associated with.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user that this time entry is for.</td>
-</tr>
-<tr>
-<td>creator_id</td>
+</tr><tr><td>creator_id</td>
 <td><strong>integer</strong><br />The ID of the user who created this time entry.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td><strong>integer</strong><br />The ID of the position that is associated with this entry.</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer</strong><br />The ID of the location that is associated with this entry.</td>
-</tr>
-<tr>
-<td>site_id</td>
+</tr><tr><td>site_id</td>
 <td><strong>integer</strong><br />The ID of the site that is associated with this time entry.</td>
-</tr>
-<tr>
-<td>shift_id</td>
+</tr><tr><td>shift_id</td>
 <td><strong>integer</strong><br />The ID of the shift that correlates to this time entry.</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td><strong>date time</strong><br />The start date and time of the time entry.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td><strong>datetime</strong><br />End time of the time entry.</td>
-</tr>
-<tr>
-<td>length</td>
+</tr><tr><td>length</td>
 <td><strong>float</strong><br />The length of the time entry. (readonly)</td>
-</tr>
-<tr>
-<td>hourly_rate</td>
+</tr><tr><td>hourly_rate</td>
 <td><strong>float</strong><br />Hourly rate for this time entry.</td>
-</tr>
-<tr>
-<td>is_alerted</td>
+</tr><tr><td>is_alerted</td>
 <td><strong>boolean</strong><br />True if an alert needs to be created for this shift.</td>
-</tr>
-<tr>
-<td>alert_type</td>
+</tr><tr><td>alert_type</td>
 <td><strong>integer</strong><br />The type of alert created.</td>
-</tr>
-<tr>
-<td>is_approved</td>
+</tr><tr><td>is_approved</td>
 <td><strong>boolean</strong><br />True if the time entry has been approved.</td>
-</tr>
-<tr>
-<td>modified_by</td>
+</tr><tr><td>modified_by</td>
 <td><strong>integer</strong><br />The ID of the user who modified the time entry.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />The date and time the time entry was last updated.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the time entry was created.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="listing-times">Listing Times</h2>
 
 <blockquote>
@@ -231,27 +189,15 @@
 <p><code>GET https://api.wheniwork.com/2/times/</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start</td>
+</tr></thead><tbody><tr><td>start</td>
 <td>Start date of search range</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td>End date of search range</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td>The ID of the user to get times for. To get times for multiple users, you can enter multiple ids separated by commas.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="get-existing-time">Get Existing Time</h2>
 
 <blockquote>
@@ -288,19 +234,11 @@
 <p><code>GET https://api.wheniwork.com/2/times/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the time requested.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="get-user-times">Get User Times</h2>
 
 <blockquote>
@@ -387,19 +325,11 @@ the user&#39;s punch state.</p>
 <p><code>GET https://api.wheniwork.com/2/times/user/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>The ID of the user to get times for.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <aside class="notice"><p>This endpoint does not support start and end times for your query. To filter a user&#39;s times by a start and end date, use the <a href="#listing-times">Listing Times</a> endpoint instead.</p>
 </aside>
 
@@ -495,36 +425,22 @@ the user&#39;s punch state.</p>
 <p><code>POST https://api.wheniwork.com/2/times/clockin</code></p>
 
 <h3 id="post-body">Post Body</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Example Value</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>14</td>
 <td>The ID of the user you are creating the clock-in for.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td>102</td>
 <td>The ID of the position the user is clocking in as. This is an optional parameter.</td>
-</tr>
-<tr>
-<td>coordinates</td>
+</tr><tr><td>coordinates</td>
 <td>[44.937422,-93.084009]</td>
 <td>The GPS coordinates of the clock-in. This is an optional parameter.</td>
-</tr>
-<tr>
-<td>accuracy</td>
+</tr><tr><td>accuracy</td>
 <td>20</td>
 <td>The accuracy in meters of the coordinates being sent.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="clock-out">Clock out</h2>
 
 <blockquote>
@@ -606,36 +522,22 @@ the user&#39;s punch state.</p>
 <p><code>POST https://api.wheniwork.com/2/times/clockout</code></p>
 
 <h3 id="post-body">Post Body</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Example Value</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>14</td>
 <td>The ID of the user you are creating the clock-out for.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td>102</td>
 <td>The ID of the position the user is clocking out as. This is an optional parameter.</td>
-</tr>
-<tr>
-<td>coordinates</td>
+</tr><tr><td>coordinates</td>
 <td>[44.937422,-93.084009]</td>
 <td>The GPS coordinates of the clock-out. This is an optional parameter.</td>
-</tr>
-<tr>
-<td>accuracy</td>
+</tr><tr><td>accuracy</td>
 <td>20</td>
 <td>The accuracy out meters of the coordinates being sent.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="delete-existing-time">Delete Existing Time</h2>
 
 <blockquote>
@@ -658,19 +560,11 @@ the user&#39;s punch state.</p>
 <p><code>DELETE https://api.wheniwork.com/2/times/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the time object to be deleted.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">

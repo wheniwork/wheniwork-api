@@ -70,55 +70,29 @@
 </span></code></pre>
 
 <h3 id="message-object">Message Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the message.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The account ID that the message is associated with.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user.</td>
-</tr>
-<tr>
-<td>request_id</td>
+</tr><tr><td>request_id</td>
 <td><strong>integer</strong><br />The ID of the request the message is for.</td>
-</tr>
-<tr>
-<td>swap_id</td>
+</tr><tr><td>swap_id</td>
 <td><strong>integer</strong><br />The ID of the swap the message is for.</td>
-</tr>
-<tr>
-<td>conversation_id</td>
+</tr><tr><td>conversation_id</td>
 <td><strong>integer</strong><br />The ID of the conversation the message is a part of.</td>
-</tr>
-<tr>
-<td>title</td>
+</tr><tr><td>title</td>
 <td><strong>string</strong><br />The title of the message.</td>
-</tr>
-<tr>
-<td>content</td>
+</tr><tr><td>content</td>
 <td><strong>string</strong><br />The content of the message.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the message was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the message was most recently updated.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="listing-messages">Listing Messages</h2>
 
 <p>List messages for given parameters</p>
@@ -165,27 +139,15 @@
 <p><code>GET https://api.wheniwork.com/2/messages</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>swap_id</td>
+</tr></thead><tbody><tr><td>swap_id</td>
 <td>ID of the swap to get messages for.</td>
-</tr>
-<tr>
-<td>request_id</td>
+</tr><tr><td>request_id</td>
 <td>ID of the request to get messages for.</td>
-</tr>
-<tr>
-<td>conversation_id</td>
+</tr><tr><td>conversation_id</td>
 <td>ID of the conversation to get messages for.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <p>Only one of the parameters is required, but they can also be combined.</p>
 
 <h2 id="get-existing-message">Get Existing Message</h2>
@@ -216,19 +178,11 @@
 <p><code>GET https://api.wheniwork.com/2/messages/{message_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>message_id</td>
+</tr></thead><tbody><tr><td>message_id</td>
 <td>ID of the message being requested.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="create-update-message">Create/Update Message</h2>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
@@ -265,19 +219,11 @@
 <p><code>DELETE https://api.wheniwork.com/2/messages/{message_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>message id</td>
+</tr></thead><tbody><tr><td>message id</td>
 <td>ID of the message to be deleted.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">

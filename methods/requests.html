@@ -70,55 +70,29 @@
 </span></code></pre>
 
 <h3 id="request-object">Request Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the request.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account this request belongs to.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user.</td>
-</tr>
-<tr>
-<td>creator_id</td>
+</tr><tr><td>creator_id</td>
 <td><strong>integer</strong><br />The ID of the user creating the request.</td>
-</tr>
-<tr>
-<td>status</td>
+</tr><tr><td>status</td>
 <td><strong>integer</strong><br />The current status of the request (0 = Pending, 1 = Canceled, 2 = Accepted, 3 = Expired).</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td><strong>integer</strong><br />The type of the request (0 = Unpaid Time Off, 1 = Paid Time Off, 2 = Sick Leave, 3 = Holiday).</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td><strong>datetime</strong><br />Start time of request.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td><strong>datetime</strong><br />End time of request.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the request was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />The date and time the request was last updated.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="listing-requests">Listing Requests</h2>
 
 <blockquote>
@@ -210,31 +184,17 @@
 <p><code>GET https://api.wheniwork.com/2/requests</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start</td>
+</tr></thead><tbody><tr><td>start</td>
 <td>The start date for the request time-frame.</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td>End time for the request time-frame.</td>
-</tr>
-<tr>
-<td>since_id</td>
+</tr><tr><td>since_id</td>
 <td>Return all requests created since the request with given ID.</td>
-</tr>
-<tr>
-<td>max_id</td>
+</tr><tr><td>max_id</td>
 <td>Return all requests created before the request with the given ID.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="get-existing-request">Get Existing Request</h2>
 
 <blockquote>
@@ -303,19 +263,11 @@
 <p><code>GET https://api.wheniwork.com/2/requests/{request_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>request_id</td>
+</tr></thead><tbody><tr><td>request_id</td>
 <td>ID of the request.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="create-update-request">Create/Update Request</h2>
 
 <blockquote>
@@ -369,39 +321,21 @@
 <p><code>POST https://api.wheniwork.com/2/requests</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>user_id</td>
+</tr></thead><tbody><tr><td>user_id</td>
 <td>The ID of the user for whom the request is to be created.</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td>The type of request</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td>The start date and time for the request.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td>The end date and time for the request.</td>
-</tr>
-<tr>
-<td>since_id</td>
+</tr><tr><td>since_id</td>
 <td>Return all requests created since the request with given ID.</td>
-</tr>
-<tr>
-<td>status</td>
+</tr><tr><td>status</td>
 <td>The status for the request to be created.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
 <p><code>PUT https://api.wheniwork.com/2/requests/{request_id}</code></p>
@@ -437,19 +371,11 @@
 <p><code>DELETE https://api.wheniwork.com/2/requests/{request_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>request id</td>
+</tr></thead><tbody><tr><td>request id</td>
 <td>ID of the request to be deleted.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">

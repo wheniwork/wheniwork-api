@@ -73,59 +73,31 @@
 <p>Availabilities are objects that define a user&#39;s availability to be assigned shifts during a certain period of time.</p>
 
 <h3 id="availability-object">Availability Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the availability.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account that this user&#39;s availability is tied to.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user tied to the availability.</td>
-</tr>
-<tr>
-<td>name</td>
+</tr><tr><td>name</td>
 <td><strong>string</strong><br />The name of the availability.</td>
-</tr>
-<tr>
-<td>description</td>
+</tr><tr><td>description</td>
 <td><strong>string</strong><br />The description for the availability</td>
-</tr>
-<tr>
-<td>start_date</td>
+</tr><tr><td>start_date</td>
 <td><strong>date</strong><br />The starting date of the time period the availability is designated for.</td>
-</tr>
-<tr>
-<td>end_date</td>
+</tr><tr><td>end_date</td>
 <td><strong>date</strong><br />The ending date of the time period the availability is designated for.</td>
-</tr>
-<tr>
-<td>ongoing</td>
+</tr><tr><td>ongoing</td>
 <td><strong>boolean</strong><br />Whether the availability is the user&#39;s ongoing availability.</td>
-</tr>
-<tr>
-<td>repeat</td>
+</tr><tr><td>repeat</td>
 <td><strong>integer</strong><br />The repeat value for availability.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the availability was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the availability was most recently updated.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <p>Availability Items are individual components of a greater Availability object.
 Where an Availability is an object that defines a user&#39;s availability (in
 general), each Availability object is made up of Availability Items, each of
@@ -146,51 +118,27 @@ specified non-default availability.</p>
 </span></code></pre>
 
 <h3 id="availability_item-object">Availability_item Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the availability item</td>
-</tr>
-<tr>
-<td>availability_id</td>
+</tr><tr><td>availability_id</td>
 <td><strong>integer</strong><br />The ID of the availability object the item is associated with.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user that the availability item is associated with.</td>
-</tr>
-<tr>
-<td>day</td>
+</tr><tr><td>day</td>
 <td><strong>integer</strong><br />The day of the week (0-6) for the availability item.</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td><strong>integer</strong><br />The type of the availability item. (1 = Preferred, 2 = Unavailable)</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td><strong>date time</strong><br />The start time of the availability for the specified day.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td><strong>date time</strong><br />The end time of the availability for the specified day.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the availability item was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the availability item was most recently updated.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="listing-availabilities">Listing Availabilities</h2>
 
 <blockquote>
@@ -302,19 +250,11 @@ specified non-default availability.</p>
 <p><code>GET https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>availability_id</td>
+</tr></thead><tbody><tr><td>availability_id</td>
 <td>ID of the availability object being requested.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="get-availability-items">Get Availability Items</h2>
 
 <p>Get all availabilities for a specified group of users for a specified time-frame.</p>
@@ -378,27 +318,15 @@ specified non-default availability.</p>
 <p><code>GET https://api.wheniwork.com/2/availabilities/items</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>user_id</td>
+</tr></thead><tbody><tr><td>user_id</td>
 <td><strong>array</strong><br />An array of user IDs to search.</td>
-</tr>
-<tr>
-<td>start</td>
+</tr><tr><td>start</td>
 <td><strong>datetime</strong><br />The start date and time you are searching in.</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td><strong>datetime</strong><br />The end date and time you are searching in.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="create-update-availability">Create/Update Availability</h2>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
@@ -440,19 +368,11 @@ specified non-default availability.</p>
 <p><code>DELETE https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>availability_id</td>
+</tr></thead><tbody><tr><td>availability_id</td>
 <td>ID of the availability to be deleted.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">

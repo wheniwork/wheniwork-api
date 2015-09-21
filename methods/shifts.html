@@ -78,79 +78,41 @@
 <p>Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites, and Users, all link through Shifts.</p>
 
 <h3 id="shift-object">Shift Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />Unique identifier for the shift.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />Link identifier for the User attached to this shift. 0 means OpenShift.</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer</strong><br />Link identifier for the Location to which this shift is attached.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td><strong>integer</strong><br />Link identifier for the Position attached to this shift.</td>
-</tr>
-<tr>
-<td>site_id</td>
+</tr><tr><td>site_id</td>
 <td><strong>integer</strong><br />Link identifier for the Site attached to this shift.</td>
-</tr>
-<tr>
-<td>start_time</td>
+</tr><tr><td>start_time</td>
 <td><strong>datetime</strong><br />Start time of the shift.</td>
-</tr>
-<tr>
-<td>end_time</td>
+</tr><tr><td>end_time</td>
 <td><strong>datetime</strong><br />End time of the shift.</td>
-</tr>
-<tr>
-<td>break_time</td>
+</tr><tr><td>break_time</td>
 <td><strong>float</strong><br />Hours of unpaid break.</td>
-</tr>
-<tr>
-<td>color</td>
+</tr><tr><td>color</td>
 <td><strong>hex</strong><br />Hex color used to identify the shift in the UI.</td>
-</tr>
-<tr>
-<td>notes</td>
+</tr><tr><td>notes</td>
 <td><strong>string</strong><br />Notes about the shift. Max length 350.</td>
-</tr>
-<tr>
-<td>instances</td>
+</tr><tr><td>instances</td>
 <td><strong>integer</strong><br />Number of instances. Will be 1 if it is a shift assigned to an employee. The value can be any integer greater than 0 if it is an OpenShift.</td>
-</tr>
-<tr>
-<td>published</td>
+</tr><tr><td>published</td>
 <td><strong>boolean</strong><br />Published shifts show to employees.</td>
-</tr>
-<tr>
-<td>published_date</td>
+</tr><tr><td>published_date</td>
 <td><strong>datetime</strong><br />Date the shift was most recently published.</td>
-</tr>
-<tr>
-<td>notified_at</td>
+</tr><tr><td>notified_at</td>
 <td><strong>datetime</strong><br />Date the shift was most recently notified.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the shift was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the shift was most recently updated.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="listing-shifts">Listing Shifts</h2>
 
 <blockquote>
@@ -196,47 +158,25 @@
 <p><code>GET https://api.wheniwork.com/2/shifts</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start</td>
+</tr></thead><tbody><tr><td>start</td>
 <td><strong>datetime</strong><br />Start time for a search window</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td><strong>datetime</strong><br />End time for a search window</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer, string array</strong><br />Only show shifts for a user, or multiple (e.g. 1,5,3)</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer, string array</strong><br />Only show shifts for a location, or multiple.</td>
-</tr>
-<tr>
-<td>site_id</td>
+</tr><tr><td>site_id</td>
 <td><strong>integer, string array</strong><br />Only show shifts for a site, or multiple.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td><strong>integer, string array</strong><br />Only show shifts for a position, or multiple.</td>
-</tr>
-<tr>
-<td>include_allopen</td>
+</tr><tr><td>include_allopen</td>
 <td><strong>boolean</strong><br />Include OpenShifts in the results.</td>
-</tr>
-<tr>
-<td>include_onlyopen</td>
+</tr><tr><td>include_onlyopen</td>
 <td><strong>boolean</strong><br />Only return OpenShifts in the results</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="get-existing-shift">Get Existing Shift</h2>
 
 <blockquote>
@@ -269,19 +209,11 @@
 <p><code>GET https://api.wheniwork.com/2/shifts/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the shift requested.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="create-update-shift">Create/Update Shift</h2>
 
 <blockquote>
@@ -354,19 +286,11 @@
 <p><code>POST https://api.wheniwork.com/2/shifts/acknowledge/</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ids</td>
+</tr></thead><tbody><tr><td>ids</td>
 <td>Post body parameter of mulitiple shift identifiers. <code>[4543,23453]</code></td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="publish-unpublish-shifts">Publish/Unpublish Shifts</h2>
 
 <blockquote>
@@ -401,19 +325,11 @@
 <p><code>POST https://api.wheniwork.com/2/shifts/unpublish/</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ids</td>
+</tr></thead><tbody><tr><td>ids</td>
 <td>Post body parameter that can be used to publish multiple shifts. <code>[4543,23453]</code></td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="notify-shifts">Notify Shifts</h2>
 
 <blockquote>
@@ -446,39 +362,21 @@
 <p><code>POST https://api.wheniwork.com/2/shifts/notify/</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start</td>
+</tr></thead><tbody><tr><td>start</td>
 <td><strong>datetime</strong><br />Start time for a notify window</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td><strong>datetime</strong><br />End time for a notify window</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer, array</strong><br />Only notify shifts for a user, or multiple (e.g. <code>[1,5,3]</code>)</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer, array</strong><br />Only notify shifts for a location, or multiple.</td>
-</tr>
-<tr>
-<td>position_id</td>
+</tr><tr><td>position_id</td>
 <td><strong>integer, array</strong><br />Only notify shifts for a position, or multiple.</td>
-</tr>
-<tr>
-<td>site_id</td>
+</tr><tr><td>site_id</td>
 <td><strong>integer, array</strong><br />Only notify shifts for a site, or multiple.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
@@ -508,19 +406,11 @@
 <p><code>POST https://api.wheniwork.com/2/shifts/notify/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />ID of the shift you want to notify.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="delete-shift">Delete Shift</h2>
 
 <blockquote>
@@ -548,23 +438,13 @@
 <p><code>DELETE https://api.wheniwork.com/2/shifts/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the shift requested.</td>
-</tr>
-<tr>
-<td>ids</td>
+</tr><tr><td>ids</td>
 <td>Optional query parameter that can be used to delete multiple shifts. <code>?ids=5,2,34</code></td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">

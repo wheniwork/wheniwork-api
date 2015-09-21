@@ -72,55 +72,29 @@
 <p>Templates allow you to create a group of shifts that can be used to make scheduling easier.</p>
 
 <h3 id="template-object">Template Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the template.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account the template belongs to.</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer</strong><br />The location ID for the shift template.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user who created the template.</td>
-</tr>
-<tr>
-<td>start_date</td>
+</tr><tr><td>start_date</td>
 <td><strong>date time</strong><br />The start date for the template.</td>
-</tr>
-<tr>
-<td>end_date</td>
+</tr><tr><td>end_date</td>
 <td><strong>date time</strong><br />The start date for the template.</td>
-</tr>
-<tr>
-<td>name</td>
+</tr><tr><td>name</td>
 <td><strong>string</strong><br />A name for the template.</td>
-</tr>
-<tr>
-<td>description</td>
+</tr><tr><td>description</td>
 <td><strong>string</strong><br />A description for the template</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the template was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />The date and time the template was last updated.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="listing-templates">Listing Templates</h2>
 
 <blockquote>
@@ -228,19 +202,11 @@
 <p><code>GET https://api.wheniwork.com/2/templates/{template_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>template_id</td>
+</tr></thead><tbody><tr><td>template_id</td>
 <td>ID of the template being requested.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="create-update-template">Create/Update template</h2>
 
 <blockquote>
@@ -296,35 +262,19 @@
 <h3 id="create-http-request">Create HTTP Request</h3>
 
 <p><code>POST https://api.wheniwork.com/2/templates/</code></p>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
+</tr></thead><tbody><tr><td>name</td>
 <td>The name of the new template.</td>
-</tr>
-<tr>
-<td>start</td>
+</tr><tr><td>start</td>
 <td>Start date for the new template.</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td>End of the time frame for the template.</td>
-</tr>
-<tr>
-<td>description</td>
+</tr><tr><td>description</td>
 <td>Description of the new template.</td>
-</tr>
-<tr>
-<td>ids</td>
+</tr><tr><td>ids</td>
 <td>IDs of elements to be included in the template.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
 <p><code>PUT https://api.wheniwork.com/2/templates/{template id}</code></p>
@@ -355,19 +305,11 @@
 <p><code>DELETE https://api.wheniwork.com/2/template/{template_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>template id</td>
+</tr></thead><tbody><tr><td>template id</td>
 <td>ID of the template to be deleted.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">

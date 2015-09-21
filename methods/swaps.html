@@ -78,43 +78,23 @@
 </span></code></pre>
 
 <h3 id="swap-object">Swap Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID of the swap.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account associated with the swap.</td>
-</tr>
-<tr>
-<td>user_id</td>
+</tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user who initiated the swap.</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td><strong>integer</strong><br />The type of swap. (1 = swap, 2 = drop, 3 = alert)</td>
-</tr>
-<tr>
-<td>status</td>
+</tr><tr><td>status</td>
 <td><strong>integer</strong><br />The status of the swap. (0 = Pending, 1 = Approved, 2 = Declined, 3 = Completed, 4 = Canceled, 5 = Expired)</td>
-</tr>
-<tr>
-<td>accepted_id</td>
+</tr><tr><td>accepted_id</td>
 <td><strong>integer</strong><br />The ID of the user who took the shift</td>
-</tr>
-<tr>
-<td>statuses</td>
+</tr><tr><td>statuses</td>
 <td><strong>array</strong><br />An array of user shift acceptance statuses.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="listing-swaps">Listing Swaps</h2>
 
 <blockquote>
@@ -250,19 +230,11 @@
 <p><code>GET https://api.wheniwork.com/2/swaps/{swap_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>swap id</td>
+</tr></thead><tbody><tr><td>swap id</td>
 <td>ID of the swap being requested.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="create-update-swap">Create/Update Swap</h2>
 
 <blockquote>
@@ -354,31 +326,17 @@
 <h3 id="create-http-request">Create HTTP Request</h3>
 
 <p><code>POST https://api.wheniwork.com/2/swaps/</code></p>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>shift id</td>
+</tr></thead><tbody><tr><td>shift id</td>
 <td>ID of the shift being swapped.</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td>The type of swap to be created.</td>
-</tr>
-<tr>
-<td>shifts</td>
+</tr><tr><td>shifts</td>
 <td>The IDs of the shifts requested to be swapped for.</td>
-</tr>
-<tr>
-<td>users</td>
+</tr><tr><td>users</td>
 <td>The IDs of users available to take shifts.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h3 id="update-http-requests">Update HTTP Requests</h3>
 
 <p><code>PUT https://api.wheniwork.com/2/swaps/{swap_id}</code></p>
@@ -414,19 +372,11 @@
 <p><code>DELETE https://api.wheniwork.com/2/swap/{swap_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>swap_id</td>
+</tr></thead><tbody><tr><td>swap_id</td>
 <td>ID of the swap to be deleted.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">

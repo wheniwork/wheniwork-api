@@ -94,79 +94,41 @@
 Time Off requests will be considered invalid if the request&#39;s date range overlaps an Annotation of the &quot;Time Off Not Allowed&quot; type for the user&#39;s location(s).</p>
 
 <h3 id="annotation-object">Annotation Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID for this annotation.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The ID of the account that this annotation is tied to.</td>
-</tr>
-<tr>
-<td>creator_id</td>
+</tr><tr><td>creator_id</td>
 <td><strong>integer</strong><br />ID of the user who originally created the annotation.</td>
-</tr>
-<tr>
-<td>all_locations</td>
+</tr><tr><td>all_locations</td>
 <td><strong>boolean</strong><br />Determines if this annotation applies to all locations on the account.</td>
-</tr>
-<tr>
-<td>start_date</td>
+</tr><tr><td>start_date</td>
 <td><strong>string</strong><br />ISO8601 timestamp of when the annotation&#39;s range begins.</td>
-</tr>
-<tr>
-<td>end_date</td>
+</tr><tr><td>end_date</td>
 <td><strong>string</strong><br />ISO8601 timestamp of when the annotation&#39;s range ends.</td>
-</tr>
-<tr>
-<td>title</td>
+</tr><tr><td>title</td>
 <td><strong>string</strong><br />Title for annotation (required).</td>
-</tr>
-<tr>
-<td>message</td>
+</tr><tr><td>message</td>
 <td><strong>string</strong><br />Message detailing the annotation (optional).</td>
-</tr>
-<tr>
-<td>color</td>
+</tr><tr><td>color</td>
 <td><strong>string</strong><br />Hex color code to represent this annotation (optional).</td>
-</tr>
-<tr>
-<td>business_closed</td>
+</tr><tr><td>business_closed</td>
 <td><strong>boolean</strong><br />Business Closed tag</td>
-</tr>
-<tr>
-<td>no_time_off</td>
+</tr><tr><td>no_time_off</td>
 <td><strong>boolean</strong><br />Time Off Not Allowed tag</td>
-</tr>
-<tr>
-<td>announcement</td>
+</tr><tr><td>announcement</td>
 <td><strong>boolean</strong><br />Announcement tag</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>array, integer</strong><br />INPUT ONLY: include location_id parameter when listing, creating, or updating annotations.</td>
-</tr>
-<tr>
-<td>locations</td>
+</tr><tr><td>locations</td>
 <td><strong>array</strong><br />OUTPUT ONLY: If all_locations = false, this field will contain an array of related location objects in the response body.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the punch was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />The date and time the punch was last updated.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="listing-annotations">Listing Annotations</h2>
 
 <blockquote>
@@ -226,39 +188,21 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <h3 id="parameters">Parameters</h3>
 
 <p>All are optional.</p>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start_date</td>
+</tr></thead><tbody><tr><td>start_date</td>
 <td><strong>string</strong><br /> Will be parsed as Account timezone if ambiguous</td>
-</tr>
-<tr>
-<td>end_date</td>
+</tr><tr><td>end_date</td>
 <td><strong>string</strong><br /> Will be parsed as Account timezone if ambiguous</td>
-</tr>
-<tr>
-<td>location_id</td>
+</tr><tr><td>location_id</td>
 <td><strong>integer, array</strong><br /> May be an integer of a single location_id, or an array of location_ids</td>
-</tr>
-<tr>
-<td>business_closed</td>
+</tr><tr><td>business_closed</td>
 <td><strong>boolean</strong></td>
-</tr>
-<tr>
-<td>no_time_off</td>
+</tr><tr><td>no_time_off</td>
 <td><strong>boolean</strong></td>
-</tr>
-<tr>
-<td>announcement</td>
+</tr><tr><td>announcement</td>
 <td><strong>boolean</strong></td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="get-existing-annotation">Get Existing Annotation</h2>
 
 <blockquote>
@@ -308,19 +252,11 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <p><code>GET https://api.wheniwork.com/2/annotations/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the annotation.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="create-update-annotation">Create/Update Annotation</h2>
 
 <p>Annotations can be created by managers and supervisors who can supervise the related location(s).</p>
@@ -366,19 +302,11 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <p><code>DELETE https://api.wheniwork.com/2/annotations/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the annotation to be deleted.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">

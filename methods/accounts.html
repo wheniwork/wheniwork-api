@@ -73,59 +73,31 @@
 <p>Accounts are objects that define a business account with When I Work. Every user must be associated with an account in order to be able to access Shifts and other data.</p>
 
 <h3 id="account-object">Account Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />Unique identifier for the account</td>
-</tr>
-<tr>
-<td>master_id</td>
+</tr><tr><td>master_id</td>
 <td><strong>integer</strong><br />The id of the parent account (if this is a subaccount)</td>
-</tr>
-<tr>
-<td>type</td>
+</tr><tr><td>type</td>
 <td><strong>integer</strong><br />Account type. Must be one of:<br> 1 = SCHEDULING<br> 2 = ATTENDANCE<br> 3 = BOTH</td>
-</tr>
-<tr>
-<td>logo</td>
+</tr><tr><td>logo</td>
 <td><strong>string</strong><br />Path to the image file for the company&#39;s logo</td>
-</tr>
-<tr>
-<td>company</td>
+</tr><tr><td>company</td>
 <td><strong>string</strong><br />Name of the company for which this account is in use</td>
-</tr>
-<tr>
-<td>subdomain</td>
+</tr><tr><td>subdomain</td>
 <td><strong>string</strong><br />Subdomain of wheniwork.com to access company-specific When I Work web application</td>
-</tr>
-<tr>
-<td>enabled</td>
+</tr><tr><td>enabled</td>
 <td><strong>boolean</strong><br />Whether this account object is enabled</td>
-</tr>
-<tr>
-<td>plan_expires</td>
+</tr><tr><td>plan_expires</td>
 <td><strong>datetime</strong><br />Date and time when this account&#39;s plan expires</td>
-</tr>
-<tr>
-<td>timezone_id</td>
+</tr><tr><td>timezone_id</td>
 <td><strong>integer</strong><br />Identifier for time zone, as specified in the <a href="http://php.net/manual/en/class.datetimezone.php">PHP docs</a>.</td>
-</tr>
-<tr>
-<td>timezone_name</td>
+</tr><tr><td>timezone_name</td>
 <td><strong>string</strong><br />Name for the timezone specified in the timezone_id</td>
-</tr>
-<tr>
-<td>settings</td>
+</tr><tr><td>settings</td>
 <td><strong>json</strong><br />A list of settings for this account</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="listing-accounts">Listing Accounts</h2>
 
 <blockquote>
@@ -182,19 +154,11 @@
 <p><code>GET https://api.wheniwork.com/2/account?account_id=11,12</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>account_id</td>
+</tr></thead><tbody><tr><td>account_id</td>
 <td>A list of account ids to retrieve (Optional; if not specified, will default to returning all accounts for a given user token)</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="get-existing-account">Get Existing Account</h2>
 
 <blockquote>
@@ -234,19 +198,11 @@
 <p><code>GET https://api.wheniwork.com/2/account/{account_id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>account_id</td>
+</tr></thead><tbody><tr><td>account_id</td>
 <td>ID of the account object to be retrieved.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="create-update-account">Create/Update Account</h2>
 
 <h3 id="create-http-request">Create HTTP Request</h3>

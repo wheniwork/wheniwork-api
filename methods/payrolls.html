@@ -71,59 +71,31 @@
 </span></code></pre>
 
 <h3 id="user-object">User Object</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<table><thead><tr><th>Parameter</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />The unique ID for this payroll item.</td>
-</tr>
-<tr>
-<td>account_id</td>
+</tr><tr><td>account_id</td>
 <td><strong>integer</strong><br />The account ID that this payroll item belongs to.</td>
-</tr>
-<tr>
-<td>creator_id</td>
+</tr><tr><td>creator_id</td>
 <td><strong>integer</strong><br />The user ID of the person who created the payroll item.</td>
-</tr>
-<tr>
-<td>start_date</td>
+</tr><tr><td>start_date</td>
 <td><strong>datetime</strong><br />The start date of the payroll period.</td>
-</tr>
-<tr>
-<td>end_date</td>
+</tr><tr><td>end_date</td>
 <td><strong>datetime</strong><br />The end date of the payroll period.</td>
-</tr>
-<tr>
-<td>notes</td>
+</tr><tr><td>notes</td>
 <td><strong>string</strong><br />Notes for the payroll period.</td>
-</tr>
-<tr>
-<td>is_closed</td>
+</tr><tr><td>is_closed</td>
 <td><strong>boolean</strong><br />Whether the payroll period is closed</td>
-</tr>
-<tr>
-<td>is_finalized</td>
+</tr><tr><td>is_finalized</td>
 <td><strong>boolean</strong><br />True if the payroll period has been finalized.</td>
-</tr>
-<tr>
-<td>finalized_at</td>
+</tr><tr><td>finalized_at</td>
 <td><strong>datetime</strong><br />The date and time that the payroll period was finalized.</td>
-</tr>
-<tr>
-<td>created_at</td>
+</tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the payroll period was created.</td>
-</tr>
-<tr>
-<td>updated_at</td>
+</tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />The date and time the payroll period was last updated.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="listing-payrolls">Listing Payrolls</h2>
 
 <blockquote>
@@ -170,23 +142,13 @@
 <p><code>GET https://api.wheniwork.com/2/payrolls/</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start</td>
+</tr></thead><tbody><tr><td>start</td>
 <td><strong>datetime</strong><br />Start date of search range</td>
-</tr>
-<tr>
-<td>end</td>
+</tr><tr><td>end</td>
 <td><strong>datetime</strong><br />End date of search range</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="get-existing-payroll-period">Get Existing Payroll Period</h2>
 
 <blockquote>
@@ -246,19 +208,11 @@
 <p><code>GET https://api.wheniwork.com/2/payrolls/{id}</code></p>
 
 <h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
+<table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
+</tr></thead><tbody><tr><td>id</td>
 <td>ID of the pay period requested.</td>
-</tr>
-</tbody></table>
-
+</tr></tbody></table>
 <h2 id="create-update-payroll">Create / Update Payroll</h2>
 
 <h3 id="update-http-requests">Update HTTP Requests</h3>
