@@ -183,6 +183,11 @@
         "value": "555-555-5555",
         "show": true
     },
+    "employee_code": {
+      "type": "string",
+      "description": "The user's employee code. This code can be used to clock in instead of the user's email address, or it can be used to help map users in When I Work to other services.",
+      "value": "1020"
+    },
     "hours_preferred":{
         "type": "float",
         "description": "The preferred number of hours for the user.",
