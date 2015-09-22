@@ -45,6 +45,18 @@ class Common < Middleman::Extension
 
       concat output
     end
+
+    def param(name, type=nil, options={})
+      content = capture do yield end
+
+      output = "#{name} | "
+      if (type)
+        output << "<strong>#{type}</strong><br />"
+      end
+      output << content
+
+      concat output
+    end
     
   end
 end
