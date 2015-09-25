@@ -1445,12 +1445,6 @@
         "value": 371,
         "show": true
     },
-    "login_id": {
-      "type": "integer",
-      "description": "The ID of the login that the device belongs to.",
-      "value": 5,
-      "show": true
-    },
     "type": {
       "type": "string",
       "description": "The type of device (currently 'android' or 'ios').",
