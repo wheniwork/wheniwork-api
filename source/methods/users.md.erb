@@ -48,8 +48,8 @@ This method allows you to search for users. See the parameters below for all the
 
 Key | Description
 --- | -----------
-location_id | <strong>integer, string</strong><br />Only show shifts for a location, or multiple (e.g. 1,5,3).
-ids | <strong>array</strong><br />Comma-separated array of IDs of users objects to retrieve (e.g. 9,17,42)
+<% param "location_id", "integer, string" do %>Only show shifts for a location, or multiple (e.g. 1,5,3).<% end %>
+<% param "ids", "array" do %>Comma-separated array of IDs of users objects to retrieve (e.g. 9,17,42)<% end %>
 
 
 ## Get Existing User
@@ -84,7 +84,7 @@ $result = $wiw->get("users/1");
 
 Key | Description
 --- | -----------
-id | ID of the user requested.
+<% param "id" do %>ID of the user requested.<% end %>
 
 
 
@@ -126,7 +126,7 @@ to include at least the 'email' field in the body of the request.
 
 Key | Description
 --- | -----------
-reactivate | <strong>boolean</strong><br />Pass this to reactivate a previously deleted user.
+<% param "reactivate", "boolean" do %>Pass this to reactivate a previously deleted user.<% end %>
 
 ## Update Existing User
 
@@ -141,7 +141,7 @@ The `PUT` body can include fields from the [User Object](#users).
 
 Key | Description
 --- | -----------
-reactivate | <strong>boolean</strong><br />Pass this to reactivate a previously deleted user.
+<% param "reactivate", "boolean" do %>Pass this to reactivate a previously deleted user.<% end %>
 
 ## Update User Profile Settings
 
@@ -256,9 +256,9 @@ Users can be invited by managers, or by supervisors. This will send them an emai
 
 Key | Description
 --- | -----------
-ids | <strong>array</strong><br />List of IDs of users to invite.
-send_all | <strong>boolean</strong><br />Invite all users without a login. `ids` parameter is ignored.
-message | <strong>string</strong><br />An optional message to include in the email invite.
+<% param "ids", "array" do %>List of IDs of users to invite.<% end %>
+<% param "send_all", "boolean" do %>Invite all users without a login. `ids` parameter is ignored.<% end %>
+<% param "message", "string" do %>An optional message to include in the email invite.<% end %>
 
 You can also invite a single user with the following:
 
@@ -269,8 +269,8 @@ You can also invite a single user with the following:
 
 Key | Description
 --- | -----------
-id | <strong>integer</strong><br />The ID of the user to invite.
-message | <strong>string</strong><br />An optional message to include in the email invite.
+<% param "id", "integer" do %>The ID of the user to invite.<% end %>
+<% param "message", "string" do %>An optional message to include in the email invite.<% end %>
 
 
 
@@ -307,4 +307,4 @@ Users can be deleted by managers, or by supervisors. If a supervisor is deleting
 
 Key | Description
 --- | -----------
-id | ID of the user to delete.
+<% param "id" do %>ID of the user to delete.<% end %>

@@ -44,8 +44,8 @@ This method allows you to list payroll periods or find ones within a specified d
 
 Key | Description
 --- | -----------
-start | <strong>datetime</strong><br />Start date of search range
-end | <strong>datetime</strong><br />End date of search range
+<% param "start", "datetime" do %>Start date of search range<% end %>
+<% param "end", "datetime" do %>End date of search range<% end %>
 
 
 
@@ -89,7 +89,7 @@ curl <%=@api_prefix%>/2/payrolls/24 \
 
 Key | Description
 --- | -----------
-id | ID of the pay period requested.
+<% param "id" do %>ID of the pay period requested.<% end %>
 
 
 ## Create / Update Payroll

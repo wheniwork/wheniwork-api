@@ -44,8 +44,8 @@ Devices are registered with the server after receiving a push token from Google 
 
 Key | Description
 --- | -----------
-token | Push token of the device to register.
-type | Type of device ("android" or "ios").
+<% param "token" do %>Push token of the device to register.<% end %>
+<% param "type" do %>Type of device ("android" or "ios").<% end %>
 
 ## Delete Existing Device
 
@@ -79,4 +79,4 @@ Devices are unregistered from the server after the user logs out of the mobile a
 
 Key | Description
 --- | -----------
-token | Push token to be deleted.
+<% param "token" do %>Push token to be deleted.<% end %>

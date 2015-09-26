@@ -55,7 +55,7 @@ Listing accounts gives an object with two members: an `account` object, which sp
 
 Key | Description
 --- | -----------
-account_id | A list of account ids to retrieve (Optional; if not specified, will default to returning all accounts for a given user token)
+<% param "account_id" do %>A list of account ids to retrieve (Optional; if not specified, will default to returning all accounts for a given user token)<% end %>
 
 
 ## Get Existing Account
@@ -93,7 +93,7 @@ $result = $wiw->get("account/11");
 
 Key | Description
 --- | -----------
-account_id | ID of the account object to be retrieved.
+<% param "account_id" do %>ID of the account object to be retrieved.<% end %>
 
 ## Create/Update Account
 

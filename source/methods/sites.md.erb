@@ -73,7 +73,7 @@ $result = $wiw->get("sites/9");
 
 Key | Description
 --- | -----------
-id | ID of the site requested.
+<% param "id" do %>ID of the site requested.<% end %>
 
 
 ## Create/Update Site
@@ -119,7 +119,7 @@ $result = $wiw->delete("sites/9");
 
 Key | Description
 --- | -----------
-site id | ID of the site to be deleted.
+<% param "site_id" do %>ID of the site to be deleted.<% end %>
 
 
 

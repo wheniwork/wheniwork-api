@@ -76,7 +76,7 @@ curl <%=@api_prefix%>/2/templates/12 \
 
 Key | Description
 --- | -----------
-template_id | ID of the template being requested.
+<% param "template_id" do %>ID of the template being requested.<% end %>
 
 
 ## Create/Update template
@@ -127,11 +127,11 @@ template_id | ID of the template being requested.
 
 Key | Description
 --- | -----------
-name | The name of the new template.
-start | Start date for the new template.
-end | End of the time frame for the template.
-description | Description of the new template.
-ids | IDs of elements to be included in the template.
+<% param "name" do %>The name of the new template.<% end %>
+<% param "start" do %>Start date for the new template.<% end %>
+<% param "end" do %>End of the time frame for the template.<% end %>
+<% param "description" do %>Description of the new template.<% end %>
+<% param "ids" do %>IDs of elements to be included in the template.<% end %>
 
 
 ### Update HTTP Requests
@@ -166,7 +166,7 @@ curl -X DELETE <%=@api_prefix%>/2/template/12 \
 
 Key | Description
 --- | -----------
-template id | ID of the template to be deleted.
+<% param "template_id" do %>ID of the template to be deleted.<% end %>
 
 
 

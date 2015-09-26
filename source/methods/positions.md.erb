@@ -78,7 +78,7 @@ $result = $wiw->get("positions/32");
 
 Key | Description
 --- | -----------
-position_id | ID of the position requested.
+<% param "position_id" do %>ID of the position requested.<% end %>
 
 
 ## Create/Update Position
@@ -123,7 +123,7 @@ $result = $wiw->delete("positions/9");
 
 Key | Description
 --- | -----------
-position id | ID of the position to be deleted.
+<% param "position_id" do %>ID of the position to be deleted.<% end %>
 
 
 

@@ -79,7 +79,7 @@ $result = $wiw->get("locations/136");
 
 Key | Description
 --- | -----------
-id | ID of the location requested.
+<% param "id" do %>ID of the location requested.<% end %>
 
 
 ## Create/Update Location
@@ -127,7 +127,7 @@ Locations can be deleted by managers.
 
 Key | Description
 --- | -----------
-id | ID of the location to be deleted.
+<% param "id" do %>ID of the location to be deleted.<% end %>
 
 
 

@@ -119,7 +119,7 @@ $result = $wiw->get("availabilities/10");
 
 Key | Description
 --- | -----------
-availability_id | ID of the availability object being requested.
+<% param "availability_id" do %>ID of the availability object being requested.<% end %>
 
 
 
@@ -172,9 +172,9 @@ curl <%=@api_prefix%>/2/availabilities/items?user_id=371&start=2014-01-01 8:00am
 
 Key | Description
 --- | -----------
-user_id | <strong>array</strong><br />An array of user IDs to search.
-start | <strong>datetime</strong><br />The start date and time you are searching in.
-end | <strong>datetime</strong><br />The end date and time you are searching in.
+<% param "user_id", "array" do %>An array of user IDs to search.<% end %>
+<% param "start", "datetime" do %>The start date and time you are searching in.<% end %>
+<% param "end", "datetime" do %>The end date and time you are searching in.<% end %>
 
 
 
@@ -222,4 +222,4 @@ $result = $wiw->delete("availabilities/10");
 
 Key | Description
 --- | -----------
-availability_id | ID of the availability to be deleted.
+<% param "availability_id" do %>ID of the availability to be deleted.<% end %>
