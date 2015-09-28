@@ -22,7 +22,7 @@ class ApiObjects < Middleman::Extension
       html << "Parameter | Description\n"
       html << "--------- | -----------\n"
       object.each do |key, obj|
-        html << "#{key} | <strong>#{obj['type']}</strong><br />#{obj['description']}\n"
+        html << make_param(key, obj['description'], obj['type'], newline: true)
       end
       return html
     end
