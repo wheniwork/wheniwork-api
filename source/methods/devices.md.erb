@@ -6,9 +6,87 @@
 
 Devices receive push notifications to communicate important information to staff.
 
-Mobile apps use the POST endpoint to register a device and the DELETE endpoint to unregister.
+Mobile apps use the `POST` endpoint to register a device and the `DELETE` endpoint to unregister.
 
 <%= print_table(data.objects['device'], :header => :device) %>
+
+## Listing Devices
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/devices/ \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("devices/");
+?>
+```
+
+
+> Example Response
+
+<% json do %>
+{
+  "device": [
+    {
+      "id": 1739,
+      "account_id": 1,
+      "user_id": 1,
+      "type": "android",
+      "token": "androiddevicetoken",
+      "created_at": "Fri, 25 Sep 2015 08:44:51 -0700",
+      "updated_at": "Fri, 25 Sep 2015 08:44:54 -0700"
+    },
+    {
+      "id": 1740,
+      "account_id": 1,
+      "user_id": 1,
+      "type": "ios",
+      "token": "iphonedevicetoken",
+      "created_at": "Fri, 25 Sep 2015 08:45:21 -0700",
+      "updated_at": "Fri, 25 Sep 2015 08:45:21 -0700"
+    }
+  ]
+}
+<% end %>
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/devices/`
+
+## Get Existing Device
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/devices/1739 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("devices/1739");
+?>
+```
+
+
+> Example Response
+
+<% json do %>
+<%= print_json(data.objects['device'], :minimal=>true) %>
+<% end %>
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/devices/{device_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "device_id" do %>ID of the device being requested.<% end %>
+
 
 ## Create Device
 
