@@ -77,7 +77,7 @@ $result = $wiw->get("block/233");
 
 Key | Description
 --- | -----------
-block id | ID of the shift block being requested.
+<% param "block_id" do %>ID of the shift block being requested.<% end %>
 
 
 ## Create/Update Shift Block
@@ -123,7 +123,7 @@ $result = $wiw->delete("blocks/233");
 
 Key | Description
 --- | -----------
-block id | ID of the shift block to be deleted.
+<% param "block_id" do %>ID of the shift block to be deleted.<% end %>
 
 
 

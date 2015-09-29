@@ -54,15 +54,15 @@ This method allows you to search for shifts. See the parameters below for all th
 
 Key | Description
 --- | -----------
-start | <strong>datetime</strong><br />Start time for the search window. The default is the current date and time.
-end | <strong>datetime</strong><br />End time for the search window. The default is exactly three days from the start time.
-user_id | <strong>integer, string array</strong><br />The ID of the user to get shifts for. For multiple users, enter a list of user IDs separated by commas (e.g. `1,5,3`).
-location_id | <strong>integer, string array</strong><br />The ID of the location to get shifts for. For multiple locations, enter a list of location IDs separated by commas.
-site_id | <strong>integer, string array</strong><br />The ID of the site to get shifts for. For multiple sites, enter a list of site IDs separated by commas.
-position_id | <strong>integer, string array</strong><br />The ID of the position to get shifts for. For multiple position, enter a list of position IDs separated by commas.
-include_allopen | <strong>boolean</strong><br />Whether to include OpenShifts in the results.
-include_onlyopen | <strong>boolean</strong><br />Whether only OpenShifts should be included in the results.
-unpublished | <strong>boolean</strong><br />Whether unpublished shifts should be included in the results.
+<% param "start", "datetime" do %>Start time for the search window. The default is the current date and time.<% end %>
+<% param "end", "datetime" do %>End time for the search window. The default is exactly three days from the start time.<% end %>
+<% param "user_id", "integer, string array" do %>The ID of the user to get shifts for. For multiple users, enter a list of user IDs separated by commas (e.g. `1,5,3`).<% end %>
+<% param "location_id", "integer, string array" do %>The ID of the location to get shifts for. For multiple locations, enter a list of location IDs separated by commas.<% end %>
+<% param "site_id", "integer, string array" do %>The ID of the site to get shifts for. For multiple sites, enter a list of site IDs separated by commas.<% end %>
+<% param "position_id", "integer, string array" do %>The ID of the position to get shifts for. For multiple position, enter a list of position IDs separated by commas.<% end %>
+<% param "include_allopen", "boolean" do %>Whether to include OpenShifts in the results.<% end %>
+<% param "include_onlyopen", "boolean" do %>Whether only OpenShifts should be included in the results.<% end %>
+<% param "unpublished", "boolean" do %>Whether unpublished shifts should be included in the results.<% end %>
 
 <% aside do %>
 OpenShifts will be included in the results as long as either `include_allopen` or `include_onlyopen` is `true`.
@@ -105,7 +105,7 @@ Gets the details of an existing shift.
 
 Key | Description
 --- | -----------
-id | <strong>integer</strong><br />The ID of the shift requested.
+<% param "id", "integer" do %>The ID of the shift requested.<% end %>
 
 
 
@@ -187,7 +187,7 @@ This method allows you to acknowledge a group of shifts.
 
 Key | Description
 --- | -----------
-ids | <strong>integer array</strong><br />The IDs of the shifts to acknowledge. This parameter must be in the POST body.
+<% param "ids", "integer array" do %>The IDs of the shifts to acknowledge. This parameter must be in the POST body.<% end %>
 
 
 ## Publish/Unpublish Shifts
@@ -234,7 +234,7 @@ These methods allow you to publish or unpublish a group of shifts.
 
 Key | Description
 --- | -----------
-ids | <strong>integer array</strong><br />The IDs of the shifts to publish or unpublish. This parameter must be in the POST body.
+<% param "ids", "integer array" do %>The IDs of the shifts to publish or unpublish. This parameter must be in the POST body.<% end %>
 
 
 
@@ -276,12 +276,12 @@ This method allows you to notify users about new or updated shifts within a spec
 
 Key | Description
 --- | -----------
-start | <strong>datetime</strong><br />Start time for the notification window.
-end | <strong>datetime</strong><br />End time for the notification window.
-user_id | <strong>integer, integer array</strong><br />The ID of the user to notify. For multiple users, enter an array of user IDs (e.g. `[1,5,3]`).
-location_id | <strong>integer, integer array</strong><br />The ID of the location to send notifications for. For multiple locations, enter an array of location IDs.
-site_id | <strong>integer, integer array</strong><br />The ID of the site to send notifications for. For multiple sites, enter an array of site IDs.
-position_id | <strong>integer, integer array</strong><br />The ID of the position to send notifications for. For multiple position, enter an array of position IDs.
+<% param "start", "datetime" do %>Start time for the notification window.<% end %>
+<% param "end", "datetime" do %>End time for the notification window.<% end %>
+<% param "user_id", "integer, integer array" do %>The ID of the user to notify. For multiple users, enter an array of user IDs (e.g. `[1,5,3]`).<% end %>
+<% param "location_id", "integer, integer array" do %>The ID of the location to send notifications for. For multiple locations, enter an array of location IDs.<% end %>
+<% param "site_id", "integer, integer array" do %>The ID of the site to send notifications for. For multiple sites, enter an array of site IDs.<% end %>
+<% param "position_id", "integer, integer array" do %>The ID of the position to send notifications for. For multiple position, enter an array of position IDs.<% end %>
 
 > Example Request
 
@@ -315,7 +315,7 @@ You can also send a notification about just one shift using the following:
 
 Key | Description
 --- | -----------
-id | <strong>integer</strong><br />ID of the shift you want to send notifications about.
+<% param "id", "integer" do %>ID of the shift you want to send notifications about.<% end %>
 
 
 ## Delete Shift
@@ -350,8 +350,8 @@ Deletes an existing shift.
 
 Key | Description
 --- | -----------
-id | <strong>integer</strong><br />ID of the shift to delete.
-ids | <strong>integer array</strong><br />Array of IDs of the shifts to delete.
+<% param "id", "integer" do %>ID of the shift to delete.<% end %>
+<% param "ids", "integer array" do %>Array of IDs of the shifts to delete.<% end %>
 
 <% aside do %>
 If the `id` parameter is present, it will take precedence over `ids`.

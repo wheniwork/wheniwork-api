@@ -100,7 +100,7 @@ $result = $wiw->get("swaps/22");
 
 Key | Description
 --- | -----------
-swap id | ID of the swap being requested.
+<% param "swap_id" do %>ID of the swap being requested.<% end %>
 
 
 ## Create/Update Swap
@@ -176,10 +176,10 @@ $result = $wiw->create("swaps", array(
 
 Key | Description
 --- | -----------
-shift id | ID of the shift being swapped.
-type | The type of swap to be created.
-shifts | The IDs of the shifts requested to be swapped for.
-users | The IDs of users available to take shifts.
+<% param "shift_id" do %>ID of the shift being swapped.<% end %>
+<% param "type" do %>The type of swap to be created.<% end %>
+<% param "shifts" do %>The IDs of the shifts requested to be swapped for.<% end %>
+<% param "users" do %>The IDs of users available to take shifts.<% end %>
 
 
 ### Update HTTP Requests
@@ -220,7 +220,7 @@ $result = $wiw->delete("swap/233");
 
 Key | Description
 --- | -----------
-swap_id | ID of the swap to be deleted.
+<% param "swap_id" do %>ID of the swap to be deleted.<% end %>
 
 
 

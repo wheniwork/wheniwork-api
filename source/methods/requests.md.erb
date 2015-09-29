@@ -75,10 +75,10 @@ $result = $wiw->get("requests", array(
 
 Key | Description
 --- | -----------
-start| The start date for the request time-frame.
-end | End time for the request time-frame.
-since_id | Return all requests created since the request with given ID.
-max_id | Return all requests created before the request with the given ID.
+<% param "start" do %>The start date for the request time-frame.<% end %>
+<% param "end" do %>End time for the request time-frame.<% end %>
+<% param "since_id" do %>Return all requests created since the request with given ID.<% end %>
+<% param "max_id" do %>Return all requests created before the request with the given ID.<% end %>
 
 
 ## Get Existing Request
@@ -132,7 +132,7 @@ $result = $wiw->get("requests/65");
 
 Key | Description
 --- | -----------
-request_id | ID of the request.
+<% param "request_id" do %>ID of the request.<% end %>
 
 
 ## Create/Update Request
@@ -190,12 +190,12 @@ $result = $wiw->create("requests", array(
 
 Key | Description
 --- | -----------
-user_id | The ID of the user for whom the request is to be created.
-type | The type of request
-start_time | The start date and time for the request.
-end_time | The end date and time for the request.
-since_id | Return all requests created since the request with given ID.
-status | The status for the request to be created.
+<% param "user_id" do %>The ID of the user for whom the request is to be created.<% end %>
+<% param "type" do %>The type of request<% end %>
+<% param "start_time" do %>The start date and time for the request.<% end %>
+<% param "end_time" do %>The end date and time for the request.<% end %>
+<% param "since_id" do %>Return all requests created since the request with given ID.<% end %>
+<% param "status" do %>The status for the request to be created.<% end %>
 
 
 ### Update HTTP Requests
@@ -235,7 +235,7 @@ $result = $wiw->delete("requests/54");
 
 Key | Description
 --- | -----------
-request id | ID of the request to be deleted.
+<% param "request_id" do %>ID of the request to be deleted.<% end %>
 
 
 

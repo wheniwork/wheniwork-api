@@ -56,12 +56,12 @@ All are optional.
 
 Key | Description
 --- | -----------
-start_date | <strong>string</strong><br /> Will be parsed as Account timezone if ambiguous
-end_date | <strong>string</strong><br /> Will be parsed as Account timezone if ambiguous
-location_id | <strong>integer, array</strong><br /> May be an integer of a single location_id, or an array of location_ids
-business_closed | <strong>boolean</strong>
-no_time_off | <strong>boolean</strong>
-announcement | <strong>boolean</strong>
+<% param "start_date", "string" do %> Will be parsed as Account timezone if ambiguous<% end %>
+<% param "end_date", "string" do %> Will be parsed as Account timezone if ambiguous<% end %>
+<% param "location_id", "integer, array" do %> May be an integer of a single location_id, or an array of location_ids<% end %>
+<% param "business_closed", "boolean" do %>&nbsp;<% end %>
+<% param "no_time_off", "boolean" do %>&nbsp;<% end %>
+<% param "announcement", "boolean" do %>&nbsp;<% end %>
 
 
 ## Get Existing Annotation
@@ -94,7 +94,7 @@ $result = $wiw->get("annotations/41375");
 
 Key | Description
 --- | -----------
-id | ID of the annotation.
+<% param "id" do %>ID of the annotation.<% end %>
 
 
 ## Create/Update Annotation
@@ -144,4 +144,4 @@ Annotations can be deleted by managers and supervisors who can supervise the rel
 
 Key | Description
 --- | -----------
-id | ID of the annotation to be deleted.
+<% param "id" do %>ID of the annotation to be deleted.<% end %>

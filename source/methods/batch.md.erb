@@ -49,7 +49,7 @@ Batch allows you to execute multiple requests at the same time.
 
 Key | Description
 --- | -----------
-method | POST, GET, PUT or DELETE
-url | The method you are requesting
-params | The parameters of your request as defined in the individual methods.
+<% param "method" do %>POST, GET, PUT or DELETE<% end %>
+<% param "url" do %>The method you are requesting<% end %>
+<% param "params" do %>The parameters of your request as defined in the individual methods.<% end %>
 

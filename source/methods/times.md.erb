@@ -47,9 +47,9 @@ This method allows you to list times or find ones within a specified date range.
 
 Key | Description
 --- | -----------
-start | Start date of search range
-end | End date of search range
-user_id | The ID of the user to get times for. To get times for multiple users, you can enter multiple ids separated by commas.
+<% param "start" do %>Start date of search range<% end %>
+<% param "end" do %>End date of search range<% end %>
+<% param "user_id" do %>The ID of the user to get times for. To get times for multiple users, you can enter multiple ids separated by commas.<% end %>
 
 
 
@@ -80,7 +80,7 @@ curl <%=@api_prefix%>/2/times/11 \
 
 Key | Description
 --- | -----------
-id | ID of the time requested.
+<% param "id" do %>ID of the time requested.<% end %>
 
 
 ## Get User Times
@@ -144,7 +144,7 @@ the user's punch state.
 
 Key | Description
 --- | -----------
-id | The ID of the user to get times for.
+<% param "id" do %>The ID of the user to get times for.<% end %>
 
 <% aside do %>
   This endpoint does not support start and end times for your query. To filter a user's times by a start and end date, use the [Listing Times](#listing-times) endpoint instead.
@@ -330,7 +330,7 @@ curl -X DELETE <%=@api_prefix%>/2/times/123 \
 
 Key | Description
 --- | -----------
-id | ID of the time object to be deleted.
+<% param "id" do %>ID of the time object to be deleted.<% end %>
 
 
 
