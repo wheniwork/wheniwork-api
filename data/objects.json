@@ -1453,7 +1453,7 @@
     "token": {
       "type": "string",
       "description": "The device's push token from GCM or APNS.",
-      "value": "APA91bEDFLRqprN4M0AyQ6uAIvlXjtpQFWjFORuvFWakrpRreQ_D9Gwb-EplzXhDJvNMdW6TyqX74RogKM4P_48BlqhoBnBKrW_KBhuSwV7hhaq9jApzSYbp1wT-kWF1FMQS69h0Ii5M",
+      "value": "123456789_ABCDEFGHI",
       "show": true
     },
     "created_at": {

@@ -6,7 +6,7 @@
 
 Devices receive push notifications to communicate important information to staff.
 
-Mobile apps use the POST endpoint to register a device and the DELETE endpoint to unregister.
+Mobile apps use the `POST` endpoint to register a device and the `DELETE` endpoint to unregister.
 
 <%= print_table(data.objects['device'], :header => :device) %>
 
@@ -73,6 +73,7 @@ $result = $wiw->get("devices/1739");
 
 
 > Example Response
+
 <% json do %>
 <%= print_json(data.objects['device'], :minimal=>true) %>
 <% end %>
