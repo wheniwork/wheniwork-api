@@ -227,6 +227,7 @@
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
   </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
   </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1045</span><span class="p">,</span><span class="w">
   </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19483</span><span class="p">,</span><span class="w">
@@ -235,13 +236,17 @@
   </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"break_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
   </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc0000"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We need more cow bell."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We need more cowbell."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"instances"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"published_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notified_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
+  </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"acknowledged"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"acknowledged_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -253,36 +258,46 @@
 <th>Description</th>
 </tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />Unique identifier for the shift.</td>
+</tr><tr><td>account_id</td>
+<td><strong>integer</strong><br />Link identifier for the Account to which this shift is attached.</td>
 </tr><tr><td>user_id</td>
-<td><strong>integer</strong><br />Link identifier for the User attached to this shift. 0 means OpenShift.</td>
+<td><strong>integer</strong><br />Link identifier for the User attached to this shift. <code>0</code> means the shift is an OpenShift.</td>
 </tr><tr><td>location_id</td>
 <td><strong>integer</strong><br />Link identifier for the Location to which this shift is attached.</td>
 </tr><tr><td>position_id</td>
-<td><strong>integer</strong><br />Link identifier for the Position attached to this shift.</td>
+<td><strong>integer</strong><br />Link identifier for the Position assigned to this shift.</td>
 </tr><tr><td>site_id</td>
-<td><strong>integer</strong><br />Link identifier for the Site attached to this shift.</td>
+<td><strong>integer</strong><br />Link identifier for the Site assigned to this shift.</td>
 </tr><tr><td>start_time</td>
 <td><strong>datetime</strong><br />Start time of the shift.</td>
 </tr><tr><td>end_time</td>
 <td><strong>datetime</strong><br />End time of the shift.</td>
 </tr><tr><td>break_time</td>
-<td><strong>float</strong><br />Hours of unpaid break.</td>
+<td><strong>float</strong><br />Hours of unpaid break during the shift.</td>
 </tr><tr><td>color</td>
 <td><strong>hex</strong><br />Hex color used to identify the shift in the UI.</td>
 </tr><tr><td>notes</td>
-<td><strong>string</strong><br />Notes about the shift. Max length 350.</td>
+<td><strong>string</strong><br />Notes about the shift. The maximum length is 350 characters.</td>
 </tr><tr><td>instances</td>
-<td><strong>integer</strong><br />Number of instances. Will be 1 if it is a shift assigned to an employee. The value can be any integer greater than 0 if it is an OpenShift.</td>
+<td><strong>integer</strong><br />For OpenShifts, how many instances of that shift are available to assign to employees. In the UI, this is indicated by the red badge on the OpenShift. For normal shifts, this will be <code>1</code>.</td>
 </tr><tr><td>published</td>
-<td><strong>boolean</strong><br />Published shifts show to employees.</td>
+<td><strong>boolean</strong><br />Whether the shift has been published. Published shifts are visible to all employees.</td>
 </tr><tr><td>published_date</td>
 <td><strong>datetime</strong><br />Date the shift was most recently published.</td>
 </tr><tr><td>notified_at</td>
-<td><strong>datetime</strong><br />Date the shift was most recently notified.</td>
+<td><strong>datetime</strong><br />Date when notifications about the shift were most recently sent.</td>
 </tr><tr><td>created_at</td>
-<td><strong>datetime</strong><br />Date at which the shift was created.</td>
+<td><strong>datetime</strong><br />Date the shift was created.</td>
 </tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the shift was most recently updated.</td>
+</tr><tr><td>acknowledged</td>
+<td><strong>integer</strong><br />Whether the shift has been acknowledged by the employee. (<code>0</code> for false, <code>1</code> for true.)</td>
+</tr><tr><td>acknowledged_at</td>
+<td><strong>datetime</strong><br />The time, if any, when the shift was acknowledged by the employee.</td>
+</tr><tr><td>creator_id</td>
+<td><strong>integer</strong><br />The id of the user who created the shift.</td>
+</tr><tr><td>is_open</td>
+<td><strong>boolean</strong><br />Whether the shift is an OpenShift.</td>
 </tr></tbody></table>
 
 <h2 id="listing-shifts">Listing Shifts</h2>
@@ -291,7 +306,7 @@
 <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/shifts/?location_id<span class="o">=</span>1&amp;start<span class="o">=</span>2014-03-05 <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/shifts/?location_id<span class="o">=</span>1&amp;start<span class="o">=</span>2014-03-05 00:00:00&amp;end<span class="o">=</span>2014-03-08 23:59:59 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 
@@ -299,7 +314,8 @@
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"shifts"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
                                 <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> 
-                                <span class="s2">"start"</span>  <span class="o">=&gt;</span> <span class="s2">"2014-03-05"</span>
+                                <span class="s2">"start"</span> <span class="o">=&gt;</span> <span class="s2">"2014-03-05 00:00:00"</span><span class="p">,</span>
+                                <span class="s2">"end"</span> <span class="o">=&gt;</span> <span class="s2">"2014-03-08 23:59:59"</span>
                               <span class="p">));</span>
 <span class="cp">?&gt;</span>
 </code></pre>
@@ -319,8 +335,8 @@
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27384</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 08 Mar 2014 09:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 08 Mar 2014 17:00:00 -0600"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -337,22 +353,27 @@
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>start</td>
-<td><strong>datetime</strong><br />Start time for a search window</td>
+<td><strong>datetime</strong><br />Start time for the search window. The default is the current date and time.</td>
 </tr><tr><td>end</td>
-<td><strong>datetime</strong><br />End time for a search window</td>
+<td><strong>datetime</strong><br />End time for the search window. The default is exactly three days from the start time.</td>
 </tr><tr><td>user_id</td>
-<td><strong>integer, string array</strong><br />Only show shifts for a user, or multiple (e.g. 1,5,3)</td>
+<td><strong>integer, string array</strong><br />The ID of the user to get shifts for. For multiple users, enter a list of user IDs separated by commas (e.g. <code>1,5,3</code>).</td>
 </tr><tr><td>location_id</td>
-<td><strong>integer, string array</strong><br />Only show shifts for a location, or multiple.</td>
+<td><strong>integer, string array</strong><br />The ID of the location to get shifts for. For multiple locations, enter a list of location IDs separated by commas.</td>
 </tr><tr><td>site_id</td>
-<td><strong>integer, string array</strong><br />Only show shifts for a site, or multiple.</td>
+<td><strong>integer, string array</strong><br />The ID of the site to get shifts for. For multiple sites, enter a list of site IDs separated by commas.</td>
 </tr><tr><td>position_id</td>
-<td><strong>integer, string array</strong><br />Only show shifts for a position, or multiple.</td>
+<td><strong>integer, string array</strong><br />The ID of the position to get shifts for. For multiple position, enter a list of position IDs separated by commas.</td>
 </tr><tr><td>include_allopen</td>
-<td><strong>boolean</strong><br />Include OpenShifts in the results.</td>
+<td><strong>boolean</strong><br />Whether to include OpenShifts in the results.</td>
 </tr><tr><td>include_onlyopen</td>
-<td><strong>boolean</strong><br />Only return OpenShifts in the results</td>
+<td><strong>boolean</strong><br />Whether only OpenShifts should be included in the results.</td>
+</tr><tr><td>unpublished</td>
+<td><strong>boolean</strong><br />Whether unpublished shifts should be included in the results.</td>
 </tr></tbody></table>
+
+<aside class="notice"><p>OpenShifts will be included in the results as long as either <code>include_allopen</code> or <code>include_onlyopen</code> is <code>true</code>.</p>
+</aside>
 
 <h2 id="get-existing-shift">Get Existing Shift</h2>
 
@@ -384,6 +405,8 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Gets the details of an existing shift.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/shifts/{id}</code></p>
@@ -393,10 +416,12 @@
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>id</td>
-<td>ID of the shift requested.</td>
+<td><strong>integer</strong><br />The ID of the shift requested.</td>
 </tr></tbody></table>
 
 <h2 id="create-update-shift">Create/Update Shift</h2>
+
+<p>Creates a new shift or updates an existing one.</p>
 
 <blockquote>
 <p>Example Request</p>
@@ -437,7 +462,7 @@
 
 <h3 id="post-put-body">Post/Put Body</h3>
 
-<p>The <code>POST</code> and/or <code>PUT</code> body can include fields from the <a href="#shifts">Shift Object</a>.</p>
+<p>The <code>POST</code> or <code>PUT</code> body can include fields from the <a href="#shifts">Shift Object</a>.</p>
 
 <h2 id="acknowledge-shifts">Acknowledge Shifts</h2>
 
@@ -446,13 +471,18 @@
 </blockquote>
 
 <pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/shifts/acknowledge/ <span class="se">\</span>
- --data <span class="s1">'{"ids":[3543,3344]}'</span> <span class="se">\</span>
+ --data <span class="s1">'{"ids":[34542,45434]}'</span> <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/acknowledge/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"ids"</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span><span class="mi">34542</span><span class="p">,</span><span class="mi">45434</span><span class="p">)));</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/acknowledge/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"ids"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="mi">34542</span><span class="p">,</span>
+    <span class="mi">45434</span>
+  <span class="p">)</span>
+<span class="p">));</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -477,7 +507,7 @@
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>ids</td>
-<td>Post body parameter of mulitiple shift identifiers. <code>[4543,23453]</code></td>
+<td><strong>integer array</strong><br />The IDs of the shifts to acknowledge. This parameter must be in the POST body.</td>
 </tr></tbody></table>
 
 <h2 id="publish-unpublish-shifts">Publish/Unpublish Shifts</h2>
@@ -493,7 +523,14 @@
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/publish/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"ids"</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span><span class="mi">34542</span><span class="p">,</span><span class="mi">45434</span><span class="p">)));</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/publish/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"ids"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="mi">1534</span><span class="p">,</span>
+    <span class="mi">3543</span><span class="p">,</span>
+    <span class="mi">65554</span><span class="p">,</span>
+    <span class="mi">33444</span>
+  <span class="p">)</span>
+<span class="p">));</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -521,7 +558,7 @@
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>ids</td>
-<td>Post body parameter that can be used to publish multiple shifts. <code>[4543,23453]</code></td>
+<td><strong>integer array</strong><br />The IDs of the shifts to publish or unpublish. This parameter must be in the POST body.</td>
 </tr></tbody></table>
 
 <h2 id="notify-shifts">Notify Shifts</h2>
@@ -537,7 +574,10 @@
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/notify/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"start"</span><span class="o">=&gt;</span><span class="s2">"2014-05-16 00:00:00"</span><span class="p">,</span> <span class="s2">"end"</span><span class="o">=&gt;</span><span class="s2">"2014-05-19 23:59:59"</span><span class="p">));</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/notify/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"start"</span> <span class="o">=&gt;</span> <span class="s2">"2014-05-16 00:00:00"</span><span class="p">,</span>
+  <span class="s2">"end"</span> <span class="o">=&gt;</span> <span class="s2">"2014-05-19 23:59:59"</span>
+<span class="p">));</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -552,7 +592,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This method allows you to notify users about new or updated shifts.</p>
+<p>This method allows you to notify users about new or updated shifts within a specific window.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -563,17 +603,17 @@
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>start</td>
-<td><strong>datetime</strong><br />Start time for a notify window</td>
+<td><strong>datetime</strong><br />Start time for the notification window.</td>
 </tr><tr><td>end</td>
-<td><strong>datetime</strong><br />End time for a notify window</td>
+<td><strong>datetime</strong><br />End time for the notification window.</td>
 </tr><tr><td>user_id</td>
-<td><strong>integer, array</strong><br />Only notify shifts for a user, or multiple (e.g. <code>[1,5,3]</code>)</td>
+<td><strong>integer, integer array</strong><br />The ID of the user to notify. For multiple users, enter an array of user IDs (e.g. <code>[1,5,3]</code>).</td>
 </tr><tr><td>location_id</td>
-<td><strong>integer, array</strong><br />Only notify shifts for a location, or multiple.</td>
-</tr><tr><td>position_id</td>
-<td><strong>integer, array</strong><br />Only notify shifts for a position, or multiple.</td>
+<td><strong>integer, integer array</strong><br />The ID of the location to send notifications for. For multiple locations, enter an array of location IDs.</td>
 </tr><tr><td>site_id</td>
-<td><strong>integer, array</strong><br />Only notify shifts for a site, or multiple.</td>
+<td><strong>integer, integer array</strong><br />The ID of the site to send notifications for. For multiple sites, enter an array of site IDs.</td>
+</tr><tr><td>position_id</td>
+<td><strong>integer, integer array</strong><br />The ID of the position to send notifications for. For multiple position, enter an array of position IDs.</td>
 </tr></tbody></table>
 
 <blockquote>
@@ -612,7 +652,7 @@
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>id</td>
-<td><strong>integer</strong><br />ID of the shift you want to notify.</td>
+<td><strong>integer</strong><br />ID of the shift you want to send notifications about.</td>
 </tr></tbody></table>
 
 <h2 id="delete-shift">Delete Shift</h2>
@@ -621,7 +661,7 @@
 <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight shell"><code>curl -X DELETE https://api.wheniwork.com/2/shifts/1 <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X DELETE https://api.wheniwork.com/2/shifts/1337 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 
@@ -640,6 +680,8 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Deletes an existing shift.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>DELETE https://api.wheniwork.com/2/shifts/{id}</code></p>
@@ -649,10 +691,13 @@
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>id</td>
-<td>ID of the shift requested.</td>
+<td><strong>integer</strong><br />ID of the shift to delete.</td>
 </tr><tr><td>ids</td>
-<td>Optional query parameter that can be used to delete multiple shifts. <code>?ids=5,2,34</code></td>
+<td><strong>integer array</strong><br />Array of IDs of the shifts to delete.</td>
 </tr></tbody></table>
+
+<aside class="notice"><p>If the <code>id</code> parameter is present, it will take precedence over <code>ids</code>.</p>
+</aside>
 
 <h1 id="accounts">Accounts</h1>
 
@@ -1487,7 +1532,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td>position id</td>
+</tr></thead><tbody><tr><td>position_id</td>
 <td>ID of the position to be deleted.</td>
 </tr></tbody></table>
 
@@ -1840,7 +1885,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td>site id</td>
+</tr></thead><tbody><tr><td>site_id</td>
 <td>ID of the site to be deleted.</td>
 </tr></tbody></table>
 
@@ -1972,7 +2017,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td>block id</td>
+</tr></thead><tbody><tr><td>block_id</td>
 <td>ID of the shift block being requested.</td>
 </tr></tbody></table>
 
@@ -2023,7 +2068,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td>block id</td>
+</tr></thead><tbody><tr><td>block_id</td>
 <td>ID of the shift block to be deleted.</td>
 </tr></tbody></table>
 
@@ -2372,7 +2417,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td>request id</td>
+</tr></thead><tbody><tr><td>request_id</td>
 <td>ID of the request to be deleted.</td>
 </tr></tbody></table>
 
@@ -2568,7 +2613,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td>swap id</td>
+</tr></thead><tbody><tr><td>swap_id</td>
 <td>ID of the swap being requested.</td>
 </tr></tbody></table>
 
@@ -2669,7 +2714,7 @@ curl -X POST https://api.wheniwork.com/2/users/profile/ <span class="se">\</span
 
 <table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td>shift id</td>
+</tr></thead><tbody><tr><td>shift_id</td>
 <td>ID of the shift being swapped.</td>
 </tr><tr><td>type</td>
 <td>The type of swap to be created.</td>
@@ -4059,7 +4104,7 @@ the user&#39;s punch state.</p>
 
 <table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td>message id</td>
+</tr></thead><tbody><tr><td>message_id</td>
 <td>ID of the message to be deleted.</td>
 </tr></tbody></table>
 
@@ -4382,7 +4427,7 @@ the user&#39;s punch state.</p>
 
 <table><thead><tr><th>Key</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td>template id</td>
+</tr></thead><tbody><tr><td>template_id</td>
 <td>ID of the template to be deleted.</td>
 </tr></tbody></table>
 
@@ -4608,11 +4653,11 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 </tr><tr><td>location_id</td>
 <td><strong>integer, array</strong><br /> May be an integer of a single location_id, or an array of location_ids</td>
 </tr><tr><td>business_closed</td>
-<td><strong>boolean</strong></td>
+<td><strong>boolean</strong><br />&nbsp;</td>
 </tr><tr><td>no_time_off</td>
-<td><strong>boolean</strong></td>
+<td><strong>boolean</strong><br />&nbsp;</td>
 </tr><tr><td>announcement</td>
-<td><strong>boolean</strong></td>
+<td><strong>boolean</strong><br />&nbsp;</td>
 </tr></tbody></table>
 
 <h2 id="get-existing-annotation">Get Existing Annotation</h2>
@@ -4739,9 +4784,8 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
   </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">371</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"android"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APA91bEDFLRqprN4M0AyQ6uAIvlXjtpQFWjFORuvFWakrpRreQ_D9Gwb-EplzXhDJvNMdW6TyqX74RogKM4P_48BlqhoBnBKrW_KBhuSwV7hhaq9jApzSYbp1wT-kWF1FMQS69h0Ii5M"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789_ABCDEFGHI"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4749,7 +4793,7 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 
 <p>Devices receive push notifications to communicate important information to staff.</p>
 
-<p>Mobile apps use the POST endpoint to register a device and the DELETE endpoint to unregister.</p>
+<p>Mobile apps use the <code>POST</code> endpoint to register a device and the <code>DELETE</code> endpoint to unregister.</p>
 
 <h3 id="device-object">Device Object</h3>
 
@@ -4761,8 +4805,6 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <td><strong>integer</strong><br />The ID of the account that the device belongs to.</td>
 </tr><tr><td>user_id</td>
 <td><strong>integer</strong><br />The ID of the user that the device belongs to.</td>
-</tr><tr><td>login_id</td>
-<td><strong>integer</strong><br />The ID of the login that the device belongs to.</td>
 </tr><tr><td>type</td>
 <td><strong>string</strong><br />The type of device (currently &#39;android&#39; or &#39;ios&#39;).</td>
 </tr><tr><td>token</td>
@@ -4771,6 +4813,93 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <td><strong>datetime</strong><br />Date at which the device was created.</td>
 </tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the device was most recently updated.</td>
+</tr></tbody></table>
+
+<h2 id="listing-devices">Listing Devices</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/devices/ <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"devices/"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1739</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"android"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"androiddevicetoken"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 25 Sep 2015 08:44:51 -0700"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 25 Sep 2015 08:44:54 -0700"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1740</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ios"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iphonedevicetoken"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 25 Sep 2015 08:45:21 -0700"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 25 Sep 2015 08:45:21 -0700"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/devices/</code></p>
+
+<h2 id="get-existing-device">Get Existing Device</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/devices/1739 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"devices/1739"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">371</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789_ABCDEFGHI"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/devices/{device_id}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>device_id</td>
+<td>ID of the device being requested.</td>
 </tr></tbody></table>
 
 <h2 id="create-device">Create Device</h2>
