@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['request']) %>
+<%= print_json(data.objects['request'], :verbose => true) %>
 <% end %>
 
 <%= print_table(data.objects['request'], :header => :request) %>
@@ -31,24 +31,24 @@ $result = $wiw->get("requests", array(
 <% json do %>
 {
   "requests": [
-    <%= print_json(data.objects['request'], :minimal => true) %>,
-    <%= print_json(data.objects['request'], :minimal => true, :include => {
+    <%= print_json(data.objects['request']) %>,
+    <%= print_json(data.objects['request'], :include => {
       'id' => '55',
       'start_time' => 'Mon, 24 Mar 2014 08:00:00 -0600',
       'end_time' => 'Fri, 28 Mar 2014 08:00:00 -0600'
     }) %>
   ],
   "messages": [
-    <%= print_json(data.objects['message'], :minimal => true, :include => {
+    <%= print_json(data.objects['message'], :include => {
       'request_id' => '54'
     }) %>,
-    <%= print_json(data.objects['message'], :minimal => true, :include => {
+    <%= print_json(data.objects['message'], :include => {
       'id' => '66',
       'request_id' => '54',
       'title' => 'Request Approved',
       'message' => 'This Request has been approved'
     }) %>,
-    <%= print_json(data.objects['message'], :minimal => true, :include => {
+    <%= print_json(data.objects['message'], :include => {
       'id' => '68',
       'request_id' => '55',
       'title' => 'Request Approved',
@@ -56,10 +56,10 @@ $result = $wiw->get("requests", array(
     }) %>
   ],
   "users": [
-    <%= print_json(data.objects['user'], :minimal => true, :include => {
+    <%= print_json(data.objects['user'], :include => {
       'id' => 135
     }) %>,
-    <%= print_json(data.objects['user'], :minimal => true, :include => {
+    <%= print_json(data.objects['user'], :include => {
       'id' => 27384,
       'first_name' => 'Emmett',
       'last_name' => 'Brown'
@@ -100,12 +100,12 @@ $result = $wiw->get("requests/65");
 
 <% json do %>
 {
-  "request": <%= print_json(data.objects['request'], :minimal => true) %>,
+  "request": <%= print_json(data.objects['request']) %>,
   "messages": [
-    <%= print_json(data.objects['message'], :minimal => true, :include => {
+    <%= print_json(data.objects['message'], :include => {
       'request_id' => '54'
     }) %>,
-    <%= print_json(data.objects['message'], :minimal => true, :include => {
+    <%= print_json(data.objects['message'], :include => {
       'id' => '66',
       'request_id' => '54',
       'title' => 'Request Approved',
@@ -113,10 +113,10 @@ $result = $wiw->get("requests/65");
     }) %>
   ],
   "users": [
-    <%= print_json(data.objects['user'], :minimal => true, :include => {
+    <%= print_json(data.objects['user'], :include => {
       'id' => 135
     }) %>,
-    <%= print_json(data.objects['user'], :minimal => true, :include => {
+    <%= print_json(data.objects['user'], :include => {
       'id' => 27384,
       'first_name' => 'Emmett',
       'last_name' => 'Brown'

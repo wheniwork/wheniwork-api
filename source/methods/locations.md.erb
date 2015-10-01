@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['location']) %>
+<%= print_json(data.objects['location'], :verbose => true) %>
 <% end %>
 
 Locations are the main physical locations where your business operates and where employees, managers, and supervisors are assigned.
@@ -30,8 +30,8 @@ $result = $wiw->get("locations");
 <% json do %>
 {
   "locations": [
-    <%= print_json(data.objects['location'], :minimal => true) %>,
-    <%= print_json(data.objects['location'], :minimal => true, :include => {
+    <%= print_json(data.objects['location']) %>,
+    <%= print_json(data.objects['location'], :include => {
       'id' => 137,
       'name' => 'Uptown',
       'address' => '100 Courthouse Square, Hill Valley, CA 12345',
@@ -68,7 +68,7 @@ $result = $wiw->get("locations/136");
 
 <% json do %>
 {
-  "location": <%= print_json(data.objects['location'], :minimal => true) %>
+  "location": <%= print_json(data.objects['location']) %>
 }
 <% end %>
 
