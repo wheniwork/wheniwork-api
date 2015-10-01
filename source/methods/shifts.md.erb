@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['shift']) %>
+<%= print_json(data.objects['shift'], :verbose => true) %>
 <% end %>
 
 Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites, and Users, all link through Shifts.
@@ -35,8 +35,8 @@ $result = $wiw->get("shifts", array(
   "start": "Wed, 05 Mar 2014 00:00:00 -0600",
   "end": "Sat, 08 Mar 2014 23:59:59 -0600",
   "shifts": [
-    <%= print_json(data.objects['shift'], :minimal=>true) %>,
-    <%= print_json(data.objects['shift'], :minimal=>true, :include=>{
+    <%= print_json(data.objects['shift']) %>,
+    <%= print_json(data.objects['shift'], :include=>{
       'id' => 27384,
       'start_time' => 'Sat, 08 Mar 2014 09:00:00 -0600',
       'end_time' => 'Sat, 08 Mar 2014 17:00:00 -0600'
@@ -89,7 +89,7 @@ $result = $wiw->get("shifts/1337");
 
 <% json do %>
 {
-  "shift": <%= print_json(data.objects['shift'], :minimal => true, :include => {
+  "shift": <%= print_json(data.objects['shift'], :include => {
     :id => 1337,
     :notes => "Come in early today."
   }) %>
@@ -131,7 +131,7 @@ $result = $wiw->update("shifts/10000", array(...));
 
 <% json do %>
 {
-  "shift": <%= print_json(data.objects['shift'], :minimal => true, :include => {
+  "shift": <%= print_json(data.objects['shift'], :include => {
     :notes=>"Come in early today."
   }) %>
 }

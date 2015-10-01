@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['position']) %>
+<%= print_json(data.objects['position'], :verbose => true) %>
 <% end %>
 
 Positions are the different titles that employees can be grouped into.
@@ -28,13 +28,13 @@ $result = $wiw->get("positions");
 <% json do %>
 {
   "positions": [
-    <%= print_json(data.objects['position'], :minimal => true) %>,
-    <%= print_json(data.objects['position'], :minimal => true, :include => {
+    <%= print_json(data.objects['position']) %>,
+    <%= print_json(data.objects['position'], :include => {
         'id' => 5,
         'name' => 'Bagger',
         'color' => 'FF6666'
     }) %>,
-    <%= print_json(data.objects['position'], :minimal => true, :include => {
+    <%= print_json(data.objects['position'], :include => {
         'id' => 6,
         'name' => 'Cashier',
         'color' => '0066FF'
@@ -67,7 +67,7 @@ $result = $wiw->get("positions/32");
 
 <% json do %>
 {
-  "position": <%= print_json(data.objects['position'], :minimal => true) %>
+  "position": <%= print_json(data.objects['position']) %>
 }
 <% end %>
 

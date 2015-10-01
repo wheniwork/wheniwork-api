@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['availability']) %>
+<%= print_json(data.objects['availability'], :verbose => true) %>
 <% end %>
 
 Availabilities are objects that define a user's availability to be assigned shifts during a certain period of time.
@@ -17,7 +17,7 @@ specified non-default availability.
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['availabilityitem'], :minimal => true) %>
+<%= print_json(data.objects['availabilityitem']) %>
 <% end %>
 
 <%= print_table(data.objects['availabilityitem'], :header => :availability_item) %>
@@ -43,14 +43,14 @@ $result = $wiw->get("availabilities");
 <% json do %>
 {
   "availabilities": [
-    <%= print_json(data.objects['availability'], :minimal => true) %>,
-    <%= print_json(data.objects['availability'], :minimal => true, :include => {
+    <%= print_json(data.objects['availability']) %>,
+    <%= print_json(data.objects['availability'], :include => {
       'id' => 11,
       'user_id' => 453,
       'name' => "George's availability",
       'description' => "George M.'s School Year Availability"
     }) %>,
-    <%= print_json(data.objects['availability'], :minimal => true, :include => {
+    <%= print_json(data.objects['availability'], :include => {
       'id' => 12,
       'user_id' => 456,
       'name' => "Lorraine's availability",
@@ -84,24 +84,24 @@ $result = $wiw->get("availabilities/10");
 
 <% json do %>
 {
-  "availability": <%= print_json(data.objects['availability'], :minimal => true) %>,
+  "availability": <%= print_json(data.objects['availability']) %>,
   "availabilityitems": [
-    <%= print_json(data.objects['availabilityitem'], :minimal => true) %>,
-    <%= print_json(data.objects['availabilityitem'], :minimal => true, :include => {
+    <%= print_json(data.objects['availabilityitem']) %>,
+    <%= print_json(data.objects['availabilityitem'], :include => {
       'id' => 12,
       'availability_id' => 10,
       'day' => 1,
       'start_time' => '08:00:00',
       'end_time' => '18:30:00'
     }) %>,
-    <%= print_json(data.objects['availabilityitem'], :minimal => true, :include => {
+    <%= print_json(data.objects['availabilityitem'], :include => {
       'id' => 13,
       'availability_id' => 10,
       'day' => 3,
       'start_time' => '05:00:00',
       'end_time' => '14:00:00'
     }) %>,
-    <%= print_json(data.objects['availabilityitem'], :minimal => true, :include => {
+    <%= print_json(data.objects['availabilityitem'], :include => {
       'id' => 14,
       'availability_id' => 10,
       'day' => 5,
@@ -137,24 +137,24 @@ curl <%=@api_prefix%>/2/availabilities/items?user_id=371&start=2014-01-01 8:00am
 
 <% json do %>
 {
-  "availability": <%= print_json(data.objects['availability'], :minimal => true) %>,
+  "availability": <%= print_json(data.objects['availability']) %>,
   "availabilityitems": [
-    <%= print_json(data.objects['availabilityitem'], :minimal => true) %>,
-    <%= print_json(data.objects['availabilityitem'], :minimal => true, :include => {
+    <%= print_json(data.objects['availabilityitem']) %>,
+    <%= print_json(data.objects['availabilityitem'], :include => {
       'id' => 12,
       'availability_id' => 10,
       'day' => 1,
       'start_time' => '08:00:00',
       'end_time' => '18:30:00'
     }) %>,
-    <%= print_json(data.objects['availabilityitem'], :minimal => true, :include => {
+    <%= print_json(data.objects['availabilityitem'], :include => {
       'id' => 13,
       'availability_id' => 10,
       'day' => 3,
       'start_time' => '05:00:00',
       'end_time' => '14:00:00'
     }) %>,
-    <%= print_json(data.objects['availabilityitem'], :minimal => true, :include => {
+    <%= print_json(data.objects['availabilityitem'], :include => {
       'id' => 14,
       'availability_id' => 10,
       'day' => 5,

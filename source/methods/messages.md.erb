@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['message']) %>
+<%= print_json(data.objects['message'], :verbose => true) %>
 <% end %>
 
 <%= print_table(data.objects['message'], :header => :message) %>
@@ -22,14 +22,14 @@ curl <%=@api_prefix%>/2/messages?request_id=123 \
 <% json do %>
 {
   "messages": [
-    <%= print_json(data.objects['message'], :minimal => true) %>,
-    <%= print_json(data.objects['message'], :minimal => true, :include => {
+    <%= print_json(data.objects['message']) %>,
+    <%= print_json(data.objects['message'], :include => {
       'id' => 456,
       'user_id' => 14,
       'title' => 'Approved',
       'content' => 'This request has been approved'
     }) %>,
-    <%= print_json(data.objects['message'], :minimal => true, :include => {
+    <%= print_json(data.objects['message'], :include => {
       'id' => 789,
       'user_id' => 14,
       'title' => 'Canceled',
@@ -66,7 +66,7 @@ curl <%=@api_prefix%>/2/messages/61 \
 
 <% json do %>
 {
-  "message": <%= print_json(data.objects['message'], :minimal => true) %>
+  "message": <%= print_json(data.objects['message']) %>
 }
 <% end %>
 

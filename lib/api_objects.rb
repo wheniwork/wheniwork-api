@@ -8,9 +8,10 @@ class ApiObjects < Middleman::Extension
     # Add helper functions to the App scope
     app.extend ApiAppMethods
   end
-  module ApiAppMethods
 
+  module ApiAppMethods
   end
+
   helpers do
     def print_table(object, options={})
       html = ""
@@ -26,26 +27,35 @@ class ApiObjects < Middleman::Extension
       end
       return html
     end
+
     def print_json_as_php_array(object, options={})
       formatted = {}
-      inc = (options[:include]||{}).inject({}) { |h,(k,v)| h[k] = {'show' => true, 'value' => v}; h }
-      object.merge(inc).each do |key,obj|
-        if !options[:minimal] || obj['show']
-          formatted.merge!(key=>obj['value'])
+      inc = (options[:include] || {}).inject({}) do |hash, (key, value)|
+        hash[key] = {'value' => value, 'show' => true}
+        hash
+      end
+      object.merge(inc).each do |key, obj|
+        if options[:verbose] || obj['show']
+          formatted.merge!(key => obj['value'])
         end
       end
 
       json_text = JSON.generate(formatted)
       return json_text.gsub(/\{(.*)\}/, 'array(\1)').gsub(/\:/, ' => ')
     end
+
     def print_json(object, options={})
       formatted = {}
-      inc = (options[:include]||{}).inject({}) { |h,(k,v)| h[k] = {'show' => true, 'value' => v}; h }
-      object.merge(inc).each do |key,obj|
-        if !options[:minimal] || obj['show']
-          formatted.merge!(key=>obj['value'])
+      inc = (options[:include] || {}).inject({}) do |hash, (key, value)|
+        hash[key] = {'value' => value, 'show' => true}
+        hash
+      end
+      object.merge(inc).each do |key, obj|
+        if options[:verbose] || obj['show']
+          formatted.merge!(key => obj['value'])
         end
       end
+
       json = JSON.pretty_generate(formatted)
       return json
     end

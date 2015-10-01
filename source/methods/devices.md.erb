@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['device']) %>
+<%= print_json(data.objects['device'], :verbose => true) %>
 <% end %>
 
 Devices receive push notifications to communicate important information to staff.
@@ -75,7 +75,7 @@ $result = $wiw->get("devices/1739");
 > Example Response
 
 <% json do %>
-<%= print_json(data.objects['device'], :minimal=>true) %>
+<%= print_json(data.objects['device']) %>
 <% end %>
 
 ### HTTP Request

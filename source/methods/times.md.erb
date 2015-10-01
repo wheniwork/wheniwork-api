@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['times']) %>
+<%= print_json(data.objects['times'], :verbose => true) %>
 <% end %>
 
 <%= print_table(data.objects['times'], :header => :user) %>
@@ -20,20 +20,20 @@ curl <%=@api_prefix%>/2/times \
 <% json do %>
 {
   "times": [
-    <%= print_json(data.objects['times'], :minimal => true) %>
+    <%= print_json(data.objects['times']) %>
   ],
   "punches": [
-    <%= print_json(data.objects['punch'], :minimal => true) %>,
-    <%= print_json(data.objects['punch'], :minimal => true, :include => {
+    <%= print_json(data.objects['punch']) %>,
+    <%= print_json(data.objects['punch'], :include => {
       'id' => 150135,
       'type' => 2
     }) %>
   ],
   "shifts": [
-    <%= print_json(data.objects['shift'], :minimal => true) %>
+    <%= print_json(data.objects['shift']) %>
   ],
   "users": [
-    <%= print_json(data.objects['user'], :minimal => true) %>
+    <%= print_json(data.objects['user']) %>
   ]
 }
 <% end %>
@@ -68,7 +68,7 @@ curl <%=@api_prefix%>/2/times/11 \
 <% json do %>
 {
   "times": [
-    <%= print_json(data.objects['times'], :minimal => true) %>
+    <%= print_json(data.objects['times']) %>
   ]
 }
 <% end %>
@@ -119,16 +119,16 @@ curl <%=@api_prefix%>/2/times/user/4634 \
     }
   },
   "times": [
-    <%= print_json(data.objects['times'], :minimal => true) %>
+    <%= print_json(data.objects['times']) %>
   ],
   "shifts": [
-    <%= print_json(data.objects['shift'], :minimal => true) %>
+    <%= print_json(data.objects['shift']) %>
   ],
   "locations": [
-    <%= print_json(data.objects['location'], :minimal => true) %>
+    <%= print_json(data.objects['location']) %>
   ],
   "positions": [
-    <%= print_json(data.objects['position'], :minimal => true) %>
+    <%= print_json(data.objects['position']) %>
   ]
 }
 <% end %>
@@ -210,10 +210,10 @@ $result = $wiw->post("times/clockin/", array("id":"14","position_id":"102","coor
     }
   },
   "times": [
-    <%= print_json(data.objects['times'], :minimal => true) %>
+    <%= print_json(data.objects['times']) %>
   ],
   "locations": [
-    <%= print_json(data.objects['location'], :minimal => true) %>
+    <%= print_json(data.objects['location']) %>
   ]
 }
 <% end %>
@@ -280,10 +280,10 @@ $result = $wiw->post("times/clockout/", array("id":"14","position_id":"102","coo
     }
   },
   "times": [
-    <%= print_json(data.objects['times'], :minimal => true) %>
+    <%= print_json(data.objects['times']) %>
   ],
   "locations": [
-    <%= print_json(data.objects['location'], :minimal => true) %>
+    <%= print_json(data.objects['location']) %>
   ]
 }
 <% end %>

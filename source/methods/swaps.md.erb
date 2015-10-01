@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['swap']) %>
+<%= print_json(data.objects['swap'], :verbose => true) %>
 <% end %>
 
 <%= print_table(data.objects['swap'], :header => :swap) %>
@@ -27,19 +27,19 @@ $result = $wiw->get("swaps");
 <% json do %>
 {
   "swaps": [
-    <%= print_json(data.objects['swap'], :minimal => true) %>
+    <%= print_json(data.objects['swap']) %>
   ],
   "messages" : [
-    <%= print_json(data.objects['message'], :minimal => true, :include => {
+    <%= print_json(data.objects['message'], :include => {
       'swap_id' => '2238'
     }) %>
   ],
   "shifts" : [
-    <%= print_json(data.objects['shift'], :minimal => true) %>
+    <%= print_json(data.objects['shift']) %>
   ],
   "users" : [
-    <%= print_json(data.objects['user'], :minimal => true) %>,
-    <%= print_json(data.objects['user'], :minimal => true, :include => {
+    <%= print_json(data.objects['user']) %>,
+    <%= print_json(data.objects['user'], :include => {
       'id' => 27384,
       'first_name' => 'Emmett'
     }) %>
@@ -72,19 +72,19 @@ $result = $wiw->get("swaps/22");
 <% json do %>
 {
   "swaps": [
-    <%= print_json(data.objects['swap'], :minimal => true) %>
+    <%= print_json(data.objects['swap']) %>
   ],
   "messages" : [
-    <%= print_json(data.objects['message'], :minimal => true, :include => {
+    <%= print_json(data.objects['message'], :include => {
       'swap_id' => '2238'
     }) %>
   ],
   "shifts" : [
-    <%= print_json(data.objects['shift'], :minimal => true) %>
+    <%= print_json(data.objects['shift']) %>
   ],
   "users" : [
-    <%= print_json(data.objects['user'], :minimal => true) %>,
-    <%= print_json(data.objects['user'], :minimal => true, :include => {
+    <%= print_json(data.objects['user']) %>,
+    <%= print_json(data.objects['user'], :include => {
       'id' => 27384,
       'first_name' => 'Emmett'
     }) %>
@@ -133,33 +133,33 @@ $result = $wiw->create("swaps", array(
 <% json do %>
 {
   "swaps": [
-    <%= print_json(data.objects['swap'], :minimal => true) %>
+    <%= print_json(data.objects['swap']) %>
   ],
   "messages": [
-    <%= print_json(data.objects['message'], :minimal => true, :include => {
+    <%= print_json(data.objects['message'], :include => {
       'swap_id' => '2238'
     }) %>
   ],
   "shifts": [
-    <%= print_json(data.objects['shift'], :minimal => true, :include => {
+    <%= print_json(data.objects['shift'], :include => {
       'id' => '1047'
     }) %>,
-    <%= print_json(data.objects['shift'], :minimal => true, :include => {
+    <%= print_json(data.objects['shift'], :include => {
       'id' => '1046'
     }) %>
   ],
   "users": [
-    <%= print_json(data.objects['user'], :minimal => true, :include => {
+    <%= print_json(data.objects['user'], :include => {
       'id' => 134,
       'first_name' => 'Emmett',
       'last_name' => 'Brown'
     }) %>,
-    <%= print_json(data.objects['user'], :minimal => true, :include => {
+    <%= print_json(data.objects['user'], :include => {
       'id' => 132,
       'first_name' => 'Lorraine',
       'last_name' => 'Tannen'
     }) %>,
-    <%= print_json(data.objects['user'], :minimal => true, :include => {
+    <%= print_json(data.objects['user'], :include => {
       'id' => 110,
       'first_name' => 'Goldie',
       'last_name' => 'Wilson'

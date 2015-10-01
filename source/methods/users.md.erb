@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['user']) %>
+<%= print_json(data.objects['user'], :verbose => true) %>
 <% end %>
 
 Users are the employees, supervisors, and managers that have access to your business on When I Work.
@@ -28,8 +28,8 @@ $result = $wiw->get("users");
 <% json do %>
 {
   "users": [
-    <%= print_json(data.objects['user'], :minimal => true) %>,
-    <%= print_json(data.objects['user'], :minimal => true, :include => {
+    <%= print_json(data.objects['user']) %>,
+    <%= print_json(data.objects['user'], :include => {
       'id' => 27384,
       'first_name' => 'Jennifer',
       'last_name' => 'Parker',
@@ -71,7 +71,7 @@ $result = $wiw->get("users/1");
 
 <% json do %>
 {
-  "user": <%= print_json(data.objects['user'], :minimal => true, :include => {
+  "user": <%= print_json(data.objects['user'], :include => {
     :notes => "This user excels at awesome."
   }) %>
 }
@@ -109,7 +109,7 @@ $result = $wiw->post("users/", array(
 
 <% json do %>
 {
-  "user": <%= print_json(data.objects['user'], :minimal => true) %>
+  "user": <%= print_json(data.objects['user']) %>
 }
 <% end %>
 

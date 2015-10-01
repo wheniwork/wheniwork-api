@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['payroll']) %>
+<%= print_json(data.objects['payroll'], :verbose => true) %>
 <% end %>
 
 <%= print_table(data.objects['payroll'], :header => :user) %>
@@ -20,13 +20,13 @@ curl <%=@api_prefix%>/2/payrolls \
 <% json do %>
 {
   "payrolls": [
-    <%= print_json(data.objects['payroll'], :minimal => true) %>,
-    <%= print_json(data.objects['payroll'], :minimal => true, :include => {
+    <%= print_json(data.objects['payroll']) %>,
+    <%= print_json(data.objects['payroll'], :include => {
       'id' => 25,
       'start_date' => 'Wed, 12 Feb 2014 00:00:00 -0600',
       'end_date'  =>  'Tue, 25 Feb 2014 00:00:00 -0600'
     }) %>,
-    <%= print_json(data.objects['payroll'], :minimal => true, :include => {
+    <%= print_json(data.objects['payroll'], :include => {
       'id' => 26,
       'start_date' => 'Wed, 29 Jan 2014 00:00:00 -0600', 
       'end_date'  =>  'Tue, 11 Feb 2014 00:00:00 -0600'
@@ -63,16 +63,16 @@ curl <%=@api_prefix%>/2/payrolls/24 \
 
 <% json do %>
 {
-  "payroll": <%= print_json(data.objects['payroll'], :minimal => true) %>,
+  "payroll": <%= print_json(data.objects['payroll']) %>,
   "payrollhours": [
-    <%= print_json(data.objects['payrollhours'], :minimal => true) %>,
-    <%= print_json(data.objects['payrollhours'], :minimal => true, :include => {
+    <%= print_json(data.objects['payrollhours']) %>,
+    <%= print_json(data.objects['payrollhours'], :include => {
       'id' => 101,
       'hours' => 10,
       'rate' => 10,
       'total' => 100
     }) %>,
-    <%= print_json(data.objects['payrollhours'], :minimal => true, :include => {
+    <%= print_json(data.objects['payrollhours'], :include => {
       'id' => 102,
       'hours' => 5,
       'rate' => 11,

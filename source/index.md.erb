@@ -64,7 +64,7 @@ $result = Wheniwork::login(
 {
   "login": <%= print_json(data.objects['login']) %>,
   "users": [
-    <%= print_json(data.objects['user'],:minimal=>true) %> 
+    <%= print_json(data.objects['user']) %> 
   ]
 }
 <% end %>
@@ -110,7 +110,7 @@ $result = $wiw->post("users/autologin");
 
 <% json do %>
 {
-  "user": <%= print_json(data.objects['user'], :minimal=>true, :include=>{
+  "user": <%= print_json(data.objects['user'], :include=>{
     :token=>@wiw_token
   }) %>,
   "hash": "the_auto_login_hash"

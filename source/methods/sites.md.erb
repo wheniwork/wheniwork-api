@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['site']) %>
+<%= print_json(data.objects['site'], :verbose => true) %>
 <% end %>
 
 Sites are off-site locations where users of a location can be assigned and scheduled.
@@ -29,8 +29,8 @@ $result = $wiw->get("sites");
 <% json do %>
 {
   "sites": [
-    <%= print_json(data.objects['site'], :minimal => true) %>,
-    <%= print_json(data.objects['site'], :minimal => true, :include => {
+    <%= print_json(data.objects['site']) %>,
+    <%= print_json(data.objects['site'], :include => {
       'id' => 4,
       'name' => 'Lone Pine'
     }) %>
@@ -62,7 +62,7 @@ $result = $wiw->get("sites/9");
 
 <% json do %>
 {
-  "site": <%= print_json(data.objects['site'], :minimal => true) %>
+  "site": <%= print_json(data.objects['site']) %>
 }
 <% end %>
 
