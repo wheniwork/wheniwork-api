@@ -1288,13 +1288,9 @@
       "description": "Announcement tag",
       "value": false
     },
-    "location_id": {
-      "type": "array, integer",
-      "description": "INPUT ONLY: include location_id parameter when listing, creating, or updating annotations."
-    },
     "locations": {
-      "type": "array",
-      "description": "OUTPUT ONLY: If all_locations = false, this field will contain an array of related location objects in the response body.",
+      "type": "array of integer for input, array of objects on output",
+      "description": "Include locations parameter as an array of location ids when listing, creating, or updating annotations. On output, locations will be an array of location objects when all_locations = false.",
       "value": [{"id":7,"name":"Minneapolis Store"}]
     },
     "created_at": {

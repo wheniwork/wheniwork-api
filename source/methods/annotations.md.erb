@@ -22,7 +22,7 @@ Time Off requests will be considered invalid if the request's date range overlap
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/2/annotations?start_date=2015-02-15&end_date=2015-02-21&location_id[]=7&location_id[]=8 \
+curl <%=@api_prefix%>/2/annotations?start_date=2015-02-15&end_date=2015-02-21&locations[]=7&locations[]=8 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -32,7 +32,7 @@ $result = $wiw->get("annotations",
     array(
         "start_date" => "2015-02-15",
         "end_date" => "2015-02-21",
-        "location_id" => array(7,8)
+        "locations" => array(7,8)
     )
 );
 ?>
@@ -58,7 +58,7 @@ Key | Description
 --- | -----------
 <% param "start_date", "string" do %> Will be parsed as Account timezone if ambiguous<% end %>
 <% param "end_date", "string" do %> Will be parsed as Account timezone if ambiguous<% end %>
-<% param "location_id", "integer, array" do %> May be an integer of a single location_id, or an array of location_ids<% end %>
+<% param "locations", "integer, array" do %> May be an integer of a single location_id, or an array of location_ids<% end %>
 <% param "business_closed", "boolean" do %>&nbsp;<% end %>
 <% param "no_time_off", "boolean" do %>&nbsp;<% end %>
 <% param "announcement", "boolean" do %>&nbsp;<% end %>
