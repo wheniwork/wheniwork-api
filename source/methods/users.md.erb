@@ -369,17 +369,19 @@ $result = $wiw->delete("users/4364");
 
 <% json do %>
 {
-  "success": true
+  "success": true,
+  "modified_shifts": [235132, 235245, 235677, 235812]
 }
 <% end %>
 
 Users can be deleted by managers, or by supervisors. If a supervisor is deleting the user, the supervisor must be able to manage all locations the user is attached to.
 
 ### HTTP Request
-`DELETE <%=@api_prefix%>/2/users/{id}`
+`DELETE <%=@api_prefix%>/2/users/{id}?delete_shifts=true`
 
 ### Parameters
 
 Key | Description
 --- | -----------
 <% param "id" do %>ID of the user to delete.<% end %>
+<% param "delete_shifts", "boolean" do %>Indicates whether or not to delete this user's future shifts. If not deleted, those shifts will be moved to Open Shifts. This is an optional parameter.<% end %>
