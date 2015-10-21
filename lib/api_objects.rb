@@ -40,8 +40,8 @@ class ApiObjects < Middleman::Extension
         end
       end
 
-      json_text = JSON.generate(formatted)
-      return json_text.gsub(/\{(.*)\}/, 'array(\1)').gsub(/\:/, ' => ')
+      json_text = JSON.pretty_generate(formatted)
+      return json_text.gsub(/\{(.*)\}/m, 'array(\1)').gsub(/\:/, ' =>')
     end
 
     def print_json(object, options={})

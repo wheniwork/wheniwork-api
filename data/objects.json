@@ -182,81 +182,90 @@
       "value": 4364,
       "show": true
     },
+    "account_id": {
+      "type": "integer",
+      "description": "ID of the primary account for this user.",
+      "value": 10000
+    },
+    "role": {
+      "type": "integer",
+      "description": "The user's role.<br> `1` = Admin<br> `2` = Manager<br> `3` = Employee (Default)<br> `4` = Lead (Unused)<br>`5` = Supervisor",
+      "value": 2
+    },
+    "email":{
+      "type": "string",
+      "description": "The email address of this user.",
+      "value": "goldiewilson@hillvalleycalifornia.gov",
+      "show": true
+    },
     "first_name": {
       "type": "string",
-      "description": "First name of this user.",
+      "description": "The first name of this user.",
       "value": "Goldie",
       "show": true
     },
     "last_name": {
       "type": "string",
-      "description": "Last name of this user.",
+      "description": "The last name of this user.",
       "value": "Wilson",
       "show": true
     },
-    "email":{
-       "type": "string",
-       "description": "The email address of this user.",
-       "value": "goldiewilson@hillvalleycalifornia.gov",
-       "show": true
-    },
     "phone_number": {
-        "type": "string",
-        "description": "The phone number of this user.",
-        "value": "555-555-5555",
-        "show": true
+      "type": "string",
+      "description": "The phone number of this user.",
+      "value": "555-555-5555"
     },
     "employee_code": {
       "type": "string",
       "description": "The user's employee code. This code can be used to clock in instead of the user's email address, or it can be used to help map users in When I Work to other services.",
       "value": "1020"
     },
-    "hours_preferred":{
-        "type": "float",
-        "description": "The preferred number of hours for the user.",
-        "value": 40
-    },
-    "hours_max": {
-        "type": "float",
-        "description": "Max hours this user can work.",
-        "value": 40
-    },
-    "hourly_rate": {
-        "type": "float",
-        "description": "The hourly rate for this user.",
-        "value": 15.50
-    },
-    "role": {
-        "type": "integer",
-        "description": "The user's role.<br> 1 = Admin<br> 2 = Manager<br> 3 = Employee (Default)<br> 4 = Lead (Unused)<br>5 = Supervisor",
-        "value": 2
-    },
-    "positions": {
-        "type": "array (of IDs)",
-        "description": "An array of positions to be assigned to the user.",
-        "value": [12284, 9554]
-    },
-    "locations": {
-        "type": "array (of IDs)",
-        "description": "An array of locations to be applied to the user.",
-        "value": [34, 58934]
+    "activated": {
+      "type": "boolean",
+      "description": "Whether the manager has activated this user.",
+      "value": true
     },
     "notes": {
-        "type": "string",
-        "description": "Notes about the user",
-        "value": ""
+      "type": "string",
+      "description": "Notes about this user.",
+      "value": ""
     },
-    "activated": {
-        "type": "boolean",
-        "description": "Whether the manager has activated this user.",
-        "value": 1
+    "hours_preferred":{
+      "type": "float",
+      "description": "The preferred number of hours for this user to work.",
+      "value": 40
     },
-    "password": {
-        "type": "string",
-        "description": "Set a password, but only on user creation, not update. (write only)",
-        "value": "Th3m@y0R"
+    "hours_max": {
+      "type": "float",
+      "description": "The max hours that this user can work.",
+      "value": 40
+    },
+    "hourly_rate": {
+      "type": "float",
+      "description": "The hourly rate for this user.",
+      "value": 15.50
+    },
+    "last_login": {
+      "type": "datetime",
+      "description": "The date and time when this user last logged in.",
+      "value": "Mon, 05 Oct 2015 18:26:44 -0500"
+    },
+    "positions": {
+      "type": "array (of IDs)",
+      "description": "An array of positions to be assigned to this user.",
+      "value": [
+        12284,
+        9554
+      ]
+    },
+    "locations": {
+      "type": "array (of IDs)",
+      "description": "An array of locations to be applied to this user.",
+      "value": [
+        34,
+        58934
+      ]
     }
-
   },
   "location": {
       "id": {
@@ -1355,24 +1364,28 @@
       "value": "{'sms': true, 'email': false}",
       "show": true
     },
-    "newemployee": {
+    "reminders": {
       "type": "[Alert Setting Object](#alertsetting)",
-      "description": "Whether the user wishes to receive alerts when a new employee is added.",
+      "description": "Whether the user wishes to receive alerts for reminders prior to shifts.",
       "value": "{'sms': true, 'email': false}",
       "show": true
-
     },
     "availability": {
       "type": "[Alert Setting Object](#alertsetting)",
       "description": "Whether the user wishes to receive alerts for changes in availability.",
       "value": "{'sms': true, 'email': false}",
       "show": true
-
     },
-    "reminders": {
+    "new_employee": {
       "type": "[Alert Setting Object](#alertsetting)",
-      "description": "Whether the user wishes to receive alerts for reminders prior to shifts.",
+      "description": "Whether the user wishes to receive alerts when a new employee is added.",
       "value": "{'sms': true, 'email': false}",
+      "show": true
+    },
+    "attendance": {
+      "type": "[Alert Setting Object](#alertsetting)",
+      "description": "Whether the user wishes to receive alerts for attendance-related events.",
+      "value": "{'sms': false, 'email': true}",
       "show": true
     },
     "reminder_time": {
