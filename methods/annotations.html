@@ -68,7 +68,6 @@
   </span><span class="nt">"business_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"no_time_off"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"announcement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
@@ -120,10 +119,8 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <td><strong>boolean</strong><br />Time Off Not Allowed tag</td>
 </tr><tr><td>announcement</td>
 <td><strong>boolean</strong><br />Announcement tag</td>
-</tr><tr><td>location_id</td>
-<td><strong>array, integer</strong><br />INPUT ONLY: include location_id parameter when listing, creating, or updating annotations.</td>
 </tr><tr><td>locations</td>
-<td><strong>array</strong><br />OUTPUT ONLY: If all_locations = false, this field will contain an array of related location objects in the response body.</td>
+<td><strong>array of integer for input, array of objects on output</strong><br />Include locations parameter as an array of location ids when listing, creating, or updating annotations. On output, locations will be an array of location objects when all_locations = false.</td>
 </tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />The date and time the punch was created.</td>
 </tr><tr><td>updated_at</td>
@@ -134,7 +131,7 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/annotations?start_date<span class="o">=</span>2015-02-15&amp;end_date<span class="o">=</span>2015-02-21&amp;location_id[]<span class="o">=</span>7&amp;location_id[]<span class="o">=</span>8 <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/annotations?start_date<span class="o">=</span>2015-02-15&amp;end_date<span class="o">=</span>2015-02-21&amp;locations[]<span class="o">=</span>7&amp;locations[]<span class="o">=</span>8 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
@@ -143,7 +140,7 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
     <span class="k">array</span><span class="p">(</span>
         <span class="s2">"start_date"</span> <span class="o">=&gt;</span> <span class="s2">"2015-02-15"</span><span class="p">,</span>
         <span class="s2">"end_date"</span> <span class="o">=&gt;</span> <span class="s2">"2015-02-21"</span><span class="p">,</span>
-        <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+        <span class="s2">"locations"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
     <span class="p">)</span>
 <span class="p">);</span>
 <span class="cp">?&gt;</span>
@@ -174,7 +171,7 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <td><strong>string</strong><br /> Will be parsed as Account timezone if ambiguous</td>
 </tr><tr><td>end_date</td>
 <td><strong>string</strong><br /> Will be parsed as Account timezone if ambiguous</td>
-</tr><tr><td>location_id</td>
+</tr><tr><td>locations</td>
 <td><strong>integer, array</strong><br /> May be an integer of a single location_id, or an array of location_ids</td>
 </tr><tr><td>business_closed</td>
 <td><strong>boolean</strong><br />&nbsp;</td>
