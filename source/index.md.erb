@@ -90,6 +90,148 @@ Once you have the token, you must include it in all authenticated requests. The 
 `W-Token: <%=@wiw_token%>`
 
 
+## Register
+
+> Example Request
+
+```shell
+curl --request POST \
+--url <%=@api_prefix%>/2/login/register \
+--header 'w-token: iworksoharditsnotfunny' \
+--data '{\n  "first_name": "Goldie",\n  "last_name": "Wilson",\n  "email": "goldiewilson@hillvalleygov.org",\n  "password": "password",\n  "password_confirm": "password",\n  "phone_number": "555-555-5555"\n}'
+```
+```php
+<?php
+$wiw = new Wheniwork('ilovemyboss');
+$result = $wiw->get('shifts', [
+    'first_name' => 'Goldie',
+    'last_name' => 'Wilson',
+    'phone_number' => '555-555-5555',
+    'email' => 'goldiewilson@hillvalleycalifornia.gov',
+    'password' => 'examplepassword',
+    'password_confirm' => 'examplepassword',
+    'subdomain' => 'abc-company'
+]);
+?>
+```
+> Example Response
+
+<% json do %>
+{
+  "login": {
+    "id": 4,
+    "name": "",
+    "first_name": "Goldie",
+    "last_name": "Wilson",
+    "email": "goldiewilson@hillvalleycalifornia.gov",
+    "created_at": "Mon, 26 Oct 2015 14:40:15 -0500",
+    "updated_at": "Mon, 26 Oct 2015 14:40:15 -0500",
+    "avatar": {
+      "url": "https://avatars.wheniwork.net/c1fd9b5c232ff81c735810933dfdf9b9e1e8abe0/%s",
+      "size": "%s"
+    },
+    "token": "65f0d1a4306040505b42309e4162db877dd55905"
+  },
+  "user": {
+    "id": 65,
+    "account_id": 1,
+    "login_id": "4",
+    "timezone_id": 0,
+    "country_id": 0,
+    "migration_id": 0,
+    "role": 3,
+    "is_payroll": false,
+    "is_trusted": 0,
+    "type": 0,
+    "email": "goldiewilson@hillvalleygov.org",
+    "first_name": "Goldie",
+    "last_name": "Wilson",
+    "phone_number": "+15555555555",
+    "employee_code": "",
+    "avatar": {
+      "url": "https://avatars.wheniwork.net/9d0516034a9ce34fc5b1c96ee98d8b7d30286fd7/%s",
+      "size": "%s"
+    },
+    "password": false,
+    "activated": false,
+    "is_hidden": false,
+    "uuid": "5819cc3cc4883edef82fb92df64f6c1aa9dd2901",
+    "notes": "",
+    "affiliate": 0,
+    "is_private": false,
+    "infotips": "",
+    "hours_preferred": 0,
+    "hours_max": 0,
+    "hourly_rate": 0,
+    "alert_settings": {
+      "timeoff": {
+        "sms": false,
+        "email": true
+      },
+      "swaps": {
+        "sms": false,
+        "email": true
+      },
+      "schedule": {
+        "sms": false,
+        "email": true
+      },
+      "reminders": {
+        "sms": false,
+        "email": true
+      },
+      "availability": {
+        "sms": false,
+        "email": true
+      },
+      "new_employee": {
+        "sms": false,
+        "email": true
+      },
+      "attendance": {
+        "sms": false,
+        "email": false
+      }
+    },
+    "reminder_time": 0,
+    "sleep_start": "",
+    "sleep_end": "",
+    "my_positions": [],
+    "last_login": null,
+    "dismissed_at": "",
+    "notified_at": null,
+    "created_at": "Mon, 26 Oct 2015 14:40:15 -0500",
+    "updated_at": "Mon, 26 Oct 2015 14:40:15 -0500",
+    "is_deleted": false,
+    "login_email": "goldiewilson@hillvalleygov.org",
+    "timezone_name": null
+  }
+}
+<% end %>
+
+>> Be sure to replace `<%=@wiw_key%>` with your requested Developer Key.
+
+The first thing to do after you receive your Developer Key is to login to get your token. After receiving your token, you will make all future requests using your token in the header of the request.
+
+<% aside do %>
+  Remember — All post bodies must be JSON encoded data (no form data).
+<% end %>
+
+### Parameters
+
+Key | Description
+--------- | -----------
+<% param "first_name", "string" do %>The first name of this user.<% end %>
+<% param "last_name", "string" do %>  The last name of this user.<%end%>
+<% param "phone_number", "string" do %>  The phone number of this user.<%end%>
+<% param "email", "string" do %>  The email address of this user.<%end%>
+<% param "password", "string" do %> The password of this user.<%end%>
+<% param "password_confirm", "string" do %> The password of this user.<%end%>
+<% param "subdomain", "string" do %> The subdomain of this user.<%end%>
+<% param "account_id", "string(optional)" do %> The account id of this user.<%end%>
+
+
+
 
 ## Web App SSO
 
