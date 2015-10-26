@@ -50,7 +50,19 @@ $result = $wiw->get("swaps");
 ### HTTP Request
 `GET <%=@api_prefix%>/2/swaps`
 
+### Parameters
 
+Key | Description
+--- | -----------
+<% param "open_only", "boolean" do %>Whether only open swaps should be included in the results.<% end %>
+<% param "user_id", "integer, string array" do %>The ID of the user to get swaps for. For multiple users, enter a list of user IDs separated by commas (e.g. `1,5,3`).<% end %>
+<% param "shift_id", "integer, string array" do %>The ID of the shift to get swaps for. For multiple shifts, enter a list of shift IDs separated by commas (e.g. `1,5,3`).<% end %>
+<% param "status", "integer, string array" do %>The status or statuses of swaps that should be included in the results. For multiple statuses, enter a list separated by commas (e.g. `4,5`).<% end %>
+<% param "type", "integer, string array" do %>The type or types of swaps that should be included in the results. For multiple types, enter a list separated by commas (e.g. `2,3`).<% end %>
+<% param "start", "datetime" do %>Start time for the shift search window. Must be included if `end` is defined.<% end %>
+<% param "end", "datetime" do %>End time for the shift search window. Must be included if `start` is defined.<% end %>
+<% param "limit", "integer" do %>The number of swaps to include per page. Default is `10`.<% end %>
+<% param "page", "integer" do %>The page of results to fetch. Default is `0`.<% end %>
 
 ## Get Existing Swap
 
