@@ -196,7 +196,7 @@ $result = $wiw->get("users/profile");
 }
 <% end %>
 
-Get a user's profile. The user's profile includes all personal information such as name, email, and phone number, and also includes some extra options like `sleep_start`.
+Get the authenticated user's profile, which includes all personal information such as name, email, and phone number, and also includes some extra options like `sleep_start`.
 
 ### HTTP Request
 
@@ -237,7 +237,7 @@ $result = $wiw->post("users/alerts", <%= print_json_as_php_array(
 }) %>
 <% end %>
 
-Update a user's profile information.
+Update the authenticated user's profile information.
 
 <% aside do %>Although managers and supervisors are able to change most profile information through the [Update Existing User](#update-existing-user) endpoint, this is the **only** way for an employee to change their own information using the API.<% end %>
 
