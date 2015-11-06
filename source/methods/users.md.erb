@@ -229,12 +229,7 @@ $result = $wiw->post("users/alerts", <%= print_json_as_php_array(
 > Example Response
 
 <% json do %>
-<%= print_json(data.objects['user'], :include => {
-  'first_name' => 'Jimmy',
-  'last_name' => 'Buffett',
-  'email' => 'parrothead1@margaritaville.com',
-  'phone_number' => '+15552128716'
-}) %>
+<%= print_json(data.objects['user']) %>
 <% end %>
 
 Update the authenticated user's profile information.
