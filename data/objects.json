@@ -1433,6 +1433,11 @@
       "description": "User's phone number for SMS messages",
       "value": "555-212-8716",
       "show": true
+    },
+    "is_private": {
+      "type": "boolean",
+      "description": "Privacy setting to show email and phone number to other employees",
+      "value": "false"
     }
   },
   "device": {
