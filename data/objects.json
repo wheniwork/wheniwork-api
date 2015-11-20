@@ -435,6 +435,12 @@
           "type": "array|null",
           "description": "The new coordinates for the site, as an array of comma separated values.",
           "value": ["33.9935161","-117.9264044"]
+      },
+      "deleted_at": {
+          "type": "string",
+          "description": "timestamp of when (if) a site has been deleted (initially empty)",
+          "value": "",
+          "show": true
       }
   },
   "position": {
