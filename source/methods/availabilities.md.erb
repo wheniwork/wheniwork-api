@@ -137,7 +137,6 @@ curl <%=@api_prefix%>/2/availabilities/items?user_id=371&start=2014-01-01 8:00am
 
 <% json do %>
 {
-  "availability": <%= print_json(data.objects['availability']) %>,
   "availabilityitems": [
     <%= print_json(data.objects['availabilityitem']) %>,
     <%= print_json(data.objects['availabilityitem'], :include => {
