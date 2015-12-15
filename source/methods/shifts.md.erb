@@ -154,7 +154,7 @@ The `POST` or `PUT` body can include fields from the [Shift Object](#shifts).
 
 ```shell
 curl -X POST <%=@api_prefix%>/2/shifts/acknowledge/ \
- --data '{"ids":[34542,45434]}' \
+ --data '{"ids":[34542,45434], "before":"Sun, 6 Dec 2015 00:00:00 -0600"}' \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -164,7 +164,8 @@ $result = $wiw->post("shifts/acknowledge/", array(
   "ids" => array(
     34542,
     45434
-  )
+  ),
+  "before" => "Sun, 6 Dec 2015 00:00:00 -0600"
 ));
 ?>
 ```
@@ -188,7 +189,7 @@ This method allows you to acknowledge a group of shifts.
 Key | Description
 --- | -----------
 <% param "ids", "integer array" do %>The IDs of the shifts to acknowledge. This parameter must be in the POST body.<% end %>
-
+<% param "before", "string" do %>The timestamp that represents when the shift data was last fetched from the server. This is optional, and is useful to protect against inadvertently acknowledging shifts that were updated since data was fetched.<% end %>
 
 ## Publish/Unpublish Shifts
 
