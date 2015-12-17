@@ -1159,6 +1159,12 @@
           "description": "The ID of the account that this punch is associated with.",
           "value": 0
       },
+      "method_name": {
+          "type": "string",
+          "description": "The method name that this punch is associated with (e.g. Mobile, Terminal, Computer).",
+          "value": "Mobile",
+          "show": true
+      },
       "time_id": {
           "type": "integer",
           "description": "The ID of the time object this punch is connected to.",
