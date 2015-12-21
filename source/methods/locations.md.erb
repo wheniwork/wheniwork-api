@@ -9,6 +9,8 @@ Locations are the main physical locations where your business operates and where
 
 <%= print_table(data.objects['location'], :header => :location) %>
 
+<%= print_table(data.objects['place'], :header => :place) %>
+
 
 ## Listing Locations
 
@@ -128,7 +130,3 @@ Locations can be deleted by managers.
 Key | Description
 --- | -----------
 <% param "id" do %>ID of the location to be deleted.<% end %>
-
-
-
-

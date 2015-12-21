@@ -64,6 +64,11 @@
       "type": "json",
       "description": "A list of settings for this account",
       "value": "..."
+    },
+    "place": {
+      "type": "[Place Object](#place-object)",
+      "description": "Object Containing place information",
+      "value": ""
     }
   },
   "shift": {
@@ -301,6 +306,11 @@
           "type": "date",
           "description": "The last time the location was updated.",
           "value": "Wed, Oct 21 2015 16:29:00 -0500"
+      },
+      "place": {
+          "type": "[Place Object](#place-object)",
+          "description": "Object Containing place information",
+          "value": ""
       }
 
   },
@@ -1478,6 +1488,38 @@
       "type": "datetime",
       "description": "Date the device was most recently updated.",
       "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+    }
+  },
+  "place": {
+    "business_name": {
+      "type": "string",
+      "description": "(Optional) Business Name",
+      "value": "When I Work"
+    },
+    "address": {
+      "type": "string",
+      "description": "Place Address",
+      "value": "60 Plato Blvd, St Paul, MN 55107, United States"
+    },
+    "place_id": {
+      "type": "string",
+      "description": "Place id returned by google",
+      "value": "ChIJYfRBzjfVslIRQLB018IGX3o"
+    },
+    "place_type": {
+      "type": "string, array",
+      "description": "Types returned by google",
+      "value": "point_of_interest,establishment"
+    },
+    "latitude": {
+      "type": "string, decimal",
+      "description": "Latitude of place location",
+      "value": "44.93739849"
+    },
+    "longitude": {
+      "type": "string, decimal",
+      "description": "Longitude of place location",
+      "value": "-93.0843011"
     }
   }
 }
