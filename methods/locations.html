@@ -131,6 +131,73 @@
 
 <p><code>GET https://api.wheniwork.com/2/locations</code></p>
 
+<h2 id="listing-nearby-locations-and-sites">Listing Nearby Locations and Sites</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/locations/nearby?coordinates[]<span class="o">=</span>44.937401&amp;coordinates[]<span class="o">=</span>-93.084305 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"locations/nearby"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="mf">44.937401</span><span class="p">,</span>
+  <span class="o">-</span><span class="mf">93.084305</span>
+<span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">44.937401</span><span class="p">,</span><span class="w">
+        </span><span class="mf">-93.083855</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.937401</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">93.083855</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37.31790518480344"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"radius"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"sites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Twin Pines"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">44.937401</span><span class="p">,</span><span class="w">
+        </span><span class="mf">-93.083855</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.937401</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">93.083855</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37.31790518480344"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"radius"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>coordinates</td>
+<td><strong>array</strong><br />[Latitude, Longitude]</td>
+</tr><tr><td>accuracy</td>
+<td><strong>number</strong><br />Optional accuracy threshold in meters, up to 500 meters. Defaults to zero when omitted.</td>
+</tr></tbody></table>
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/locations/nearby?coordinates[]={latitude}&amp;coordinates[]={longitude}</code></p>
+
 <h2 id="get-existing-location">Get Existing Location</h2>
 
 <blockquote>

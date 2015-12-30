@@ -159,6 +159,158 @@
 
 <p><code>W-Token: ilovemyboss</code></p>
 
+<h2 id="register">Register</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+--url https://api.wheniwork.com/2/login/register <span class="se">\</span>
+--header <span class="s1">'w-token: iworksoharditsnotfunny'</span> <span class="se">\</span>
+--data <span class="s1">'{\n  "first_name": "Goldie",\n  "last_name": "Wilson",\n  "email": "goldiewilson@hillvalleygov.org",\n  "password": "password",\n  "password_confirm": "password",\n  "phone_number": "555-555-5555"\n}'</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s1">'ilovemyboss'</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'shifts'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'first_name'</span> <span class="o">=&gt;</span> <span class="s1">'Goldie'</span><span class="p">,</span>
+    <span class="s1">'last_name'</span> <span class="o">=&gt;</span> <span class="s1">'Wilson'</span><span class="p">,</span>
+    <span class="s1">'phone_number'</span> <span class="o">=&gt;</span> <span class="s1">'555-555-5555'</span><span class="p">,</span>
+    <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'goldiewilson@hillvalleycalifornia.gov'</span><span class="p">,</span>
+    <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'examplepassword'</span><span class="p">,</span>
+    <span class="s1">'password_confirm'</span> <span class="o">=&gt;</span> <span class="s1">'examplepassword'</span><span class="p">,</span>
+    <span class="s1">'subdomain'</span> <span class="o">=&gt;</span> <span class="s1">'abc-company'</span>
+<span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"login"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 26 Oct 2015 14:40:15 -0500"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 26 Oct 2015 14:40:15 -0500"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://avatars.wheniwork.net/c1fd9b5c232ff81c735810933dfdf9b9e1e8abe0/%s"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%s"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65f0d1a4306040505b42309e4162db877dd55905"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"migration_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_payroll"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleygov.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+15555555555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"employee_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://avatars.wheniwork.net/9d0516034a9ce34fc5b1c96ee98d8b7d30286fd7/%s"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%s"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5819cc3cc4883edef82fb92df64f6c1aa9dd2901"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"affiliate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"infotips"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"alert_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"timeoff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"reminders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"new_employee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"attendance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"reminder_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sleep_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sleep_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"my_positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"last_login"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dismissed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"notified_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 26 Oct 2015 14:40:15 -0500"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 26 Oct 2015 14:40:15 -0500"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"login_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleygov.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<blockquote>
+<p>Be sure to replace <code>iworksoharditsnotfunny</code> with your requested Developer Key.</p>
+</blockquote>
+</blockquote>
+
+<p>The first thing to do after you receive your Developer Key is to login to get your token. After receiving your token, you will make all future requests using your token in the header of the request.</p>
+
+<aside class="notice"><p>Remember — All post bodies must be JSON encoded data (no form data).</p>
+</aside>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>first_name</td>
+<td><strong>string</strong><br />The first name of this user.</td>
+</tr><tr><td>last_name</td>
+<td><strong>string</strong><br />  The last name of this user.</td>
+</tr><tr><td>phone_number</td>
+<td><strong>string</strong><br />  The phone number of this user.</td>
+</tr><tr><td>email</td>
+<td><strong>string</strong><br />  The email address of this user.</td>
+</tr><tr><td>password</td>
+<td><strong>string</strong><br /> The password of this user.</td>
+</tr><tr><td>password_confirm</td>
+<td><strong>string</strong><br /> The password of this user.</td>
+</tr><tr><td>subdomain</td>
+<td><strong>string</strong><br /> The subdomain of this user.</td>
+</tr><tr><td>account_id</td>
+<td><strong>string(optional)</strong><br /> The account id of this user.</td>
+</tr></tbody></table>
 <h2 id="web-app-sso">Web App SSO</h2>
 
 <blockquote>
@@ -362,8 +514,10 @@
 <td><strong>integer, string array</strong><br />The ID of the site to get shifts for. For multiple sites, enter a list of site IDs separated by commas.</td>
 </tr><tr><td>position_id</td>
 <td><strong>integer, string array</strong><br />The ID of the position to get shifts for. For multiple position, enter a list of position IDs separated by commas.</td>
-</tr><tr><td>include_allopen</td>
+</tr><tr><td>include_open</td>
 <td><strong>boolean</strong><br />Whether to include OpenShifts in the results.</td>
+</tr><tr><td>include_allopen</td>
+<td><strong>boolean</strong><br />Whether to include OpenShifts in the results, including shifts that might be conflicts.</td>
 </tr><tr><td>include_onlyopen</td>
 <td><strong>boolean</strong><br />Whether only OpenShifts should be included in the results.</td>
 </tr><tr><td>unpublished</td>
@@ -1174,7 +1328,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Get a user&#39;s profile. The user&#39;s profile includes all personal information such as name, email, and phone number, and also includes some extra options like <code>sleep_start</code>.</p>
+<p>Get the authenticated user&#39;s profile, which includes all personal information such as name, email, and phone number, and also includes some extra options like <code>sleep_start</code>.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1212,14 +1366,13 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parrothead1@margaritaville.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buffett"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+15552128716"</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Update a user&#39;s profile information.</p>
+<p>Update the authenticated user&#39;s profile information.</p>
 
 <aside class="notice"><p>Although managers and supervisors are able to change most profile information through the <a href="#update-existing-user">Update Existing User</a> endpoint, this is the <strong>only</strong> way for an employee to change their own information using the API.</p>
 </aside>
@@ -1244,6 +1397,8 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <td><strong>string</strong><br />User&#39;s email address</td>
 </tr><tr><td>phone_number</td>
 <td><strong>string</strong><br />User&#39;s phone number for SMS messages</td>
+</tr><tr><td>is_private</td>
+<td><strong>boolean</strong><br />Privacy setting to show email and phone number to other employees</td>
 </tr></tbody></table>
 
 <h2 id="update-user-alert-settings">Update User Alert Settings</h2>
@@ -1699,6 +1854,78 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/locations</code></p>
+
+<h2 id="listing-nearby-locations-and-sites">Listing Nearby Locations and Sites</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/locations/nearby?coordinates[]<span class="o">=</span>44.937401&amp;coordinates[]<span class="o">=</span>-93.084305 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"locations/nearby"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="mf">44.937401</span><span class="p">,</span>
+  <span class="o">-</span><span class="mf">93.084305</span>
+<span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">44.937401</span><span class="p">,</span><span class="w">
+        </span><span class="mf">-93.083855</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.937401</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">93.083855</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37.31790518480344"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"radius"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"sites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Twin Pines"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9303 Lyon Drive, Hill Valley, CA 12345"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">44.937401</span><span class="p">,</span><span class="w">
+        </span><span class="mf">-93.083855</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.937401</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">93.083855</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37.31790518480344"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"radius"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>coordinates</td>
+<td><strong>array</strong><br />[Latitude, Longitude]</td>
+</tr><tr><td>accuracy</td>
+<td><strong>number</strong><br />Optional accuracy threshold in meters, up to 500 meters. Defaults to zero when omitted.</td>
+</tr></tbody></table>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/locations/nearby?coordinates[]={latitude}&amp;coordinates[]={longitude}</code></p>
 
 <h2 id="get-existing-location">Get Existing Location</h2>
 
@@ -2610,6 +2837,30 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 
 <p><code>GET https://api.wheniwork.com/2/swaps</code></p>
 
+<h3 id="parameters">Parameters</h3>
+
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>open_only</td>
+<td><strong>boolean</strong><br />Whether only open swaps should be included in the results.</td>
+</tr><tr><td>user_id</td>
+<td><strong>integer, string array</strong><br />The ID of the user to get swaps for. For multiple users, enter a list of user IDs separated by commas (e.g. <code>1,5,3</code>).</td>
+</tr><tr><td>shift_id</td>
+<td><strong>integer, string array</strong><br />The ID of the shift to get swaps for. For multiple shifts, enter a list of shift IDs separated by commas (e.g. <code>1,5,3</code>).</td>
+</tr><tr><td>status</td>
+<td><strong>integer, string array</strong><br />The status or statuses of swaps that should be included in the results. For multiple statuses, enter a list separated by commas (e.g. <code>4,5</code>).</td>
+</tr><tr><td>type</td>
+<td><strong>integer, string array</strong><br />The type or types of swaps that should be included in the results. For multiple types, enter a list separated by commas (e.g. <code>2,3</code>).</td>
+</tr><tr><td>start</td>
+<td><strong>datetime</strong><br />Start time for the shift search window. Must be included if <code>end</code> is defined.</td>
+</tr><tr><td>end</td>
+<td><strong>datetime</strong><br />End time for the shift search window. Must be included if <code>start</code> is defined.</td>
+</tr><tr><td>limit</td>
+<td><strong>integer</strong><br />The number of swaps to include per page. Default is <code>10</code>.</td>
+</tr><tr><td>page</td>
+<td><strong>integer</strong><br />The page of results to fetch. Default is <code>0</code>.</td>
+</tr></tbody></table>
+
 <h2 id="get-existing-swap">Get Existing Swap</h2>
 
 <blockquote>
@@ -3071,12 +3322,6 @@ specified non-default availability.</p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">371</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett's availability preferences."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett B.'s summer availability"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"availabilityitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">

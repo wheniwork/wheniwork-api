@@ -160,6 +160,28 @@
 
 <p><code>GET https://api.wheniwork.com/2/swaps</code></p>
 
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>open_only</td>
+<td><strong>boolean</strong><br />Whether only open swaps should be included in the results.</td>
+</tr><tr><td>user_id</td>
+<td><strong>integer, string array</strong><br />The ID of the user to get swaps for. For multiple users, enter a list of user IDs separated by commas (e.g. <code>1,5,3</code>).</td>
+</tr><tr><td>shift_id</td>
+<td><strong>integer, string array</strong><br />The ID of the shift to get swaps for. For multiple shifts, enter a list of shift IDs separated by commas (e.g. <code>1,5,3</code>).</td>
+</tr><tr><td>status</td>
+<td><strong>integer, string array</strong><br />The status or statuses of swaps that should be included in the results. For multiple statuses, enter a list separated by commas (e.g. <code>4,5</code>).</td>
+</tr><tr><td>type</td>
+<td><strong>integer, string array</strong><br />The type or types of swaps that should be included in the results. For multiple types, enter a list separated by commas (e.g. <code>2,3</code>).</td>
+</tr><tr><td>start</td>
+<td><strong>datetime</strong><br />Start time for the shift search window. Must be included if <code>end</code> is defined.</td>
+</tr><tr><td>end</td>
+<td><strong>datetime</strong><br />End time for the shift search window. Must be included if <code>start</code> is defined.</td>
+</tr><tr><td>limit</td>
+<td><strong>integer</strong><br />The number of swaps to include per page. Default is <code>10</code>.</td>
+</tr><tr><td>page</td>
+<td><strong>integer</strong><br />The page of results to fetch. Default is <code>0</code>.</td>
+</tr></tbody></table>
 <h2 id="get-existing-swap">Get Existing Swap</h2>
 
 <blockquote>

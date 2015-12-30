@@ -324,7 +324,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Get a user&#39;s profile. The user&#39;s profile includes all personal information such as name, email, and phone number, and also includes some extra options like <code>sleep_start</code>.</p>
+<p>Get the authenticated user&#39;s profile, which includes all personal information such as name, email, and phone number, and also includes some extra options like <code>sleep_start</code>.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -359,14 +359,13 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parrothead1@margaritaville.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buffett"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+15552128716"</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Update a user&#39;s profile information.</p>
+<p>Update the authenticated user&#39;s profile information.</p>
 
 <aside class="notice"><p>Although managers and supervisors are able to change most profile information through the <a href="#update-existing-user">Update Existing User</a> endpoint, this is the <strong>only</strong> way for an employee to change their own information using the API.</p>
 </aside>
@@ -390,6 +389,8 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <td><strong>string</strong><br />User&#39;s email address</td>
 </tr><tr><td>phone_number</td>
 <td><strong>string</strong><br />User&#39;s phone number for SMS messages</td>
+</tr><tr><td>is_private</td>
+<td><strong>boolean</strong><br />Privacy setting to show email and phone number to other employees</td>
 </tr></tbody></table>
 <h2 id="update-user-alert-settings">Update User Alert Settings</h2>
 
