@@ -49,13 +49,6 @@ $result = $wiw->get("locations");
 
 ## Listing Nearby Locations and Sites
 
-### Parameters
-
-Key | Description
---- | -----------
-coordinates | <strong>Array</strong><br />[Latitude, Longitude]
-accuracy | <strong>number</strong><br />Optional accuracy thresshold in Meters, up to 500, defaults to zero when omitted
-
 > Example Request
 
 ```shell
@@ -66,64 +59,50 @@ curl <%=@api_prefix%>/2/locations/nearby?coordinates[]=44.937401&coordinates[]=-
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
 $result = $wiw->get("locations/nearby", array(
-    44.937401,
-    -93.084305
+  44.937401,
+  -93.084305
 ));
 ?>
 ```
 
 > Example Response
 
-```json
+<% json do %>
 {
   "locations": [
-    {
-      "id": 2,
-      "account_id": 1,
-      "is_default": 0,
-      "name": "fuga",
-      "sort": 0,
-      "max_hours": 0,
-      "address": "",
-      "coordinates": [
+    <%= print_json(data.objects['location'], :include => {
+      :coordinates => [
         44.937401,
         -93.083855
       ],
-      "latitude": 44.937401,
-      "longitude": -93.083855,
-      "ip_address": "",
-      "created_at": "Thu, 04 Jun 2015 12:13:57 -0500",
-      "updated_at": "Thu, 04 Jun 2015 12:13:57 -0500",
-      "is_deleted": false,
-      "distance": "37.31790518480344",
-      "radius": 100
-    }
+      :latitude => 44.937401,
+      :longitude => 93.083855,
+      :distance => "37.31790518480344",
+      :radius => 100
+    }) %>
   ],
   "sites": [
-    {
-      "id": 2,
-      "account_id": 1,
-      "location_id": 2,
-      "name": "South Ressie",
-      "color": "b3e1cb",
-      "description": "Sunt sapiente expedita totam.",
-      "address": "667 Joe Point 38980",
-      "coordinates": [
+    <%= print_json(data.objects['site'], :include => {
+      :address => data.objects['location']['address']['value'],
+      :coordinates => [
         44.937401,
         -93.083855
       ],
-      "latitude": 44.937401,
-      "longitude": -93.083855,
-      "created_at": "Thu, 04 Jun 2015 12:13:57 -0500",
-      "updated_at": "Thu, 04 Jun 2015 12:13:57 -0500",
-      "is_deleted": false,
-      "distance": "37.31790518480344",
-      "radius": 100
-    }
+      :latitude => 44.937401,
+      :longitude => 93.083855,
+      :distance => "37.31790518480344",
+      :radius => 100
+    }) %>
   ]
 }
+<% end %>
 
-```
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "coordinates", "array" do %>[Latitude, Longitude]<% end %>
+<% param "accuracy", "number" do %>Optional accuracy threshold in meters, up to 500 meters. Defaults to zero when omitted.<% end %>
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/locations/nearby?coordinates[]={latitude}&coordinates[]={longitude}`
