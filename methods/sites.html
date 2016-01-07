@@ -67,7 +67,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Sites are off-site locations where users of a location can be assigned and scheduled.</p>
+<p>Sites are off-site places where users of a Location can be assigned and scheduled.</p>
 
 <h3 id="site-object">Site Object</h3>
 <table><thead><tr><th>Parameter</th>
@@ -116,10 +116,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Gets a list of all Sites in your account.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/sites</code></p>
 
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>include_deleted</td>
+<td><strong>boolean</strong><br />Whether to include deleted Sites in the results.</td>
+</tr></tbody></table>
 <h2 id="get-existing-site">Get Existing Site</h2>
 
 <blockquote>
@@ -146,6 +154,8 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Gets details about a specific Site.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/sites/{id}</code></p>
@@ -157,6 +167,50 @@
 <td>ID of the site requested.</td>
 </tr></tbody></table>
 <h2 id="create-update-site">Create/Update Site</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="c"># Create a Site</span>
+curl -X POST https://api.wheniwork.com/2/sites/ <span class="se">\</span>
+ --data <span class="s1">'{"name": "Shaded Grove"}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+
+<span class="c"># Update a Site</span>
+curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
+ --data <span class="s1">'{"name": "Shaded Grove"}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+
+<span class="c1">// Create a Site
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"sites"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"Shaded Grove"</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+
+<span class="c1">// Update a Site
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s2">"sites/9"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"Shaded Grove"</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"site"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shaded Grove"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates a new Site or updates an existing one.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 

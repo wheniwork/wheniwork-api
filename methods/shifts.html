@@ -241,11 +241,19 @@
 </tr></tbody></table>
 <h2 id="create-update-shift">Create/Update Shift</h2>
 
-<p>Creates a new shift or updates an existing one.</p>
-
 <blockquote>
 <p>Example Request</p>
 </blockquote>
+<pre class="highlight shell"><code><span class="c"># Create a shift</span>
+curl -X POST https://api.wheniwork.com/2/shifts/ <span class="se">\</span>
+ --data <span class="s1">'{"notes": "Come in early today."}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+
+<span class="c"># Update a shift</span>
+curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
+ --data <span class="s1">'{"notes": "Come in early today."}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 
@@ -269,6 +277,8 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Creates a new shift or updates an existing one.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
