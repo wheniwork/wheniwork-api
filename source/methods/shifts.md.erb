@@ -21,7 +21,7 @@ curl <%=@api_prefix%>/2/shifts/?location_id=1&start=2014-03-05 00:00:00&end=2014
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
 $result = $wiw->get("shifts", array(
-                                "location_id" => 1, 
+                                "location_id" => 1,
                                 "start" => "2014-03-05 00:00:00",
                                 "end" => "2014-03-08 23:59:59"
                               ));
@@ -329,6 +329,92 @@ Key | Description
 --- | -----------
 <% param "id", "integer" do %>ID of the shift you want to send notifications about.<% end %>
 
+## Copy Shifts
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/shifts/copy/ \
+ --data '{
+     "target_start":"Sun, 27 Dec 2015 00:00:00 -0600",
+     "target_end":"Sat, 02 Jan 2016 23:59:59 -0600",
+     "location_id":4267,
+     "mode":"previous_week",
+     "conflicts":"avoid"
+ }' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("shifts/copy/", array(
+  "target_start" => "Sun, 27 Dec 2015 00:00:00 -0600",
+  "target_end" => "Sat, 02 Jan 2016 23:59:59 -0600",
+  "location_id" => 4267,
+  "mode" => "previous_week",
+  "conflicts":"avoid"
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "confirmation": "3 shifts were copied.",
+  "warning": "",
+  "shifts": [
+  <%= print_json(data.objects['shift'], :include=>{
+    'id' => 27384,
+    'start_time' => 'Mon, 28 Dec 2015 08:00:00 -0600',
+    'end_time' => 'Mon, 28 Dec 2015 16:00:00 -0600',
+    'user_id' => 528479
+  }) %>,
+  <%= print_json(data.objects['shift'], :include=>{
+    'id' => 27385,
+    'start_time' => 'Tue, 29 Dec 2015 08:00:00 -0600',
+    'end_time' => 'Tue, 29 Dec 2015 16:00:00 -0600',
+    'user_id' => 845179
+  }) %>,
+  <%= print_json(data.objects['shift'], :include=>{
+    'id' => 27386,
+    'start_time' => 'Wed, 30 Dec 2015 08:00:00 -0600',
+    'end_time' => 'Wed, 30 Dec 2015 16:00:00 -0600',
+    'user_id' => 528479
+  }) %>
+  ]
+}
+<% end %>
+
+This method allows you to copy shifts from one timeframe into another. There are
+two modes of operation, one that will copy the previous day's shifts, and another
+that will copy the previous week's shifts.
+
+There are 3 strategies to address shift conflicts that might arise from the
+copy operation. The "conflicts" parameter accepts values of "overwrite", "allow",
+and "avoid". "Overwrite" will delete any previously existing shift that would have
+created a conflict with the newly copied shift. "Allow" will keep any conflicting
+shifts that result from the copy. "Avoid" will create newly copied shifts as
+OpenShifts that otherwise would have created a conflict with previously existing shifts.
+
+The newly created shifts resulting from the copy are included in the response.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/shifts/copy/`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "target_start", "datetime" do %>Start time for time range into which shifts will be copied. Required.<% end %>
+<% param "target_end", "datetime" do %>End time for time range into which shifts will be copied. Required.<% end %>
+<% param "mode", "string" do %>"previous_week" or "previous_day" Indicates whether the source timerange is the week or day previous to the destination range. Required<% end %>
+<% param "location_id", "integer, integer array" do %>The ID(s) of the Location(s) for which shifts will be copied. Required.<% end %>
+<% param "user_id", "integer, integer array" do %>The ID(s) of the User(s) for which shifts will be copied. Optional.<% end %>
+<% param "site_id", "integer, integer array" do %>The ID(s) of the Site(s) for which shifts will be copied. Optional, defaults to all sites.<% end %>
+<% param "position_id", "integer, integer array" do %>The ID(s) of the Position(s) for which shifts will be copied. Optional, defaults to all positions.<% end %>
+<% param "conflicts", "string" do %>The strategy for addressing shift conflicts resulting from the copy. Accepts: "overwrite", "allow", or "avoid". Documented above.<% end %>
+
 
 ## Delete Shift
 
@@ -368,8 +454,3 @@ Key | Description
 <% aside do %>
 If the `id` parameter is present, it will take precedence over `ids`.
 <% end %>
-
-
-
-
-
