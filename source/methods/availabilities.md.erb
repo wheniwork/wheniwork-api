@@ -6,6 +6,8 @@
 
 Availabilities are objects that define a user's availability to be assigned shifts during a certain period of time.
 
+<% aside do %>Availabilities only tell you a user's preferences and availabilities for scheduling, **not** when a user is actually scheduled.<% end %>
+
 <%= print_table(data.objects['availability'], :header => :availability) %>
 
 Availability Items are individual components of a greater Availability object.
