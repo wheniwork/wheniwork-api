@@ -6,8 +6,8 @@
 
 Locations are the main physical locations where your business operates and where employees, managers, and supervisors are assigned.
 
-
 <%= print_table(data.objects['location'], :header => :location) %>
+
 
 
 ## Listing Locations
@@ -44,8 +44,15 @@ $result = $wiw->get("locations");
 }
 <% end %>
 
+This method allows you to get a list of all Locations in your account.
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/locations`
+
+### Parameters
+This endpoint has no parameters.
+
+
 
 ## Listing Nearby Locations and Sites
 
@@ -107,18 +114,20 @@ Key | Description
 ### HTTP Request
 `GET <%=@api_prefix%>/2/locations/nearby?coordinates[]={latitude}&coordinates[]={longitude}`
 
+
+
 ## Get Existing Location
 
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/2/locations/136 \
+curl <%=@api_prefix%>/2/locations/<%= data.objects['location']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->get("locations/136");
+$result = $wiw->get("locations/<%= data.objects['location']['id']['value'] %>");
 ?>
 ```
 
@@ -130,6 +139,8 @@ $result = $wiw->get("locations/136");
 }
 <% end %>
 
+Gets the details of a specific Location.
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/locations/{id}`
 
@@ -140,7 +151,51 @@ Key | Description
 <% param "id" do %>ID of the location requested.<% end %>
 
 
+
 ## Create/Update Location
+
+> Example Request
+
+```shell
+# Create a Location
+curl -X POST https://api.wheniwork.com/2/locations/ \
+ --data '{"name": "Uptown"}' \
+ -H "W-Token: <%=@wiw_token%>"
+
+# Update a Location
+curl -X PUT https://api.wheniwork.com/2/locations/<%= data.objects['location']['id']['value'] %> \
+ --data '{"name": "Uptown"}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+
+// Create a Location
+$result = $wiw->create("locations", array(
+  "name" => "Uptown",
+  // ...
+));
+
+// Update a Location
+$result = $wiw->update("locations/<%= data.objects['location']['id']['value'] %>", array(
+  "name" => "Uptown",
+  // ...
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "location": <%= print_json(data.objects['location'], :include => {
+    :name => "Uptown"
+  }) %>
+}
+<% end %>
+
+Creates a new Location or updates an existing one.
 
 ### Create HTTP Request
 `POST <%=@api_prefix%>/2/locations/`
@@ -153,18 +208,19 @@ Key | Description
 The `POST` or `PUT` body can include fields from the [Location Object](#locations).
 
 
+
 ## Delete Existing Location
 
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/2/locations/136 \
+curl -X DELETE <%=@api_prefix%>/2/locations/<%= data.objects['location']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->delete("locations/136");
+$result = $wiw->delete("locations/<%= data.objects['location']['id']['value'] %>");
 ?>
 ```
 
@@ -176,7 +232,9 @@ $result = $wiw->delete("locations/136");
 }
 <% end %>
 
-Locations can be deleted by managers.
+Deletes a Location from your account.
+
+<% aside do %>Locations can only be deleted by managers.<% end %>
 
 ### HTTP Request
 `DELETE <%=@api_prefix%>/2/locations/{id}`
@@ -186,7 +244,3 @@ Locations can be deleted by managers.
 Key | Description
 --- | -----------
 <% param "id" do %>ID of the location to be deleted.<% end %>
-
-
-
-

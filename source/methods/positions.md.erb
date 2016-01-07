@@ -9,6 +9,7 @@ Positions are the different titles that employees can be grouped into.
 <%= print_table(data.objects['position'], :header => :position) %>
 
 
+
 ## Listing Positions
 
 > Example Request
@@ -43,8 +44,16 @@ $result = $wiw->get("positions");
 }
 <% end %>
 
+This method allows you to get a list of all positions in your account.
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/positions`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "show_deleted", "boolean" do %>Whether to show positions that have been deleted.<% end %>
 
 
 
@@ -53,13 +62,13 @@ $result = $wiw->get("positions");
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/2/positions/32 \
+curl <%=@api_prefix%>/2/positions/<%= data.objects['position']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->get("positions/32");
+$result = $wiw->get("positions/<%= data.objects['position']['id']['value'] %>");
 ?>
 ```
 
@@ -81,7 +90,51 @@ Key | Description
 <% param "position_id" do %>ID of the position requested.<% end %>
 
 
+
 ## Create/Update Position
+
+> Example Request
+
+```shell
+# Create a Position
+curl -X POST https://api.wheniwork.com/2/positions/ \
+ --data '{"name": "Manager"}' \
+ -H "W-Token: <%=@wiw_token%>"
+
+# Update a Position
+curl -X PUT https://api.wheniwork.com/2/positions/<%= data.objects['position']['id']['value'] %> \
+ --data '{"name": "Manager"}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+
+// Create a Position
+$result = $wiw->create("positions", array(
+  "name" => "Manager",
+  // ...
+));
+
+// Update a Position
+$result = $wiw->update("positions/<%= data.objects['position']['id']['value'] %>", array(
+  "name" => "Manager",
+  // ...
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "position": <%= print_json(data.objects['position'], :include => {
+    :name => "Manager"
+  }) %>
+}
+<% end %>
+
+Creates a new Position or updates an existing one.
 
 ### Create HTTP Request
 `POST <%=@api_prefix%>/2/positions/`
@@ -94,18 +147,19 @@ Key | Description
 The `POST` or `PUT` body can include fields from the [Position Object](#positions).
 
 
+
 ## Delete Existing Position
 
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/2/positions/9 \
+curl -X DELETE <%=@api_prefix%>/2/positions/<%= data.objects['position']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->delete("positions/9");
+$result = $wiw->delete("positions/<%= data.objects['position']['id']['value'] %>");
 ?>
 ```
 > Example Response
@@ -124,7 +178,3 @@ $result = $wiw->delete("positions/9");
 Key | Description
 --- | -----------
 <% param "position_id" do %>ID of the position to be deleted.<% end %>
-
-
-
-

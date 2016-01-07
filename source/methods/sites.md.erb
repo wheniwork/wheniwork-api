@@ -4,9 +4,10 @@
 <%= print_json(data.objects['site'], :verbose => true) %>
 <% end %>
 
-Sites are off-site locations where users of a location can be assigned and scheduled.
+Sites are off-site places where users of a Location can be assigned and scheduled.
 
 <%= print_table(data.objects['site'], :header => :site) %>
+
 
 
 ## Listing Sites
@@ -38,8 +39,16 @@ $result = $wiw->get("sites");
 }
 <% end %>
 
+Gets a list of all Sites in your account.
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/sites`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "include_deleted", "boolean" do %>Whether to include deleted Sites in the results.<% end %>
 
 
 
@@ -48,13 +57,13 @@ $result = $wiw->get("sites");
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/2/sites/9 \
+curl <%=@api_prefix%>/2/sites/<%= data.objects['site']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->get("sites/9");
+$result = $wiw->get("sites/<%= data.objects['site']['id']['value'] %>");
 ?>
 ```
 
@@ -66,6 +75,8 @@ $result = $wiw->get("sites/9");
 }
 <% end %>
 
+Gets details about a specific Site.
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/sites/{id}`
 
@@ -76,7 +87,51 @@ Key | Description
 <% param "id" do %>ID of the site requested.<% end %>
 
 
+
 ## Create/Update Site
+
+> Example Request
+
+```shell
+# Create a Site
+curl -X POST https://api.wheniwork.com/2/sites/ \
+ --data '{"name": "Shaded Grove"}' \
+ -H "W-Token: <%=@wiw_token%>"
+
+# Update a Site
+curl -X PUT https://api.wheniwork.com/2/sites/<%= data.objects['site']['id']['value'] %> \
+ --data '{"name": "Shaded Grove"}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+
+// Create a Site
+$result = $wiw->create("sites", array(
+  "name" => "Shaded Grove",
+  // ...
+));
+
+// Update a Site
+$result = $wiw->update("sites/<%= data.objects['site']['id']['value'] %>", array(
+  "name" => "Shaded Grove",
+  // ...
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "site": <%= print_json(data.objects['site'], :include => {
+    :name => "Shaded Grove"
+  }) %>
+}
+<% end %>
+
+Creates a new Site or updates an existing one.
 
 ### Create HTTP Request
 `POST <%=@api_prefix%>/2/sites/`
@@ -89,18 +144,19 @@ Key | Description
 The `POST` or `PUT` body can include fields from the [Site Object](#sites).
 
 
+
 ## Delete Existing Site
 
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/2/sites/9 \
+curl -X DELETE <%=@api_prefix%>/2/sites/<%= data.objects['site']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->delete("sites/9");
+$result = $wiw->delete("sites/<%= data.objects['site']['id']['value'] %>");
 ?>
 ```
 
@@ -120,7 +176,3 @@ $result = $wiw->delete("sites/9");
 Key | Description
 --- | -----------
 <% param "site_id" do %>ID of the site to be deleted.<% end %>
-
-
-
-
