@@ -101,47 +101,8 @@
 </tr><tr><td>updated_at</td>
 <td><strong>datetime</strong><br />Date the availability was most recently updated.</td>
 </tr></tbody></table>
-<p>Availability Items are individual components of a greater Availability object.
-Where an Availability is an object that defines a user&#39;s availability (in
-general), each Availability object is made up of Availability Items, each of
-which contains information about a specific day/time for which the user has
-specified non-default availability.</p>
+<hr>
 
-<blockquote>
-<p>Example Object</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<h3 id="availability_item-object">Availability_item Object</h3>
-<table><thead><tr><th>Parameter</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td>id</td>
-<td><strong>integer</strong><br />The unique ID of the availability item</td>
-</tr><tr><td>availability_id</td>
-<td><strong>integer</strong><br />The ID of the availability object the item is associated with.</td>
-</tr><tr><td>user_id</td>
-<td><strong>integer</strong><br />The ID of the user that the availability item is associated with.</td>
-</tr><tr><td>day</td>
-<td><strong>integer</strong><br />The day of the week (0-6) for the availability item.</td>
-</tr><tr><td>type</td>
-<td><strong>integer</strong><br />The type of the availability item. (1 = Preferred, 2 = Unavailable)</td>
-</tr><tr><td>start_time</td>
-<td><strong>date time</strong><br />The start time of the availability for the specified day.</td>
-</tr><tr><td>end_time</td>
-<td><strong>date time</strong><br />The end time of the availability for the specified day.</td>
-</tr><tr><td>created_at</td>
-<td><strong>datetime</strong><br />Date at which the availability item was created.</td>
-</tr><tr><td>updated_at</td>
-<td><strong>datetime</strong><br />Date the availability item was most recently updated.</td>
-</tr></tbody></table>
 <h2 id="listing-availabilities">Listing Availabilities</h2>
 
 <blockquote>
@@ -183,10 +144,18 @@ specified non-default availability.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Gets a list of availabilities on your account.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code>GET https://api.wheniwork.com/2/availabilities?user_id=371,453,456</code></p>
+<p><code>GET https://api.wheniwork.com/2/availabilities</code></p>
 
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>user_id</td>
+<td><strong>integer, optional</strong><br />The ID of the user to get availabilities for. For multiple users, enter a list of user IDs separated by commas (e.g. <code>1,5,3</code>).</td>
+</tr></tbody></table>
 <h2 id="get-existing-availability">Get Existing Availability</h2>
 
 <blockquote>
@@ -248,6 +217,8 @@ specified non-default availability.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Gets the details of a specific availability.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
@@ -258,73 +229,52 @@ specified non-default availability.</p>
 </tr></thead><tbody><tr><td>availability_id</td>
 <td>ID of the availability object being requested.</td>
 </tr></tbody></table>
-<h2 id="get-availability-items">Get Availability Items</h2>
-
-<p>Get all availabilities for a specified group of users for a specified time-frame.</p>
+<h2 id="create-update-availability">Create/Update Availability</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/availabilities/items?user_id<span class="o">=</span>371&amp;start<span class="o">=</span>2014-01-01 8:00am&amp;end<span class="o">=</span>2014-09-01 10:00pm <span class="se">\</span>
- -H <span class="s2">"W-Token: ilovemyboss"</span>
+<pre class="highlight shell"><code><span class="c"># Create an Availability</span>
+curl -X POST https://api.wheniwork.com/2/availabilities/ <span class="se">\</span>
+ --data <span class="s1">'{"user_id": 4364'</span><span class="o">}</span><span class="s1">' \
+ -H "W-Token: ilovemyboss"
+
+# Update an Availability
+curl -X PUT https://api.wheniwork.com/2/availabilities/10 \
+ --data '</span><span class="o">{</span><span class="s2">"user_id"</span>: 4364<span class="o">}</span><span class="s1">' \
+ -H "W-Token: ilovemyboss"
+</span></code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+
+<span class="c1">// Create an Availability
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"availabilities"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"user_id"</span> <span class="o">=&gt;</span> <span class="mi">4364</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+
+<span class="c1">// Update an Availability
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s2">"availabilities/233"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"user_id"</span> <span class="o">=&gt;</span> <span class="mi">4364</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
 </code></pre>
 
 <blockquote>
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"availabilityitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18:30:00"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:00:00"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"011:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:15:00"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett's availability preferences."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett B.'s summer availability"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code>GET https://api.wheniwork.com/2/availabilities/items</code></p>
-
-<h3 id="parameters">Parameters</h3>
-<table><thead><tr><th>Key</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td>user_id</td>
-<td><strong>array</strong><br />An array of user IDs to search.</td>
-</tr><tr><td>start</td>
-<td><strong>datetime</strong><br />The start date and time you are searching in.</td>
-</tr><tr><td>end</td>
-<td><strong>datetime</strong><br />The end date and time you are searching in.</td>
-</tr></tbody></table>
-<h2 id="create-update-availability">Create/Update Availability</h2>
+<p>Creates a new availability or updates an existing one.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
@@ -370,6 +320,191 @@ specified non-default availability.</p>
 </tr></thead><tbody><tr><td>availability_id</td>
 <td>ID of the availability to be deleted.</td>
 </tr></tbody></table>
+<h2 id="availability-items">Availability Items</h2>
+
+<blockquote>
+<p>Example Object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Availability Items are individual components of a greater Availability object.
+Where an Availability is an object that defines a user&#39;s availability (in
+general), each Availability object is made up of Availability Items, each of
+which contains information about a specific day/time for which the user has
+specified non-default availability.</p>
+
+<h3 id="availability-item-object">Availability item Object</h3>
+<table><thead><tr><th>Parameter</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>id</td>
+<td><strong>integer</strong><br />The unique ID of the availability item</td>
+</tr><tr><td>availability_id</td>
+<td><strong>integer</strong><br />The ID of the availability object the item is associated with.</td>
+</tr><tr><td>user_id</td>
+<td><strong>integer</strong><br />The ID of the user that the availability item is associated with.</td>
+</tr><tr><td>day</td>
+<td><strong>integer</strong><br />The day of the week (0-6) for the availability item.</td>
+</tr><tr><td>type</td>
+<td><strong>integer</strong><br />The type of the availability item. (1 = Preferred, 2 = Unavailable)</td>
+</tr><tr><td>start_time</td>
+<td><strong>date time</strong><br />The start time of the availability for the specified day.</td>
+</tr><tr><td>end_time</td>
+<td><strong>date time</strong><br />The end time of the availability for the specified day.</td>
+</tr><tr><td>created_at</td>
+<td><strong>datetime</strong><br />Date at which the availability item was created.</td>
+</tr><tr><td>updated_at</td>
+<td><strong>datetime</strong><br />Date the availability item was most recently updated.</td>
+</tr></tbody></table>
+<h2 id="list-availability-items">List Availability Items</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/availabilities/items <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"availabilities/items"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"availabilityitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18:30:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:15:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Gets a list of availability items in your account.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/availabilities/items</code></p>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>user_id</td>
+<td><strong>array</strong><br />The ID of the user to list availability items for. For multiple users, enter a list of user IDs separated by commas (e.g. <code>1,5,3</code>).</td>
+</tr><tr><td>start</td>
+<td><strong>datetime</strong><br />The start date and time you are searching in.</td>
+</tr><tr><td>end</td>
+<td><strong>datetime</strong><br />The end date and time you are searching in.</td>
+</tr></tbody></table>
+<h2 id="create-update-delete-availability-items">Create/Update/Delete Availability Items</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="c"># Update an Availability's Availability Items</span>
+curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</span>
+ --data <span class="s1">'{"items": [{"day": 0, "type": 1, "start_time": "07:15:00", "end_time": "16:00:00"}]}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+
+<span class="c1">// Update an Availability's Availability Items
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s2">"availabilities/10"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"items"</span><span class="o">:</span> <span class="k">array</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+      <span class="s2">"day"</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"start_time"</span> <span class="o">=&gt;</span> <span class="s2">"07:15:00"</span><span class="p">,</span>
+      <span class="s2">"end_time"</span> <span class="o">=&gt;</span> <span class="s2">"16:00:00"</span><span class="p">,</span>
+      <span class="c1">// ...
+</span>    <span class="p">),</span>
+    <span class="c1">// ...
+</span>  <span class="p">)</span>
+<span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">371</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett's availability preferences."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett B.'s summer availability"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"availabilityitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates new availability items, updates existing ones, or deletes them.</p>
+
+<p>To edit the availability items, you actually perform an update request to the items&#39; parent availability. See <a href="#create-update-availability">Create/Update Availability</a>.</p>
+
+<aside class="notice"><p>It is not possible to edit a single availability item. You must instead edit all the availability items for a specific availability at once.</p>
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>PUT https://api.wheniwork.com/2/availabilities/items/{availability id}</code></p>
+
+<p>Note that the ID in the above URL is for an <strong>availability</strong>, not an <strong>availability item</strong>.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>The <code>&quot;items&quot;</code> field of your <code>PUT</code> body should be an array containing <strong>all</strong> desired availability items, not just those you wish to update.</p>
+
+<p>Each array item in the <code>&quot;items&quot;</code> field can include fields from the <a href="#availability-items">Availability Item Object</a>.</p>
+
       </div>
       <div class="dark-box">
         <div id="lang-selector">

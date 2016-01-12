@@ -69,6 +69,8 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Shift Blocks are predefined shifts that make it quick to construct a schedule.</p>
+
 <h3 id="block-object">Block Object</h3>
 <table><thead><tr><th>Parameter</th>
 <th>Description</th>
@@ -114,16 +116,22 @@
   </span><span class="nt">"blocks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:30:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">183</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:30:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:45:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:30:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -131,9 +139,15 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Gets a list of all Shift Blocks in your account.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/blocks</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>This endpoint has no parameters.</p>
 
 <h2 id="get-existing-shift-block">Get Existing Shift Block</h2>
 
@@ -155,11 +169,15 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"block"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
     </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:30:00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Gets the details of a specific Shift Block.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -169,9 +187,55 @@
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>block_id</td>
-<td>ID of the shift block being requested.</td>
+<td>ID of the Shift Block being requested.</td>
 </tr></tbody></table>
 <h2 id="create-update-shift-block">Create/Update Shift Block</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="c"># Create a Shift Block</span>
+curl -X POST https://api.wheniwork.com/2/blocks/ <span class="se">\</span>
+ --data <span class="s1">'{"location_id": 136'</span><span class="o">}</span><span class="s1">' \
+ -H "W-Token: ilovemyboss"
+
+# Update a Shift Block
+curl -X PUT https://api.wheniwork.com/2/blocks/233 \
+ --data '</span><span class="o">{</span><span class="s2">"location_id"</span>: 136<span class="o">}</span><span class="s1">' \
+ -H "W-Token: ilovemyboss"
+</span></code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+
+<span class="c1">// Create a Shift Block
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"blocks"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">136</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+
+<span class="c1">// Update a Shift Block
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s2">"blocks/233"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">136</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"block"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:30:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates a new Shift Block or updates an existing one.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 

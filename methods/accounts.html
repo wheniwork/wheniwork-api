@@ -66,7 +66,8 @@
   </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+  </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -97,6 +98,24 @@
 <td><strong>string</strong><br />Name for the timezone specified in the timezone_id</td>
 </tr><tr><td>settings</td>
 <td><strong>json</strong><br />A list of settings for this account</td>
+</tr><tr><td>place</td>
+<td><strong><a href="#place-object">Place Object</a></strong><br />Object Containing place information</td>
+</tr></tbody></table>
+<h3 id="place-object">Place Object</h3>
+<table><thead><tr><th>Parameter</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>business_name</td>
+<td><strong>string</strong><br />(Optional) Business Name</td>
+</tr><tr><td>address</td>
+<td><strong>string</strong><br />Place Address</td>
+</tr><tr><td>place_id</td>
+<td><strong>string</strong><br />Place id returned by google</td>
+</tr><tr><td>place_type</td>
+<td><strong>string, array</strong><br />Types returned by google</td>
+</tr><tr><td>latitude</td>
+<td><strong>string, decimal</strong><br />Latitude of place location</td>
+</tr><tr><td>longitude</td>
+<td><strong>string, decimal</strong><br />Longitude of place location</td>
 </tr></tbody></table>
 <h2 id="listing-accounts">Listing Accounts</h2>
 

@@ -879,7 +879,8 @@ curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
   </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+  </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -911,6 +912,26 @@ curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
 <td><strong>string</strong><br />Name for the timezone specified in the timezone_id</td>
 </tr><tr><td>settings</td>
 <td><strong>json</strong><br />A list of settings for this account</td>
+</tr><tr><td>place</td>
+<td><strong><a href="#place-object">Place Object</a></strong><br />Object Containing place information</td>
+</tr></tbody></table>
+
+<h3 id="place-object">Place Object</h3>
+
+<table><thead><tr><th>Parameter</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>business_name</td>
+<td><strong>string</strong><br />(Optional) Business Name</td>
+</tr><tr><td>address</td>
+<td><strong>string</strong><br />Place Address</td>
+</tr><tr><td>place_id</td>
+<td><strong>string</strong><br />Place id returned by google</td>
+</tr><tr><td>place_type</td>
+<td><strong>string, array</strong><br />Types returned by google</td>
+</tr><tr><td>latitude</td>
+<td><strong>string, decimal</strong><br />Latitude of place location</td>
+</tr><tr><td>longitude</td>
+<td><strong>string, decimal</strong><br />Longitude of place location</td>
 </tr></tbody></table>
 
 <h2 id="listing-accounts">Listing Accounts</h2>
@@ -1851,7 +1872,8 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
     </span><span class="s2">"-118.4332328"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 26 Oct 1985 01:20:00 -0500"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, Oct 21 2015 16:29:00 -0500"</span><span class="w">
+  </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, Oct 21 2015 16:29:00 -0500"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1873,6 +1895,26 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
 <td><strong>date</strong><br />The date the location was created.</td>
 </tr><tr><td>updated_at</td>
 <td><strong>date</strong><br />The last time the location was updated.</td>
+</tr><tr><td>place</td>
+<td><strong><a href="#place-object">Place Object</a></strong><br />Object Containing place information</td>
+</tr></tbody></table>
+
+<h3 id="place-object">Place Object</h3>
+
+<table><thead><tr><th>Parameter</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>business_name</td>
+<td><strong>string</strong><br />(Optional) Business Name</td>
+</tr><tr><td>address</td>
+<td><strong>string</strong><br />Place Address</td>
+</tr><tr><td>place_id</td>
+<td><strong>string</strong><br />Place id returned by google</td>
+</tr><tr><td>place_type</td>
+<td><strong>string, array</strong><br />Types returned by google</td>
+</tr><tr><td>latitude</td>
+<td><strong>string, decimal</strong><br />Latitude of place location</td>
+</tr><tr><td>longitude</td>
+<td><strong>string, decimal</strong><br />Longitude of place location</td>
 </tr></tbody></table>
 
 <h2 id="listing-locations">Listing Locations</h2>
@@ -2402,6 +2444,8 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Shift Blocks are predefined shifts that make it quick to construct a schedule.</p>
+
 <h3 id="block-object">Block Object</h3>
 
 <table><thead><tr><th>Parameter</th>
@@ -2452,16 +2496,22 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
   </span><span class="nt">"blocks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:30:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">183</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:30:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:45:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:30:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2469,9 +2519,15 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Gets a list of all Shift Blocks in your account.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/blocks</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>This endpoint has no parameters.</p>
 
 <h2 id="get-existing-shift-block">Get Existing Shift Block</h2>
 
@@ -2496,11 +2552,15 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"block"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
     </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:30:00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Gets the details of a specific Shift Block.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2511,10 +2571,59 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>block_id</td>
-<td>ID of the shift block being requested.</td>
+<td>ID of the Shift Block being requested.</td>
 </tr></tbody></table>
 
 <h2 id="create-update-shift-block">Create/Update Shift Block</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code><span class="c"># Create a Shift Block</span>
+curl -X POST https://api.wheniwork.com/2/blocks/ <span class="se">\</span>
+ --data <span class="s1">'{"location_id": 136'</span><span class="o">}</span><span class="s1">' \
+ -H "W-Token: ilovemyboss"
+
+# Update a Shift Block
+curl -X PUT https://api.wheniwork.com/2/blocks/233 \
+ --data '</span><span class="o">{</span><span class="s2">"location_id"</span>: 136<span class="o">}</span><span class="s1">' \
+ -H "W-Token: ilovemyboss"
+</span></code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+
+<span class="c1">// Create a Shift Block
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"blocks"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">136</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+
+<span class="c1">// Update a Shift Block
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s2">"blocks/233"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">136</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"block"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:30:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates a new Shift Block or updates an existing one.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
@@ -2585,6 +2694,8 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Requests allow users to request time off.</p>
+
 <h3 id="request-object">Request Object</h3>
 
 <table><thead><tr><th>Parameter</th>
@@ -2617,17 +2728,17 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/requests?start<span class="o">=</span>2012-03-01&amp;end<span class="o">=</span>2012-04-30&amp;max_id<span class="o">=</span>42 <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/requests?start<span class="o">=</span>2012-03-01&amp;end<span class="o">=</span>2012-04-30 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"requests"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-                                <span class="s2">"start"</span> <span class="o">=&gt;</span> <span class="s2">"2012-03-01"</span><span class="p">,</span>
-                                <span class="s2">"end"</span>  <span class="o">=&gt;</span> <span class="s2">"2012-04-3"</span><span class="p">,</span>
-                                <span class="s2">"max_id"</span> <span class="o">=&gt;</span> <span class="mi">42</span>
-                              <span class="p">));</span>
+  <span class="s2">"start"</span> <span class="o">=&gt;</span> <span class="s2">"2014-03-01"</span><span class="p">,</span>
+  <span class="s2">"end"</span>  <span class="o">=&gt;</span> <span class="s2">"2014-03-31"</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -2647,7 +2758,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 21 Mar 2014 00:00:00 -0500"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2658,27 +2769,18 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="w">
+      </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Approved"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Approved"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Approved"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2697,6 +2799,8 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Gets a list of Requests for your account.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2722,13 +2826,13 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/requests/65 <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"requests/65"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"requests/54"</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -2741,7 +2845,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
     </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
     </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 14 Mar 2014 00:00:00 -0500"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 21 Mar 2014 00:00:00 -0500"</span><span class="w">
@@ -2750,17 +2854,9 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Approved"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2769,16 +2865,12 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27384</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brown"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Gets the details of a specific Request.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2795,31 +2887,36 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <h2 id="create-update-request">Create/Update Request</h2>
 
 <blockquote>
-<p>Example POST Data</p>
-</blockquote>
-
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-02-25 8:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-05-25 17:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<blockquote>
 <p>Example Request</p>
 </blockquote>
 
+<pre class="highlight shell"><code><span class="c"># Create a Request</span>
+curl -X POST https://api.wheniwork.com/2/requests/ <span class="se">\</span>
+ --data <span class="s1">'{"user_id": 135, "start_time": "Fri, 14 Mar 2014 00:00:00 -0500", "end_time": "Fri, 21 Mar 2014 00:00:00 -0500"}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+
+<span class="c"># Update a Request</span>
+curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
+ --data <span class="s1">'{"end_time": "Fri, 21 Mar 2014 00:00:00 -0500"}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"requests"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-                                 <span class="s2">"user_id"</span> <span class="o">=&gt;</span> <span class="s2">"135"</span><span class="p">,</span>
-                                 <span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="s2">"1"</span><span class="p">,</span>
-                                 <span class="s2">"start_time"</span> <span class="o">=&gt;</span> <span class="s2">"2012-02-25 8:00"</span><span class="p">,</span>
-                                 <span class="s2">"end_time"</span> <span class="o">=&gt;</span> <span class="s2">"2012-05-25 17:00"</span><span class="p">,</span>
-                                 <span class="s2">"status"</span> <span class="o">=&gt;</span> <span class="mi">0</span>
-                              <span class="p">));</span>
+
+<span class="c1">// Create a Request
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"requests"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"user_id"</span> <span class="o">=&gt;</span> <span class="mi">135</span><span class="p">,</span>
+  <span class="s2">"start_time"</span> <span class="o">=&gt;</span> <span class="s2">"Fri, 14 Mar 2014 00:00:00 -0500"</span><span class="p">,</span>
+  <span class="s2">"end_time"</span> <span class="o">=&gt;</span> <span class="s2">"Fri, 21 Mar 2014 00:00:00 -0500"</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+
+<span class="c1">// Update a Request
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s2">"requests/54"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"end_time"</span> <span class="o">=&gt;</span> <span class="s2">"Fri, 21 Mar 2014 00:00:00 -0500"</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -2829,43 +2926,24 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">56</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
     </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
     </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 25 Feb 2012 08:00:00 -0600"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 25 May 2012 17:00:00 -0500"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 27 Apr 2012 11:33:53 -0500"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 27 Apr 2012 11:33:53 -0500"</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 14 Mar 2014 00:00:00 -0500"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 21 Mar 2014 00:00:00 -0500"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Creates a new Request or updates an existing one.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
 <p><code>POST https://api.wheniwork.com/2/requests</code></p>
 
-<h3 id="parameters">Parameters</h3>
-
-<table><thead><tr><th>Key</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td>user_id</td>
-<td>The ID of the user for whom the request is to be created.</td>
-</tr><tr><td>type</td>
-<td>The type of request</td>
-</tr><tr><td>start_time</td>
-<td>The start date and time for the request.</td>
-</tr><tr><td>end_time</td>
-<td>The end date and time for the request.</td>
-</tr><tr><td>since_id</td>
-<td>Return all requests created since the request with given ID.</td>
-</tr><tr><td>status</td>
-<td>The status for the request to be created.</td>
-</tr></tbody></table>
-
-<h3 id="update-http-requests">Update HTTP Requests</h3>
+<h3 id="update-http-request">Update HTTP Request</h3>
 
 <p><code>PUT https://api.wheniwork.com/2/requests/{request_id}</code></p>
 
@@ -2907,7 +2985,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>request_id</td>
-<td>ID of the request to be deleted.</td>
+<td>ID of the Request to be deleted.</td>
 </tr></tbody></table>
 
 <h1 id="swaps">Swaps</h1>
@@ -2917,7 +2995,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2238"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
   </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -2937,6 +3015,8 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Swaps let users swap shifts with each other.</p>
 
 <h3 id="swap-object">Swap Object</h3>
 
@@ -2981,7 +3061,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2238"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3021,6 +3101,8 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Gets a list of all swaps in your account.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -3056,13 +3138,13 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/swaps/22 <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/swaps/2238 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"swaps/22"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"swaps/2238"</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -3073,7 +3155,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2238"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3085,7 +3167,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"swap_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2238"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"swap_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -3114,6 +3196,8 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Gets the details of a specific swap.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/swaps/{swap_id}</code></p>
@@ -3133,10 +3217,14 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="mi">1046</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1046</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shifts"</span><span class="p">:[</span><span class="mi">1047</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"users"</span><span class="p">:[</span><span class="mi">134</span><span class="p">,</span><span class="mi">132</span><span class="p">,</span><span class="mi">110</span><span class="p">]</span><span class="w">
+    </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1047</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">134</span><span class="p">,</span><span class="w">
+      </span><span class="mi">132</span><span class="p">,</span><span class="w">
+      </span><span class="mi">110</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3147,11 +3235,15 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"swaps"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-                                 <span class="s2">"shift_id"</span> <span class="o">=&gt;</span> <span class="mi">1046</span><span class="p">,</span>
-                                 <span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-                                 <span class="s2">"shifts"</span> <span class="o">=&gt;</span> <span class="s2">"1047"</span><span class="p">,</span>
-                                 <span class="s2">"users"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">134</span><span class="p">,</span><span class="mi">132</span><span class="p">,</span><span class="mi">110</span><span class="p">)</span>
-                              <span class="p">));</span>
+  <span class="s2">"shift_id"</span> <span class="o">=&gt;</span> <span class="mi">1046</span><span class="p">,</span>
+  <span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="s2">"shifts"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">1047</span><span class="p">),</span>
+  <span class="s2">"users"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="mi">134</span><span class="p">,</span>
+    <span class="mi">132</span><span class="p">,</span>
+    <span class="mi">110</span>
+  <span class="p">)</span>
+<span class="p">));</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -3162,7 +3254,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2238"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3174,19 +3266,19 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"swap_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2238"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"swap_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1047"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1047</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1046"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1046</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -3213,6 +3305,8 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Creates a new swap or updates an existing one.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
@@ -3244,13 +3338,13 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight shell"><code>curl -X DELETE https://api.wheniwork.com/2/swap/233 <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X DELETE https://api.wheniwork.com/2/swap/2238 <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"swap/233"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"swap/2238"</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -3329,49 +3423,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <td><strong>datetime</strong><br />Date the availability was most recently updated.</td>
 </tr></tbody></table>
 
-<p>Availability Items are individual components of a greater Availability object.
-Where an Availability is an object that defines a user&#39;s availability (in
-general), each Availability object is made up of Availability Items, each of
-which contains information about a specific day/time for which the user has
-specified non-default availability.</p>
-
-<blockquote>
-<p>Example Object</p>
-</blockquote>
-
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<h3 id="availability_item-object">Availability_item Object</h3>
-
-<table><thead><tr><th>Parameter</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td>id</td>
-<td><strong>integer</strong><br />The unique ID of the availability item</td>
-</tr><tr><td>availability_id</td>
-<td><strong>integer</strong><br />The ID of the availability object the item is associated with.</td>
-</tr><tr><td>user_id</td>
-<td><strong>integer</strong><br />The ID of the user that the availability item is associated with.</td>
-</tr><tr><td>day</td>
-<td><strong>integer</strong><br />The day of the week (0-6) for the availability item.</td>
-</tr><tr><td>type</td>
-<td><strong>integer</strong><br />The type of the availability item. (1 = Preferred, 2 = Unavailable)</td>
-</tr><tr><td>start_time</td>
-<td><strong>date time</strong><br />The start time of the availability for the specified day.</td>
-</tr><tr><td>end_time</td>
-<td><strong>date time</strong><br />The end time of the availability for the specified day.</td>
-</tr><tr><td>created_at</td>
-<td><strong>datetime</strong><br />Date at which the availability item was created.</td>
-</tr><tr><td>updated_at</td>
-<td><strong>datetime</strong><br />Date the availability item was most recently updated.</td>
-</tr></tbody></table>
+<p><hr></p>
 
 <h2 id="listing-availabilities">Listing Availabilities</h2>
 
@@ -3417,9 +3469,19 @@ specified non-default availability.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Gets a list of availabilities on your account.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code>GET https://api.wheniwork.com/2/availabilities?user_id=371,453,456</code></p>
+<p><code>GET https://api.wheniwork.com/2/availabilities</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>user_id</td>
+<td><strong>integer, optional</strong><br />The ID of the user to get availabilities for. For multiple users, enter a list of user IDs separated by commas (e.g. <code>1,5,3</code>).</td>
+</tr></tbody></table>
 
 <h2 id="get-existing-availability">Get Existing Availability</h2>
 
@@ -3485,6 +3547,8 @@ specified non-default availability.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Gets the details of a specific availability.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/availabilities/{availability_id}</code></p>
@@ -3497,16 +3561,38 @@ specified non-default availability.</p>
 <td>ID of the availability object being requested.</td>
 </tr></tbody></table>
 
-<h2 id="get-availability-items">Get Availability Items</h2>
-
-<p>Get all availabilities for a specified group of users for a specified time-frame.</p>
+<h2 id="create-update-availability">Create/Update Availability</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/availabilities/items?user_id<span class="o">=</span>371&amp;start<span class="o">=</span>2014-01-01 8:00am&amp;end<span class="o">=</span>2014-09-01 10:00pm <span class="se">\</span>
- -H <span class="s2">"W-Token: ilovemyboss"</span>
+<pre class="highlight shell"><code><span class="c"># Create an Availability</span>
+curl -X POST https://api.wheniwork.com/2/availabilities/ <span class="se">\</span>
+ --data <span class="s1">'{"user_id": 4364'</span><span class="o">}</span><span class="s1">' \
+ -H "W-Token: ilovemyboss"
+
+# Update an Availability
+curl -X PUT https://api.wheniwork.com/2/availabilities/10 \
+ --data '</span><span class="o">{</span><span class="s2">"user_id"</span>: 4364<span class="o">}</span><span class="s1">' \
+ -H "W-Token: ilovemyboss"
+</span></code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+
+<span class="c1">// Create an Availability
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s2">"availabilities"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"user_id"</span> <span class="o">=&gt;</span> <span class="mi">4364</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+
+<span class="c1">// Update an Availability
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s2">"availabilities/233"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"user_id"</span> <span class="o">=&gt;</span> <span class="mi">4364</span><span class="p">,</span>
+  <span class="c1">// ...
+</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
 </code></pre>
 
 <blockquote>
@@ -3514,60 +3600,16 @@ specified non-default availability.</p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"availabilityitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18:30:00"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:00:00"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"011:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:15:00"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett's availability preferences."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett B.'s summer availability"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code>GET https://api.wheniwork.com/2/availabilities/items</code></p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead><tr><th>Key</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td>user_id</td>
-<td><strong>array</strong><br />An array of user IDs to search.</td>
-</tr><tr><td>start</td>
-<td><strong>datetime</strong><br />The start date and time you are searching in.</td>
-</tr><tr><td>end</td>
-<td><strong>datetime</strong><br />The end date and time you are searching in.</td>
-</tr></tbody></table>
-
-<h2 id="create-update-availability">Create/Update Availability</h2>
+<p>Creates a new availability or updates an existing one.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
@@ -3617,6 +3659,202 @@ specified non-default availability.</p>
 </tr></thead><tbody><tr><td>availability_id</td>
 <td>ID of the availability to be deleted.</td>
 </tr></tbody></table>
+
+<h2 id="availability-items">Availability Items</h2>
+
+<blockquote>
+<p>Example Object</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Availability Items are individual components of a greater Availability object.
+Where an Availability is an object that defines a user&#39;s availability (in
+general), each Availability object is made up of Availability Items, each of
+which contains information about a specific day/time for which the user has
+specified non-default availability.</p>
+
+<h3 id="availability-item-object">Availability item Object</h3>
+
+<table><thead><tr><th>Parameter</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>id</td>
+<td><strong>integer</strong><br />The unique ID of the availability item</td>
+</tr><tr><td>availability_id</td>
+<td><strong>integer</strong><br />The ID of the availability object the item is associated with.</td>
+</tr><tr><td>user_id</td>
+<td><strong>integer</strong><br />The ID of the user that the availability item is associated with.</td>
+</tr><tr><td>day</td>
+<td><strong>integer</strong><br />The day of the week (0-6) for the availability item.</td>
+</tr><tr><td>type</td>
+<td><strong>integer</strong><br />The type of the availability item. (1 = Preferred, 2 = Unavailable)</td>
+</tr><tr><td>start_time</td>
+<td><strong>date time</strong><br />The start time of the availability for the specified day.</td>
+</tr><tr><td>end_time</td>
+<td><strong>date time</strong><br />The end time of the availability for the specified day.</td>
+</tr><tr><td>created_at</td>
+<td><strong>datetime</strong><br />Date at which the availability item was created.</td>
+</tr><tr><td>updated_at</td>
+<td><strong>datetime</strong><br />Date the availability item was most recently updated.</td>
+</tr></tbody></table>
+
+<h2 id="list-availability-items">List Availability Items</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/availabilities/items <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"availabilities/items"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"availabilityitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18:30:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:15:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Gets a list of availability items in your account.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/availabilities/items</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>user_id</td>
+<td><strong>array</strong><br />The ID of the user to list availability items for. For multiple users, enter a list of user IDs separated by commas (e.g. <code>1,5,3</code>).</td>
+</tr><tr><td>start</td>
+<td><strong>datetime</strong><br />The start date and time you are searching in.</td>
+</tr><tr><td>end</td>
+<td><strong>datetime</strong><br />The end date and time you are searching in.</td>
+</tr></tbody></table>
+
+<h2 id="create-update-delete-availability-items">Create/Update/Delete Availability Items</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code><span class="c"># Update an Availability's Availability Items</span>
+curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</span>
+ --data <span class="s1">'{"items": [{"day": 0, "type": 1, "start_time": "07:15:00", "end_time": "16:00:00"}]}'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+
+<span class="c1">// Update an Availability's Availability Items
+</span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s2">"availabilities/10"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"items"</span><span class="o">:</span> <span class="k">array</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+      <span class="s2">"day"</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"start_time"</span> <span class="o">=&gt;</span> <span class="s2">"07:15:00"</span><span class="p">,</span>
+      <span class="s2">"end_time"</span> <span class="o">=&gt;</span> <span class="s2">"16:00:00"</span><span class="p">,</span>
+      <span class="c1">// ...
+</span>    <span class="p">),</span>
+    <span class="c1">// ...
+</span>  <span class="p">)</span>
+<span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">371</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett's availability preferences."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emmett B.'s summer availability"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"availabilityitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16:00:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates new availability items, updates existing ones, or deletes them.</p>
+
+<p>To edit the availability items, you actually perform an update request to the items&#39; parent availability. See <a href="#create-update-availability">Create/Update Availability</a>.</p>
+
+<aside class="notice"><p>It is not possible to edit a single availability item. You must instead edit all the availability items for a specific availability at once.</p>
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>PUT https://api.wheniwork.com/2/availabilities/items/{availability id}</code></p>
+
+<p>Note that the ID in the above URL is for an <strong>availability</strong>, not an <strong>availability item</strong>.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>The <code>&quot;items&quot;</code> field of your <code>PUT</code> body should be an array containing <strong>all</strong> desired availability items, not just those you wish to update.</p>
+
+<p>Each array item in the <code>&quot;items&quot;</code> field can include fields from the <a href="#availability-items">Availability Item Object</a>.</p>
 
 <h1 id="payrolls">Payrolls</h1>
 

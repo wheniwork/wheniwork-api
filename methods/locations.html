@@ -64,7 +64,8 @@
     </span><span class="s2">"-118.4332328"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 26 Oct 1985 01:20:00 -0500"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, Oct 21 2015 16:29:00 -0500"</span><span class="w">
+  </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, Oct 21 2015 16:29:00 -0500"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -85,6 +86,24 @@
 <td><strong>date</strong><br />The date the location was created.</td>
 </tr><tr><td>updated_at</td>
 <td><strong>date</strong><br />The last time the location was updated.</td>
+</tr><tr><td>place</td>
+<td><strong><a href="#place-object">Place Object</a></strong><br />Object Containing place information</td>
+</tr></tbody></table>
+<h3 id="place-object">Place Object</h3>
+<table><thead><tr><th>Parameter</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>business_name</td>
+<td><strong>string</strong><br />(Optional) Business Name</td>
+</tr><tr><td>address</td>
+<td><strong>string</strong><br />Place Address</td>
+</tr><tr><td>place_id</td>
+<td><strong>string</strong><br />Place id returned by google</td>
+</tr><tr><td>place_type</td>
+<td><strong>string, array</strong><br />Types returned by google</td>
+</tr><tr><td>latitude</td>
+<td><strong>string, decimal</strong><br />Latitude of place location</td>
+</tr><tr><td>longitude</td>
+<td><strong>string, decimal</strong><br />Longitude of place location</td>
 </tr></tbody></table>
 <h2 id="listing-locations">Listing Locations</h2>
 
