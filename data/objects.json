@@ -48,6 +48,11 @@
       "value": "Sun, 14 Feb 2016 00:00:00 -0600",
       "show": true
     },
+    "features": {
+        "type": "array",
+        "description": "List of all the enabled features on the account",
+        "value": "[\"all\",\"locations\",\"sites\", ...]"
+    },
     "timezone_id": {
       "type": "integer",
       "description": "Identifier for time zone, as specified in the [PHP docs](http://php.net/manual/en/class.datetimezone.php).",
@@ -1521,6 +1526,43 @@
       "type": "string, decimal",
       "description": "Longitude of place location",
       "value": "-93.0843011"
+    }
+  },
+  "default_features": {
+    "locations": {
+      "description": "Locations"
+    },
+    "sites": {
+      "description": "Sites"
+    },
+    "acknowledgement": {
+      "description": "Shift Acknowledgement"
+    },
+    "month-view": {
+      "description": "Month View in Scheduling"
+    },
+    "annotations": {
+      "description": "Schedule Annotations"
+    },
+    "account-rep": {
+      "description": "Has Account Representative"
+    },
+    "mobile-alerts": {
+      "description": "Mobile Alerts"
+    }
+  },
+  "custom_features": {
+    "all": {
+      "description": "Default features enabled"
+    },
+    "scheduling": {
+      "description": "Scheduling"
+    },
+    "attendance": {
+      "description": "Attendance"
+    },
+    "square-plan": {
+      "description": "Account Billed through Square"
     }
   }
 }
