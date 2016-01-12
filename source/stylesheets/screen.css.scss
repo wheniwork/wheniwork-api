@@ -286,9 +286,9 @@ html, body {
   }
 
   hr {
-    margin: 2em 0;
-    border-top: 2px solid $examples-bg;
-    border-bottom: 2px solid $main-bg;
+    margin: 2em calc(50% + 40px) 2em 40px;
+    border: none;
+    border-bottom: 1px solid #ccc;
   }
 
   table {
