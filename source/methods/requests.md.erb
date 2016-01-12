@@ -4,28 +4,31 @@
 <%= print_json(data.objects['request'], :verbose => true) %>
 <% end %>
 
+Requests allow users to request time off.
+
 <%= print_table(data.objects['request'], :header => :request) %>
+
 
 
 ## Listing Requests
 
-
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/2/requests?start=2012-03-01&end=2012-04-30&max_id=42 \
+curl <%=@api_prefix%>/2/requests?start=2012-03-01&end=2012-04-30 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
 $result = $wiw->get("requests", array(
-                                "start" => "2012-03-01",
-                                "end"  => "2012-04-3",
-                                "max_id" => 42
-                              ));
+  "start" => "2014-03-01",
+  "end"  => "2014-03-31",
+  // ...
+));
 ?>
 ```
+
 > Example Response
 
 <% json do %>
@@ -33,26 +36,23 @@ $result = $wiw->get("requests", array(
   "requests": [
     <%= print_json(data.objects['request']) %>,
     <%= print_json(data.objects['request'], :include => {
-      'id' => '55',
+      'id' => 55,
       'start_time' => 'Mon, 24 Mar 2014 08:00:00 -0600',
       'end_time' => 'Fri, 28 Mar 2014 08:00:00 -0600'
     }) %>
   ],
   "messages": [
     <%= print_json(data.objects['message'], :include => {
-      'request_id' => '54'
+      'id' => 66,
+      'request_id' => data.objects['request']['id']['value'],
+      'title' => 'Request Approved',
+      'content' => 'This Request has been approved'
     }) %>,
     <%= print_json(data.objects['message'], :include => {
-      'id' => '66',
-      'request_id' => '54',
+      'id' => 68,
+      'request_id' => 55,
       'title' => 'Request Approved',
-      'message' => 'This Request has been approved'
-    }) %>,
-    <%= print_json(data.objects['message'], :include => {
-      'id' => '68',
-      'request_id' => '55',
-      'title' => 'Request Approved',
-      'message' => 'This Request has been approved'
+      'content' => 'This Request has been approved'
     }) %>
   ],
   "users": [
@@ -67,6 +67,8 @@ $result = $wiw->get("requests", array(
   ]
 }
 <% end %>
+
+Gets a list of Requests for your account.
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/requests`
@@ -81,18 +83,19 @@ Key | Description
 <% param "max_id" do %>Return all requests created before the request with the given ID.<% end %>
 
 
+
 ## Get Existing Request
 
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/2/requests/65 \
+curl <%=@api_prefix%>/2/requests/<%= data.objects['request']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->get("requests/65");
+$result = $wiw->get("requests/<%= data.objects['request']['id']['value'] %>");
 ?>
 ```
 
@@ -100,30 +103,25 @@ $result = $wiw->get("requests/65");
 
 <% json do %>
 {
-  "request": <%= print_json(data.objects['request']) %>,
+  "request": <%= print_json(data.objects['request'], :include => {
+    :status => 2
+  }) %>,
   "messages": [
     <%= print_json(data.objects['message'], :include => {
-      'request_id' => '54'
-    }) %>,
-    <%= print_json(data.objects['message'], :include => {
-      'id' => '66',
-      'request_id' => '54',
+      'request_id' => data.objects['request']['id']['value'],
       'title' => 'Request Approved',
-      'message' => 'This Request has been approved'
+      'content' => 'This Request has been approved'
     }) %>
   ],
   "users": [
     <%= print_json(data.objects['user'], :include => {
-      'id' => 135
-    }) %>,
-    <%= print_json(data.objects['user'], :include => {
-      'id' => 27384,
-      'first_name' => 'Emmett',
-      'last_name' => 'Brown'
+      'id' => data.objects['request']['user_id']['value']
     }) %>
   ]
 }
 <% end %>
+
+Gets the details of a specific Request.
 
 ### HTTP Request
 `GET <%=@api_prefix%>/2/requests/{request_id}`
@@ -135,32 +133,39 @@ Key | Description
 <% param "request_id" do %>ID of the request.<% end %>
 
 
+
 ## Create/Update Request
-
-> Example POST Data
-
-<% json do %>
-{
-  "user_id": "135",
-  "type": "1",
-  "start_time": "2012-02-25 8:00",
-  "end_time": "2012-05-25 17:00",
-  "status": 0
-}
-<% end %>
 
 > Example Request
 
+```shell
+# Create a Request
+curl -X POST https://api.wheniwork.com/2/requests/ \
+ --data '{"user_id": <%= data.objects['request']['user_id']['value'] %>, "start_time": "<%= data.objects['request']['start_time']['value'] %>", "end_time": "<%= data.objects['request']['end_time']['value'] %>"}' \
+ -H "W-Token: <%=@wiw_token%>"
+
+# Update a Request
+curl -X PUT https://api.wheniwork.com/2/requests/<%= data.objects['request']['id']['value'] %> \
+ --data '{"end_time": "<%= data.objects['request']['end_time']['value'] %>"}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
+
+// Create a Request
 $result = $wiw->create("requests", array(
-                                 "user_id" => "135",
-                                 "type" => "1",
-                                 "start_time" => "2012-02-25 8:00",
-                                 "end_time" => "2012-05-25 17:00",
-                                 "status" => 0
-                              ));
+  "user_id" => <%= data.objects['request']['user_id']['value'] %>,
+  "start_time" => "<%= data.objects['request']['start_time']['value'] %>",
+  "end_time" => "<%= data.objects['request']['end_time']['value'] %>",
+  // ...
+));
+
+// Update a Request
+$result = $wiw->update("requests/<%= data.objects['request']['id']['value'] %>", array(
+  "end_time" => "<%= data.objects['request']['end_time']['value'] %>",
+  // ...
+));
 ?>
 ```
 
@@ -168,42 +173,22 @@ $result = $wiw->create("requests", array(
 
 <% json do %>
 {
-  "request": {
-    "id": 56,
-    "account_id": 3,
-    "user_id": 135,
-    "creator_id": 135,
-    "status": 0,
-    "type": 0,
-    "start_time": "Sat, 25 Feb 2012 08:00:00 -0600",
-    "end_time": "Fri, 25 May 2012 17:00:00 -0500",
-    "created_at": "Fri, 27 Apr 2012 11:33:53 -0500",
-    "updated_at": "Fri, 27 Apr 2012 11:33:53 -0500"
-  }
+  "request": <%= print_json(data.objects['request'], :include => {
+  }) %>
 }
 <% end %>
+
+Creates a new Request or updates an existing one.
 
 ### Create HTTP Request
 `POST <%=@api_prefix%>/2/requests`
 
-### Parameters
-
-Key | Description
---- | -----------
-<% param "user_id" do %>The ID of the user for whom the request is to be created.<% end %>
-<% param "type" do %>The type of request<% end %>
-<% param "start_time" do %>The start date and time for the request.<% end %>
-<% param "end_time" do %>The end date and time for the request.<% end %>
-<% param "since_id" do %>Return all requests created since the request with given ID.<% end %>
-<% param "status" do %>The status for the request to be created.<% end %>
-
-
-### Update HTTP Requests
+### Update HTTP Request
 `PUT <%=@api_prefix%>/2/requests/{request_id}`
 
 ### Parameters
-
 The `POST` or `PUT` body can include fields from the [Request Object](#requests).
+
 
 
 ## Delete Existing Request
@@ -235,8 +220,4 @@ $result = $wiw->delete("requests/54");
 
 Key | Description
 --- | -----------
-<% param "request_id" do %>ID of the request to be deleted.<% end %>
-
-
-
-
+<% param "request_id" do %>ID of the Request to be deleted.<% end %>

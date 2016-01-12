@@ -4,7 +4,10 @@
 <%= print_json(data.objects['block'], :verbose => true) %>
 <% end %>
 
+Shift Blocks are predefined shifts that make it quick to construct a schedule.
+
 <%= print_table(data.objects['block'], :header => :block) %>
+
 
 
 ## Listing Shift Blocks
@@ -42,8 +45,13 @@ $result = $wiw->get("blocks");
 }
 <% end %>
 
+Gets a list of all Shift Blocks in your account.
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/blocks`
+
+### Parameters
+This endpoint has no parameters.
 
 
 
@@ -52,13 +60,13 @@ $result = $wiw->get("blocks");
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/2/block/233 \
+curl <%=@api_prefix%>/2/block/<%= data.objects['block']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->get("block/233");
+$result = $wiw->get("block/<%= data.objects['block']['id']['value'] %>");
 ?>
 ```
 
@@ -70,6 +78,8 @@ $result = $wiw->get("block/233");
 }
 <% end %>
 
+Gets the details of a specific Shift Block.
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/blocks/{block_id}`
 
@@ -77,10 +87,54 @@ $result = $wiw->get("block/233");
 
 Key | Description
 --- | -----------
-<% param "block_id" do %>ID of the shift block being requested.<% end %>
+<% param "block_id" do %>ID of the Shift Block being requested.<% end %>
+
 
 
 ## Create/Update Shift Block
+
+> Example Request
+
+```shell
+# Create a Shift Block
+curl -X POST https://api.wheniwork.com/2/blocks/ \
+ --data '{"location_id": <%= data.objects['location']['id']['value'] %>'}' \
+ -H "W-Token: <%=@wiw_token%>"
+
+# Update a Shift Block
+curl -X PUT https://api.wheniwork.com/2/blocks/<%= data.objects['block']['id']['value'] %> \
+ --data '{"location_id": <%= data.objects['location']['id']['value'] %>}' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+
+// Create a Shift Block
+$result = $wiw->create("blocks", array(
+  "location_id" => <%= data.objects['location']['id']['value'] %>,
+  // ...
+));
+
+// Update a Shift Block
+$result = $wiw->update("blocks/<%= data.objects['block']['id']['value'] %>", array(
+  "location_id" => <%= data.objects['location']['id']['value'] %>,
+  // ...
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "block": <%= print_json(data.objects['block'], :include => {
+    :location_id => data.objects['location']['id']['value']
+  }) %>
+}
+<% end %>
+
+Creates a new Shift Block or updates an existing one.
 
 ### Create HTTP Request
 `POST <%=@api_prefix%>/2/blocks/`
@@ -93,18 +147,19 @@ Key | Description
 The `POST` or `PUT` body can include fields from the [Block Object](#blocks).
 
 
+
 ## Delete Existing Shift Block
 
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/2/blocks/233 \
+curl -X DELETE <%=@api_prefix%>/2/blocks/<%= data.objects['block']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->delete("blocks/233");
+$result = $wiw->delete("blocks/<%= data.objects['block']['id']['value'] %>");
 ?>
 ```
 
@@ -124,7 +179,3 @@ $result = $wiw->delete("blocks/233");
 Key | Description
 --- | -----------
 <% param "block_id" do %>ID of the shift block to be deleted.<% end %>
-
-
-
-

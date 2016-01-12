@@ -395,12 +395,14 @@
       "location_id": {
           "type": "integer",
           "description": "The ID of the location the shift block is for.",
-          "value": 14
+          "value": 14,
+          "show": true
       },
       "position_id": {
           "type": "integer",
           "description": "The ID of the position that the shift is designated for.",
-          "value": 7
+          "value": 7,
+          "show": true
       },
       "start_time": {
           "type": "date time",
@@ -634,7 +636,7 @@
       "id": {
           "type": "integer",
           "description": "The unique ID of the swap.",
-          "value": "2238",
+          "value": 2238,
           "show": true
       },
       "account_id": {
@@ -813,7 +815,6 @@
           "description": "A json encoded string of users that are eligible for the shift.",
           "value": ""
       }
-
   },
   "request": {
        "id": {

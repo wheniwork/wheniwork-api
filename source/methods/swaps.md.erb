@@ -4,7 +4,10 @@
 <%= print_json(data.objects['swap'], :verbose => true) %>
 <% end %>
 
+Swaps let users swap shifts with each other.
+
 <%= print_table(data.objects['swap'], :header => :swap) %>
+
 
 
 ## Listing Swaps
@@ -47,6 +50,8 @@ $result = $wiw->get("swaps");
 }
 <% end %>
 
+Gets a list of all swaps in your account.
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/swaps`
 
@@ -64,18 +69,20 @@ Key | Description
 <% param "limit", "integer" do %>The number of swaps to include per page. Default is `10`.<% end %>
 <% param "page", "integer" do %>The page of results to fetch. Default is `0`.<% end %>
 
+
+
 ## Get Existing Swap
 
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/2/swaps/22 \
+curl <%=@api_prefix%>/2/swaps/<%= data.objects['swap']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->get("swaps/22");
+$result = $wiw->get("swaps/<%= data.objects['swap']['id']['value'] %>");
 ?>
 ```
 
@@ -88,7 +95,7 @@ $result = $wiw->get("swaps/22");
   ],
   "messages" : [
     <%= print_json(data.objects['message'], :include => {
-      'swap_id' => '2238'
+      'swap_id' => data.objects['swap']['id']['value']
     }) %>
   ],
   "shifts" : [
@@ -104,9 +111,10 @@ $result = $wiw->get("swaps/22");
 }
 <% end %>
 
+Gets the details of a specific swap.
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/swaps/{swap_id}`
-
 
 ### Parameters
 
@@ -115,28 +123,39 @@ Key | Description
 <% param "swap_id" do %>ID of the swap being requested.<% end %>
 
 
+
 ## Create/Update Swap
+
 > Example Post Data
 
 ```json
 {
-    "shift_id":1046,
+    "shift_id": 1046,
     "type": 3,
-    "shifts":[1047],
-    "users":[134,132,110]
+    "shifts": [1047],
+    "users": [
+      134,
+      132,
+      110
+    ]
 }
 ```
+
 > Example Request
 
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
 $result = $wiw->create("swaps", array(
-                                 "shift_id" => 1046,
-                                 "type" => 3,
-                                 "shifts" => "1047",
-                                 "users" => array(134,132,110)
-                              ));
+  "shift_id" => 1046,
+  "type" => 3,
+  "shifts" => array(1047),
+  "users" => array(
+    134,
+    132,
+    110
+  )
+));
 ?>
 ```
 
@@ -149,15 +168,15 @@ $result = $wiw->create("swaps", array(
   ],
   "messages": [
     <%= print_json(data.objects['message'], :include => {
-      'swap_id' => '2238'
+      'swap_id' => 2238
     }) %>
   ],
   "shifts": [
     <%= print_json(data.objects['shift'], :include => {
-      'id' => '1047'
+      'id' => 1047
     }) %>,
     <%= print_json(data.objects['shift'], :include => {
-      'id' => '1046'
+      'id' => 1046
     }) %>
   ],
   "users": [
@@ -180,8 +199,7 @@ $result = $wiw->create("swaps", array(
 }
 <% end %>
 
-
-
+Creates a new swap or updates an existing one.
 
 ### Create HTTP Request
 `POST <%=@api_prefix%>/2/swaps/`
@@ -193,13 +211,12 @@ Key | Description
 <% param "shifts" do %>The IDs of the shifts requested to be swapped for.<% end %>
 <% param "users" do %>The IDs of users available to take shifts.<% end %>
 
-
 ### Update HTTP Requests
 `PUT <%=@api_prefix%>/2/swaps/{swap_id}`
 
 ### Parameters
-
 The `POST` or `PUT` body can include fields from the [Swap Object](#swap).
+
 
 
 ## Delete Existing Swap
@@ -207,13 +224,13 @@ The `POST` or `PUT` body can include fields from the [Swap Object](#swap).
 > Example Request
 
 ```shell
-curl -X DELETE <%=@api_prefix%>/2/swap/233 \
+curl -X DELETE <%=@api_prefix%>/2/swap/<%= data.objects['swap']['id']['value'] %> \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->delete("swap/233");
+$result = $wiw->delete("swap/<%= data.objects['swap']['id']['value'] %>");
 ?>
 ```
 
@@ -233,7 +250,3 @@ $result = $wiw->delete("swap/233");
 Key | Description
 --- | -----------
 <% param "swap_id" do %>ID of the swap to be deleted.<% end %>
-
-
-
-
