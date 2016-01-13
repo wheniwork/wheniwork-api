@@ -292,7 +292,7 @@
           "show": true
       },
       "coordinates": {
-          "type": "string",
+          "type": "array|null",
           "description": "The coordinates of the location.",
           "value": ["34.2390664","-118.4332328"],
           "show": true
@@ -339,7 +339,7 @@
           "value": "1600 S Azusa Ave, City of Industry, CA 91748"
       },
       "coordinates": {
-          "type": "array",
+          "type": "array|null",
           "description": "The new coordinates for the site, as an array of comma separated values.",
           "value": ["33.9935161","-117.9264044"]
       }
