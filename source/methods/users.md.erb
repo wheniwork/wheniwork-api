@@ -380,3 +380,71 @@ Key | Description
 --- | -----------
 <% param "id" do %>ID of the user to delete.<% end %>
 <% param "delete_shifts", "boolean" do %>Indicates whether or not to delete this user's future shifts. If not deleted, those shifts will be moved to Open Shifts. This is an optional parameter.<% end %>
+
+
+## Create/Update User Avatar
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/users/avatar \
+ -H "W-Token: <%=@wiw_token%>"
+ -H "Content-Type: image/jpeg"
+```
+```php
+<?php
+ $ch = curl_init(<%=@api_prefix%>/2/users/avatar);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: ' . $type]);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $image);
+
+        $response = curl_exec($ch);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "avatar": {
+    "hash": "{hash}",
+    "type": "jpg",
+    "sizes": {
+      "small": {
+        "href": "{userhash}/small",
+        "path": "2/fb/{userhash}.small.jpg",
+        "url": "//s3.amazonaws.com/2/fb/{userhash}.small.jpg"
+      }
+    },
+    "medium": {
+      "href": "/{userhash}/medium",
+      "path": "4/e1/{userhash}.medium.jpg",
+      "url": "//s3.amazonaws.com/4/fb/{userhash}.medium.jpg"
+    },
+    "created_at": "2016-01-13T22:05:22+00:00",
+    "updated_at": "2016-01-13T22:05:22+00:00",
+    "best": "medium"
+  },
+  "error": false
+}
+<% end %>
+
+Creates or updates user avatar.
+
+<% aside do %>
+  Remember — This request requires a valid `Content-Type` header.
+<% end %>
+
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/users/avatar`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "user_id", "int (optional)" do %>ID of the user upload avatar. Will default to current user.<% end %>
