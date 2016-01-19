@@ -1561,6 +1561,9 @@
     "attendance": {
       "description": "Attendance"
     },
+    "unclaimed": {
+      "description": "Unclaimed Workplace"
+    },
     "square-plan": {
       "description": "Account Billed through Square"
     }
