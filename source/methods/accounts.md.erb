@@ -10,7 +10,6 @@ Accounts are objects that define a business account with When I Work. Every user
 
 <%= print_table(data.objects['place'], :header => :place) %>
 
-
 ## Listing Accounts
 
 > Example Request
@@ -59,6 +58,17 @@ Key | Description
 --- | -----------
 <% param "account_id" do %>A list of account ids to retrieve (Optional; if not specified, will default to returning all accounts for a given user token)<% end %>
 
+### Features
+
+The features that are enabled on accounts will vary. The following features are considered defaults and should be considered enabled when `all` is present:
+
+<%= print_table(data.objects['default_features']) %>
+
+There are a few other features that may be explicitly enabled on some accounts:
+
+<%= print_table(data.objects['custom_features']) %>
+
+_**NOTE:** Account features are derived from the plan and cannot be modified using the API!_
 
 ## Get Existing Account
 
