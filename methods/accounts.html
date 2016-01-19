@@ -64,6 +64,7 @@
   </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-company"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[\"all\",\"locations\",\"sites\", ...]"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
@@ -92,6 +93,8 @@
 <td><strong>boolean</strong><br />Whether this account object is enabled</td>
 </tr><tr><td>plan_expires</td>
 <td><strong>datetime</strong><br />Date and time when this account&#39;s plan expires</td>
+</tr><tr><td>features</td>
+<td><strong>array</strong><br />List of all the enabled features on the account</td>
 </tr><tr><td>timezone_id</td>
 <td><strong>integer</strong><br />Identifier for time zone, as specified in the <a href="http://php.net/manual/en/class.datetimezone.php">PHP docs</a>.</td>
 </tr><tr><td>timezone_name</td>
@@ -176,6 +179,40 @@
 </tr></thead><tbody><tr><td>account_id</td>
 <td>A list of account ids to retrieve (Optional; if not specified, will default to returning all accounts for a given user token)</td>
 </tr></tbody></table>
+<h3 id="features">Features</h3>
+
+<p>The features that are enabled on accounts will vary. The following features are considered defaults and should be considered enabled when <code>all</code> is present:</p>
+<table><thead><tr><th>Parameter</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>locations</td>
+<td>Locations</td>
+</tr><tr><td>sites</td>
+<td>Sites</td>
+</tr><tr><td>acknowledgement</td>
+<td>Shift Acknowledgement</td>
+</tr><tr><td>month-view</td>
+<td>Month View in Scheduling</td>
+</tr><tr><td>annotations</td>
+<td>Schedule Annotations</td>
+</tr><tr><td>account-rep</td>
+<td>Has Account Representative</td>
+</tr><tr><td>mobile-alerts</td>
+<td>Mobile Alerts</td>
+</tr></tbody></table>
+<p>There are a few other features that may be explicitly enabled on some accounts:</p>
+<table><thead><tr><th>Parameter</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>all</td>
+<td>Default features enabled</td>
+</tr><tr><td>scheduling</td>
+<td>Scheduling</td>
+</tr><tr><td>attendance</td>
+<td>Attendance</td>
+</tr><tr><td>square-plan</td>
+<td>Account Billed through Square</td>
+</tr></tbody></table>
+<p><em><strong>NOTE:</strong> Account features are derived from the plan and cannot be modified using the API!</em></p>
+
 <h2 id="get-existing-account">Get Existing Account</h2>
 
 <blockquote>
