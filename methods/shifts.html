@@ -139,7 +139,7 @@
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"shifts"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-                                <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> 
+                                <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
                                 <span class="s2">"start"</span> <span class="o">=&gt;</span> <span class="s2">"2014-03-05 00:00:00"</span><span class="p">,</span>
                                 <span class="s2">"end"</span> <span class="o">=&gt;</span> <span class="s2">"2014-03-08 23:59:59"</span>
                               <span class="p">));</span>
@@ -462,6 +462,99 @@ curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
 <th>Description</th>
 </tr></thead><tbody><tr><td>id</td>
 <td><strong>integer</strong><br />ID of the shift you want to send notifications about.</td>
+</tr></tbody></table>
+<h2 id="copy-shifts">Copy Shifts</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/shifts/copy/ <span class="se">\</span>
+ --data <span class="s1">'{
+     "target_start":"Sun, 27 Dec 2015 00:00:00 -0600",
+     "target_end":"Sat, 02 Jan 2016 23:59:59 -0600",
+     "location_id":4267,
+     "mode":"previous_week",
+     "conflicts":"avoid"
+ }'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"shifts/copy/"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"target_start"</span> <span class="o">=&gt;</span> <span class="s2">"Sun, 27 Dec 2015 00:00:00 -0600"</span><span class="p">,</span>
+  <span class="s2">"target_end"</span> <span class="o">=&gt;</span> <span class="s2">"Sat, 02 Jan 2016 23:59:59 -0600"</span><span class="p">,</span>
+  <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">4267</span><span class="p">,</span>
+  <span class="s2">"mode"</span> <span class="o">=&gt;</span> <span class="s2">"previous_week"</span><span class="p">,</span>
+  <span class="s2">"conflicts"</span><span class="o">:</span><span class="s2">"avoid"</span>
+<span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 shifts were copied."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27384</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">528479</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 28 Dec 2015 08:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 28 Dec 2015 16:00:00 -0600"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27385</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">845179</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Dec 2015 08:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 29 Dec 2015 16:00:00 -0600"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27386</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">528479</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 30 Dec 2015 08:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 30 Dec 2015 16:00:00 -0600"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This method allows you to copy shifts from one timeframe into another. There are
+two modes of operation, one that will copy the previous day&#39;s shifts, and another
+that will copy the previous week&#39;s shifts.</p>
+
+<p>There are 3 strategies to address shift conflicts that might arise from the
+copy operation. The &quot;conflicts&quot; parameter accepts values of &quot;overwrite&quot;, &quot;allow&quot;,
+and &quot;avoid&quot;. &quot;Overwrite&quot; will delete any previously existing shift that would have
+created a conflict with the newly copied shift. &quot;Allow&quot; will keep any conflicting
+shifts that result from the copy. &quot;Avoid&quot; will create newly copied shifts as
+OpenShifts that otherwise would have created a conflict with previously existing shifts.</p>
+
+<p>The newly created shifts resulting from the copy are included in the response.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>POST https://api.wheniwork.com/2/shifts/copy/</code></p>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>target_start</td>
+<td><strong>datetime</strong><br />Start time for time range into which shifts will be copied. Required.</td>
+</tr><tr><td>target_end</td>
+<td><strong>datetime</strong><br />End time for time range into which shifts will be copied. Required.</td>
+</tr><tr><td>mode</td>
+<td><strong>string</strong><br />&quot;previous_week&quot; or &quot;previous_day&quot; Indicates whether the source timerange is the week or day previous to the destination range. Required</td>
+</tr><tr><td>location_id</td>
+<td><strong>integer, integer array</strong><br />The ID(s) of the Location(s) for which shifts will be copied. Required.</td>
+</tr><tr><td>user_id</td>
+<td><strong>integer, integer array</strong><br />The ID(s) of the User(s) for which shifts will be copied. Optional.</td>
+</tr><tr><td>site_id</td>
+<td><strong>integer, integer array</strong><br />The ID(s) of the Site(s) for which shifts will be copied. Optional, defaults to all sites.</td>
+</tr><tr><td>position_id</td>
+<td><strong>integer, integer array</strong><br />The ID(s) of the Position(s) for which shifts will be copied. Optional, defaults to all positions.</td>
+</tr><tr><td>conflicts</td>
+<td><strong>string</strong><br />The strategy for addressing shift conflicts resulting from the copy. Accepts: &quot;overwrite&quot;, &quot;allow&quot;, or &quot;avoid&quot;. Documented above.</td>
 </tr></tbody></table>
 <h2 id="delete-shift">Delete Shift</h2>
 
