@@ -92,6 +92,101 @@ Key | Description
 <% param "id" do %>ID of the pay period requested.<% end %>
 
 
+
+## Payroll Stats
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/payrolls/24/stats \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+<% json do %>
+{
+  "payroll": <%= print_json(data.objects['payroll']) %>,
+  "stats": {
+    "employees": {
+      "4364": {
+        "hours": <%= print_json(data.objects['payrollstats']) %>,
+        "wages": <%= print_json(data.objects['payrollstats'], :include => {
+          'regular' => 800,
+          'overtime' => 95.6,
+          'double' => 0
+        }) %>
+      }
+    },
+    "positions": {
+      "32": {
+        "hours": <%= print_json(data.objects['payrollstats']) %>,
+        "wages": <%= print_json(data.objects['payrollstats'], :include => {
+          'regular' => 800,
+          'overtime' => 95.6,
+          'double' => 0
+        }) %>
+      }
+    },
+    "days": [
+      <%= print_json(data.objects['payrollstats'], :include => {
+        'regular' => 11.89,
+        'overtime' => 0,
+        'double' => 0
+      }) %>,
+      <%= print_json(data.objects['payrollstats'], :include => {
+        'regular' => 12.28,
+        'overtime' => 0,
+        'double' => 0
+      }) %>,
+      <%= print_json(data.objects['payrollstats'], :include => {
+        'regular' => 10.42,
+        'overtime' => 0,
+        'double' => 0
+      }) %>,
+      <%= print_json(data.objects['payrollstats'], :include => {
+        'regular' => 5.41,
+        'overtime' => 4.78,
+        'double' => 0
+      }) %>
+    ],
+    "locations": {
+      "136": {
+        "sites": [
+          {
+            "hours": <%= print_json(data.objects['payrollstats']) %>,
+            "wages": <%= print_json(data.objects['payrollstats'], :include => {
+              'regular' => 800,
+              'overtime' => 95.6,
+              'double' => 0
+            }) %>
+          }
+        ]
+      }
+    }
+  },
+  "users": [
+    <%= print_json(data.objects['user']) %>
+  ],
+  "locations": [
+    <%= print_json(data.objects['location']) %>
+  ]
+}
+<% end %>
+
+This method allows you to request aggregate statistics for a payroll period.
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/payrolls/{id}/stats`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "id" do %>ID of the pay period requested.<% end %>
+
+
+
 ## Create / Update Payroll
 
 ### Update HTTP Requests
