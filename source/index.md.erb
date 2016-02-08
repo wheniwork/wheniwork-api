@@ -230,7 +230,12 @@ Key | Description
 <% param "subdomain", "string" do %> The subdomain of this user.<%end%>
 <% param "account_id", "string(optional)" do %> The account id of this user.<%end%>
 
+Please note that all passwords must be:
 
+- at least 10 characters long
+- may not contain the email address
+- must have reasonable variation (eg. `aaaaaaaaaa` is not allowed)
+- must not be a dictionary word
 
 
 ## Web App SSO
