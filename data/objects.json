@@ -42,6 +42,12 @@
       "value": true,
       "show": true
     },
+    "bad_credit_card" : {
+      "type": "boolean",
+      "description": "Whether this account has an invalid credit card in use",
+      "value": false,
+      "show":true
+    },
     "plan_expires": {
       "type": "datetime",
       "description": "Date and time when this account's plan expires",
