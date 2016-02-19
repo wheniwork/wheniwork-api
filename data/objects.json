@@ -1478,7 +1478,7 @@
     },
     "is_private": {
       "type": "boolean",
-      "description": "Privacy setting to show email and phone number to other employees",
+      "description": "Privacy setting to show email and phone number to other employees (for managers/supervisors, email is always shown).",
       "value": "false"
     }
   },
@@ -1575,6 +1575,9 @@
     },
     "mobile-alerts": {
       "description": "Mobile Alerts"
+    },
+    "employee-control": {
+      "description": "Has Global Privacy Setting"
     }
   },
   "custom_features": {
