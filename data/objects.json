@@ -1584,5 +1584,42 @@
     "square-plan": {
       "description": "Account Billed through Square"
     }
+  },
+  "industry": {
+    "id": {
+      "type": "integer",
+      "description": "The unique ID for this industry object",
+      "value": "34"
+    },
+    "parent": {
+      "type": "integer",
+      "description": "The parent ID for this industry object",
+      "value": "28"
+    },
+    "sic_code": {
+      "type": "integer",
+      "description": "The unique SIC code",
+      "value": "5251"
+    },
+    "naics_code": {
+      "type": "integer",
+      "description": "The unique NAICS code",
+      "value": "5251"
+    },
+    "name": {
+      "type": "string",
+      "description": "The common name of the industry",
+      "value": "Hardware / Home Improvement"
+    },
+    "created_at": {
+      "type": "timestamp",
+      "description": "RFC 2822 timestamp of when the industry was added",
+      "value": "Fri, 11 Jan 2013 06:22:46 -0600"
+    },
+    "sort": {
+      "type": "integer",
+      "description": "The preferred sorted place of this industry",
+      "value": "14"
+    }
   }
 }

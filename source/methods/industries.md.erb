@@ -1,0 +1,139 @@
+
+> Example Object
+
+<% json do %>
+<%= print_json(data.objects['industry'], :verbose => true) %>
+<% end %>
+
+Industries identify the economic industry that an account operates in.
+
+<%= print_table(data.objects['industry'], :header => :industry) %>
+
+## Listing Industries
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/industries/ \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("industries/");
+?>
+```
+
+
+> Example Response
+
+<% json do %>
+{
+  "industries": [
+    {
+      "id": 23,
+      "sic_code": "7999",
+      "naics_code": "713990",
+      "name": "Entertainment / Seasonal",
+      "parent": 0,
+      "created_at": "Fri, 11 Jan 2013 06:20:55 -0600",
+      "sort": 10,
+      "children": [
+        {
+          "id": 37,
+          "sic_code": "8412",
+          "naics_code": "712110",
+          "name": "Music / Dance / Art",
+          "parent": 23,
+          "created_at": "Fri, 11 Jan 2013 06:21:58 -0600",
+          "sort": 19
+        },
+        {
+          "id": 26,
+          "sic_code": "7999",
+          "naics_code": "713920",
+          "name": "Ski Area / Seasonal",
+          "parent": 23,
+          "created_at": "Fri, 11 Jan 2013 06:21:44 -0600",
+          "sort": 29
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "sic_code": "5812",
+      "naics_code": "722310",
+      "name": "Food Service / Hospitality",
+      "parent": 0,
+      "created_at": "Fri, 11 Jan 2013 06:12:02 -0600",
+      "sort": 12,
+      "children": [
+        {
+          "id": 4,
+          "sic_code": "5813",
+          "naics_code": "722410",
+          "name": "Bar / Club / Sports Bar",
+          "parent": 1,
+          "created_at": "Fri, 11 Jan 2013 06:13:32 -0600",
+          "sort": 3
+        },
+        {
+          "id": 6,
+          "sic_code": "5812",
+          "naics_code": "722320",
+          "name": "Catering / Events",
+          "parent": 1,
+          "created_at": "Fri, 11 Jan 2013 06:14:00 -0600",
+          "sort": 5
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "sic_code": "",
+      "naics_code": "",
+      "name": "Technology / Software",
+      "parent": 0,
+      "created_at": "Fri, 11 Jan 2013 06:12:02 -0600",
+      "sort": 12,
+      "children": []
+    }
+  ]
+}
+<% end %>
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/industries/`
+
+## Get Existing Industry
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/industries/34 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("industries/34");
+?>
+```
+
+
+> Example Response
+
+<% json do %>
+<%= print_json(data.objects['industry'], :verbose => true) %>
+<% end %>
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/industries/{industry_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "industry_id" do %>ID of the industry being requested.<% end %>
+
+
