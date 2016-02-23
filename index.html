@@ -5957,6 +5957,188 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <td>Push token to be deleted.</td>
 </tr></tbody></table>
 
+<h1 id="industries">Industries</h1>
+
+<blockquote>
+<p>Example Object</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sic_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5251"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"naics_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5251"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hardware / Home Improvement"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 11 Jan 2013 06:22:46 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Industries identify the economic industry that an account operates in.</p>
+
+<h3 id="industry-object">Industry Object</h3>
+
+<table><thead><tr><th>Parameter</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>id</td>
+<td><strong>integer</strong><br />The unique ID for this industry object</td>
+</tr><tr><td>parent</td>
+<td><strong>integer</strong><br />The parent ID for this industry object</td>
+</tr><tr><td>sic_code</td>
+<td><strong>integer</strong><br />The unique SIC code</td>
+</tr><tr><td>naics_code</td>
+<td><strong>integer</strong><br />The unique NAICS code</td>
+</tr><tr><td>name</td>
+<td><strong>string</strong><br />The common name of the industry</td>
+</tr><tr><td>created_at</td>
+<td><strong>timestamp</strong><br />RFC 2822 timestamp of when the industry was added</td>
+</tr><tr><td>sort</td>
+<td><strong>integer</strong><br />The preferred sorted place of this industry</td>
+</tr></tbody></table>
+
+<h2 id="listing-industries">Listing Industries</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/industries/ <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"industries/"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"industries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sic_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7999"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"naics_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"713990"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entertainment / Seasonal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 11 Jan 2013 06:20:55 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"children"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sic_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8412"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"naics_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"712110"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Music / Dance / Art"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 11 Jan 2013 06:21:58 -0600"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sic_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7999"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"naics_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"713920"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ski Area / Seasonal"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 11 Jan 2013 06:21:44 -0600"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sic_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5812"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"naics_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"722310"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Food Service / Hospitality"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 11 Jan 2013 06:12:02 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"children"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sic_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5813"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"naics_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"722410"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bar / Club / Sports Bar"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 11 Jan 2013 06:13:32 -0600"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sic_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5812"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"naics_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"722320"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catering / Events"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 11 Jan 2013 06:14:00 -0600"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sic_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"naics_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Technology / Software"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 11 Jan 2013 06:12:02 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"children"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/industries/</code></p>
+
+<h2 id="get-existing-industry">Get Existing Industry</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/industries/34 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"industries/34"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sic_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5251"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"naics_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5251"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hardware / Home Improvement"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 11 Jan 2013 06:22:46 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/industries/{industry_id}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>industry_id</td>
+<td>ID of the industry being requested.</td>
+</tr></tbody></table>
+
 <h1 id="errors">Errors</h1>
 
 <p>When I Work uses the following error codes:</p>
