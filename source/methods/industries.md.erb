@@ -158,7 +158,11 @@ $result = $wiw->get("industries/place?types=home_goods_store,locksmith,establish
 > Example Response
 
 <% json do %>
-<%= print_json(data.objects['industry'], :verbose => true) %>
+{
+  "industries": [
+    <%= print_json(data.objects['industry'], :verbose => true) %>
+  ]
+}
 <% end %>
 
 ### HTTP Request
