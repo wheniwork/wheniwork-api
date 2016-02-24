@@ -14,7 +14,7 @@ Industries identify the economic industry that an account operates in.
 > Example Request
 
 ```shell
-curl -X POST <%=@api_prefix%>/2/industries/ \
+curl -X GET <%=@api_prefix%>/2/industries/ \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -110,7 +110,7 @@ $result = $wiw->get("industries/");
 > Example Request
 
 ```shell
-curl -X POST <%=@api_prefix%>/2/industries/34 \
+curl -X GET <%=@api_prefix%>/2/industries/34 \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -145,7 +145,7 @@ you can send a `place` request.
 > Example Request
 
 ```shell
-curl -X POST <%=@api_prefix%>/2/industries/place?types=home_goods_store,locksmith,establishment \
+curl -X GET <%=@api_prefix%>/2/industries/place?types=home_goods_store,locksmith,establishment \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
