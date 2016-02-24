@@ -221,6 +221,47 @@
 </tr></thead><tbody><tr><td>industry_id</td>
 <td>ID of the industry being requested.</td>
 </tr></tbody></table>
+<h2 id="find-matching-industries">Find Matching Industries</h2>
+
+<p>To find potentital matches for <a href="https://developers.google.com/places/supported_types">Google Place Types</a>,
+you can send a <code>place</code> request.</p>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/industries/place?types<span class="o">=</span>home_goods_store,locksmith,establishment <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"industries/place?types=home_goods_store,locksmith,establishment"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sic_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5251"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"naics_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5251"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hardware / Home Improvement"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 11 Jan 2013 06:22:46 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/industries/place?types={place_types}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>types</td>
+<td>A comma-separated list of place types.</td>
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">
