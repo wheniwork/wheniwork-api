@@ -137,3 +137,35 @@ Key | Description
 <% param "industry_id" do %>ID of the industry being requested.<% end %>
 
 
+## Find Matching Industries
+
+To find potentital matches for [Google Place Types](https://developers.google.com/places/supported_types),
+you can send a `place` request.
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/industries/place?types=home_goods_store,locksmith,establishment \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("industries/place?types=home_goods_store,locksmith,establishment");
+?>
+```
+
+> Example Response
+
+<% json do %>
+<%= print_json(data.objects['industry'], :verbose => true) %>
+<% end %>
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/industries/place?types={place_types}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "types" do %>A comma-separated list of place types.<% end %>
