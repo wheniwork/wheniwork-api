@@ -63,6 +63,7 @@
   </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC Company"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-company"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[\"all\",\"locations\",\"sites\", ...]"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
@@ -91,6 +92,8 @@
 <td><strong>string</strong><br />Subdomain of wheniwork.com to access company-specific When I Work web application</td>
 </tr><tr><td>enabled</td>
 <td><strong>boolean</strong><br />Whether this account object is enabled</td>
+</tr><tr><td>bad_credit_card</td>
+<td><strong>boolean</strong><br />Whether this account has an invalid credit card in use</td>
 </tr><tr><td>plan_expires</td>
 <td><strong>datetime</strong><br />Date and time when this account&#39;s plan expires</td>
 </tr><tr><td>features</td>
@@ -146,6 +149,7 @@
     </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="w">
@@ -159,6 +163,7 @@
       </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC Company"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC Company"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="w">
@@ -239,6 +244,7 @@
     </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="w">
