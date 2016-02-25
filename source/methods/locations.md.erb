@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['location'], :verbose => true) %>
+<%= print_json(data.objects['location'], :include => {'place' => data.objects['place']}, :verbose => true) %>
 <% end %>
 
 Locations are the main physical locations where your business operates and where employees, managers, and supervisors are assigned.
@@ -40,7 +40,8 @@ $result = $wiw->get("locations");
       'coordinates' => [
         '34.141362',
         '-118.349732'
-      ]
+      ],
+      'place' => data.objects['place']
     }) %>
   ]
 }
@@ -87,7 +88,9 @@ $result = $wiw->get("locations/nearby", array(
       :latitude => 44.937401,
       :longitude => 93.083855,
       :distance => "37.31790518480344",
-      :radius => 100
+      :radius => 100,
+        :place => data.objects['place']
+
     }) %>
   ],
   "sites": [
@@ -137,7 +140,9 @@ $result = $wiw->get("locations/<%= data.objects['location']['id']['value'] %>");
 
 <% json do %>
 {
-  "location": <%= print_json(data.objects['location']) %>
+  "location": <%= print_json(data.objects['location'], :include => {
+    :place => data.objects['place']
+  }) %>
 }
 <% end %>
 
@@ -192,7 +197,8 @@ $result = $wiw->update("locations/<%= data.objects['location']['id']['value'] %>
 <% json do %>
 {
   "location": <%= print_json(data.objects['location'], :include => {
-    :name => "Uptown"
+    :name => "Uptown",
+    :place => data.objects['place']
   }) %>
 }
 <% end %>
