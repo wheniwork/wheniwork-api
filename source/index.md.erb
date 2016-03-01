@@ -64,7 +64,7 @@ $result = Wheniwork::login(
 {
   "login": <%= print_json(data.objects['login']) %>,
   "users": [
-    <%= print_json(data.objects['user']) %> 
+    <%= print_json(data.objects['user']) %>
   ]
 }
 <% end %>
@@ -258,16 +258,21 @@ $result = $wiw->get("login/find?q=when");
 <% json do %>
 {
   "accounts": [
-    {
-      "id": 34406,
-      "type": 3,
-      "company": "When I Work",
-      "subdomain": "thisclicks",
-      "account_holder": "Jeff",
-      "logo": "https://s3.amazonaws.com/...",
-      "place": <%= print_json(data.objects['place']) %>,
-      "registered": true
-    }
+    <%= print_json(data.objects['account_search_result'], :include => {
+      'id' => 11,
+      'company' => 'When I Work',
+      'subdomain' => 'wheniwork',
+      'account_holder' => 'Randy Olson',
+      'type' => 3,
+      'place' => data.objects['place']
+    }) %>,
+    <%= print_json(data.objects['account_search_result'], :include => {
+      'id' => 17,
+      'company' => 'When Bagels Met Donuts',
+      'subdomain' => 'bagelsdonuts',
+      'account_holder' => 'Jimmy Baker',
+      'type' => 3
+    }) %>
   ]
 }
 <% end %>
@@ -441,4 +446,3 @@ Error Code | Meaning
 429 | Too Many Requests -- The server is not able to address the number of queries
 500 | Internal Server Error -- An internal server error occurred
 503 | Service Unavailable -- The service is temporarily offline for maintenance
-
