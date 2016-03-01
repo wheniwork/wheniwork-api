@@ -320,6 +320,58 @@
 <li>must not be a dictionary word</li>
 </ul>
 
+<h2 id="find-account">Find Account</h2>
+
+<p>In order to find accounts that a user has joined or may want to join, you can use the <code>login/find</code> endpoint.</p>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/login/find?q<span class="o">=</span>when <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"login/find?q=when"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34406</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When I Work"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thisclicks"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jeff"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/..."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When I Work"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60 Plato Blvd, St Paul, MN 55107, United States"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"place_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJYfRBzjfVslIRQLB018IGX3o"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"place_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"point_of_interest,establishment"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44.93739849"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-93.0843011"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"registered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>q</td>
+<td><strong>string</strong><br />A search term to match against the company name or address.</td>
+</tr><tr><td>places</td>
+<td><strong>boolean</strong><br /> Also search for matching Google Places.</td>
+</tr><tr><td>place_id</td>
+<td><strong>string array</strong><br /> Look for specific Google Places that match accounts or locations in accounts.</td>
+</tr></tbody></table>
 <h2 id="web-app-sso">Web App SSO</h2>
 
 <blockquote>
