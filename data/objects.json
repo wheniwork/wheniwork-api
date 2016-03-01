@@ -1524,31 +1524,37 @@
   },
   "place": {
     "business_name": {
+      "show": true,
       "type": "string",
       "description": "(Optional) Business Name",
       "value": "When I Work"
     },
     "address": {
+      "show": true,
       "type": "string",
       "description": "Place Address",
       "value": "60 Plato Blvd, St Paul, MN 55107, United States"
     },
     "place_id": {
+      "show": true,
       "type": "string",
       "description": "Place id returned by google",
       "value": "ChIJYfRBzjfVslIRQLB018IGX3o"
     },
     "place_type": {
+      "show": true,
       "type": "string, array",
       "description": "Types returned by google",
       "value": "point_of_interest,establishment"
     },
     "latitude": {
+      "show": true,
       "type": "string, decimal",
       "description": "Latitude of place location",
       "value": "44.93739849"
     },
     "longitude": {
+      "show": true,
       "type": "string, decimal",
       "description": "Longitude of place location",
       "value": "-93.0843011"
