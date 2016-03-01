@@ -237,6 +237,50 @@ Please note that all passwords must be:
 - must have reasonable variation (eg. `aaaaaaaaaa` is not allowed)
 - must not be a dictionary word
 
+## Find Account
+
+In order to find accounts that a user has joined or may want to join, you can use the `login/find` endpoint.
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/login/find?q=when \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("login/find?q=when");
+?>
+```
+> Example Response
+
+<% json do %>
+{
+  "accounts": [
+    {
+      "id": 34406,
+      "type": 3,
+      "company": "When I Work",
+      "subdomain": "thisclicks",
+      "account_holder": "Jeff",
+      "logo": "https://s3.amazonaws.com/...",
+      "place": <%= print_json(data.objects['place']) %>,
+      "registered": true
+    }
+  ]
+}
+<% end %>
+
+### Parameters
+
+Key | Description
+--------- | -----------
+<% param "q", "string" do %>A search term to match against the company name or address.<% end %>
+<% param "places", "boolean" do %> Also search for matching Google Places.<%end%>
+<% param "place_id", "string array" do %> Look for specific Google Places that match accounts or locations in accounts.<%end%>
+
+
 
 ## Web App SSO
 
