@@ -79,9 +79,62 @@
     "place": {
       "type": "[Place Object](#place-object)",
       "description": "Object Containing place information",
-      "value": ""
+      "value": null,
+      "show": true
     }
   },
+
+  "account_search_result": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the account",
+      "value": 10000,
+      "show": true
+    },
+    "company": {
+      "type": "string",
+      "description": "Name of the company for which this account is in use",
+      "value": "ABC Company",
+      "show": true
+    },
+    "subdomain": {
+      "type": "string",
+      "description": "Subdomain of wheniwork.com to access company-specific When I Work web application",
+      "value": "abc-company",
+      "show": true
+    },
+    "type" : {
+      "type": "integer",
+      "description": "Account type. Must be one of:<br> 1 = SCHEDULING<br> 2 = ATTENDANCE<br> 3 = BOTH",
+      "value": 3,
+      "show": true
+    },
+    "logo" : {
+      "type" : "string",
+      "description": "Path to the image file for the company's logo",
+      "value": "https:\/\/s3.amazonaws.com\/files.wheniwork.com\/logos\/16434.gif",
+      "show": true
+    },
+    "account_holder": {
+      "type": "string",
+      "description": "Name of the account holder (owner) of the account",
+      "value": "Randy Olson",
+      "show": true
+    },
+    "registered": {
+      "type": "boolean",
+      "description": "A flag indicating whether or not this account is registered",
+      "value": true,
+      "show": true
+    },
+    "place": {
+      "type": "[Place Object](#place-object)",
+      "description": "Object containing place information",
+      "value": null,
+      "show": true
+    }
+  },
+
   "shift": {
     "id": {
       "type": "integer",
