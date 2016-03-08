@@ -3,6 +3,11 @@
 
 function toggleCodeSection(selector) {
     $(selector).toggleClass('expanded');
+
+    var scrollTo = $(selector).offset().top - 40;
+    if (!$(selector).hasClass('expanded') && $(document).scrollTop() > scrollTo) {
+        $('html, body').scrollTop(scrollTo);
+    }
 }
 
 function toggleTable(selector) {
@@ -19,7 +24,7 @@ function collapseTable(selector) {
         var needsSpacer = ns;
 
         return function(i, tr) {
-            var rowCanCollapse = $(tr).hasClass("collapse");
+            var rowCanCollapse = $(tr).hasClass('collapse');
             if (rowCanCollapse) {
                 sectionInProgress = true;
                 needsSpacer = !needsSpacer;
@@ -57,15 +62,3 @@ function expandTable(selector) {
 
     $(table).addClass('expanded');
 }
-
-$(document).ready(function() {
-    $('.collapse-links a').on('click', function(event) {
-        event.preventDefault();
-        var linkTarget = $(this).attr("href");
-        
-        var scrollTo = $(linkTarget).offset().top - 40;
-        if ($(this).hasClass("collapse-link") && $(document).scrollTop() > scrollTo) {
-            $("html, body").scrollTop($(linkTarget).offset().top - 40);
-        }
-    });
-});
