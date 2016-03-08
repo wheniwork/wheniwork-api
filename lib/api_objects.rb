@@ -50,10 +50,26 @@ class ApiObjects < Middleman::Extension
         hash[key] = {'value' => value, 'show' => true}
         hash
       end
+
+      collapse_active = false
       object.merge(inc).each do |key, obj|
-        if options[:verbose] || obj['show']
+        if options[:collapse]
+          if !obj['show'] && !collapse_active
+            collapse_active = true
+            formatted.merge!("SECTION_START_before_#{key}" => true)
+          elsif obj['show'] && collapse_active
+            collapse_active = false
+            formatted.merge!("SECTION_END_before_#{key}" => true)
+          end
+        end
+
+        if options[:verbose] || options[:collapse] || obj['show']
           formatted.merge!(key => obj['value'])
         end
+      end
+
+      if options[:collapse] && collapse_active
+        formatted.merge!("SECTION_END_at_end" => true)
       end
 
       json = JSON.pretty_generate(formatted)

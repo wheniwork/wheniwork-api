@@ -476,7 +476,16 @@ html, body {
     }
 
     .hide-section {
-      display: none;
+      & > * {
+        display: none;
+      }
+      & > .w:first-of-type {
+        display: block;
+        &::after {
+          content: '// ...';
+          color: #999;
+        }
+      }
     }
 
     .expand-link, .collapse-link {
@@ -496,7 +505,15 @@ html, body {
 
     &.expanded {
       .hide-section {
-        display: inline;
+        & > * {
+          display: inline;
+        }
+        & > .w:first-of-type {
+          display: inline;
+          &::after {
+            display: none;
+          }
+        }
       }
 
       .expand-link {
