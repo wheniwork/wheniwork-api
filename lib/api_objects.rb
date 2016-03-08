@@ -53,7 +53,7 @@ class ApiObjects < Middleman::Extension
 
       collapse_active = false
       object.merge(inc).each do |key, obj|
-        if options[:collapse]
+        if options[:collapse] && !options[:verbose]
           if !obj['show'] && !collapse_active
             collapse_active = true
             formatted.merge!("SECTION_START_before_#{key}" => true)
