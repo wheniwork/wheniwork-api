@@ -241,6 +241,10 @@ Please note that all passwords must be:
 
 In order to find accounts that a user has joined or may want to join, you can use the `login/find` endpoint.
 
+The results returned may include expired accounts.
+
+A maximum of 100 results will be returned and there is no pagination support.
+
 > Example Request
 
 ```shell
@@ -264,6 +268,7 @@ $result = $wiw->get("login/find?q=when");
       'subdomain' => 'wheniwork',
       'account_holder' => 'Randy Olson',
       'type' => 3,
+      'registered' => false,
       'place' => data.objects['place']
     }) %>,
     <%= print_json(data.objects['account_search_result'], :include => {
@@ -285,6 +290,7 @@ Key | Description
 <% param "places", "boolean" do %> Also search for matching Google Places.<%end%>
 <% param "place_id", "string array" do %> Look for specific Google Places that match accounts or locations in accounts.<%end%>
 
+Either `place_id` or `q` is required. If `places` is enabled, the search term `q` will also be matched against place names and addresses.
 
 
 ## Web App SSO
