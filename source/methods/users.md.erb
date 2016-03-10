@@ -71,7 +71,7 @@ $result = $wiw->get("users/4364");
 
 <% json do %>
 {
-  "user": <%= print_json(data.objects['user'], :include => {
+  "user": <%= print_json(data.objects['user'], :verbose => true, :include => {
     :notes => "This user excels at awesome."
   }) %>
 }

@@ -314,6 +314,11 @@
       "description": "The hourly rate for this user.",
       "value": 15.50
     },
+    "type": {
+        "type": "integer",
+        "description": "A bitwise flag representing additional wage options: 1 = hourly employee, 2 = salaried employee, 4 = exempt from overtime.",
+        "value": 1
+    },
     "last_login": {
       "type": "datetime",
       "description": "The date and time when this user last logged in.",
@@ -334,6 +339,31 @@
         34,
         58934
       ]
+    },
+    "is_deleted": {
+        "type": "boolean",
+        "description": "Whether the user has been deleted.",
+        "value": false
+    },
+    "is_hidden": {
+        "type": "boolean",
+        "description": "Whether the user has been hidden from the scheduler.",
+        "value": false
+    },
+    "is_payroll": {
+        "type": "boolean",
+        "description": "Whether the user has access to payroll. (Only available for managers and supervisors.)",
+        "value": false
+    },
+    "is_private": {
+        "type": "boolean",
+        "description": "Whether the user has privacy enabled, which will hide their contact details from other employees.",
+        "value": false
+    },
+    "is_trusted": {
+        "type": "boolean",
+        "description": "Whether the user can edit their own timesheet.",
+        "value": false
     }
   },
   "location": {
