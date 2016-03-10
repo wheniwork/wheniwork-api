@@ -314,6 +314,11 @@
       "description": "The hourly rate for this user.",
       "value": 15.50
     },
+    "type": {
+        "type": "integer",
+        "description": "A bitwise flag representing additional wage options: 1 = hourly employee, 2 = salaried employee, 4 = exempt from overtime.",
+        "value": 1
+    },
     "last_login": {
       "type": "datetime",
       "description": "The date and time when this user last logged in.",
