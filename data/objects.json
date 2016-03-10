@@ -339,6 +339,31 @@
         34,
         58934
       ]
+    },
+    "is_deleted": {
+        "type": "boolean",
+        "description": "Whether the user has been deleted.",
+        "value": false
+    },
+    "is_hidden": {
+        "type": "boolean",
+        "description": "Whether the user has been hidden from the scheduler.",
+        "value": false
+    },
+    "is_payroll": {
+        "type": "boolean",
+        "description": "Whether the user has access to payroll. (Only available for managers and supervisors.)",
+        "value": false
+    },
+    "is_private": {
+        "type": "boolean",
+        "description": "Whether the user has privacy enabled, which will hide their contact details from other employees.",
+        "value": false
+    },
+    "is_trusted": {
+        "type": "boolean",
+        "description": "Whether the user can edit their own timesheet.",
+        "value": false
     }
   },
   "location": {
