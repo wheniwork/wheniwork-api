@@ -324,6 +324,10 @@
 
 <p>In order to find accounts that a user has joined or may want to join, you can use the <code>login/find</code> endpoint.</p>
 
+<p>The results returned may include expired accounts.</p>
+
+<p>A maximum of 100 results will be returned and there is no pagination support.</p>
+
 <blockquote>
 <p>Example Request</p>
 </blockquote>
@@ -342,21 +346,61 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34406</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
       </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When I Work"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thisclicks"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jeff"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/..."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wheniwork"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Randy Olson"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"registered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When I Work"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60 Plato Blvd, St Paul, MN 55107, United States"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"place_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJYfRBzjfVslIRQLB018IGX3o"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"place_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"point_of_interest,establishment"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44.93739849"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-93.0843011"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"registered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="nt">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(Optional) Business Name"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When I Work"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place Address"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60 Plato Blvd, St Paul, MN 55107, United States"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"place_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place id returned by google"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJYfRBzjfVslIRQLB018IGX3o"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"place_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string, array"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Types returned by google"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"point_of_interest,establishment"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string, decimal"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Latitude of place location"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44.93739849"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"show"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string, decimal"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Longitude of place location"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-93.0843011"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When Bagels Met Donuts"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bagelsdonuts"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy Baker"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"registered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -372,6 +416,8 @@
 </tr><tr><td>place_id</td>
 <td><strong>string array</strong><br /> Look for specific Google Places that match accounts or locations in accounts.</td>
 </tr></tbody></table>
+<p>Either <code>place_id</code> or <code>q</code> is required. If <code>places</code> is enabled, the search term <code>q</code> will also be matched against place names and addresses.</p>
+
 <h2 id="web-app-sso">Web App SSO</h2>
 
 <blockquote>
@@ -1041,7 +1087,7 @@ OpenShifts that otherwise would have created a conflict with previously existing
   </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1131,7 +1177,8 @@ OpenShifts that otherwise would have created a conflict with previously existing
     </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="w">
+    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1145,7 +1192,8 @@ OpenShifts that otherwise would have created a conflict with previously existing
       </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="w">
+      </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1235,7 +1283,8 @@ OpenShifts that otherwise would have created a conflict with previously existing
     </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="w">
+    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1286,6 +1335,7 @@ OpenShifts that otherwise would have created a conflict with previously existing
   </span><span class="nt">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
   </span><span class="nt">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
   </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"last_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 05 Oct 2015 18:26:44 -0500"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">12284</span><span class="p">,</span><span class="w">
@@ -1294,7 +1344,12 @@ OpenShifts that otherwise would have created a conflict with previously existing
   </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">34</span><span class="p">,</span><span class="w">
     </span><span class="mi">58934</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_payroll"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1330,12 +1385,24 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <td><strong>float</strong><br />The max hours that this user can work.</td>
 </tr><tr><td>hourly_rate</td>
 <td><strong>float</strong><br />The hourly rate for this user.</td>
+</tr><tr><td>type</td>
+<td><strong>integer</strong><br />A bitwise flag representing additional wage options: 1 = hourly employee, 2 = salaried employee, 4 = exempt from overtime.</td>
 </tr><tr><td>last_login</td>
 <td><strong>datetime</strong><br />The date and time when this user last logged in.</td>
 </tr><tr><td>positions</td>
 <td><strong>array (of IDs)</strong><br />An array of positions to be assigned to this user.</td>
 </tr><tr><td>locations</td>
 <td><strong>array (of IDs)</strong><br />An array of locations to be applied to this user.</td>
+</tr><tr><td>is_deleted</td>
+<td><strong>boolean</strong><br />Whether the user has been deleted.</td>
+</tr><tr><td>is_hidden</td>
+<td><strong>boolean</strong><br />Whether the user has been hidden from the scheduler.</td>
+</tr><tr><td>is_payroll</td>
+<td><strong>boolean</strong><br />Whether the user has access to payroll. (Only available for managers and supervisors.)</td>
+</tr><tr><td>is_private</td>
+<td><strong>boolean</strong><br />Whether the user has privacy enabled, which will hide their contact details from other employees.</td>
+</tr><tr><td>is_trusted</td>
+<td><strong>boolean</strong><br />Whether the user can edit their own timesheet.</td>
 </tr></tbody></table>
 
 <h2 id="listing-users">Listing Users</h2>
@@ -1415,10 +1482,33 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This user excels at awesome."</span><span class="w">
+    </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"employee_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1020"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This user excels at awesome."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 05 Oct 2015 18:26:44 -0500"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">12284</span><span class="p">,</span><span class="w">
+      </span><span class="mi">9554</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">34</span><span class="p">,</span><span class="w">
+      </span><span class="mi">58934</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_payroll"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1535,6 +1625,34 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 </tr></thead><tbody><tr><td>reactivate</td>
 <td><strong>boolean</strong><br />Whether to reactivate a previously deleted user.</td>
 </tr></tbody></table>
+
+<h2 id="update-user-avatar">Update User Avatar</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/users/avatar/4364 <span class="se">\</span>
+ --data-binary <span class="s1">'@path/to/image.jpg'</span> <span class="se">\</span>
+ -H <span class="s2">"Content-Type: image/jpg"</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"users/avatar/4364"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"avatar"</span><span class="o">=&gt;</span> <span class="s2">"@"</span> <span class="o">.</span> <span class="nb">realpath</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span> <span class="o">.</span> <span class="s2">";filename=image.jpg"</span>
+<span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>You can either send binary content (with a valid <code>Content-Type</code> header) or send a multi-part form upload with an <code>avatar</code> field.</p>
+
+<h3 id="response">Response</h3>
+
+<p>The response will be a JSON object with details about the avatar. The response will always include a redirect to the avatar image, so be sure to disable following redirects if you want to read details about the avatar.</p>
 
 <h2 id="get-user-profile">Get User Profile</h2>
 
