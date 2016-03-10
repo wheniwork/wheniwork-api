@@ -173,6 +173,33 @@ Key | Description
 <% param "reactivate", "boolean" do %>Whether to reactivate a previously deleted user.<% end %>
 
 
+## Update User Avatar
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/users/avatar/4364 \
+ --data-binary '@path/to/image.jpg' \
+ -H "Content-Type: image/jpg" \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("ilovemyboss");
+$result = $wiw->post("users/avatar/4364", array(
+  "avatar"=> "@" . realpath("path/to/image.jpg") . ";filename=image.jpg"
+));
+?>
+```
+
+### Parameters
+
+You can either send binary content (with a valid `Content-Type` header) or send a multi-part form upload with an `avatar` field.
+
+### Response
+
+The response will be a JSON object with details about the avatar. The response will always include a redirect to the avatar image, so be sure to disable following redirects if you want to read details about the avatar.
+
 ## Get User Profile
 
 > Example Request
