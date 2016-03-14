@@ -107,17 +107,20 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-30" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1946</span><span class="p">,</span><span class="w">
+</span></span>      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 17 Feb 2014"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 23 Feb 2014"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Winter Schedule"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our weekly schedule for December - March."</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our weekly schedule for December - March."</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
+</span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"templateshifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -128,12 +131,15 @@
       </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 08:00:00 -0500"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 15:00:00 -0500"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 15:00:00 -0500"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"break_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a8dd9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All company meeting!"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"linked_users"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-30')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-30')">Hide extra fields</a></pre>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/templates</code></p>
@@ -150,17 +156,20 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-31" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1946</span><span class="p">,</span><span class="w">
+</span></span>      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 17 Feb 2014"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 23 Feb 2014"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Winter Schedule"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our weekly schedule for December - March."</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our weekly schedule for December - March."</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
+</span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"templateshifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -171,8 +180,12 @@
       </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 08:00:00 -0500"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 15:00:00 -0500"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 15:00:00 -0500"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"break_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a8dd9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All company meeting!"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"linked_users"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span></span>    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"144"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"template_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -181,8 +194,12 @@
       </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 08:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 17:00:00 -0600"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 17:00:00 -0600"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"break_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a8dd9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All company meeting!"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"linked_users"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span></span>    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"148"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"template_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -191,12 +208,15 @@
       </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 16:00:00 -0600"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 16:00:00 -0600"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"break_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a8dd9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All company meeting!"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"linked_users"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-31')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-31')">Hide extra fields</a></pre>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/templates/{template_id}</code></p>
@@ -229,17 +249,20 @@
 <blockquote>
 <p>Example Response Object</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-32" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">137</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1946</span><span class="p">,</span><span class="w">
+</span></span>      </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">137</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 17 Feb 2014"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 23 Feb 2014"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe 80's February Shift Template"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our weekly schedule for December - March."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-01"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="p">,</span><span class="w">
+</span></span>      </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-01"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-28"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -253,12 +276,15 @@
       </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 08:00:00 -0500"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 15:00:00 -0500"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Feb 2014 15:00:00 -0500"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"break_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a8dd9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All company meeting!"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"linked_users"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-32')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-32')">Hide extra fields</a></pre>
 <h3 id="create-http-request">Create HTTP Request</h3>
 
 <p><code>POST https://api.wheniwork.com/2/templates/</code></p>
