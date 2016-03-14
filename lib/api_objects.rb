@@ -45,6 +45,10 @@ class ApiObjects < Middleman::Extension
     end
 
     def print_json(object, options={})
+      if !options.has_key?(:collapse)
+        options[:collapse] = true
+      end
+
       formatted = {}
       inc = (options[:include] || {}).inject({}) do |hash, (key, value)|
         hash[key] = {'value' => value, 'show' => true}
