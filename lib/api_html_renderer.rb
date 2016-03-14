@@ -159,7 +159,7 @@ class APIHtmlRenderer < ::Redcarpet::Render::HTML
     "<a class=\"#{klass}\" onclick=\"toggleCodeSection('#{selector}')\">#{message}</a>"
   end
 
-  def expand_code_link(selector, message = "Show more fields")
+  def expand_code_link(selector, message = "Show hidden fields")
     toggle_code_link('expand-link', selector, message)
   end
 
