@@ -89,7 +89,7 @@ $result = $wiw->get("account/11");
 
 <% json do %>
 {
-  "account": <%= print_json(data.objects['account'], :include => {
+  "account": <%= print_json(data.objects['account'], :verbose => true, :include => {
     'id' => 11,
     'master_id' => 11,
     'company' => '123 Company',

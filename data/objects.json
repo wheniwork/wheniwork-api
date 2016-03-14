@@ -10,7 +10,7 @@
       "type": "integer",
       "description": "The id of the parent account (if this is a subaccount)",
       "value": 0,
-      "show": true
+      "show": false
     },
     "type" : {
       "type": "integer",
@@ -22,7 +22,7 @@
       "type" : "string",
       "description": "Path to the image file for the company's logo",
       "value": "https:\/\/s3.amazonaws.com\/files.wheniwork.com\/logos\/16434.gif",
-      "show": true
+      "show": false
     },
     "company": {
       "type": "string",
@@ -46,13 +46,13 @@
       "type": "boolean",
       "description": "Whether this account has an invalid credit card in use",
       "value": false,
-      "show":true
+      "show": false
     },
     "plan_expires": {
       "type": "datetime",
       "description": "Date and time when this account's plan expires",
       "value": "Sun, 14 Feb 2016 00:00:00 -0600",
-      "show": true
+      "show": false
     },
     "features": {
         "type": "array",
@@ -63,13 +63,13 @@
       "type": "integer",
       "description": "Identifier for time zone, as specified in the [PHP docs](http://php.net/manual/en/class.datetimezone.php).",
       "value": "11",
-      "show": true
+      "show": false
     },
     "timezone_name": {
       "type": "string",
       "description": "Name for the timezone specified in the timezone_id",
       "value": "America\/Chicago",
-      "show": true
+      "show": false
     },
     "settings": {
       "type": "json",
@@ -80,7 +80,7 @@
       "type": "[Place Object](#place-object)",
       "description": "Object Containing place information",
       "value": null,
-      "show": true
+      "show": false
     }
   },
 
@@ -265,7 +265,7 @@
       "type": "string",
       "description": "The email address of this user.",
       "value": "goldiewilson@hillvalleycalifornia.gov",
-      "show": true
+      "show": false
     },
     "first_name": {
       "type": "string",
@@ -406,7 +406,6 @@
           "description": "Object Containing place information",
           "value": ""
       }
-
   },
   "site": {
       "id": {
@@ -437,7 +436,6 @@
           "description": "The new coordinates for the site, as an array of comma separated values.",
           "value": ["33.9935161","-117.9264044"]
       }
-
   },
   "position": {
       "id": {
@@ -449,7 +447,8 @@
       "account_id": {
           "type": "integer",
           "description": "The ID of the account that the position belongs to.",
-          "value": 3
+          "value": 3,
+          "show": true
       },
       "name": {
           "type": "string",
@@ -484,7 +483,8 @@
       "account_id": {
           "type": "integer",
           "description": "The ID of the account the shift block is attached to.",
-          "value": 0
+          "value": 0,
+          "show": true
       },
       "location_id": {
           "type": "integer",
@@ -542,7 +542,8 @@
       "account_id": {
           "type": "integer",
           "description": "The ID of the account that this user's availability is tied to.",
-          "value": 77
+          "value": 77,
+          "show": true
       },
       "user_id": {
           "type": "integer",
@@ -565,12 +566,14 @@
       "start_date": {
           "type": "date",
           "description": "The starting date of the time period the availability is designated for.",
-          "value": "Tue, 1 Jun 2014"
+          "value": "Fri, 13 Apr 2014",
+          "show": true
       },
       "end_date": {
           "type": "date",
           "description": "The ending date of the time period the availability is designated for.",
-          "value": "Fri, 13 Apr 2012"
+          "value": "Tue, 1 Jun 2014",
+          "show": true
       },
       "ongoing": {
           "type": "boolean",
@@ -610,7 +613,8 @@
       "user_id": {
           "type": "integer",
           "description": "The ID of the user that the availability item is associated with.",
-          "value": 4634
+          "value": 4634,
+          "show": true
       },
       "day": {
           "type": "integer",
@@ -635,7 +639,6 @@
           "description": "The end time of the availability for the specified day.",
           "value": "16:00:00",
           "show": true
-
       },
       "created_at": {
           "type": "datetime",
@@ -658,7 +661,8 @@
       "account_id": {
           "type": "integer",
           "description": "The account ID that the message is associated with.",
-          "value": 0
+          "value": 0,
+          "show": true
       },
       "user_id": {
           "type": "integer",
@@ -736,7 +740,8 @@
       "account_id": {
           "type": "integer",
           "description": "The ID of the account associated with the swap.",
-          "value": 0
+          "value": 0,
+          "show": true
       },
       "user_id": {
           "type": "integer",
@@ -920,7 +925,8 @@
        "account_id": {
            "type": "integer",
            "description": "The ID of the account this request belongs to. ",
-           "value": 0
+           "value": 0,
+           "show": true
        },
        "user_id": {
            "type": "integer",
@@ -1072,12 +1078,14 @@
       "is_closed": {
           "type": "boolean",
           "description": "Whether the payroll period is closed",
-          "value": true
+          "value": true,
+          "show": true
       },
       "is_finalized": {
           "type": "boolean",
           "description": "True if the payroll period has been finalized.",
-          "value": true
+          "value": true,
+          "show": true
       },
       "finalized_at": {
           "type": "datetime",
@@ -1142,7 +1150,8 @@
       "total": {
           "type": "float",
           "description": "The total wages for these hours.",
-          "value": 318.94
+          "value": 318.94,
+          "show": true
       }
   },
   "payrollstats": {
@@ -1175,7 +1184,8 @@
       "account_id": {
           "type": "integer",
           "description": "The ID of the account this entry is associated with.",
-          "value": 0
+          "value": 0,
+          "show": true
       },
       "user_id": {
           "type": "integer",
@@ -1385,22 +1395,26 @@
     "start_date": {
       "type": "string",
       "description": "ISO8601 timestamp of when the annotation's range begins.",
-      "value": "2015-02-19T06:00:00+0000"
+      "value": "2015-02-19T06:00:00+0000",
+      "show": true
     },
     "end_date": {
       "type": "string",
       "description": "ISO8601 timestamp of when the annotation's range ends.",
-      "value": "2015-02-22T05:59:59+0000"
+      "value": "2015-02-22T05:59:59+0000",
+      "show": true
     },
     "title": {
       "type": "string",
       "description": "Title for annotation (required).",
-      "value": "Closed for painting"
+      "value": "Closed for painting",
+      "show": true
     },
     "message": {
       "type": "string",
       "description": "Message detailing the annotation (optional).",
-      "value": "We are closed while we have the Minneapolis Store painted."
+      "value": "We are closed while we have the Minneapolis Store painted.",
+      "show": true
     },
     "color": {
       "type": "string",
@@ -1410,17 +1424,20 @@
     "business_closed": {
       "type": "boolean",
       "description": "Business Closed tag",
-      "value": true
+      "value": true,
+      "show": true
     },
     "no_time_off": {
       "type": "boolean",
       "description": "Time Off Not Allowed tag",
-      "value": true
+      "value": true,
+      "show": true
     },
     "announcement": {
       "type": "boolean",
       "description": "Announcement tag",
-      "value": false
+      "value": false,
+      "show": true
     },
     "locations": {
       "type": "array of integer for input, array of objects on output",
