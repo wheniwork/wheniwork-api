@@ -50,6 +50,7 @@ Key | Description
 --- | -----------
 <% param "ids", "integer array" do %>The IDs of the users to retrieve, as a comma-separated list (e.g. `9,17,42`).<% end %>
 <% param "location_id", "integer, integer array" do %>The ID of the location to get users for. For multiple locations, enter a list of location IDs separated by commas.<% end %>
+<% param "show_deleted", "boolean" do %>Whether to include deleted users in the results. Defaults to `false`.<% end %>
 
 
 ## Get Existing User
