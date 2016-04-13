@@ -34,6 +34,9 @@ curl <%=@api_prefix%>/2/times \
   ],
   "users": [
     <%= print_json(data.objects['user']) %>
+  ],
+  "locations": [
+    <%= print_json(data.objects['location']) %>
   ]
 }
 <% end %>
