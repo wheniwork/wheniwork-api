@@ -119,6 +119,56 @@ Key | Description
 
 The `POST` and/or `PUT` body can include fields from the [Account Object](#accounts).
 
+
+## Invite to Account
+
+Managers can be invited to unclaimed accounts by using this endpoint.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/account/{account_id}/invite`
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/account/35/invite \
+ -H "W-Token: <%=@wiw_token%>" \
+ -data '{"email":"sally@example.com","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("account/11/invite", array(
+    "email" => "sally@example.com",
+    "manager_name" => "Sally Smith",
+    "message" => "This scheduling app is really slick!",
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "success": true
+}
+<% end %>
+
+### Parameters
+
+Either `email` or `phone_number` must be provided. If both are provided, an SMS and an email will be sent.
+
+Key | Description
+--- | -----------
+<% param "account_id" do %>ID of the account object.<% end %>
+<% param "email" do %>Email address of the manager.<% end %>
+<% param "phone_number" do %>Phone number of the manager.<% end %>
+<% param "region" do %>Two letter country code of the phone number. This can be omitted if the phone number is in [E164][e164] format.<% end %>
+<% param "manager_name" do %>Managers name.<% end %>
+<% param "message" do %>A custom message that will be added to the invite.<% end %>
+
+[e164]: https://en.wikipedia.org/wiki/E.164
+
+
 ## Claim Account
 
 > Example Request
