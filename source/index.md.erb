@@ -18,25 +18,22 @@ Feel free to [contact us](http://support.wheniwork.com) if something seems out o
 
 ## Libraries
 
-> &nbsp;
-
 We currently offer the following API wrappers:
 
 * PHP: <a target="_blank" href="https://github.com/dolfelt/wheniwork-api-php">wheniwork-api-php</a>
 
+
 # Authentication
 
-> &nbsp;
-
-Server authentication is based on a token model. The developer will authenticate using a private developer key, along with the user's credentials. Your developer key can be used like the following in the headers.
+Authentication with When I Work is based on a token model. You first authenticate using a private developer key and the username and password of a When I Work user. Your developer key can be used like the following in the headers. See the [Login](#login) endpoint for more details.
 
 `W-Key: <%=@wiw_key%>`
 
-Authenticating will return back a login object containing a token that can be used for all future requests. The token may be included in the headers, as a cookie, or in the query string using the key `W-Token`, like the following.
+Authenticating will return back a login object containing a token that is used to authenticate all future requests. The token may be included in the headers, as a cookie, or in the query string, using the key `W-Token`. For example, you might include the following as a header for your request:
 
 `W-Token: <%=@wiw_token%>`
 
-Authenticating will also return back a user object, or a list of user objects if your login has access to multiple accounts. Future requests to the API will also need to include the header `W-UserId` along with the id of the user you'd like to use, like the following.
+Authenticating will also return back a list of [User](#users) objects, each of which is associated with a When I Work account. In order to specify which [Account](#accounts) you are making requests to, API requests must provide a When I Work user id through the `W-UserId` header. For example, to make requests on behalf of the When I Work user with id 5, you would include the following header in your request:
 
 `W-UserId: 5`
 
@@ -46,25 +43,49 @@ Authenticating will also return back a user object, or a list of user objects if
 
 ```shell
 curl <%=@api_prefix%>/2/login \
-  --data '{"username":"user@example.com","password":"*******"}' \
+  --data '{"username":"user@example.com", "password": "*******"}' \
   -H "W-Key: <%=@wiw_key%>"
 ```
 ```php
 <?php
 $result = Wheniwork::login(
-              "<%=@wiw_key%>",
-              "user@example.com",
-              "*******"
-          );
+    "<%=@wiw_key%>",
+    "user@example.com",
+    "*******"
+);
 ?>
 ```
+
 > Example Response
 
 <% json do %>
 {
   "login": <%= print_json(data.objects['login']) %>,
   "users": [
-    <%= print_json(data.objects['user']) %>
+    <%= print_json(data.objects['user'], :include => {
+      'login_id' => data.objects['login']['id']['value'],
+      'account_id' => data.objects['account']['id']['value']
+    }) %>,
+    <%= print_json(data.objects['user'], :include => {
+      'id' => 5475,
+      'login_id' => data.objects['login']['id']['value'],
+      'account_id' => 12345
+    }) %>
+  ],
+  "accounts": [
+    <%= print_json(data.objects['account'], :exclude => [
+      'type',
+      'subdomain',
+      'enabled'
+    ]) %>,
+    <%= print_json(data.objects['account'], :exclude => [
+      'type',
+      'subdomain',
+      'enabled'
+    ], :include => {
+      'id' => 12345,
+      'company' => '123 Company'
+    }) %>
   ]
 }
 <% end %>
@@ -73,21 +94,32 @@ $result = Wheniwork::login(
 
 The first thing to do after you receive your Developer Key is to login to get your token. After receiving your token, you will make all future requests using your token in the header of the request.
 
+Once you have the token, you must include it in all authenticated requests.
+
+In addition to the login object, this endpoint returns all [User](#users) objects associated with the login, and all [Account](#accounts) objects associated with those users.
+
 <% aside do %>
   Remember — All post bodies must be JSON encoded data (no form data).
 <% end %>
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/login`
+
+You must include your Developer Key in the `W-Key` header, like so:
+
+`W-Key: <%=@wiw_key%>`
 
 ### Parameters
 
 Key | Description
 --------- | -----------
-username | <strong>email</strong><br />The email of the user logging in.
-password | <strong>string</strong><br />The password of the user logging in.
-key | <strong>string</strong><br />Your developer key. This can be used instead of `W-Key` in the headers. You do not need both.
+<% param "username", "string (email address)" do %>The email of the user logging in.<% end %>
+<% param "password", "string" do %>The password of the user logging in.<% end %>
+<% param "key", "string" do %>Your developer key. This can be used instead of `W-Key` in the headers. You do not need both.<% end %>
 
-Once you have the token, you must include it in all authenticated requests. The `W-Key` does not need to be included.
-
-`W-Token: <%=@wiw_token%>`
+<% aside do %>
+  For legacy reasons, there are tokens in both the `"login"` and `"users"` objects. For all new development projects, the token in the `"login"` object of the response should be used.
+<% end %>
 
 
 ## Register
@@ -97,124 +129,42 @@ Once you have the token, you must include it in all authenticated requests. The 
 ```shell
 curl --request POST \
 --url <%=@api_prefix%>/2/login/register \
---header 'w-token: iworksoharditsnotfunny' \
---data '{\n  "first_name": "Goldie",\n  "last_name": "Wilson",\n  "email": "goldiewilson@hillvalleygov.org",\n  "password": "password",\n  "password_confirm": "password",\n  "phone_number": "555-555-5555"\n}'
+--header 'W-Token: <%=@wiw_token%>' \
+--data '{"first_name": "Goldie", "last_name": "Wilson", "email": "goldiewilson@hillvalleygov.org", "password": "*******", "password_confirm": "*******", "phone_number": "555-555-5555", "subdomain": "abc-company"}'
 ```
 ```php
 <?php
 $wiw = new Wheniwork('ilovemyboss');
-$result = $wiw->get('shifts', [
+$result = $wiw->post('login/register', [
     'first_name' => 'Goldie',
     'last_name' => 'Wilson',
-    'phone_number' => '555-555-5555',
     'email' => 'goldiewilson@hillvalleycalifornia.gov',
     'password' => 'examplepassword',
     'password_confirm' => 'examplepassword',
+    'phone_number' => '555-555-5555',
     'subdomain' => 'abc-company'
 ]);
 ?>
 ```
+
 > Example Response
 
 <% json do %>
 {
-  "login": {
-    "id": 4,
-    "name": "",
-    "first_name": "Goldie",
-    "last_name": "Wilson",
-    "email": "goldiewilson@hillvalleycalifornia.gov",
-    "created_at": "Mon, 26 Oct 2015 14:40:15 -0500",
-    "updated_at": "Mon, 26 Oct 2015 14:40:15 -0500",
-    "avatar": {
-      "url": "https://avatars.wheniwork.net/c1fd9b5c232ff81c735810933dfdf9b9e1e8abe0/%s",
-      "size": "%s"
-    },
-    "token": "65f0d1a4306040505b42309e4162db877dd55905"
-  },
-  "user": {
-    "id": 65,
-    "account_id": 1,
-    "login_id": "4",
-    "timezone_id": 0,
-    "country_id": 0,
-    "migration_id": 0,
-    "role": 3,
-    "is_payroll": false,
-    "is_trusted": 0,
-    "type": 0,
-    "email": "goldiewilson@hillvalleygov.org",
-    "first_name": "Goldie",
-    "last_name": "Wilson",
-    "phone_number": "+15555555555",
-    "employee_code": "",
-    "avatar": {
-      "url": "https://avatars.wheniwork.net/9d0516034a9ce34fc5b1c96ee98d8b7d30286fd7/%s",
-      "size": "%s"
-    },
-    "password": false,
-    "activated": false,
-    "is_hidden": false,
-    "uuid": "5819cc3cc4883edef82fb92df64f6c1aa9dd2901",
-    "notes": "",
-    "affiliate": 0,
-    "is_private": false,
-    "infotips": "",
-    "hours_preferred": 0,
-    "hours_max": 0,
-    "hourly_rate": 0,
-    "alert_settings": {
-      "timeoff": {
-        "sms": false,
-        "email": true
-      },
-      "swaps": {
-        "sms": false,
-        "email": true
-      },
-      "schedule": {
-        "sms": false,
-        "email": true
-      },
-      "reminders": {
-        "sms": false,
-        "email": true
-      },
-      "availability": {
-        "sms": false,
-        "email": true
-      },
-      "new_employee": {
-        "sms": false,
-        "email": true
-      },
-      "attendance": {
-        "sms": false,
-        "email": false
-      }
-    },
-    "reminder_time": 0,
-    "sleep_start": "",
-    "sleep_end": "",
-    "my_positions": [],
-    "last_login": null,
-    "dismissed_at": "",
-    "notified_at": null,
-    "created_at": "Mon, 26 Oct 2015 14:40:15 -0500",
-    "updated_at": "Mon, 26 Oct 2015 14:40:15 -0500",
-    "is_deleted": false,
-    "timezone_name": null
-  }
+  "login": <%= print_json(data.objects['login']) %>,
+  "user": <%= print_json(data.objects['user'], :include => {
+    "login_id" => data.objects['login']['id']['value']
+  }) %>
 }
 <% end %>
 
 >> Be sure to replace `<%=@wiw_key%>` with your requested Developer Key.
 
-The first thing to do after you receive your Developer Key is to login to get your token. After receiving your token, you will make all future requests using your token in the header of the request.
+This endpoint allows you to create new users and associate them with an account.
 
-<% aside do %>
-  Remember — All post bodies must be JSON encoded data (no form data).
-<% end %>
+### HTTP Request
+
+`POST <%=@api_prefix%>/2/login/register`
 
 ### Parameters
 
@@ -238,12 +188,6 @@ Please note that all passwords must be:
 
 ## Find Account
 
-In order to find accounts that a user has joined or may want to join, you can use the `login/find` endpoint.
-
-The results returned may include expired accounts.
-
-A maximum of 100 results will be returned and there is no pagination support.
-
 > Example Request
 
 ```shell
@@ -256,6 +200,7 @@ $wiw = new Wheniwork("<%=@wiw_token%>");
 $result = $wiw->get("login/find?q=when");
 ?>
 ```
+
 > Example Response
 
 <% json do %>
@@ -280,6 +225,16 @@ $result = $wiw->get("login/find?q=when");
   ]
 }
 <% end %>
+
+In order to find accounts that a user has joined or may want to join, you can use the `login/find` endpoint.
+
+The results returned may include expired accounts.
+
+A maximum of 100 results will be returned and there is no pagination support.
+
+### HTTP Request
+
+`GET <%=@api_prefix%>/2/login/find`
 
 ### Parameters
 
@@ -324,6 +279,9 @@ You can then use the `al` (autologin) query parameter to accomplish this. An exa
 
 `http://app.wheniwork.com/scheduler?al={the_auto_login_hash}`
 
+### HTTP Request
+
+`POST <%=@api_prefix%>/2/users/autologin`
 
 ## Related Objects
 
