@@ -66,10 +66,6 @@
 
 <h2 id="libraries">Libraries</h2>
 
-<blockquote>
-<p>&nbsp;</p>
-</blockquote>
-
 <p>We currently offer the following API wrappers:</p>
 
 <ul>
@@ -78,19 +74,15 @@
 
 <h1 id="authentication">Authentication</h1>
 
-<blockquote>
-<p>&nbsp;</p>
-</blockquote>
-
-<p>Server authentication is based on a token model. The developer will authenticate using a private developer key, along with the user&#39;s credentials. Your developer key can be used like the following in the headers.</p>
+<p>Authentication with When I Work is based on a token model. You first authenticate using a private developer key and the username and password of a When I Work user. Your developer key can be used like the following in the headers. See the <a href="#login">Login</a> endpoint for more details.</p>
 
 <p><code>W-Key: iworksoharditsnotfunny</code></p>
 
-<p>Authenticating will return back a login object containing a token that can be used for all future requests. The token may be included in the headers, as a cookie, or in the query string using the key <code>W-Token</code>, like the following.</p>
+<p>Authenticating will return back a login object containing a token that is used to authenticate all future requests. The token may be included in the headers, as a cookie, or in the query string, using the key <code>W-Token</code>. For example, you might include the following as a header for your request:</p>
 
 <p><code>W-Token: ilovemyboss</code></p>
 
-<p>Authenticating will also return back a user object, or a list of user objects if your login has access to multiple accounts. Future requests to the API will also need to include the header <code>W-UserId</code> along with the id of the user you&#39;d like to use, like the following.</p>
+<p>Authenticating will also return back a list of <a href="#users">User</a> objects, each of which is associated with a When I Work account. In order to specify which <a href="#accounts">Account</a> you are making requests to, API requests must provide a When I Work user id through the <code>W-UserId</code> header. For example, to make requests on behalf of the When I Work user with id 5, you would include the following header in your request:</p>
 
 <p><code>W-UserId: 5</code></p>
 
@@ -100,22 +92,22 @@
 <p>Example Request</p>
 </blockquote>
 <pre class="highlight shell"><code>curl https://api.wheniwork.com/2/login <span class="se">\</span>
-  --data <span class="s1">'{"username":"user@example.com","password":"*******"}'</span> <span class="se">\</span>
+  --data <span class="s1">'{"username":"user@example.com", "password": "*******"}'</span> <span class="se">\</span>
   -H <span class="s2">"W-Key: iworksoharditsnotfunny"</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nx">Wheniwork</span><span class="o">::</span><span class="na">login</span><span class="p">(</span>
-              <span class="s2">"iworksoharditsnotfunny"</span><span class="p">,</span>
-              <span class="s2">"user@example.com"</span><span class="p">,</span>
-              <span class="s2">"*******"</span>
-          <span class="p">);</span>
+    <span class="s2">"iworksoharditsnotfunny"</span><span class="p">,</span>
+    <span class="s2">"user@example.com"</span><span class="p">,</span>
+    <span class="s2">"*******"</span>
+<span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-103" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-101" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"login"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
@@ -126,8 +118,8 @@
   </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
-</span><span class="hide-section"><span class="w">      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
 </span></span>      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
@@ -152,11 +144,77 @@
       </span><span class="nt">"is_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"is_payroll"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span></span>      </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5475</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+</span></span>      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"employee_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1020"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 05 Oct 2015 18:26:44 -0500"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">12284</span><span class="p">,</span><span class="w">
+        </span><span class="mi">9554</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">34</span><span class="p">,</span><span class="w">
+        </span><span class="mi">58934</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_payroll"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span></span>      </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
+</span></span>      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC Company"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-company"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[\"all\",\"locations\",\"sites\", ...]"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span>    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
+</span></span>      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-company"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[\"all\",\"locations\",\"sites\", ...]"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-103')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-103')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-101')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-101')">Hide extra fields</a></pre>
 <blockquote>
 <blockquote>
 <p>Be sure to replace <code>iworksoharditsnotfunny</code> with your requested Developer Key.</p>
@@ -165,22 +223,33 @@
 
 <p>The first thing to do after you receive your Developer Key is to login to get your token. After receiving your token, you will make all future requests using your token in the header of the request.</p>
 
+<p>Once you have the token, you must include it in all authenticated requests.</p>
+
+<p>In addition to the login object, this endpoint returns all <a href="#users">User</a> objects associated with the login, and all <a href="#accounts">Account</a> objects associated with those users.</p>
+
 <aside class="notice"><p>Remember — All post bodies must be JSON encoded data (no form data).</p>
 </aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>POST https://api.wheniwork.com/2/login</code></p>
+
+<p>You must include your Developer Key in the <code>W-Key</code> header, like so:</p>
+
+<p><code>W-Key: iworksoharditsnotfunny</code></p>
 
 <h3 id="parameters">Parameters</h3>
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>username</td>
-<td><strong>email</strong><br />The email of the user logging in.</td>
+<td><strong>string (email address)</strong><br />The email of the user logging in.</td>
 </tr><tr><td>password</td>
 <td><strong>string</strong><br />The password of the user logging in.</td>
 </tr><tr><td>key</td>
 <td><strong>string</strong><br />Your developer key. This can be used instead of <code>W-Key</code> in the headers. You do not need both.</td>
 </tr></tbody></table>
-<p>Once you have the token, you must include it in all authenticated requests. The <code>W-Key</code> does not need to be included.</p>
-
-<p><code>W-Token: ilovemyboss</code></p>
+<aside class="notice"><p>For legacy reasons, there are tokens in both the <code>&quot;login&quot;</code> and <code>&quot;users&quot;</code> objects. For all new development projects, the token in the <code>&quot;login&quot;</code> object of the response should be used.</p>
+</aside>
 
 <h2 id="register">Register</h2>
 
@@ -189,18 +258,18 @@
 </blockquote>
 <pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
 --url https://api.wheniwork.com/2/login/register <span class="se">\</span>
---header <span class="s1">'w-token: iworksoharditsnotfunny'</span> <span class="se">\</span>
---data <span class="s1">'{\n  "first_name": "Goldie",\n  "last_name": "Wilson",\n  "email": "goldiewilson@hillvalleygov.org",\n  "password": "password",\n  "password_confirm": "password",\n  "phone_number": "555-555-5555"\n}'</span>
+--header <span class="s1">'W-Token: ilovemyboss'</span> <span class="se">\</span>
+--data <span class="s1">'{"first_name": "Goldie", "last_name": "Wilson", "email": "goldiewilson@hillvalleygov.org", "password": "*******", "password_confirm": "*******", "phone_number": "555-555-5555", "subdomain": "abc-company"}'</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s1">'ilovemyboss'</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'shifts'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'login/register'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'first_name'</span> <span class="o">=&gt;</span> <span class="s1">'Goldie'</span><span class="p">,</span>
     <span class="s1">'last_name'</span> <span class="o">=&gt;</span> <span class="s1">'Wilson'</span><span class="p">,</span>
-    <span class="s1">'phone_number'</span> <span class="o">=&gt;</span> <span class="s1">'555-555-5555'</span><span class="p">,</span>
     <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'goldiewilson@hillvalleycalifornia.gov'</span><span class="p">,</span>
     <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'examplepassword'</span><span class="p">,</span>
     <span class="s1">'password_confirm'</span> <span class="o">=&gt;</span> <span class="s1">'examplepassword'</span><span class="p">,</span>
+    <span class="s1">'phone_number'</span> <span class="o">=&gt;</span> <span class="s1">'555-555-5555'</span><span class="p">,</span>
     <span class="s1">'subdomain'</span> <span class="o">=&gt;</span> <span class="s1">'abc-company'</span>
 <span class="p">]);</span>
 <span class="cp">?&gt;</span>
@@ -209,109 +278,58 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-102" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"login"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 26 Oct 2015 14:40:15 -0500"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 26 Oct 2015 14:40:15 -0500"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://avatars.wheniwork.net/c1fd9b5c232ff81c735810933dfdf9b9e1e8abe0/%s"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%s"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65f0d1a4306040505b42309e4162db877dd55905"</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleygov.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ilovemyboss"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"country_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"migration_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"is_payroll"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleygov.org"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
+</span></span>    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goldie"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wilson"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+15555555555"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"employee_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://avatars.wheniwork.net/9d0516034a9ce34fc5b1c96ee98d8b7d30286fd7/%s"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%s"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"is_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5819cc3cc4883edef82fb92df64f6c1aa9dd2901"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">    </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"employee_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1020"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"affiliate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"infotips"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"alert_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"timeoff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"reminders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"new_employee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"attendance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"reminder_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sleep_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sleep_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"my_positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
+    </span><span class="nt">"hours_preferred"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hours_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hourly_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 05 Oct 2015 18:26:44 -0500"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">12284</span><span class="p">,</span><span class="w">
+      </span><span class="mi">9554</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"last_login"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dismissed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"notified_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 26 Oct 2015 14:40:15 -0500"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 26 Oct 2015 14:40:15 -0500"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">34</span><span class="p">,</span><span class="w">
+      </span><span class="mi">58934</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nt">"is_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_payroll"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span></span>    </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-102')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-102')">Hide extra fields</a></pre>
 <blockquote>
 <blockquote>
 <p>Be sure to replace <code>iworksoharditsnotfunny</code> with your requested Developer Key.</p>
 </blockquote>
 </blockquote>
 
-<p>The first thing to do after you receive your Developer Key is to login to get your token. After receiving your token, you will make all future requests using your token in the header of the request.</p>
+<p>This endpoint allows you to create new users and associate them with an account.</p>
 
-<aside class="notice"><p>Remember — All post bodies must be JSON encoded data (no form data).</p>
-</aside>
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>POST https://api.wheniwork.com/2/login/register</code></p>
 
 <h3 id="parameters">Parameters</h3>
 <table><thead><tr><th>Key</th>
@@ -343,12 +361,6 @@
 </ul>
 
 <h2 id="find-account">Find Account</h2>
-
-<p>In order to find accounts that a user has joined or may want to join, you can use the <code>login/find</code> endpoint.</p>
-
-<p>The results returned may include expired accounts.</p>
-
-<p>A maximum of 100 results will be returned and there is no pagination support.</p>
 
 <blockquote>
 <p>Example Request</p>
@@ -428,6 +440,16 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>In order to find accounts that a user has joined or may want to join, you can use the <code>login/find</code> endpoint.</p>
+
+<p>The results returned may include expired accounts.</p>
+
+<p>A maximum of 100 results will be returned and there is no pagination support.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/login/find</code></p>
+
 <h3 id="parameters">Parameters</h3>
 <table><thead><tr><th>Key</th>
 <th>Description</th>
@@ -457,7 +479,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-104" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-103" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -491,12 +513,16 @@
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_auto_login_hash"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-104')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-104')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-103')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-103')">Hide extra fields</a></pre>
 <p>If you find any need to send an authenticated user into the web app without requiring them to log in, you can generate a unique hash that will log them into the app automatically.</p>
 
 <p>You can then use the <code>al</code> (autologin) query parameter to accomplish this. An example would be sending the user to the following URL:</p>
 
 <p><code>http://app.wheniwork.com/scheduler?al={the_auto_login_hash}</code></p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>POST https://api.wheniwork.com/2/users/autologin</code></p>
 
 <h2 id="related-objects">Related Objects</h2>
 
@@ -626,7 +652,7 @@
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-52" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-51" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 05 Mar 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 08 Mar 2014 23:59:59 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -678,7 +704,7 @@
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-52')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-52')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-51')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-51')">Hide extra fields</a></pre>
 
 <p>This method allows you to search for shifts. See the parameters below for all the options.</p>
 
@@ -735,7 +761,7 @@
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-53" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-52" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"shift"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -760,7 +786,7 @@
     </span><span class="nt">"is_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-53')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-53')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-52')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-52')">Hide extra fields</a></pre>
 
 <p>Gets the details of an existing shift.</p>
 
@@ -808,7 +834,7 @@ curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-54" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-53" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"shift"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -833,7 +859,7 @@ curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
     </span><span class="nt">"is_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-54')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-54')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-53')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-53')">Hide extra fields</a></pre>
 
 <p>Creates a new shift or updates an existing one.</p>
 
@@ -1073,7 +1099,7 @@ curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-55" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-54" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 shifts were copied."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1148,7 +1174,7 @@ curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-55')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-55')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-54')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-54')">Hide extra fields</a></pre>
 
 <p>This method allows you to copy shifts from one timeframe into another. There are
 two modes of operation, one that will copy the previous day&#39;s shifts, and another
@@ -1311,79 +1337,7 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <td><strong>string, decimal</strong><br />Longitude of place location</td>
 </tr></tbody></table>
 
-<h2 id="listing-accounts">Listing Accounts</h2>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/account <span class="se">\</span>
- -H <span class="s2">"W-Token: ilovemyboss"</span>
-</code></pre>
-
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"account"</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-
-<pre id="code-collapse-56" class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-</span><span class="hide-section"><span class="w">    </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
-</span></span>    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-</span><span class="hide-section"><span class="w">    </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[\"all\",\"locations\",\"sites\", ...]"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span></span>  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/19282.gif"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC Company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC Company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-</span><span class="hide-section"><span class="w">      </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[\"all\",\"locations\",\"sites\", ...]"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span></span>    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-56')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-56')">Hide extra fields</a></pre>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p>Listing accounts gives an object with two members: an <code>account</code> object, which specifies the primary account for a given user, and an array, <code>accounts</code>, containing all subaccounts of the primary account.</p>
-
-<p><code>GET https://api.wheniwork.com/2/account?account_id=11,12</code></p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead><tr><th>Key</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td>account_id</td>
-<td>A list of account ids to retrieve (Optional; if not specified, will default to returning all accounts for a given user token)</td>
-</tr></tbody></table>
-
-<h3 id="features">Features</h3>
+<h2 id="features">Features</h2>
 
 <p>The features that are enabled on accounts will vary. The following features are considered defaults and should be considered enabled when <code>all</code> is present:</p>
 
@@ -1477,6 +1431,8 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <td>ID of the account object to be retrieved.</td>
 </tr></tbody></table>
 
+<p>If the account being queried for is a primary account, the response provides an object with two members: an <code>account</code> object, which specifies the primary account for a given user, and an array, <code>accounts</code>, containing all subaccounts of the primary account.</p>
+
 <h2 id="create-update-account">Create/Update Account</h2>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
@@ -1490,6 +1446,62 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <h3 id="parameters">Parameters</h3>
 
 <p>The <code>POST</code> and/or <code>PUT</code> body can include fields from the <a href="#accounts">Account Object</a>.</p>
+
+<h2 id="invite-to-account">Invite to Account</h2>
+
+<p>Managers can be invited to unclaimed accounts by using this endpoint.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>POST https://api.wheniwork.com/2/account/{account_id}/invite</code></p>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/account/35/invite <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span> <span class="se">\</span>
+ -data <span class="s1">'{"email":"sally@example.com","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"account/11/invite"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"email"</span> <span class="o">=&gt;</span> <span class="s2">"sally@example.com"</span><span class="p">,</span>
+    <span class="s2">"manager_name"</span> <span class="o">=&gt;</span> <span class="s2">"Sally Smith"</span><span class="p">,</span>
+    <span class="s2">"message"</span> <span class="o">=&gt;</span> <span class="s2">"This scheduling app is really slick!"</span><span class="p">,</span>
+<span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Either <code>email</code> or <code>phone_number</code> must be provided. If both are provided, an SMS and an email will be sent.</p>
+
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>account_id</td>
+<td>ID of the account object.</td>
+</tr><tr><td>email</td>
+<td>Email address of the manager.</td>
+</tr><tr><td>phone_number</td>
+<td>Phone number of the manager.</td>
+</tr><tr><td>region</td>
+<td>Two letter country code of the phone number. This can be omitted if the phone number is in <a href="https://en.wikipedia.org/wiki/E.164">E164</a> format.</td>
+</tr><tr><td>manager_name</td>
+<td>Managers name.</td>
+</tr><tr><td>message</td>
+<td>A custom message that will be added to the invite.</td>
+</tr></tbody></table>
 
 <h2 id="claim-account">Claim Account</h2>
 
@@ -1691,7 +1703,7 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-57" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-55" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
@@ -1755,7 +1767,7 @@ OpenShifts that otherwise would have created a conflict with previously existing
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-57')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-57')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-55')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-55')">Hide extra fields</a></pre>
 
 <p>Get a list of users, optionally filtered by ID or location. See the parameters below for all the options.</p>
 
@@ -1866,7 +1878,7 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-58" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-56" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -1898,7 +1910,7 @@ OpenShifts that otherwise would have created a conflict with previously existing
     </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-58')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-58')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-56')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-56')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1940,7 +1952,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-59" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-57" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -1972,7 +1984,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
     </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-59')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-59')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-57')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-57')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2038,7 +2050,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-60" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-58" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -2070,7 +2082,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
     </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-60')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-60')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-58')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-58')">Hide extra fields</a></pre>
 
 <p>Get the authenticated user&#39;s profile, which includes all personal information such as name, email, and phone number, and also includes some extra options like <code>sleep_start</code>.</p>
 
@@ -2111,7 +2123,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-61" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-59" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">  </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
   </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -2141,7 +2153,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
   </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-61')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-61')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-59')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-59')">Hide extra fields</a></pre>
 
 <p>Update the authenticated user&#39;s profile information.</p>
 
@@ -2422,7 +2434,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-62" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-60" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
@@ -2450,7 +2462,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-62')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-62')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-60')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-60')">Hide extra fields</a></pre>
 
 <p>This method allows you to get a list of all positions in your account.</p>
 
@@ -2486,7 +2498,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-63" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-61" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -2496,7 +2508,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-63')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-63')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-61')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-61')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2548,7 +2560,7 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-64" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-62" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -2558,7 +2570,7 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-64')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-64')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-62')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-62')">Hide extra fields</a></pre>
 
 <p>Creates a new Position or updates an existing one.</p>
 
@@ -2691,7 +2703,7 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-65" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-63" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
@@ -2719,7 +2731,7 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-65')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-65')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-63')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-63')">Hide extra fields</a></pre>
 
 <p>This method allows you to get a list of all Locations in your account.</p>
 
@@ -2754,7 +2766,7 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-66" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-64" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
@@ -2790,7 +2802,7 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-66')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-66')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-64')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-64')">Hide extra fields</a></pre>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2826,7 +2838,7 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-67" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-65" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown"</span><span class="p">,</span><span class="w">
@@ -2840,7 +2852,7 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
     </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-67')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-67')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-65')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-65')">Hide extra fields</a></pre>
 
 <p>Gets the details of a specific Location.</p>
 
@@ -2894,7 +2906,7 @@ curl -X PUT https://api.wheniwork.com/2/locations/136 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-68" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-66" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uptown"</span><span class="p">,</span><span class="w">
@@ -2908,7 +2920,7 @@ curl -X PUT https://api.wheniwork.com/2/locations/136 <span class="se">\</span>
     </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-68')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-68')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-66')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-66')">Hide extra fields</a></pre>
 
 <p>Creates a new Location or updates an existing one.</p>
 
@@ -3022,7 +3034,7 @@ curl -X PUT https://api.wheniwork.com/2/locations/136 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-69" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-67" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"sites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
@@ -3046,7 +3058,7 @@ curl -X PUT https://api.wheniwork.com/2/locations/136 <span class="se">\</span>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-69')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-69')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-67')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-67')">Hide extra fields</a></pre>
 
 <p>Gets a list of all Sites in your account.</p>
 
@@ -3082,7 +3094,7 @@ curl -X PUT https://api.wheniwork.com/2/locations/136 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-70" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-68" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"site"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Twin Pines"</span><span class="p">,</span><span class="w">
@@ -3094,7 +3106,7 @@ curl -X PUT https://api.wheniwork.com/2/locations/136 <span class="se">\</span>
     </span><span class="p">]</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-70')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-70')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-68')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-68')">Hide extra fields</a></pre>
 
 <p>Gets details about a specific Site.</p>
 
@@ -3148,7 +3160,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-71" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-69" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"site"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shaded Grove"</span><span class="p">,</span><span class="w">
@@ -3160,7 +3172,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
     </span><span class="p">]</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-71')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-71')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-69')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-69')">Hide extra fields</a></pre>
 
 <p>Creates a new Site or updates an existing one.</p>
 
@@ -3281,7 +3293,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-72" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-70" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"blocks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
@@ -3321,7 +3333,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-72')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-72')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-70')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-70')">Hide extra fields</a></pre>
 
 <p>Gets a list of all Shift Blocks in your account.</p>
 
@@ -3353,7 +3365,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-73" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-71" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"block"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3367,7 +3379,7 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-73')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-73')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-71')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-71')">Hide extra fields</a></pre>
 
 <p>Gets the details of a specific Shift Block.</p>
 
@@ -3421,7 +3433,7 @@ curl -X PUT https://api.wheniwork.com/2/blocks/233 \
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-74" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-72" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"block"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3435,7 +3447,7 @@ curl -X PUT https://api.wheniwork.com/2/blocks/233 \
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-74')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-74')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-72')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-72')">Hide extra fields</a></pre>
 
 <p>Creates a new Shift Block or updates an existing one.</p>
 
@@ -3560,7 +3572,7 @@ curl -X PUT https://api.wheniwork.com/2/blocks/233 \
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-75" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-73" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
@@ -3676,7 +3688,7 @@ curl -X PUT https://api.wheniwork.com/2/blocks/233 \
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-75')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-75')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-73')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-73')">Hide extra fields</a></pre>
 
 <p>Gets a list of Requests for your account.</p>
 
@@ -3720,7 +3732,7 @@ curl -X PUT https://api.wheniwork.com/2/blocks/233 \
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-76" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-74" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3780,7 +3792,7 @@ curl -X PUT https://api.wheniwork.com/2/blocks/233 \
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-76')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-76')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-74')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-74')">Hide extra fields</a></pre>
 
 <p>Gets the details of a specific Request.</p>
 
@@ -3836,7 +3848,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-77" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-75" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3850,7 +3862,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-77')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-77')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-75')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-75')">Hide extra fields</a></pre>
 
 <p>Creates a new Request or updates an existing one.</p>
 
@@ -3973,7 +3985,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-78" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-76" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
@@ -4098,7 +4110,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-78')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-78')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-76')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-76')">Hide extra fields</a></pre>
 
 <p>Gets a list of all swaps in your account.</p>
 
@@ -4150,7 +4162,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-79" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-77" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
@@ -4275,7 +4287,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-79')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-79')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-77')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-77')">Hide extra fields</a></pre>
 
 <p>Gets the details of a specific swap.</p>
 
@@ -4332,7 +4344,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 <p>Example Response Object</p>
 </blockquote>
 
-<pre id="code-collapse-80" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-78" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
@@ -4510,7 +4522,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-80')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-80')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-78')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-78')">Hide extra fields</a></pre>
 
 <p>Creates a new swap or updates an existing one.</p>
 
@@ -4651,7 +4663,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-81" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-79" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"availabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -4694,7 +4706,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-81')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-81')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-79')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-79')">Hide extra fields</a></pre>
 
 <p>Gets a list of availabilities on your account.</p>
 
@@ -4730,7 +4742,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-82" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-80" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w">
@@ -4791,7 +4803,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-82')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-82')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-80')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-80')">Hide extra fields</a></pre>
 
 <p>Gets the details of a specific availability.</p>
 
@@ -4845,7 +4857,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 \
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-83" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-81" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w">
@@ -4860,7 +4872,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 \
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-83')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-83')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-81')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-81')">Hide extra fields</a></pre>
 
 <p>Creates a new availability or updates an existing one.</p>
 
@@ -4919,7 +4931,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 \
 <p>Example Object</p>
 </blockquote>
 
-<pre id="code-collapse-84" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-82" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
   </span><span class="nt">"availability_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
@@ -4930,7 +4942,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 \
 </span><span class="hide-section"><span class="w">  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span></span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-84')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-84')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-82')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-82')">Hide extra fields</a></pre>
 
 <p>Availability Items are individual components of a greater Availability object.
 Where an Availability is an object that defines a user&#39;s availability (in
@@ -4982,7 +4994,7 @@ specified non-default availability.</p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-85" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-83" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"availabilityitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
@@ -5030,7 +5042,7 @@ specified non-default availability.</p>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-85')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-85')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-83')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-83')">Hide extra fields</a></pre>
 
 <p>Gets a list of availability items in your account.</p>
 
@@ -5085,7 +5097,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-86" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-84" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w">
@@ -5113,7 +5125,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-86')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-86')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-84')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-84')">Hide extra fields</a></pre>
 
 <p>Creates new availability items, updates existing ones, or deletes them.</p>
 
@@ -5197,7 +5209,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-87" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-85" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"payrolls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
@@ -5240,7 +5252,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-87')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-87')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-85')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-85')">Hide extra fields</a></pre>
 
 <p>This method allows you to list payroll periods or find ones within a specified date range.</p>
 
@@ -5272,7 +5284,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-88" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-86" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"payroll"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5319,7 +5331,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-88')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-88')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-86')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-86')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -5347,7 +5359,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-89" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-87" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"payroll"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5478,7 +5490,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-89')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-89')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-87')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-87')">Hide extra fields</a></pre>
 
 <p>This method allows you to request aggregate statistics for a payroll period.</p>
 
@@ -5598,7 +5610,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-90" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-88" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
@@ -5731,7 +5743,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-90')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-90')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-88')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-88')">Hide extra fields</a></pre>
 
 <p>This method allows you to list times or find ones within a specified date range.</p>
 
@@ -5765,7 +5777,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-91" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-89" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"times"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
@@ -5789,7 +5801,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-91')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-91')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-89')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-89')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -5817,7 +5829,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-92" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-90" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4634</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
@@ -5912,7 +5924,7 @@ curl -X PUT https://api.wheniwork.com/2/availabilities/10 <span class="se">\</sp
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-92')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-92')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-90')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-90')">Hide extra fields</a></pre>
 
 <p>This method allows you to get times for a specific user. This request also gives you
 the user&#39;s punch state.</p>
@@ -5978,7 +5990,7 @@ the user&#39;s punch state.</p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-93" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-91" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
@@ -6031,7 +6043,7 @@ the user&#39;s punch state.</p>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-93')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-93')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-91')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-91')">Hide extra fields</a></pre>
 
 <h3 id="create-a-clock-in">Create A Clock-in</h3>
 
@@ -6092,7 +6104,7 @@ the user&#39;s punch state.</p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-94" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-92" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goldiewilson@hillvalleycalifornia.gov"</span><span class="p">,</span><span class="w">
@@ -6144,7 +6156,7 @@ the user&#39;s punch state.</p>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-94')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-94')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-92')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-92')">Hide extra fields</a></pre>
 
 <h3 id="create-a-clock-out">Create A Clock-out</h3>
 
@@ -6329,7 +6341,7 @@ to make separate requests as soon as possible.</em></p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-95" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-93" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
@@ -6369,7 +6381,7 @@ to make separate requests as soon as possible.</em></p>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-95')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-95')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-93')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-93')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6403,7 +6415,7 @@ to make separate requests as soon as possible.</em></p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-96" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-94" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -6417,7 +6429,7 @@ to make separate requests as soon as possible.</em></p>
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-96')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-96')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-94')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-94')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6584,7 +6596,7 @@ to make separate requests as soon as possible.</em></p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-97" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-95" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -6616,7 +6628,7 @@ to make separate requests as soon as possible.</em></p>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-97')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-97')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-95')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-95')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6636,7 +6648,7 @@ to make separate requests as soon as possible.</em></p>
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-98" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-96" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -6696,7 +6708,7 @@ to make separate requests as soon as possible.</em></p>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-98')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-98')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-96')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-96')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6734,7 +6746,7 @@ to make separate requests as soon as possible.</em></p>
 <p>Example Response Object</p>
 </blockquote>
 
-<pre id="code-collapse-99" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-97" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -6769,7 +6781,7 @@ to make separate requests as soon as possible.</em></p>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-99')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-99')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-97')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-97')">Hide extra fields</a></pre>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
 
@@ -7001,7 +7013,7 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-100" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-98" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"annotations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41375</span><span class="p">,</span><span class="w">
@@ -7027,7 +7039,7 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-100')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-100')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-98')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-98')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -7073,7 +7085,7 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-101" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-99" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"annotation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41375</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w">
@@ -7097,7 +7109,7 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-101')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-101')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-99')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-99')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -7275,7 +7287,7 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <p>Example Response</p>
 </blockquote>
 
-<pre id="code-collapse-102" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-100" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">  </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
 </span></span>  </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">371</span><span class="p">,</span><span class="w">
@@ -7284,7 +7296,7 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 </span><span class="hide-section"><span class="w">  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span></span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-102')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-102')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-100')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-100')">Hide extra fields</a></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 

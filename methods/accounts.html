@@ -123,73 +123,7 @@
 </tr><tr><td>longitude</td>
 <td><strong>string, decimal</strong><br />Longitude of place location</td>
 </tr></tbody></table>
-<h2 id="listing-accounts">Listing Accounts</h2>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/account <span class="se">\</span>
- -H <span class="s2">"W-Token: ilovemyboss"</span>
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"account"</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre id="code-collapse-51" class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-</span><span class="hide-section"><span class="w">    </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
-</span></span>    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-</span><span class="hide-section"><span class="w">    </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[\"all\",\"locations\",\"sites\", ...]"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span></span>  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/19282.gif"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC Company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC Company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-</span><span class="hide-section"><span class="w">      </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[\"all\",\"locations\",\"sites\", ...]"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span></span>    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-51')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-51')">Hide extra fields</a></pre>
-<h3 id="http-request">HTTP Request</h3>
-
-<p>Listing accounts gives an object with two members: an <code>account</code> object, which specifies the primary account for a given user, and an array, <code>accounts</code>, containing all subaccounts of the primary account.</p>
-
-<p><code>GET https://api.wheniwork.com/2/account?account_id=11,12</code></p>
-
-<h3 id="parameters">Parameters</h3>
-<table><thead><tr><th>Key</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td>account_id</td>
-<td>A list of account ids to retrieve (Optional; if not specified, will default to returning all accounts for a given user token)</td>
-</tr></tbody></table>
-<h3 id="features">Features</h3>
+<h2 id="features">Features</h2>
 
 <p>The features that are enabled on accounts will vary. The following features are considered defaults and should be considered enabled when <code>all</code> is present:</p>
 <table><thead><tr><th>Parameter</th>
@@ -274,6 +208,8 @@
 </tr></thead><tbody><tr><td>account_id</td>
 <td>ID of the account object to be retrieved.</td>
 </tr></tbody></table>
+<p>If the account being queried for is a primary account, the response provides an object with two members: an <code>account</code> object, which specifies the primary account for a given user, and an array, <code>accounts</code>, containing all subaccounts of the primary account.</p>
+
 <h2 id="create-update-account">Create/Update Account</h2>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
@@ -288,6 +224,57 @@
 
 <p>The <code>POST</code> and/or <code>PUT</code> body can include fields from the <a href="#accounts">Account Object</a>.</p>
 
+<h2 id="invite-to-account">Invite to Account</h2>
+
+<p>Managers can be invited to unclaimed accounts by using this endpoint.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>POST https://api.wheniwork.com/2/account/{account_id}/invite</code></p>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/account/35/invite <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span> <span class="se">\</span>
+ -data <span class="s1">'{"email":"sally@example.com","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"account/11/invite"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"email"</span> <span class="o">=&gt;</span> <span class="s2">"sally@example.com"</span><span class="p">,</span>
+    <span class="s2">"manager_name"</span> <span class="o">=&gt;</span> <span class="s2">"Sally Smith"</span><span class="p">,</span>
+    <span class="s2">"message"</span> <span class="o">=&gt;</span> <span class="s2">"This scheduling app is really slick!"</span><span class="p">,</span>
+<span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Either <code>email</code> or <code>phone_number</code> must be provided. If both are provided, an SMS and an email will be sent.</p>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>account_id</td>
+<td>ID of the account object.</td>
+</tr><tr><td>email</td>
+<td>Email address of the manager.</td>
+</tr><tr><td>phone_number</td>
+<td>Phone number of the manager.</td>
+</tr><tr><td>region</td>
+<td>Two letter country code of the phone number. This can be omitted if the phone number is in <a href="https://en.wikipedia.org/wiki/E.164">E164</a> format.</td>
+</tr><tr><td>manager_name</td>
+<td>Managers name.</td>
+</tr><tr><td>message</td>
+<td>A custom message that will be added to the invite.</td>
+</tr></tbody></table>
 <h2 id="claim-account">Claim Account</h2>
 
 <blockquote>
