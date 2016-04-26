@@ -624,7 +624,7 @@
       },
       "type": {
           "type": "integer",
-          "description": "The type of the availability item. (1 = Preferred, 2 = Unavailable)",
+          "description": "The type of the availability item. (1 = Unavailable, 2 = Preferred)",
           "value": 1,
           "show": true
       },
