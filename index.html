@@ -580,6 +580,8 @@
 
 <p>Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites, and Users, all link through Shifts.</p>
 
+<p>For more information about how to use Shifts, visit the <a href="https://help.wheniwork.com/hc/en-us/sections/200287656-Using-the-Scheduler">Help Center</a>.</p>
+
 <h3 id="shift-object">Shift Object</h3>
 
 <table><thead><tr><th>Parameter</th>
@@ -2396,6 +2398,8 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 
 <p>Positions are the different titles that employees can be grouped into.</p>
 
+<p>For more about using Positions, visit the <a href="https://help.wheniwork.com/hc/en-us/articles/201041717-Creating-Positions">Help Center</a>.</p>
+
 <h3 id="position-object">Position Object</h3>
 
 <table><thead><tr><th>Parameter</th>
@@ -2644,6 +2648,8 @@ curl -X PUT https://api.wheniwork.com/2/positions/32 <span class="se">\</span>
 </span></code></pre>
 
 <p>Locations are the main physical locations where your business operates and where employees, managers, and supervisors are assigned.</p>
+
+<p>For more about using Locations, visit the <a href="https://help.wheniwork.com/hc/en-us/articles/201808737-Setting-Up-Multiple-Locations-or-Schedules/">Help Center</a>.</p>
 
 <h3 id="location-object">Location Object</h3>
 
@@ -2998,6 +3004,8 @@ curl -X PUT https://api.wheniwork.com/2/locations/136 <span class="se">\</span>
 
 <p>Sites are off-site places where users of a Location can be assigned and scheduled.</p>
 
+<p>For more about using Sites, visit the <a href="https://help.wheniwork.com/hc/en-us/articles/201578913-Scheduling-Shifts-at-Job-Sites">Help Center</a>.</p>
+
 <h3 id="site-object">Site Object</h3>
 
 <table><thead><tr><th>Parameter</th>
@@ -3246,6 +3254,8 @@ curl -X PUT https://api.wheniwork.com/2/sites/9 <span class="se">\</span>
 </span></code></pre>
 
 <p>Shift Blocks are predefined shifts that make it quick to construct a schedule.</p>
+
+<p>For more about using Shift Blocks, visit the <a href="https://help.wheniwork.com/hc/en-us/articles/201116176-Creating-Shift-Blocks">Help Center</a>.</p>
 
 <h3 id="block-object">Block Object</h3>
 
@@ -3521,6 +3531,8 @@ curl -X PUT https://api.wheniwork.com/2/blocks/233 \
 </span></code></pre>
 
 <p>Requests allow users to request time off.</p>
+
+<p>For more about making Requests, visit the <a href="https://help.wheniwork.com/hc/en-us/articles/201048348-Request-Time-Off">Help Center</a>.</p>
 
 <h3 id="request-object">Request Object</h3>
 
@@ -3943,7 +3955,9 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Swaps let users swap shifts with each other.</p>
+<p>Swaps let users swap shifts with each other or drop shifts for other users to pick up.</p>
+
+<p>For more about using Swaps, visit the <a href="https://help.wheniwork.com/hc/en-us/articles/201048288-Trade-Shifts-with-Coworkers">Help Center</a>.</p>
 
 <h3 id="swap-object">Swap Object</h3>
 
@@ -4609,6 +4623,8 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 </span></code></pre>
 
 <p>Availabilities are objects that define a user&#39;s availability to be assigned shifts during a certain period of time.</p>
+
+<p>For more about using Availabilities, visit the <a href="https://help.wheniwork.com/hc/en-us/articles/203093619-Setting-Availability-Preferences">Help Center</a>.</p>
 
 <aside class="notice"><p>Availabilities only tell you a user&#39;s preferences and availabilities for scheduling, <strong>not</strong> when a user is actually scheduled.</p>
 </aside>
@@ -6258,10 +6274,10 @@ the user&#39;s punch state.</p>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 
-<p><em><strong>This method is deprecated and will be removed in the future.</strong> Update your code
-to make separate requests as soon as possible.</em></p>
-
 <p>Batch allows you to execute multiple requests at the same time.</p>
+
+<aside class="warning"><p><strong>This method is deprecated and will be removed in the future.</strong> Update your code to make separate requests as soon as possible.</p>
+</aside>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6555,6 +6571,8 @@ to make separate requests as soon as possible.</em></p>
 </span></code></pre>
 
 <p>Templates allow you to create a group of shifts that can be used to make scheduling easier.</p>
+
+<p>For more on using Templates, visit the <a href="https://help.wheniwork.com/hc/en-us/articles/201752463-Using-Schedule-Templates">Help Center</a>.</p>
 
 <h3 id="template-object">Template Object</h3>
 
@@ -6950,6 +6968,8 @@ to make separate requests as soon as possible.</em></p>
 
 <p>The &quot;Time Off Not Allowed&quot; tag is the only tag that affects the behavior of another API.
 Time Off requests will be considered invalid if the request&#39;s date range overlaps an Annotation of the &quot;Time Off Not Allowed&quot; type for the user&#39;s location(s).</p>
+
+<p>For more on using Annotations, visit the <a href="https://help.wheniwork.com/hc/en-us/articles/204348065-Annotations">Help Center</a>.</p>
 
 <h3 id="annotation-object">Annotation Object</h3>
 
