@@ -206,7 +206,7 @@
     },
     "published_date": {
       "type": "datetime",
-      "description": "Date the shift was most recently published.",
+      "description": "Date the shift was most recently published. (Will be `null` if the shift is not published.)",
       "value": "Thu, 06 Mar 2014 22:17:14 -0600"
     },
     "notified_at": {
