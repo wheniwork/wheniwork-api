@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['account'], :verbose => true) %>
+<%= print_json(data.objects['account'], :include => {'place' => data.objects['place']} ,:verbose => true) %>
 <% end %>
 
 Accounts are objects that define a business account with When I Work. Every user must be associated with an account in order to be able to access Shifts and other data.
@@ -45,7 +45,8 @@ $result = $wiw->get("account/11");
     'id' => 11,
     'master_id' => 11,
     'company' => '123 Company',
-    'subdomain' => '123-company'
+    'subdomain' => '123-company',
+    'place' => data.objects['place']
   }) %>
 }
 <% end %>
