@@ -778,6 +778,71 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 </tr><tr><td>delete_shifts</td>
 <td><strong>boolean</strong><br />Indicates whether or not to delete this user&#39;s future shifts. If not deleted, those shifts will be moved to Open Shifts. This is an optional parameter.</td>
 </tr></tbody></table>
+<h2 id="create-update-user-avatar">Create/Update User Avatar</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/users/avatar <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+ -H <span class="s2">"Content-Type: image/jpeg"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+ <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="nx">https</span><span class="o">://</span><span class="nx">api</span><span class="o">.</span><span class="nx">wheniwork</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="nx">users</span><span class="o">/</span><span class="nx">avatar</span><span class="p">);</span>
+        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Content-Type: '</span> <span class="o">.</span> <span class="nv">$type</span><span class="p">]);</span>
+        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$image</span><span class="p">);</span>
+
+        <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+        <span class="nv">$http_code</span> <span class="o">=</span> <span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLINFO_HTTP_CODE</span><span class="p">);</span>
+        <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{hash}"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"small"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{userhash}/small"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2/fb/{userhash}.small.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//s3.amazonaws.com/2/fb/{userhash}.small.jpg"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"medium"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/{userhash}/medium"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4/e1/{userhash}.medium.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//s3.amazonaws.com/4/fb/{userhash}.medium.jpg"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13T22:05:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13T22:05:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"best"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medium"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates or updates user avatar.</p>
+
+<aside class="notice"><p>Remember — This request requires a valid <code>Content-Type</code> header.</p>
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>POST https://api.wheniwork.com/2/users/avatar</code></p>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>user_id</td>
+<td><strong>int (optional)</strong><br />ID of the user upload avatar. Will default to current user.</td>
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">
