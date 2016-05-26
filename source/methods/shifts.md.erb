@@ -48,6 +48,10 @@ $result = $wiw->get("shifts", array(
 
 This method allows you to search for shifts. See the parameters below for all the options.
 
+<% aside do %>
+**The maximum range between `start` and `end` is 90 days.** Any range greater than this will be set to the start time plus 90 days.
+<% end %>
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/shifts`
 
@@ -69,8 +73,6 @@ Key | Description
 <% aside do %>
 OpenShifts will be included in the results as long as either `include_allopen` or `include_onlyopen` is `true`.
 <% end %>
-
-
 
 ## Get Existing Shift
 
