@@ -61,7 +61,7 @@
     },
     "timezone_id": {
       "type": "integer",
-      "description": "Identifier for time zone, as specified in the [PHP docs](http://php.net/manual/en/class.datetimezone.php).",
+      "description": "Identifier for time zone, as specified by the [Timezones endpoint](#timezones).",
       "value": "11",
       "show": false
     },
@@ -1744,6 +1744,32 @@
       "type": "integer",
       "description": "The preferred sorted place of this industry",
       "value": "14"
+    }
+  },
+  "timezone": {
+    "id": {
+      "show": true,
+      "type": "integer",
+      "description": "The unique ID for this timezone",
+      "value": "11"
+    },
+    "name": {
+      "show": true,
+      "type": "string",
+      "description": "The unique ID for this industry object",
+      "value": "Central Time (US & Canada)"
+    },
+    "offset": {
+      "show": true,
+      "type": "integer",
+      "description": "The timezone's offset from UTC",
+      "value": "-5"
+    },
+    "olson_id": {
+      "show": true,
+      "type": "integer",
+      "description": "The timezone's name in the Olson tz database",
+      "value": "America/Chicago"
     }
   }
 }
