@@ -1,0 +1,81 @@
+> Example Object
+
+<% json do %>
+<%= print_json(data.objects['timezone'], :verbose => true) %>
+<% end %>
+
+Timezone objects contain timezone definitions which are used by other API endpoints.
+
+<%= print_table(data.objects['timezone'], :header => :timezone) %>
+
+
+
+## Listing Timezones
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/timezones/
+```
+```php
+<?php
+$wiw = new Wheniwork();
+$result = $wiw->get("timezones");
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "timezones": [
+    <%= print_json(data.objects['timezone']) %>,
+    <%= print_json(data.objects['timezone'], :include => {
+      'id' => '9',
+      'name' => 'Eastern Time (US & Canada)',
+      'offset' => -4,
+      'olson_id' => 'America/New_York'
+    }) %>
+  ]
+}
+<% end %>
+
+List all timezones in When I Work.
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/timezones`
+
+
+
+## Get Specific Timezone
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/timezones/<%= data.objects['timezone']['id']['value'] %>
+```
+```php
+<?php
+$wiw = new Wheniwork();
+$result = $wiw->get("timezones/<%= data.objects['timezone']['id']['value'] %>");
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "timezone": <%= print_json(data.objects['timezone']) %>
+}
+<% end %>
+
+Get a specific timezone by ID.
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/timezones/{timezone_id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "timezone_id" do %>ID of the timezone being requested.<% end %>
