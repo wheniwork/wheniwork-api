@@ -617,7 +617,8 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
   "availability": "{'</span>sms<span class="s1">': true, '</span>email<span class="s1">': false}",
   "new_employee": "{'</span>sms<span class="s1">': true, '</span>email<span class="s1">': false}",
   "attendance": "{'</span>sms<span class="s1">': false, '</span>email<span class="s1">': true}",
-  "reminder_time": "2.0"
+  "reminder_time": "2.0",
+  "workchat": "{'</span>alerts<span class="s1">': true, '</span>in_app<span class="s1">': true, '</span>badge_icon<span class="s1">': true}"
 }'</span> <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
@@ -666,6 +667,8 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts for attendance-related events.</td>
 </tr><tr><td>reminder_time</td>
 <td><strong>float</strong><br />Time before an event when a user should be sent notifications, in hours.</td>
+</tr><tr><td>workchat</td>
+<td><strong><a href="#alertsetting">Alert Setting Object</a></strong><br />Whether the user wishes to receive alerts when new workchat messages are received and how they are notified.</td>
 </tr></tbody></table>
 <h3 id="alert-setting-object"><a name="alertsetting">alert setting</a> Object</h3>
 <table><thead><tr><th>Parameter</th>
@@ -674,6 +677,12 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <td><strong>boolean</strong><br />Whether or not SMS messages should be sent for events of this alert type.</td>
 </tr><tr><td>email</td>
 <td><strong>boolean</strong><br />Whether or not email messages should be sent for events of this alert type.</td>
+</tr><tr><td>alerts</td>
+<td><strong>boolean</strong><br />Whether or not push notifications should be sent for events of this alert type.</td>
+</tr><tr><td>in_app</td>
+<td><strong>boolean</strong><br />Whether or not in-app notifications should be sent for events of this alert type.</td>
+</tr><tr><td>badge_icon</td>
+<td><strong>boolean</strong><br />Whether or not banner notifications (iOS only) should be sent for events of this alert type.</td>
 </tr></tbody></table>
 <h2 id="invite-users">Invite Users</h2>
 
