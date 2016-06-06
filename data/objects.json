@@ -1541,6 +1541,12 @@
       "description": "Time before an event when a user should be sent notifications, in hours.",
       "value": "2.0",
       "show": true
+    },
+    "workchat": {
+      "type": "[Alert Setting Object](#alertsetting)",
+      "description": "Whether the user wishes to receive alerts when new workchat messages are received and how they are notified.",
+      "value": "{'alerts': true, 'in_app': true, 'badge_icon': true}",
+      "show": true
     }
   },
   "alert_setting": {
@@ -1553,6 +1559,24 @@
     "email" : {
       "type": "boolean",
       "description": "Whether or not email messages should be sent for events of this alert type.",
+      "value": false,
+      "show": true
+    },
+    "alerts" : {
+      "type": "boolean",
+      "description": "Whether or not push notifications should be sent for events of this alert type.",
+      "value": false,
+      "show": true
+    },
+    "in_app" : {
+      "type": "boolean",
+      "description": "Whether or not in-app notifications should be sent for events of this alert type.",
+      "value": false,
+      "show": true
+    },
+    "badge_icon" : {
+      "type": "boolean",
+      "description": "Whether or not banner notifications (iOS only) should be sent for events of this alert type.",
       "value": false,
       "show": true
     }
@@ -1690,6 +1714,9 @@
     },
     "employee-control": {
       "description": "Has Global Privacy Setting"
+    },
+    "workchat": {
+      "description": "Workchat"
     }
   },
   "custom_features": {
