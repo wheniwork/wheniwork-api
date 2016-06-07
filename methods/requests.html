@@ -247,11 +247,15 @@
 </tr></thead><tbody><tr><td>start</td>
 <td>The start date for the request time-frame.</td>
 </tr><tr><td>end</td>
-<td>End time for the request time-frame.</td>
+<td>The end date for the request time-frame.</td>
 </tr><tr><td>since_id</td>
 <td>Return all requests created since the request with given ID.</td>
 </tr><tr><td>max_id</td>
 <td>Return all requests created before the request with the given ID.</td>
+</tr><tr><td>user_id</td>
+<td><strong>integer</strong><br />Optional. If present, will only return requests for the user with the given id.</td>
+</tr><tr><td>status</td>
+<td><strong>integer</strong><br />Optional. If present, will only return requests with the given status.</td>
 </tr><tr><td>include_deleted_users</td>
 <td><strong>boolean</strong><br />Return all requests including those made by deleted users. Optional, defaults to false.</td>
 </tr></tbody></table>
