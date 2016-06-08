@@ -414,17 +414,32 @@
           "value": 9,
           "show": true
       },
+      "account_id": {
+          "type": "integer",
+          "description": "The ID of the account to which this site belongs.",
+          "value": 10000,
+          "show": true
+      },
+      "location_id": {
+          "type": "integer",
+          "description": "The ID of the location to which this site belongs. If `0`, this site belongs to all locations.",
+          "value": 136
+      },
       "name": {
           "type": "string",
           "description": "The name of the site.",
           "value": "Twin Pines",
           "show": true
       },
-      "location_id": {
-          "type": "integer",
-          "description": "The ID of the location that the site belongs to.",
-          "value": 136,
-          "show": true
+      "color": {
+          "type": "string",
+          "description": "The hex color used to identify this site in the UI.",
+          "value": "cccccc"
+      },
+      "description": {
+          "type": "string",
+          "description": "The description of the job site.",
+          "value": ""
       },
       "address": {
           "type": "string",
@@ -432,9 +447,49 @@
           "value": "1600 S Azusa Ave, City of Industry, CA 91748"
       },
       "coordinates": {
-          "type": "array|null",
-          "description": "The new coordinates for the site, as an array of comma separated values.",
+          "type": "array",
+          "description": "The latitude and longitude of the site, if any, as an array of comma separated values.",
           "value": ["33.9935161","-117.9264044"]
+      },
+      "latitude": {
+          "type": "string",
+          "description": "The latitude of the site, if any.",
+          "value": "33.9935161"
+      },
+      "longitude": {
+          "type": "string",
+          "description": "The longitude of the site, if any.",
+          "value": "-117.9264044"
+      },
+      "place_id": {
+          "type": "string",
+          "description": "The ID of the Google Place associated with this site (if any).",
+          "value": ""
+      },
+      "created_at": {
+          "type": "datetime",
+          "description": "The date and time when the site was created.",
+          "value": "Fri, 13 Jun 2014 11:53:00 -0500"
+      },
+      "updated_at": {
+          "type": "datetime",
+          "description": "The date and time when the site was most recently updated.",
+          "value": "Fri, 13 May 2016 10:59:41 -0500"
+      },
+      "is_deleted": {
+          "type": "boolean",
+          "description": "Whether the site has been deleted or not.",
+          "value": false
+      },
+      "deleted_at": {
+          "type": "datetime",
+          "description": "The date and time when the site was deleted.",
+          "value": ""
+      },
+      "radius": {
+          "type": "integer",
+          "description": "The maximum distance away from the job site at which employees can clock in. This reflects the \"Maximum Distance When Clocking In\" Attendance setting. This field is provided for convenience and cannot be changed.",
+          "value": 1000
       }
   },
   "position": {
