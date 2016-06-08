@@ -82,7 +82,15 @@ class ApiObjects < Middleman::Extension
         end
 
         if options[:verbose] || options[:collapse] || !should_hide_field
-          formatted.merge!(key => field['value'])
+          if field['value'].is_a? Hash
+            field_json = print_json(field['value'], {
+              :collapse => options[:collapse],
+              :verbose => options[:verbose],
+            })
+            formatted.merge!(key => JSON.parse(field_json))
+          else
+            formatted.merge!(key => field['value'])
+          end
         end
       end
 
