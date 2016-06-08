@@ -63,8 +63,6 @@ Key | Description
 <% param "end", "datetime" do %>End time for the search window. The default is exactly three days from the start time.<% end %>
 <% param "user_id", "integer, string array" do %>The ID of the user to get shifts for. For multiple users, enter a list of user IDs separated by commas (e.g. `1,5,3`).<% end %>
 <% param "location_id", "integer, string array" do %>The ID of the location to get shifts for. For multiple locations, enter a list of location IDs separated by commas.<% end %>
-<% param "site_id", "integer, string array" do %>The ID of the site to get shifts for. For multiple sites, enter a list of site IDs separated by commas.<% end %>
-<% param "position_id", "integer, string array" do %>The ID of the position to get shifts for. For multiple position, enter a list of position IDs separated by commas.<% end %>
 <% param "include_open", "boolean" do %>Whether to include OpenShifts in the results.<% end %>
 <% param "include_allopen", "boolean" do %>Whether to include OpenShifts in the results, including shifts that might be conflicts.<% end %>
 <% param "include_onlyopen", "boolean" do %>Whether only OpenShifts should be included in the results.<% end %>
