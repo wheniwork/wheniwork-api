@@ -251,6 +251,12 @@
       "value": 4364,
       "show": true
     },
+    "login_id": {
+      "type": "integer",
+      "description": "Unique identifier for the login belonging to the user.",
+      "value": 2112,
+      "show": true
+    },
     "account_id": {
       "type": "integer",
       "description": "ID of the primary account for this user.",
