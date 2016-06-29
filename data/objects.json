@@ -6,22 +6,22 @@
       "value": 10000,
       "show": true
     },
-    "master_id" : {
+    "master_id": {
       "type": "integer",
       "description": "The id of the parent account (if this is a subaccount)",
       "value": 0,
       "show": false
     },
-    "type" : {
+    "type": {
       "type": "integer",
       "description": "Account type. Must be one of:<br> 1 = SCHEDULING<br> 2 = ATTENDANCE<br> 3 = BOTH",
       "value": 3,
       "show": true
     },
-    "logo" : {
-      "type" : "string",
+    "logo": {
+      "type": "string",
       "description": "Path to the image file for the company's logo",
-      "value": "https:\/\/s3.amazonaws.com\/files.wheniwork.com\/logos\/16434.gif",
+      "value": "https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif",
       "show": false
     },
     "company": {
@@ -42,7 +42,7 @@
       "value": true,
       "show": true
     },
-    "bad_credit_card" : {
+    "bad_credit_card": {
       "type": "boolean",
       "description": "Whether this account has an invalid credit card in use",
       "value": false,
@@ -55,9 +55,9 @@
       "show": false
     },
     "features": {
-        "type": "array",
-        "description": "List of all the enabled features on the account",
-        "value": "[\"all\",\"locations\",\"sites\", ...]"
+      "type": "array",
+      "description": "List of all the enabled features on the account",
+      "value": "[\"all\",\"locations\",\"sites\", ...]"
     },
     "timezone_id": {
       "type": "integer",
@@ -68,7 +68,7 @@
     "timezone_name": {
       "type": "string",
       "description": "Name for the timezone specified in the timezone_id",
-      "value": "America\/Chicago",
+      "value": "America/Chicago",
       "show": false
     },
     "settings": {
@@ -83,7 +83,6 @@
       "show": false
     }
   },
-
   "account_search_result": {
     "id": {
       "type": "integer",
@@ -103,16 +102,16 @@
       "value": "abc-company",
       "show": true
     },
-    "type" : {
+    "type": {
       "type": "integer",
       "description": "Account type. Must be one of:<br> 1 = SCHEDULING<br> 2 = ATTENDANCE<br> 3 = BOTH",
       "value": 3,
       "show": true
     },
-    "logo" : {
-      "type" : "string",
+    "logo": {
+      "type": "string",
       "description": "Path to the image file for the company's logo",
-      "value": "https:\/\/s3.amazonaws.com\/files.wheniwork.com\/logos\/16434.gif",
+      "value": "https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif",
       "show": true
     },
     "account_holder": {
@@ -134,7 +133,6 @@
       "show": true
     }
   },
-
   "shift": {
     "id": {
       "type": "integer",
@@ -267,7 +265,7 @@
       "description": "The user's role.<br> `1` = Admin<br> `2` = Manager<br> `3` = Employee (Default)<br> `4` = Lead (Unused)<br>`5` = Supervisor",
       "value": 2
     },
-    "email":{
+    "email": {
       "type": "string",
       "description": "The email address of this user.",
       "value": "goldiewilson@hillvalleycalifornia.gov",
@@ -305,7 +303,7 @@
       "description": "Notes about this user.",
       "value": ""
     },
-    "hours_preferred":{
+    "hours_preferred": {
       "type": "float",
       "description": "The preferred number of hours for this user to work.",
       "value": 40
@@ -318,12 +316,12 @@
     "hourly_rate": {
       "type": "float",
       "description": "The hourly rate for this user.",
-      "value": 15.50
+      "value": 15.5
     },
     "type": {
-        "type": "integer",
-        "description": "A bitwise flag representing additional wage options: 1 = hourly employee, 2 = salaried employee, 4 = exempt from overtime.",
-        "value": 1
+      "type": "integer",
+      "description": "A bitwise flag representing additional wage options: 1 = hourly employee, 2 = salaried employee, 4 = exempt from overtime.",
+      "value": 1
     },
     "last_login": {
       "type": "datetime",
@@ -347,1095 +345,1093 @@
       ]
     },
     "is_deleted": {
-        "type": "boolean",
-        "description": "Whether the user has been deleted.",
-        "value": false
+      "type": "boolean",
+      "description": "Whether the user has been deleted.",
+      "value": false
     },
     "is_hidden": {
-        "type": "boolean",
-        "description": "Whether the user has been hidden from the scheduler.",
-        "value": false
+      "type": "boolean",
+      "description": "Whether the user has been hidden from the scheduler.",
+      "value": false
     },
     "is_payroll": {
-        "type": "boolean",
-        "description": "Whether the user has access to payroll. (Only available for managers and supervisors.)",
-        "value": false
+      "type": "boolean",
+      "description": "Whether the user has access to payroll. (Only available for managers and supervisors.)",
+      "value": false
     },
     "is_private": {
-        "type": "boolean",
-        "description": "Whether the user has privacy enabled, which will hide their contact details from other employees.",
-        "value": false
+      "type": "boolean",
+      "description": "Whether the user has privacy enabled, which will hide their contact details from other employees.",
+      "value": false
     },
     "is_trusted": {
-        "type": "boolean",
-        "description": "Whether the user can edit their own timesheet.",
-        "value": false
+      "type": "boolean",
+      "description": "Whether the user can edit their own timesheet.",
+      "value": false
     }
   },
   "location": {
-      "id": {
-          "type": "integer",
-          "description": "The unique id of the location.",
-          "value": 136,
-          "show": true
-      },
-      "name": {
-          "type": "string",
-          "description": "The name of the location.",
-          "value": "Downtown",
-          "show": true
-      },
-      "address": {
-          "type": "string",
-          "description": "The location's address.",
-          "value": "9303 Lyon Drive, Hill Valley, CA 12345",
-          "show": true
-      },
-      "coordinates": {
-          "type": "array|null",
-          "description": "The coordinates of the location.",
-          "value": ["34.2390664","-118.4332328"],
-          "show": true
-      },
-      "created_at": {
-          "type": "date",
-          "description": "The date the location was created.",
-          "value": "Sat, 26 Oct 1985 01:20:00 -0500"
-      },
-      "updated_at": {
-          "type": "date",
-          "description": "The last time the location was updated.",
-          "value": "Wed, Oct 21 2015 16:29:00 -0500"
-      },
-      "place": {
-          "type": "[Place Object](#place-object)",
-          "description": "Object Containing place information",
-          "value": ""
-      }
+    "id": {
+      "type": "integer",
+      "description": "The unique id of the location.",
+      "value": 136,
+      "show": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the location.",
+      "value": "Downtown",
+      "show": true
+    },
+    "address": {
+      "type": "string",
+      "description": "The location's address.",
+      "value": "9303 Lyon Drive, Hill Valley, CA 12345",
+      "show": true
+    },
+    "coordinates": {
+      "type": "array|null",
+      "description": "The coordinates of the location.",
+      "value": [
+        "34.2390664",
+        "-118.4332328"
+      ],
+      "show": true
+    },
+    "created_at": {
+      "type": "date",
+      "description": "The date the location was created.",
+      "value": "Sat, 26 Oct 1985 01:20:00 -0500"
+    },
+    "updated_at": {
+      "type": "date",
+      "description": "The last time the location was updated.",
+      "value": "Wed, Oct 21 2015 16:29:00 -0500"
+    },
+    "place": {
+      "type": "[Place Object](#place-object)",
+      "description": "Object Containing place information",
+      "value": ""
+    }
   },
   "site": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID of the site.",
-          "value": 9,
-          "show": true
-      },
-      "account_id": {
-          "type": "integer",
-          "description": "The ID of the account to which this site belongs.",
-          "value": 10000,
-          "show": true
-      },
-      "location_id": {
-          "type": "integer",
-          "description": "The ID of the location to which this site belongs. If `0`, this site belongs to all locations.",
-          "value": 136
-      },
-      "name": {
-          "type": "string",
-          "description": "The name of the site.",
-          "value": "Twin Pines",
-          "show": true
-      },
-      "color": {
-          "type": "string",
-          "description": "The hex color used to identify this site in the UI.",
-          "value": "cccccc"
-      },
-      "description": {
-          "type": "string",
-          "description": "The description of the job site.",
-          "value": ""
-      },
-      "address": {
-          "type": "string",
-          "description": "The address of the site.",
-          "value": "1600 S Azusa Ave, City of Industry, CA 91748"
-      },
-      "coordinates": {
-          "type": "array",
-          "description": "The latitude and longitude of the site, if any, as an array of comma separated values.",
-          "value": ["33.9935161","-117.9264044"]
-      },
-      "latitude": {
-          "type": "string",
-          "description": "The latitude of the site, if any.",
-          "value": "33.9935161"
-      },
-      "longitude": {
-          "type": "string",
-          "description": "The longitude of the site, if any.",
-          "value": "-117.9264044"
-      },
-      "place_id": {
-          "type": "string",
-          "description": "The ID of the Google Place associated with this site (if any).",
-          "value": ""
-      },
-      "created_at": {
-          "type": "datetime",
-          "description": "The date and time when the site was created.",
-          "value": "Fri, 13 Jun 2014 11:53:00 -0500"
-      },
-      "updated_at": {
-          "type": "datetime",
-          "description": "The date and time when the site was most recently updated.",
-          "value": "Fri, 13 May 2016 10:59:41 -0500"
-      },
-      "is_deleted": {
-          "type": "boolean",
-          "description": "Whether the site has been deleted or not.",
-          "value": false
-      },
-      "deleted_at": {
-          "type": "datetime",
-          "description": "The date and time when the site was deleted.",
-          "value": ""
-      },
-      "radius": {
-          "type": "integer",
-          "description": "The maximum distance away from the job site at which employees can clock in. This reflects the \"Maximum Distance When Clocking In\" Attendance setting. This field is provided for convenience and cannot be changed.",
-          "value": 1000
-      }
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the site.",
+      "value": 9,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account to which this site belongs.",
+      "value": 10000,
+      "show": true
+    },
+    "location_id": {
+      "type": "integer",
+      "description": "The ID of the location to which this site belongs. If `0`, this site belongs to all locations.",
+      "value": 136
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the site.",
+      "value": "Twin Pines",
+      "show": true
+    },
+    "color": {
+      "type": "string",
+      "description": "The hex color used to identify this site in the UI.",
+      "value": "cccccc"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the job site.",
+      "value": ""
+    },
+    "address": {
+      "type": "string",
+      "description": "The address of the site.",
+      "value": "1600 S Azusa Ave, City of Industry, CA 91748"
+    },
+    "coordinates": {
+      "type": "array",
+      "description": "The latitude and longitude of the site, if any, as an array of comma separated values.",
+      "value": [
+        "33.9935161",
+        "-117.9264044"
+      ]
+    },
+    "latitude": {
+      "type": "string",
+      "description": "The latitude of the site, if any.",
+      "value": "33.9935161"
+    },
+    "longitude": {
+      "type": "string",
+      "description": "The longitude of the site, if any.",
+      "value": "-117.9264044"
+    },
+    "place_id": {
+      "type": "string",
+      "description": "The ID of the Google Place associated with this site (if any).",
+      "value": ""
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "The date and time when the site was created.",
+      "value": "Fri, 13 Jun 2014 11:53:00 -0500"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "The date and time when the site was most recently updated.",
+      "value": "Fri, 13 May 2016 10:59:41 -0500"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "description": "Whether the site has been deleted or not.",
+      "value": false
+    },
+    "deleted_at": {
+      "type": "datetime",
+      "description": "The date and time when the site was deleted.",
+      "value": ""
+    },
+    "radius": {
+      "type": "integer",
+      "description": "The maximum distance away from the job site at which employees can clock in. This reflects the \"Maximum Distance When Clocking In\" Attendance setting. This field is provided for convenience and cannot be changed.",
+      "value": 1000
+    }
   },
   "position": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID of the position.",
-          "value": 32,
-          "show": true
-      },
-      "account_id": {
-          "type": "integer",
-          "description": "The ID of the account that the position belongs to.",
-          "value": 3,
-          "show": true
-      },
-      "name": {
-          "type": "string",
-          "description": "The name of the position.",
-          "value": "Stocker",
-          "show": true
-      },
-      "color": {
-          "type": "hexadecimal",
-          "description": "The position's color in the schedule.",
-          "value": "1174a6",
-          "show": true
-      },
-      "created_at": {
-          "type": "datetime",
-          "description": "Date at which the position was created.",
-          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
-      },
-      "updated_at": {
-          "type": "datetime",
-          "description": "Date the position was most recently updated.",
-          "value": "Thu, 06 Mar 2014 22:17:14 -0600"
-      }
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the position.",
+      "value": 32,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account that the position belongs to.",
+      "value": 3,
+      "show": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the position.",
+      "value": "Stocker",
+      "show": true
+    },
+    "color": {
+      "type": "hexadecimal",
+      "description": "The position's color in the schedule.",
+      "value": "1174a6",
+      "show": true
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "Date at which the position was created.",
+      "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "Date the position was most recently updated.",
+      "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+    }
   },
   "block": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID of the shift block.",
-          "value": 233,
-          "show": true
-      },
-      "account_id": {
-          "type": "integer",
-          "description": "The ID of the account the shift block is attached to.",
-          "value": 0,
-          "show": true
-      },
-      "location_id": {
-          "type": "integer",
-          "description": "The ID of the location the shift block is for.",
-          "value": 14,
-          "show": true
-      },
-      "position_id": {
-          "type": "integer",
-          "description": "The ID of the position that the shift is designated for.",
-          "value": 7,
-          "show": true
-      },
-      "start_time": {
-          "type": "date time",
-          "description": "The start time for the shift block.",
-          "value": "16:00:00",
-          "show": true
-      },
-      "end_time": {
-          "type": "date time",
-          "description": "The end time for the shift block.",
-          "value": "21:30:00",
-          "show": true
-      },
-      "color": {
-          "type": "hexadecimal",
-          "description": "The hexadecimal value of the color for the shift block.",
-          "value": "b38dd9"
-      },
-      "break_time": {
-          "type": "float",
-          "description": "The unpaid break time (in hours) for the shift block",
-          "value": 0.5
-      },
-      "created_at": {
-          "type": "datetime",
-          "description": "Date at which the shift block was created.",
-          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
-      },
-      "updated_at": {
-          "type": "datetime",
-          "description": "Date the shift block was most recently updated.",
-          "value": "Thu, 06 Mar 2014 22:17:14 -0600"
-      }
-
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the shift block.",
+      "value": 233,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account the shift block is attached to.",
+      "value": 0,
+      "show": true
+    },
+    "location_id": {
+      "type": "integer",
+      "description": "The ID of the location the shift block is for.",
+      "value": 14,
+      "show": true
+    },
+    "position_id": {
+      "type": "integer",
+      "description": "The ID of the position that the shift is designated for.",
+      "value": 7,
+      "show": true
+    },
+    "start_time": {
+      "type": "date time",
+      "description": "The start time for the shift block.",
+      "value": "16:00:00",
+      "show": true
+    },
+    "end_time": {
+      "type": "date time",
+      "description": "The end time for the shift block.",
+      "value": "21:30:00",
+      "show": true
+    },
+    "color": {
+      "type": "hexadecimal",
+      "description": "The hexadecimal value of the color for the shift block.",
+      "value": "b38dd9"
+    },
+    "break_time": {
+      "type": "float",
+      "description": "The unpaid break time (in hours) for the shift block",
+      "value": 0.5
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "Date at which the shift block was created.",
+      "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "Date the shift block was most recently updated.",
+      "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+    }
   },
   "availability": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID of the availability.",
-          "value": 10,
-          "show": true
-      },
-      "account_id": {
-          "type": "integer",
-          "description": "The ID of the account that this user's availability is tied to.",
-          "value": 77,
-          "show": true
-      },
-      "user_id": {
-          "type": "integer",
-          "description": "The ID of the user tied to the availability.",
-          "value": 371,
-          "show": true
-      },
-      "name": {
-          "type": "string",
-          "description": "The name of the availability.",
-          "value": "Emmett's availability preferences.",
-          "show": true
-      },
-      "description": {
-          "type": "string",
-          "description": "The description for the availability",
-          "value": "Emmett B.'s summer availability",
-          "show": true
-      },
-      "start_date": {
-          "type": "date",
-          "description": "The starting date of the time period the availability is designated for.",
-          "value": "Fri, 13 Apr 2014",
-          "show": true
-      },
-      "end_date": {
-          "type": "date",
-          "description": "The ending date of the time period the availability is designated for.",
-          "value": "Tue, 1 Jun 2014",
-          "show": true
-      },
-      "ongoing": {
-          "type": "boolean",
-          "description": "Whether the availability is the user's ongoing availability.",
-          "value": false
-      },
-      "repeat": {
-          "type": "integer",
-          "description": "The repeat value for availability.",
-          "value": 1
-      },
-      "created_at": {
-          "type": "datetime",
-          "description": "Date at which the availability was created.",
-          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
-      },
-      "updated_at": {
-          "type": "datetime",
-          "description": "Date the availability was most recently updated.",
-          "value": "Thu, 06 Mar 2014 22:17:14 -0600"
-      }
-
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the availability.",
+      "value": 10,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account that this user's availability is tied to.",
+      "value": 77,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The ID of the user tied to the availability.",
+      "value": 371,
+      "show": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the availability.",
+      "value": "Emmett's availability preferences.",
+      "show": true
+    },
+    "description": {
+      "type": "string",
+      "description": "The description for the availability",
+      "value": "Emmett B.'s summer availability",
+      "show": true
+    },
+    "start_date": {
+      "type": "date",
+      "description": "The starting date of the time period the availability is designated for.",
+      "value": "Fri, 13 Apr 2014",
+      "show": true
+    },
+    "end_date": {
+      "type": "date",
+      "description": "The ending date of the time period the availability is designated for.",
+      "value": "Tue, 1 Jun 2014",
+      "show": true
+    },
+    "ongoing": {
+      "type": "boolean",
+      "description": "Whether the availability is the user's ongoing availability.",
+      "value": false
+    },
+    "repeat": {
+      "type": "integer",
+      "description": "The repeat value for availability.",
+      "value": 1
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "Date at which the availability was created.",
+      "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "Date the availability was most recently updated.",
+      "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+    }
   },
   "availabilityitem": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID of the availability item",
-          "value": 85,
-          "show": true
-      },
-      "availability_id":{
-          "type": "integer",
-          "description": "The ID of the availability object the item is associated with.",
-          "value": 10,
-          "show": true
-      },
-      "user_id": {
-          "type": "integer",
-          "description": "The ID of the user that the availability item is associated with.",
-          "value": 4634,
-          "show": true
-      },
-      "day": {
-          "type": "integer",
-          "description": "The day of the week (0-6) for the availability item.",
-          "value": 0,
-          "show": true
-      },
-      "type": {
-          "type": "integer",
-          "description": "The type of the availability item. (1 = Unavailable, 2 = Preferred)",
-          "value": 1,
-          "show": true
-      },
-      "start_time": {
-          "type": "date time",
-          "description": "The start time of the availability for the specified day.",
-          "value": "07:15:00",
-          "show": true
-      },
-      "end_time": {
-          "type": "date time",
-          "description": "The end time of the availability for the specified day.",
-          "value": "16:00:00",
-          "show": true
-      },
-      "created_at": {
-          "type": "datetime",
-          "description": "Date at which the availability item was created.",
-          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
-      },
-      "updated_at": {
-          "type": "datetime",
-          "description": "Date the availability item was most recently updated.",
-          "value": "Thu, 06 Mar 2014 22:17:14 -0600"
-      }
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the availability item",
+      "value": 85,
+      "show": true
+    },
+    "availability_id": {
+      "type": "integer",
+      "description": "The ID of the availability object the item is associated with.",
+      "value": 10,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The ID of the user that the availability item is associated with.",
+      "value": 4634,
+      "show": true
+    },
+    "day": {
+      "type": "integer",
+      "description": "The day of the week (0-6) for the availability item.",
+      "value": 0,
+      "show": true
+    },
+    "type": {
+      "type": "integer",
+      "description": "The type of the availability item. (1 = Unavailable, 2 = Preferred)",
+      "value": 1,
+      "show": true
+    },
+    "start_time": {
+      "type": "date time",
+      "description": "The start time of the availability for the specified day.",
+      "value": "07:15:00",
+      "show": true
+    },
+    "end_time": {
+      "type": "date time",
+      "description": "The end time of the availability for the specified day.",
+      "value": "16:00:00",
+      "show": true
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "Date at which the availability item was created.",
+      "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "Date the availability item was most recently updated.",
+      "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+    }
   },
   "message": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID of the message.",
-          "value": 61,
-          "show": true
-      },
-      "account_id": {
-          "type": "integer",
-          "description": "The account ID that the message is associated with.",
-          "value": 0,
-          "show": true
-      },
-      "user_id": {
-          "type": "integer",
-          "description": "The ID of the user.",
-          "value": 135,
-          "show": true
-      },
-      "request_id": {
-          "type": "integer",
-          "description": "The ID of the request the message is for.",
-          "value": 123,
-          "show": true
-      },
-      "swap_id": {
-          "type": "integer",
-          "description": "The ID of the swap the message is for.",
-          "value": 0
-      },
-      "conversation_id": {
-          "type": "integer",
-          "description": "The ID of the conversation the message is a part of.",
-          "value": 0
-      },
-      "title": {
-          "type": "string",
-          "description": "The title of the message.",
-          "value": "This is a message title.",
-          "show": true
-      },
-      "content": {
-          "type": "string",
-          "description": "The content of the message.",
-          "value": "This request has been canceled.",
-          "show": true
-      },
-      "created_at": {
-          "type": "datetime",
-          "description": "Date at which the message was created.",
-          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
-      },
-      "updated_at": {
-          "type": "datetime",
-          "description": "Date the message was most recently updated.",
-          "value": "Thu, 06 Mar 2014 22:17:14 -0600"
-      }
-
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the message.",
+      "value": 61,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The account ID that the message is associated with.",
+      "value": 0,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The ID of the user.",
+      "value": 135,
+      "show": true
+    },
+    "request_id": {
+      "type": "integer",
+      "description": "The ID of the request the message is for.",
+      "value": 123,
+      "show": true
+    },
+    "swap_id": {
+      "type": "integer",
+      "description": "The ID of the swap the message is for.",
+      "value": 0
+    },
+    "conversation_id": {
+      "type": "integer",
+      "description": "The ID of the conversation the message is a part of.",
+      "value": 0
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the message.",
+      "value": "This is a message title.",
+      "show": true
+    },
+    "content": {
+      "type": "string",
+      "description": "The content of the message.",
+      "value": "This request has been canceled.",
+      "show": true
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "Date at which the message was created.",
+      "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "Date the message was most recently updated.",
+      "value": "Thu, 06 Mar 2014 22:17:14 -0600"
+    }
   },
   "send": {
-        "ids": {
-            "type": "array",
-            "description": "An array of user IDs to send the email to.",
-            "value": [145,245],
-            "show": true
-        },
-        "subject": {
-            "type": "string",
-            "description": "The subject of the email notification.",
-            "value": "Open shift up for grabs!",
-            "show": true
-        },
-       "message": {
-           "type": "string",
-           "description": "The email notification message content.",
-           "value": "We have an open shift available on Tuesday from 1:00 PM to 10:00 PM",
-           "show": true
-       }
+    "ids": {
+      "type": "array",
+      "description": "An array of user IDs to send the email to.",
+      "value": [
+        145,
+        245
+      ],
+      "show": true
+    },
+    "subject": {
+      "type": "string",
+      "description": "The subject of the email notification.",
+      "value": "Open shift up for grabs!",
+      "show": true
+    },
+    "message": {
+      "type": "string",
+      "description": "The email notification message content.",
+      "value": "We have an open shift available on Tuesday from 1:00 PM to 10:00 PM",
+      "show": true
+    }
   },
   "swap": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID of the swap.",
-          "value": 2238,
-          "show": true
-      },
-      "account_id": {
-          "type": "integer",
-          "description": "The ID of the account associated with the swap.",
-          "value": 0,
-          "show": true
-      },
-      "user_id": {
-          "type": "integer",
-          "description": "The ID of the user who initiated the swap.",
-          "value": 145,
-          "show": true
-      },
-      "type": {
-          "type": "integer",
-          "description": "The type of swap. (1 = swap, 2 = drop, 3 = alert)",
-          "value": 1,
-          "show": true
-      },
-      "status": {
-          "type": "integer",
-          "description": "The status of the swap. (0 = Pending, 1 = Approved, 2 = Declined, 3 = Completed, 4 = Canceled, 5 = Expired)",
-          "value": 0,
-          "show": true
-      },
-      "accepted_id": {
-          "type": "integer",
-          "description": "The ID of the user who took the shift",
-          "value": 0,
-          "show": true
-      },
-      "statuses": {
-          "type": "array",
-          "description": "An array of user shift acceptance statuses.",
-          "value": [
-              {
-                  "user_id": 23,
-                  "status": 0,
-                  "shift_id": 0
-              },
-              {
-                  "user_id": 24,
-                  "status": 0,
-                  "shift_id": 0
-              }
-
-          ]
-      }
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the swap.",
+      "value": 2238,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account associated with the swap.",
+      "value": 0,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The ID of the user who initiated the swap.",
+      "value": 145,
+      "show": true
+    },
+    "type": {
+      "type": "integer",
+      "description": "The type of swap. (1 = swap, 2 = drop, 3 = alert)",
+      "value": 1,
+      "show": true
+    },
+    "status": {
+      "type": "integer",
+      "description": "The status of the swap. (0 = Pending, 1 = Approved, 2 = Declined, 3 = Completed, 4 = Canceled, 5 = Expired)",
+      "value": 0,
+      "show": true
+    },
+    "accepted_id": {
+      "type": "integer",
+      "description": "The ID of the user who took the shift",
+      "value": 0,
+      "show": true
+    },
+    "statuses": {
+      "type": "array",
+      "description": "An array of user shift acceptance statuses.",
+      "value": [
+        {
+          "user_id": 23,
+          "status": 0,
+          "shift_id": 0
+        },
+        {
+          "user_id": 24,
+          "status": 0,
+          "shift_id": 0
+        }
+      ]
+    }
   },
   "template": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID of the template.",
-          "value": 12,
-          "show": true
-      },
-      "account_id": {
-          "type": "integer",
-          "description": "The ID of the account the template belongs to.",
-          "value": 1946
-      },
-      "location_id": {
-          "type": "integer",
-          "description": "The location ID for the shift template.",
-          "value": 0,
-          "show": true
-      },
-      "user_id": {
-          "type": "integer",
-          "description": "The ID of the user who created the template.",
-          "value": 1,
-          "show": true
-      },
-      "start_date": {
-          "type": "date time",
-          "description": "The start date for the template.",
-          "value": "Mon, 17 Feb 2014",
-          "show": true
-      },
-      "end_date": {
-          "type": "date time",
-          "description": "The start date for the template.",
-          "value": "Sun, 23 Feb 2014",
-          "show": true
-      },
-      "name": {
-          "type": "string",
-          "description": "A name for the template.",
-          "value": "Winter Schedule",
-          "show": true
-      },
-      "description":{
-          "type": "string",
-          "description": "A description for the template",
-          "value": "Our weekly schedule for December - March.",
-          "show": true
-      },
-      "created_at":{
-          "type": "datetime",
-          "description": "The date and time the template was created.",
-          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
-      },
-      "updated_at":{
-          "type": "datetime",
-          "description": "The date and time the template was last updated.",
-          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
-      }
-
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the template.",
+      "value": 12,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account the template belongs to.",
+      "value": 1946
+    },
+    "location_id": {
+      "type": "integer",
+      "description": "The location ID for the shift template.",
+      "value": 0,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The ID of the user who created the template.",
+      "value": 1,
+      "show": true
+    },
+    "start_date": {
+      "type": "date time",
+      "description": "The start date for the template.",
+      "value": "Mon, 17 Feb 2014",
+      "show": true
+    },
+    "end_date": {
+      "type": "date time",
+      "description": "The start date for the template.",
+      "value": "Sun, 23 Feb 2014",
+      "show": true
+    },
+    "name": {
+      "type": "string",
+      "description": "A name for the template.",
+      "value": "Winter Schedule",
+      "show": true
+    },
+    "description": {
+      "type": "string",
+      "description": "A description for the template",
+      "value": "Our weekly schedule for December - March.",
+      "show": true
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "The date and time the template was created.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "The date and time the template was last updated.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    }
   },
   "templateshift": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID of the template shift.",
-          "value": "38383",
-          "show": true
-      },
-      "template_id": {
-          "type": "integer",
-          "description": "The ID of the template that the template shift is a part of.",
-          "value": 12,
-          "show": true
-      },
-      "user_id": {
-          "type": "integer",
-          "description": "The ID of the user assigned to the template shift.",
-          "value": 44,
-          "show": true
-      },
-      "location_id": {
-          "type": "integer",
-          "description": "The ID of the location associated with the template shift.",
-          "value": 15,
-          "show": true
-      },
-      "position_id": {
-          "type": "integer",
-          "description": "The ID of the position associated with the template shift.",
-          "value": 2,
-          "show": true
-      },
-      "site_id": {
-          "type": "integer",
-          "description": "The ID of the site associated with the template shift.",
-          "value": 0,
-          "show": true
-      },
-      "start_time": {
-          "type": "datetime",
-          "description": "Start time of the template shift.",
-          "value": "Tue, 18 Feb 2014 08:00:00 -0500",
-          "show": true
-      },
-      "end_time": {
-          "type": "datetime",
-          "description": "End time of the template shift.",
-          "value": "Tue, 18 Feb 2014 15:00:00 -0500",
-          "show": true
-      },
-      "break_time": {
-          "type": "float",
-          "description": "Number of unpaid hours allotted for a break during the shift.",
-          "value": 0.5
-      },
-      "color": {
-          "type": "hexadecimal",
-          "description": "The hexadecimal color value that the shift shows up as in the scheduler.",
-          "value": "9a8dd9"
-      },
-      "notes": {
-          "type": "string",
-          "description": "A note for the associated template shift.",
-          "value": "All company meeting!"
-      },
-      "linked_users": {
-          "type": "JSON",
-          "description": "A json encoded string of users that are eligible for the shift.",
-          "value": ""
-      }
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the template shift.",
+      "value": "38383",
+      "show": true
+    },
+    "template_id": {
+      "type": "integer",
+      "description": "The ID of the template that the template shift is a part of.",
+      "value": 12,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The ID of the user assigned to the template shift.",
+      "value": 44,
+      "show": true
+    },
+    "location_id": {
+      "type": "integer",
+      "description": "The ID of the location associated with the template shift.",
+      "value": 15,
+      "show": true
+    },
+    "position_id": {
+      "type": "integer",
+      "description": "The ID of the position associated with the template shift.",
+      "value": 2,
+      "show": true
+    },
+    "site_id": {
+      "type": "integer",
+      "description": "The ID of the site associated with the template shift.",
+      "value": 0,
+      "show": true
+    },
+    "start_time": {
+      "type": "datetime",
+      "description": "Start time of the template shift.",
+      "value": "Tue, 18 Feb 2014 08:00:00 -0500",
+      "show": true
+    },
+    "end_time": {
+      "type": "datetime",
+      "description": "End time of the template shift.",
+      "value": "Tue, 18 Feb 2014 15:00:00 -0500",
+      "show": true
+    },
+    "break_time": {
+      "type": "float",
+      "description": "Number of unpaid hours allotted for a break during the shift.",
+      "value": 0.5
+    },
+    "color": {
+      "type": "hexadecimal",
+      "description": "The hexadecimal color value that the shift shows up as in the scheduler.",
+      "value": "9a8dd9"
+    },
+    "notes": {
+      "type": "string",
+      "description": "A note for the associated template shift.",
+      "value": "All company meeting!"
+    },
+    "linked_users": {
+      "type": "JSON",
+      "description": "A json encoded string of users that are eligible for the shift.",
+      "value": ""
+    }
   },
   "request": {
-       "id": {
-           "type": "integer",
-           "description": "The unique ID of the request.",
-           "value": 54,
-           "show": true
-       },
-       "account_id": {
-           "type": "integer",
-           "description": "The ID of the account this request belongs to. ",
-           "value": 0,
-           "show": true
-       },
-       "user_id": {
-           "type": "integer",
-           "description": "The ID of the user.",
-           "value": 135,
-           "show": true
-       },
-       "creator_id": {
-           "type": "integer",
-           "description": "The ID of the user creating the request.",
-           "value": 135,
-           "show": true
-       },
-       "status": {
-           "type": "integer",
-           "description": "The current status of the request (0 = Pending, 1 = Canceled, 2 = Accepted, 3 = Expired).",
-           "value": 0,
-           "show": true
-       },
-       "type": {
-           "type": "integer",
-           "description": "The type of the request (0 = Unpaid Time Off, 1 = Paid Time Off, 2 = Sick Leave, 3 = Holiday).",
-           "value": 0,
-           "show": true
-       },
-       "start_time": {
-           "type": "datetime",
-           "description": "Start time of request.",
-           "value": "Fri, 14 Mar 2014 00:00:00 -0500",
-           "show": true
-
-       },
-       "end_time": {
-           "type": "datetime",
-           "description": "End time of request.",
-           "value": "Fri, 21 Mar 2014 00:00:00 -0500",
-           "show": true
-       },
-       "created_at": {
-           "type": "datetime",
-           "description": "The date and time the request was created.",
-           "value": "Wed, 19 Feb 2014 10:51:33 -0600"
-       },
-       "updated_at": {
-           "type": "datetime",
-           "description": "The date and time the request was last updated.",
-           "value": "Wed, 19 Feb 2014 10:51:33 -0600"
-       }
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the request.",
+      "value": 54,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account this request belongs to. ",
+      "value": 0,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The ID of the user.",
+      "value": 135,
+      "show": true
+    },
+    "creator_id": {
+      "type": "integer",
+      "description": "The ID of the user creating the request.",
+      "value": 135,
+      "show": true
+    },
+    "status": {
+      "type": "integer",
+      "description": "The current status of the request (0 = Pending, 1 = Canceled, 2 = Accepted, 3 = Expired).",
+      "value": 0,
+      "show": true
+    },
+    "type": {
+      "type": "integer",
+      "description": "The type of the request (0 = Unpaid Time Off, 1 = Paid Time Off, 2 = Sick Leave, 3 = Holiday).",
+      "value": 0,
+      "show": true
+    },
+    "start_time": {
+      "type": "datetime",
+      "description": "Start time of request.",
+      "value": "Fri, 14 Mar 2014 00:00:00 -0500",
+      "show": true
+    },
+    "end_time": {
+      "type": "datetime",
+      "description": "End time of request.",
+      "value": "Fri, 21 Mar 2014 00:00:00 -0500",
+      "show": true
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "The date and time the request was created.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "The date and time the request was last updated.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    }
   },
   "plan": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID of the plan.",
-          "value": 1,
-          "show": true
-      },
-      "name": {
-          "type": "string",
-          "description": "The name of the plan.",
-          "value": "Free",
-          "show": true
-      },
-      "price": {
-          "type": "float",
-          "description": "The price of the plan",
-          "value": 0,
-          "show": true
-      },
-      "price_annual":{
-          "type": "float",
-          "description": "The annual cost of the plan.",
-          "value": 0,
-          "show": true
-      },
-      "wb_price": {
-          "type": "float",
-          "description": "The WageBase plan cost.",
-          "value": 0,
-          "show": true
-      },
-      "wb_annual": {
-          "type": "float",
-          "description": "The WageBase annual plan cost.",
-          "value": 0,
-          "show": true
-      },
-      "employees": {
-          "type": "integer",
-          "description": "The number of employees allowed on the plan.",
-          "value": "5"
-      },
-      "texting": {
-          "type": "boolean",
-          "description": "Is texting allowed on this account",
-          "value": false
-      },
-      "texting_price": {
-          "type": "float",
-          "description": "The texting cost.",
-          "value": 0
-      },
-      "is_legacy": {
-          "type": "boolean",
-          "description": "Is this a legacy plan?",
-          "value": false
-      },
-      "sort": {
-          "type": "integer",
-          "description": "The sort order of the plan.",
-          "value": 0
-      }
-
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the plan.",
+      "value": 1,
+      "show": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the plan.",
+      "value": "Free",
+      "show": true
+    },
+    "price": {
+      "type": "float",
+      "description": "The price of the plan",
+      "value": 0,
+      "show": true
+    },
+    "price_annual": {
+      "type": "float",
+      "description": "The annual cost of the plan.",
+      "value": 0,
+      "show": true
+    },
+    "wb_price": {
+      "type": "float",
+      "description": "The WageBase plan cost.",
+      "value": 0,
+      "show": true
+    },
+    "wb_annual": {
+      "type": "float",
+      "description": "The WageBase annual plan cost.",
+      "value": 0,
+      "show": true
+    },
+    "employees": {
+      "type": "integer",
+      "description": "The number of employees allowed on the plan.",
+      "value": "5"
+    },
+    "texting": {
+      "type": "boolean",
+      "description": "Is texting allowed on this account",
+      "value": false
+    },
+    "texting_price": {
+      "type": "float",
+      "description": "The texting cost.",
+      "value": 0
+    },
+    "is_legacy": {
+      "type": "boolean",
+      "description": "Is this a legacy plan?",
+      "value": false
+    },
+    "sort": {
+      "type": "integer",
+      "description": "The sort order of the plan.",
+      "value": 0
+    }
   },
   "payroll": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID for this payroll item.",
-          "value": 24,
-          "show": true
-      },
-      "account_id": {
-          "type": "integer",
-          "description": "The account ID that this payroll item belongs to.",
-          "value": 0
-      },
-      "creator_id": {
-          "type": "integer",
-          "description": "The user ID of the person who created the payroll item.",
-          "value": 0
-      },
-      "start_date": {
-          "type": "datetime",
-          "description": "The start date of the payroll period.",
-          "value": "Wed, 26 Feb 2014 00:00:00 -0600",
-          "show": true
-      },
-      "end_date": {
-          "type": "datetime",
-          "description": "The end date of the payroll period.",
-          "value":  "Tue, 11 Mar 2014 23:59:59 -0500",
-          "show": true
-      },
-      "notes": {
-          "type": "string",
-          "description": "Notes for the payroll period.",
-          "value": "",
-          "show": true
-      },
-      "is_closed": {
-          "type": "boolean",
-          "description": "Whether the payroll period is closed",
-          "value": true,
-          "show": true
-      },
-      "is_finalized": {
-          "type": "boolean",
-          "description": "True if the payroll period has been finalized.",
-          "value": true,
-          "show": true
-      },
-      "finalized_at": {
-          "type": "datetime",
-          "description": "The date and time that the payroll period was finalized.",
-          "value": "Tue, 29 Nov -001 18:00:00 -0600",
-          "show": true
-      },
-      "created_at": {
-          "type": "datetime",
-          "description": "The date and time the payroll period was created.",
-          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
-      },
-      "updated_at": {
-          "type": "datetime",
-          "description": "The date and time the payroll period was last updated.",
-          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
-      }
+    "id": {
+      "type": "integer",
+      "description": "The unique ID for this payroll item.",
+      "value": 24,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The account ID that this payroll item belongs to.",
+      "value": 0
+    },
+    "creator_id": {
+      "type": "integer",
+      "description": "The user ID of the person who created the payroll item.",
+      "value": 0
+    },
+    "start_date": {
+      "type": "datetime",
+      "description": "The start date of the payroll period.",
+      "value": "Wed, 26 Feb 2014 00:00:00 -0600",
+      "show": true
+    },
+    "end_date": {
+      "type": "datetime",
+      "description": "The end date of the payroll period.",
+      "value": "Tue, 11 Mar 2014 23:59:59 -0500",
+      "show": true
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes for the payroll period.",
+      "value": "",
+      "show": true
+    },
+    "is_closed": {
+      "type": "boolean",
+      "description": "Whether the payroll period is closed",
+      "value": true,
+      "show": true
+    },
+    "is_finalized": {
+      "type": "boolean",
+      "description": "True if the payroll period has been finalized.",
+      "value": true,
+      "show": true
+    },
+    "finalized_at": {
+      "type": "datetime",
+      "description": "The date and time that the payroll period was finalized.",
+      "value": "Tue, 29 Nov -001 18:00:00 -0600",
+      "show": true
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "The date and time the payroll period was created.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "The date and time the payroll period was last updated.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    }
   },
   "payrollhours": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID for this payrollhours item.",
-          "value": 100,
-          "show": true
-      },
-      "payroll_id": {
-          "type": "integer",
-          "description": "The ID of the payroll item this payrollhours object belongs to.",
-          "value": 24,
-          "show": true
-      },
-      "type": {
-          "type": "integer",
-          "description": "The type of hours being reported. (1=Regular, 2=OT, 3=PTO, 4=Holiday, 5=Double Time, 6=Sick)",
-          "value": 1,
-          "show": true
-      },
-      "user_id": {
-          "type": "integer",
-          "description": "The ID of the user who these hours belong to.",
-          "value": 4634,
-          "show": true
-      },
-      "position_id": {
-          "type": "integer",
-          "description": "The ID of the position that is associated with these hours.",
-          "value": 1,
-          "show": true
-      },
-      "hours": {
-          "type": "float",
-          "description": "The number of hours.",
-          "value": 20.25,
-          "show": true
-      },
-      "rate": {
-          "type": "float",
-          "description": "The hourly rate paid for these hours.",
-          "value": 15.75,
-          "show": true
-      },
-      "total": {
-          "type": "float",
-          "description": "The total wages for these hours.",
-          "value": 318.94,
-          "show": true
-      }
+    "id": {
+      "type": "integer",
+      "description": "The unique ID for this payrollhours item.",
+      "value": 100,
+      "show": true
+    },
+    "payroll_id": {
+      "type": "integer",
+      "description": "The ID of the payroll item this payrollhours object belongs to.",
+      "value": 24,
+      "show": true
+    },
+    "type": {
+      "type": "integer",
+      "description": "The type of hours being reported. (1=Regular, 2=OT, 3=PTO, 4=Holiday, 5=Double Time, 6=Sick)",
+      "value": 1,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The ID of the user who these hours belong to.",
+      "value": 4634,
+      "show": true
+    },
+    "position_id": {
+      "type": "integer",
+      "description": "The ID of the position that is associated with these hours.",
+      "value": 1,
+      "show": true
+    },
+    "hours": {
+      "type": "float",
+      "description": "The number of hours.",
+      "value": 20.25,
+      "show": true
+    },
+    "rate": {
+      "type": "float",
+      "description": "The hourly rate paid for these hours.",
+      "value": 15.75,
+      "show": true
+    },
+    "total": {
+      "type": "float",
+      "description": "The total wages for these hours.",
+      "value": 318.94,
+      "show": true
+    }
   },
   "payrollstats": {
-      "regular": {
-          "type": "float",
-          "description": "The number of regular hours in this aggregate.",
-          "value": 40,
-          "show": true
-      },
-      "overtime": {
-          "type": "float",
-          "description": "The number of overtime hours in this aggregate.",
-          "value": 4.78,
-          "show": true
-      },
-      "double": {
-          "type": "float",
-          "description": "The number of double overtime hours in this aggregate.",
-          "value": 0,
-          "show": true
-      }
+    "regular": {
+      "type": "float",
+      "description": "The number of regular hours in this aggregate.",
+      "value": 40,
+      "show": true
+    },
+    "overtime": {
+      "type": "float",
+      "description": "The number of overtime hours in this aggregate.",
+      "value": 4.78,
+      "show": true
+    },
+    "double": {
+      "type": "float",
+      "description": "The number of double overtime hours in this aggregate.",
+      "value": 0,
+      "show": true
+    }
   },
   "times": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID for this time entry.",
-          "value": 11,
-          "show": true
-      },
-      "account_id": {
-          "type": "integer",
-          "description": "The ID of the account this entry is associated with.",
-          "value": 0,
-          "show": true
-      },
-      "user_id": {
-          "type": "integer",
-          "description": "The ID of the user that this time entry is for.",
-          "value": 4634,
-          "show": true
-      },
-      "creator_id": {
-          "type": "integer",
-          "description": "The ID of the user who created this time entry.",
-          "value": 4634,
-          "show": true
-      },
-      "position_id": {
-          "type": "integer",
-          "description": "The ID of the position that is associated with this entry.",
-          "value": 1,
-          "show": true
-      },
-      "location_id": {
-          "type": "integer",
-          "description": "The ID of the location that is associated with this entry.",
-          "value": 136,
-          "show": true
-      },
-      "site_id": {
-          "type": "integer",
-          "description": "The ID of the site that is associated with this time entry.",
-          "value": 9,
-          "show": true
-      },
-      "shift_id": {
-          "type": "integer",
-          "description": "The ID of the shift that correlates to this time entry.",
-          "value": 1000,
-          "show": true
-      },
-      "start_time": {
-          "type": "date time",
-          "description": "The start date and time of the time entry.",
-          "value": "Fri, 07 Mar 2014 08:30:00 -0600",
-          "show": true
-      },
-      "end_time": {
-          "type": "datetime",
-          "description": "End time of the time entry.",
-          "value": "Fri, 07 Mar 2014 14:30:00 -0600",
-          "show": true
-      },
-      "length": {
-          "type": "float",
-          "description": "The length of the time entry. (readonly)",
-          "value": 6,
-          "show": true
-      },
-      "hourly_rate": {
-          "type": "float",
-          "description": "Hourly rate for this time entry.",
-          "value": 20,
-          "show": true
-      },
-      "is_alerted": {
-          "type": "boolean",
-          "description": "True if an alert needs to be created for this shift.",
-          "value": true
-      },
-      "alert_type": {
-          "type": "integer",
-          "description": "The type of alert created.",
-          "value": 8
-      },
-      "is_approved": {
-          "type": "boolean",
-          "description": "True if the time entry has been approved.",
-          "value": true
-      },
-      "modified_by": {
-          "type": "integer",
-          "description": "The ID of the user who modified the time entry.",
-          "value": 202
-      },
-      "updated_at": {
-          "type": "date time",
-          "description": "The "
-      },
-      "created_at": {
-          "type": "datetime",
-          "description": "The date and time the time entry was created.",
-          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
-      },
-      "updated_at": {
-          "type": "datetime",
-          "description": "The date and time the time entry was last updated.",
-          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
-      }
+    "id": {
+      "type": "integer",
+      "description": "The unique ID for this time entry.",
+      "value": 11,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account this entry is associated with.",
+      "value": 0,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The ID of the user that this time entry is for.",
+      "value": 4634,
+      "show": true
+    },
+    "creator_id": {
+      "type": "integer",
+      "description": "The ID of the user who created this time entry.",
+      "value": 4634,
+      "show": true
+    },
+    "position_id": {
+      "type": "integer",
+      "description": "The ID of the position that is associated with this entry.",
+      "value": 1,
+      "show": true
+    },
+    "location_id": {
+      "type": "integer",
+      "description": "The ID of the location that is associated with this entry.",
+      "value": 136,
+      "show": true
+    },
+    "site_id": {
+      "type": "integer",
+      "description": "The ID of the site that is associated with this time entry.",
+      "value": 9,
+      "show": true
+    },
+    "shift_id": {
+      "type": "integer",
+      "description": "The ID of the shift that correlates to this time entry.",
+      "value": 1000,
+      "show": true
+    },
+    "start_time": {
+      "type": "date time",
+      "description": "The start date and time of the time entry.",
+      "value": "Fri, 07 Mar 2014 08:30:00 -0600",
+      "show": true
+    },
+    "end_time": {
+      "type": "datetime",
+      "description": "End time of the time entry.",
+      "value": "Fri, 07 Mar 2014 14:30:00 -0600",
+      "show": true
+    },
+    "length": {
+      "type": "float",
+      "description": "The length of the time entry. (readonly)",
+      "value": 6,
+      "show": true
+    },
+    "hourly_rate": {
+      "type": "float",
+      "description": "Hourly rate for this time entry.",
+      "value": 20,
+      "show": true
+    },
+    "is_alerted": {
+      "type": "boolean",
+      "description": "True if an alert needs to be created for this shift.",
+      "value": true
+    },
+    "alert_type": {
+      "type": "integer",
+      "description": "The type of alert created.",
+      "value": 8
+    },
+    "is_approved": {
+      "type": "boolean",
+      "description": "True if the time entry has been approved.",
+      "value": true
+    },
+    "modified_by": {
+      "type": "integer",
+      "description": "The ID of the user who modified the time entry.",
+      "value": 202
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "The date and time the time entry was last updated.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "The date and time the time entry was created.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    }
   },
   "punch": {
-      "id": {
-          "type": "integer",
-          "description": "The unique ID for this punch.",
-          "value": 150134,
-          "show": true
-      },
-      "account_id": {
-          "type": "integer",
-          "description": "The ID of the account that this punch is associated with.",
-          "value": 0
-      },
-      "method_name": {
-          "type": "string",
-          "description": "The method name that this punch is associated with (e.g. Mobile, Terminal, Computer).",
-          "value": "Mobile",
-          "show": true
-      },
-      "time_id": {
-          "type": "integer",
-          "description": "The ID of the time object this punch is connected to.",
-          "value": 11,
-          "show": true
-      },
-      "user_id": {
-          "type": "integer",
-          "description": "The ID of the user who punched in or out.",
-          "value": 4634,
-          "show": true
-      },
-      "location_id":{
-          "type": "integer",
-          "description": "The ID of the location that the punch is for.",
-          "value": 136,
-          "show": true
-      },
-      "site_id": {
-          "type": "integer",
-          "description": "The ID of the site that the punch is for.",
-          "value": 0,
-          "show": true
-      },
-      "type": {
-          "type": "integer",
-          "description": "Type of punch. (1 = Punch In, 2 = Punch Out)",
-          "value": 1,
-          "show": true
-      },
-      "latitude": {
-          "type": "float",
-          "description": "The latitude of the punch.",
-          "value": 34.2390664
-      },
-      "longitude": {
-          "type": "float",
-          "description": "The latitude of the punch.",
-          "value": -118.4332328
-      },
-      "accuracy": {
-          "type": "integer",
-          "description": "How close the user was to a location.",
-          "value": 0
-      },
-      "altitude": {
-          "type": "float",
-          "description": "The altitude of the punch.",
-          "value": "259.224731"
-      },
-      "ip_address": {
-          "type": "string",
-          "description": "The IP address of the device on which the punch occurred.",
-          "value": "127.0.0.1"
-      },
-      "is_alerted": {
-          "type": "boolean",
-          "description": "True if an alert needs to be created for this punch.",
-          "value": true
-      },
-      "alert_type": {
-          "type": "integer",
-          "description": "The type of alert created.",
-          "value": 8
-      },
-      "created_at": {
-          "type": "datetime",
-          "description": "The date and time the punch was created.",
-          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
-      },
-      "updated_at": {
-          "type": "datetime",
-          "description": "The date and time the punch was last updated.",
-          "value": "Wed, 19 Feb 2014 10:51:33 -0600"
-      }
+    "id": {
+      "type": "integer",
+      "description": "The unique ID for this punch.",
+      "value": 150134,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account that this punch is associated with.",
+      "value": 0
+    },
+    "method_name": {
+      "type": "string",
+      "description": "The method name that this punch is associated with (e.g. Mobile, Terminal, Computer).",
+      "value": "Mobile",
+      "show": true
+    },
+    "time_id": {
+      "type": "integer",
+      "description": "The ID of the time object this punch is connected to.",
+      "value": 11,
+      "show": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The ID of the user who punched in or out.",
+      "value": 4634,
+      "show": true
+    },
+    "location_id": {
+      "type": "integer",
+      "description": "The ID of the location that the punch is for.",
+      "value": 136,
+      "show": true
+    },
+    "site_id": {
+      "type": "integer",
+      "description": "The ID of the site that the punch is for.",
+      "value": 0,
+      "show": true
+    },
+    "type": {
+      "type": "integer",
+      "description": "Type of punch. (1 = Punch In, 2 = Punch Out)",
+      "value": 1,
+      "show": true
+    },
+    "latitude": {
+      "type": "float",
+      "description": "The latitude of the punch.",
+      "value": 34.2390664
+    },
+    "longitude": {
+      "type": "float",
+      "description": "The latitude of the punch.",
+      "value": -118.4332328
+    },
+    "accuracy": {
+      "type": "integer",
+      "description": "How close the user was to a location.",
+      "value": 0
+    },
+    "altitude": {
+      "type": "float",
+      "description": "The altitude of the punch.",
+      "value": "259.224731"
+    },
+    "ip_address": {
+      "type": "string",
+      "description": "The IP address of the device on which the punch occurred.",
+      "value": "127.0.0.1"
+    },
+    "is_alerted": {
+      "type": "boolean",
+      "description": "True if an alert needs to be created for this punch.",
+      "value": true
+    },
+    "alert_type": {
+      "type": "integer",
+      "description": "The type of alert created.",
+      "value": 8
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "The date and time the punch was created.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "The date and time the punch was last updated.",
+      "value": "Wed, 19 Feb 2014 10:51:33 -0600"
+    }
   },
   "annotation": {
     "id": {
@@ -1509,7 +1505,12 @@
     "locations": {
       "type": "array of integer for input, array of objects on output",
       "description": "Include locations parameter as an array of location ids when listing, creating, or updating annotations. On output, locations will be an array of location objects when all_locations = false.",
-      "value": [{"id":7,"name":"Minneapolis Store"}]
+      "value": [
+        {
+          "id": 7,
+          "name": "Minneapolis Store"
+        }
+      ]
     },
     "created_at": {
       "type": "datetime",
@@ -1554,7 +1555,7 @@
       "show": true
     }
   },
-  "user_alert_settings" : {
+  "user_alert_settings": {
     "timeoff": {
       "type": "[Alert Setting Object](#alertsetting)",
       "description": "Whether the user wishes to receive alerts when the status of a time off request changes.",
@@ -1567,7 +1568,7 @@
       "value": "{'sms': true, 'email': false}",
       "show": true
     },
-    "schedule" : {
+    "schedule": {
       "type": "[Alert Setting Object](#alertsetting)",
       "description": "Whether the user wishes to receive alerts when the schedule changes.",
       "value": "{'sms': true, 'email': false}",
@@ -1611,31 +1612,31 @@
     }
   },
   "alert_setting": {
-    "sms" : {
+    "sms": {
       "type": "boolean",
       "description": "Whether or not SMS messages should be sent for events of this alert type.",
       "value": false,
       "show": true
     },
-    "email" : {
+    "email": {
       "type": "boolean",
       "description": "Whether or not email messages should be sent for events of this alert type.",
       "value": false,
       "show": true
     },
-    "alerts" : {
+    "alerts": {
       "type": "boolean",
       "description": "Whether or not push notifications should be sent for events of this alert type.",
       "value": false,
       "show": true
     },
-    "in_app" : {
+    "in_app": {
       "type": "boolean",
       "description": "Whether or not in-app notifications should be sent for events of this alert type.",
       "value": false,
       "show": true
     },
-    "badge_icon" : {
+    "badge_icon": {
       "type": "boolean",
       "description": "Whether or not banner notifications (iOS only) should be sent for events of this alert type.",
       "value": false,
@@ -1681,15 +1682,15 @@
       "show": true
     },
     "account_id": {
-        "type": "integer",
-        "description": "The ID of the account that the device belongs to.",
-        "value": 3
+      "type": "integer",
+      "description": "The ID of the account that the device belongs to.",
+      "value": 3
     },
     "user_id": {
-        "type": "integer",
-        "description": "The ID of the user that the device belongs to.",
-        "value": 371,
-        "show": true
+      "type": "integer",
+      "description": "The ID of the user that the device belongs to.",
+      "value": 371,
+      "show": true
     },
     "type": {
       "type": "string",
