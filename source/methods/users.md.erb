@@ -328,14 +328,14 @@ The `POST` body can include fields from the Alert Settings Object.
 > Example Request
 
 ```shell
-curl -X POST <%=@api_prefix%>/2/users/invite/ \
+curl -X POST <%=@api_prefix%>/2/users/invite \
  --data '{"ids":[14,15,67]}' \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->post("users/invite/", array(
+$result = $wiw->post("users/invite", array(
   "ids" => array(14,15,67)
 ));
 ?>
@@ -354,18 +354,19 @@ $result = $wiw->post("users/invite/", array(
 
 Users can be invited by managers, or by supervisors. This will send them an email or text message inviting them to register.
 
-<% aside do %>Users must already be created to be invited.<% end %>
-
 ### HTTP Request
-`POST <%=@api_prefix%>/2/users/invite/`
+`POST <%=@api_prefix%>/2/users/invite`
 
 ### Parameters
 
 Key | Description
 --- | -----------
-<% param "ids", "integer array" do %>List of IDs of users to invite.<% end %>
+<% param "items", "string array" do %>List of email addresses or phone numbers of users to invite.<% end %>
+<% param "ids", "integer array" do %>List of existing user IDs to invite.<% end %>
 <% param "send_all", "boolean" do %>Whether to invite all users who do not currently have a login. If this is `true`, the `ids` parameter will be ignored.<% end %>
 <% param "message", "string" do %>An optional message to include in the email invite.<% end %>
+
+<% aside do %>When inviting users with the `items` method, the entire request will be rejected if any of the email address or phone numbers are invalid. All phone numbers must be [E.164 formatted](https://en.wikipedia.org/wiki/E.164).<% end %>
 
 You can also invite a single user with the following:
 
