@@ -456,3 +456,62 @@ Key | Description
 <% aside do %>
 If the `id` parameter is present, it will take precedence over `ids`.
 <% end %>
+
+
+## Get Labor
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/shifts/labor?start=2016-07-04&end=2016-07-08 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("shifts/labor", array(
+  "start" => "2016-07-04",
+  "end" => "2016-07-08",
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "count": 8,
+  "data": {
+    "2016-07-04": <%= print_json(data.objects['labor data'], :verbose => true) %>,
+    "2016-07-05": <%= print_json(data.objects['labor data']) %>,
+    "2016-07-06": <%= print_json(data.objects['labor data']) %>,
+    "2016-07-07": <%= print_json(data.objects['labor data']) %>
+  }
+}
+<% end %>
+
+Gets labor information from the schedule, such as total hours worked per day, labor cost, and coverage.
+
+<% aside do %>
+This endpoint can only retrieve statistics for at most one week at a time. Attempting to use a span of time longer than one week will result in an error.
+<% end %>
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "start", "datetime" do %>The start time of the range to calculate labor stats for.<% end %>
+<% param "end", "datetime" do %>The end time of the range to calculate labor stats for.<% end %>
+
+### Response Data
+
+Key | Description
+--- | -----------
+<% param "count", "integer" do %>The total number of shifts contributing to the result.<% end %>
+<% param "data", "object" do %>A JSON object containing labor data objects, indexed by date. Dates are formatted as YYYY-MM-DD ([ISO 8601](https://xkcd.com/1179/)).<% end %>
+
+<%= print_table(data.objects['labor data'], :header => 'labor data') %>
+
+<% aside do %>
+Note that the sum of all the values in `coverage` may not add up to the value of `hours`. This is because `hours` takes unpaid breaks into account, which do not affect overall shift coverage.
+<% end %>
