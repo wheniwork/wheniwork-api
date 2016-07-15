@@ -1863,5 +1863,50 @@
       "description": "The timezone's name in the Olson tz database",
       "value": "America/Chicago"
     }
+  },
+  "labor data": {
+    "hours": {
+      "show": true,
+      "type": "number",
+      "description": "The total number of hours scheduled for this day.",
+      "value": 12.5
+    },
+    "labor": {
+      "show": true,
+      "type": "number",
+      "description": "The total labor cost for this day.",
+      "value": 190
+    },
+    "coverage": {
+      "show": false,
+      "type": "number array",
+      "description": "An array of 24 elements, each corresponding to an hour of the day. Each element contains the total number of hours of labor scheduled for that hour of the day.",
+      "value": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.5,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
   }
 }
