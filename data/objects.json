@@ -1908,5 +1908,42 @@
         0
       ]
     }
+  },
+  "image": {
+      "id": {
+          "type": "integer",
+          "description": "The unique ID of the schedule image.",
+          "value": 32,
+          "show": true
+      },
+      "account_id": {
+          "type": "integer",
+          "description": "The ID of the account that the schedule image belongs to.",
+          "value": 3,
+          "show": true
+      },
+      "user_id": {
+          "type": "integer",
+          "description": "The ID of the user that uploaded the schedule image.",
+          "value": 3,
+          "show": true
+      },
+      "created_at": {
+          "type": "datetime",
+          "description": "Date at which the position was created.",
+          "value": "Thu, 06 Mar 2014 21:12:14 -0600"
+      },
+      "fullsize": {
+          "type": "string",
+          "description": "A link to the full size schedule image.",
+          "value": "https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/f/5757277e91b7e.png",
+          "show": true
+      },
+      "thumbnail": {
+          "type": "string",
+          "description": "A link to a thumbnail of the schedule image.",
+          "value": "https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/t/5757277e91b7e.png",
+          "show": true
+      }
   }
 }
