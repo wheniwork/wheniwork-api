@@ -54,7 +54,7 @@
       <div class="content">
         <p>The schedule endpoint acts as an aggregate endpoint for loading shifts, users, and all related objects. The results are paged by user records.</p>
 
-<h2 id="fetching-the-schedule">Fetching the Schedule</h2>
+<h2 id="fetching-schedule">Fetching Schedule</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -148,6 +148,166 @@
 <aside class="notice"><p>OpenShifts will be included in every page of results.</p>
 </aside>
 
+<h2 id="listing-images">Listing Images</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/schedule/images <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"schedule/images"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre id="code-collapse-20" class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
+</span></span>      </span><span class="nt">"fullsize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/f/5757277e91b7e.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/t/5757277e91b7e.png"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-20')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-20')">Hide extra fields</a></pre>
+<p>This method allows you to fetch images of paper schedules that have been posted for employees.</p>
+
+<p>If there are more images to fetch, the <code>next</code> value will be a page number.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/schedule/images?page={page}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>page</td>
+<td><strong>integer</strong><br />Which page of images to return, default <code>1</code>.</td>
+</tr></tbody></table>
+<h2 id="get-existing-image">Get Existing Image</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/schedule/images/32 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"schedule/images/32"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre id="code-collapse-21" class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
+</span></span>    </span><span class="nt">"fullsize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/f/5757277e91b7e.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/t/5757277e91b7e.png"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-21')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-21')">Hide extra fields</a></pre>
+<p>Gets the details of an existing image.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/schedule/images/{id}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>id</td>
+<td><strong>integer</strong><br />ID of the image to get.</td>
+</tr></tbody></table>
+<h2 id="create-image">Create Image</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/schedule/images/ <span class="se">\</span>
+ --data <span class="s1">'@/path/to/file.jpg'</span> <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre id="code-collapse-22" class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
+</span></span>    </span><span class="nt">"fullsize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/f/5757277e91b7e.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/t/5757277e91b7e.png"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-22')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-22')">Hide extra fields</a></pre>
+<p>Creates a new schedule image.</p>
+
+<aside class="notice"><p>The PHP library does not support image uploads at this time.</p>
+</aside>
+
+<aside class="notice"><p>Schedule images cannot be updated, only created and deleted.</p>
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>POST https://api.wheniwork.com/2/schedule/images</code></p>
+
+<h3 id="post-body">POST Body</h3>
+
+<p>The body of the request must be binary image data.</p>
+
+<h2 id="delete-image">Delete Image</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X DELETE https://api.wheniwork.com/2/schedule/images/33 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s2">"schedule/images/33"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Deletes an existing image.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>DELETE https://api.wheniwork.com/2/schedule/images/{id}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>id</td>
+<td><strong>integer</strong><br />ID of the image to delete.</td>
+</tr></tbody></table>
       </div>
       <div class="dark-box">
         <div id="lang-selector">
