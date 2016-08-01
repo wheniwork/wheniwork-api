@@ -1015,6 +1015,12 @@
       "value": 0,
       "show": true
     },
+    "hours": {
+      "type": "float",
+      "description": "The number of hours of paid time off to use. Only valid for full-day requests that are of type 'Paid Time Off', 'Sick', or 'Holiday'.",
+      "value": 0,
+      "show": true
+    },
     "start_time": {
       "type": "datetime",
       "description": "Start time of request.",
