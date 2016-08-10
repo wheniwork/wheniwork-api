@@ -34,6 +34,9 @@ $result = $wiw->get("swaps");
   "swaps": [
     <%= print_json(data.objects['swap']) %>
   ],
+  "more": false,
+  "page": 1,
+  "total": 1,
   "messages" : [
     <%= print_json(data.objects['message'], :include => {
       'swap_id' => '2238'
@@ -69,7 +72,7 @@ Key | Description
 <% param "start", "datetime" do %>Start time for the shift search window. Must be included if `end` is defined.<% end %>
 <% param "end", "datetime" do %>End time for the shift search window. Must be included if `start` is defined.<% end %>
 <% param "limit", "integer" do %>The number of swaps to include per page. Default is `10`.<% end %>
-<% param "page", "integer" do %>The page of results to fetch. Default is `0`.<% end %>
+<% param "page", "integer" do %>The page of results to fetch. Default is `1`.<% end %>
 
 
 
