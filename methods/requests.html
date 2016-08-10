@@ -150,6 +150,9 @@
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w">
@@ -263,6 +266,10 @@
 <td><strong>integer</strong><br />Optional. If present, will only return requests for the user with the given id.</td>
 </tr><tr><td>status</td>
 <td><strong>integer</strong><br />Optional. If present, will only return requests with the given status.</td>
+</tr><tr><td>limit</td>
+<td><strong>integer</strong><br />Optional. Number of requests to load per page, default is <code>5</code>.</td>
+</tr><tr><td>page</td>
+<td><strong>integer</strong><br />Optional. Page of results to load, default <code>1</code>.</td>
 </tr><tr><td>include_deleted_users</td>
 <td><strong>boolean</strong><br />Return all requests including those made by deleted users. Optional, defaults to false.</td>
 </tr></tbody></table>
