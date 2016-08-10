@@ -43,6 +43,9 @@ $result = $wiw->get("requests", array(
       'end_time' => 'Fri, 28 Mar 2014 08:00:00 -0600'
     }) %>
   ],
+  "more": false,
+  "page": 1,
+  "total": 2,
   "messages": [
     <%= print_json(data.objects['message'], :include => {
       'id' => 66,
@@ -85,8 +88,9 @@ Key | Description
 <% param "max_id" do %>Return all requests created before the request with the given ID.<% end %>
 <% param "user_id", "integer" do %>Optional. If present, will only return requests for the user with the given id.<% end %>
 <% param "status", "integer" do %>Optional. If present, will only return requests with the given status.<% end %>
+<% param "limit", "integer" do %>Optional. Number of requests to load per page, default is `5`.<% end %>
+<% param "page", "integer" do %>Optional. Page of results to load, default `1`.<% end %>
 <% param "include_deleted_users", "boolean" do %>Return all requests including those made by deleted users. Optional, defaults to false.<% end %>
-
 
 
 ## Get Existing Request
