@@ -7975,6 +7975,47 @@ Time Off requests will be considered invalid if the request&#39;s date range ove
 <td>ID of the annotation to be deleted.</td>
 </tr></tbody></table>
 
+<h2 id="head-call">HEAD Call</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl -X HEAD https://api.wheniwork.com/2/annotations/136 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">head</span><span class="p">(</span><span class="s2">"annotations/136"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response Headers</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Allow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET,OPTIONS,POST,PUT,PATCH,DELETE"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>You can make a <code>HEAD</code> call on a specific Annotation in order to discover which methods are available to the logged in user.</p>
+
+<p>This is particularly useful for determining if a supervisor (who may belong to some-but-not-all related locations) should have write permissions.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>HEAD https://api.wheniwork.com/2/annotations/{id}</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>id</td>
+<td>ID of the annotation in question.</td>
+</tr></tbody></table>
+
 <h1 id="devices">Devices</h1>
 
 <blockquote>
