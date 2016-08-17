@@ -147,3 +147,39 @@ Annotations can be deleted by managers and supervisors who can supervise the rel
 Key | Description
 --- | -----------
 <% param "id" do %>ID of the annotation to be deleted.<% end %>
+
+## HEAD Call
+
+> Example Request
+
+```shell
+curl -X HEAD <%=@api_prefix%>/2/annotations/136 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->head("annotations/136");
+?>
+```
+
+> Example Response Headers
+
+<% json do %>
+{
+  "Allow": "GET,OPTIONS,POST,PUT,PATCH,DELETE"
+}
+<% end %>
+
+You can make a `HEAD` call on a specific Annotation in order to discover which methods are available to the logged in user.
+
+This is particularly useful for determining if a supervisor (who may belong to some-but-not-all related locations) should have write permissions.
+
+### HTTP Request
+`HEAD <%=@api_prefix%>/2/annotations/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "id" do %>ID of the annotation in question.<% end %>
