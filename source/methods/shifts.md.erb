@@ -515,3 +515,62 @@ Key | Description
 <% aside do %>
 Note that the sum of all the values in `coverage` may not add up to the value of `hours`. This is because `hours` takes unpaid breaks into account, which do not affect overall shift coverage.
 <% end %>
+
+## Counting Shifts
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/shifts/count?location_id=1&start=2014-03-05 00:00:00&end=2014-03-08 23:59:59 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("shifts/count", array(
+                                "location_id" => 1,
+                                "start" => "2014-03-05 00:00:00",
+                                "end" => "2014-03-08 23:59:59"
+                              ));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+    "shifts":17,
+    "locations":1,
+    "users":8,
+    "positions":3,
+    "sites":0
+}
+<% end %>
+
+This method allows you to count shifts as well as their associated locations, users, positions, and sites. The accepted parameters are identical to the list shifts endpoint. See the parameters below for all the options.
+
+<% aside do %>
+**The maximum range between `start` and `end` is 90 days.** Any range greater than this will be set to the start time plus 90 days.
+<% end %>
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/shifts/count`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "start", "datetime" do %>Start time for the search window. The default is the current date and time.<% end %>
+<% param "end", "datetime" do %>End time for the search window. The default is exactly three days from the start time.<% end %>
+<% param "user_id", "integer, string array" do %>The ID of the user to get shifts for. For multiple users, enter a list of user IDs separated by commas (e.g. `1,5,3`).<% end %>
+<% param "location_id", "integer, string array" do %>The ID of the location to get shifts for. For multiple locations, enter a list of location IDs separated by commas.<% end %>
+<% param "include_open", "boolean" do %>Whether to include OpenShifts in the results.<% end %>
+<% param "include_allopen", "boolean" do %>Whether to include OpenShifts in the results, including shifts that might be conflicts.<% end %>
+<% param "include_onlyopen", "boolean" do %>Whether only OpenShifts should be included in the results.<% end %>
+<% param "unpublished", "boolean" do %>Whether unpublished shifts should be included in the results.<% end %>
+
+<% aside do %>
+OpenShifts will be included in the results as long as either `include_allopen` or `include_onlyopen` is `true`.
+<% end %>
+
+
