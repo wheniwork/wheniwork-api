@@ -896,6 +896,68 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <aside class="notice"><p>Note that the sum of all the values in <code>coverage</code> may not add up to the value of <code>hours</code>. This is because <code>hours</code> takes unpaid breaks into account, which do not affect overall shift coverage.</p>
 </aside>
 
+<h2 id="counting-shifts">Counting Shifts</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/shifts/count?location_id<span class="o">=</span>1&amp;start<span class="o">=</span>2014-03-05 00:00:00&amp;end<span class="o">=</span>2014-03-08 23:59:59 <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"shifts/count"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                                <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+                                <span class="s2">"start"</span> <span class="o">=&gt;</span> <span class="s2">"2014-03-05 00:00:00"</span><span class="p">,</span>
+                                <span class="s2">"end"</span> <span class="o">=&gt;</span> <span class="s2">"2014-03-08 23:59:59"</span>
+                              <span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"positions"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sites"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This method allows you to count shifts as well as their associated locations, users, positions, and sites. The accepted parameters are identical to the <a href="/#listing-shifts">list shifts</a> endpoint. See the parameters below for all the options.</p>
+
+<aside class="notice"><p><strong>The maximum range between <code>start</code> and <code>end</code> is 90 days.</strong> Any range greater than this will be set to the start time plus 90 days.</p>
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/shifts/count</code></p>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>start</td>
+<td><strong>datetime</strong><br />Start time for the search window. The default is the current date and time.</td>
+</tr><tr><td>end</td>
+<td><strong>datetime</strong><br />End time for the search window. The default is exactly three days from the start time.</td>
+</tr><tr><td>user_id</td>
+<td><strong>integer, string array</strong><br />The ID of the user to get shifts for. For multiple users, enter a list of user IDs separated by commas (e.g. <code>1,5,3</code>).</td>
+</tr><tr><td>location_id</td>
+<td><strong>integer, string array</strong><br />The ID of the location to get shifts for. For multiple locations, enter a list of location IDs separated by commas.</td>
+</tr><tr><td>include_open</td>
+<td><strong>boolean</strong><br />Whether to include OpenShifts in the results.</td>
+</tr><tr><td>include_allopen</td>
+<td><strong>boolean</strong><br />Whether to include OpenShifts in the results, including shifts that might be conflicts.</td>
+</tr><tr><td>include_onlyopen</td>
+<td><strong>boolean</strong><br />Whether only OpenShifts should be included in the results.</td>
+</tr><tr><td>unpublished</td>
+<td><strong>boolean</strong><br />Whether unpublished shifts should be included in the results.</td>
+</tr></tbody></table>
+<aside class="notice"><p>OpenShifts will be included in the results as long as either <code>include_allopen</code> or <code>include_onlyopen</code> is <code>true</code>.</p>
+</aside>
+
       </div>
       <div class="dark-box">
         <div id="lang-selector">
