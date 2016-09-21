@@ -82,18 +82,34 @@ Managers can be invited to unclaimed accounts by using this endpoint.
 ### HTTP Request
 `POST <%=@api_prefix%>/2/account/{account_id}/invite`
 
-> Example Request
+> Example Requests
 
 ```shell
 curl -X POST <%=@api_prefix%>/2/account/35/invite \
  -H "W-Token: <%=@wiw_token%>" \
- -data '{"email":"sally@example.com","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'
+ -data '{"email_or_phone":"9525551234","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
 $result = $wiw->post("account/11/invite", array(
-    "email" => "sally@example.com",
+    "email_or_phone" => "9525551234",
+    "manager_name" => "Sally Smith",
+    "message" => "This scheduling app is really slick!",
+));
+?>
+```
+
+```shell
+curl -X POST <%=@api_prefix%>/2/account/35/invite \
+ -H "W-Token: <%=@wiw_token%>" \
+ -data '{"email_or_phone":"sally@example.com","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("account/11/invite", array(
+    "email_or_phone" => "sally@example.com",
     "manager_name" => "Sally Smith",
     "message" => "This scheduling app is really slick!",
 ));
@@ -110,15 +126,14 @@ $result = $wiw->post("account/11/invite", array(
 
 ### Parameters
 
-Either `email` or `phone_number` must be provided. If both are provided, an SMS and an email will be sent.
+A value for `email_or_phone` must be provided. If a phone number is used, it should be in [E164][e164] format.
 
 Key | Description
 --- | -----------
 <% param "account_id" do %>ID of the account object.<% end %>
-<% param "email" do %>Email address of the manager.<% end %>
-<% param "phone_number" do %>Phone number of the manager.<% end %>
+<% param "email_or_phone" do %>Email address or phone number of the manager.<% end %>
 <% param "region" do %>Two letter country code of the phone number. This can be omitted if the phone number is in [E164][e164] format.<% end %>
-<% param "manager_name" do %>Managers name.<% end %>
+<% param "manager_name" do %>The manager's name.<% end %>
 <% param "message" do %>A custom message that will be added to the invite.<% end %>
 
 [e164]: https://en.wikipedia.org/wiki/E.164
