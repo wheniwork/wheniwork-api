@@ -67,6 +67,7 @@ Key | Description
 <% param "include_allopen", "boolean" do %>Whether to include OpenShifts in the results, including shifts that might be conflicts.<% end %>
 <% param "include_onlyopen", "boolean" do %>Whether only OpenShifts should be included in the results.<% end %>
 <% param "unpublished", "boolean" do %>Whether unpublished shifts should be included in the results.<% end %>
+<% param "deleted", "boolean" do %>Whether to include a list of deleted shift IDs in the results.<% end %>
 
 <% aside do %>
 OpenShifts will be included in the results as long as either `include_allopen` or `include_onlyopen` is `true`.
@@ -572,5 +573,3 @@ Key | Description
 <% aside do %>
 OpenShifts will be included in the results as long as either `include_allopen` or `include_onlyopen` is `true`.
 <% end %>
-
-
