@@ -1913,13 +1913,13 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/account/11 <span class="se">\</span>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/account <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span>
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"account/11"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"account"</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -1956,17 +1956,17 @@ OpenShifts that otherwise would have created a conflict with previously existing
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code>GET https://api.wheniwork.com/2/account/{account_id}</code></p>
+<p><code>GET https://api.wheniwork.com/2/account</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
-<table><thead><tr><th>Key</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td>account_id</td>
-<td>ID of the account object to be retrieved.</td>
-</tr></tbody></table>
+<p>This endpoint has no parameters.</p>
 
-<p>If the account being queried for is a primary account, the response provides an object with two members: an <code>account</code> object, which specifies the primary account for a given user, and an array, <code>accounts</code>, containing all subaccounts of the primary account.</p>
+<aside class="notice"><p>This endpoint returns the first account associated with the current login token. To get information about a different account, set the <code>W-UserId</code> header to the user id associated with the other account. (See the <a href="#authentication">Authentication</a> section for details.)</p>
+</aside>
+
+<aside class="notice"><p>If the account being queried for is a primary account, the response provides an object with two members: an <code>account</code> object, which specifies the primary account for a given user, and an array, <code>accounts</code>, containing all subaccounts of the primary account.</p>
+</aside>
 
 <h2 id="create-update-account">Create/Update Account</h2>
 
