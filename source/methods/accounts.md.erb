@@ -27,13 +27,13 @@ _**NOTE:** Account features are derived from the plan and cannot be modified usi
 > Example Request
 
 ```shell
-curl <%=@api_prefix%>/2/account/11 \
+curl <%=@api_prefix%>/2/account \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->get("account/11");
+$result = $wiw->get("account");
 ?>
 ```
 
@@ -52,15 +52,19 @@ $result = $wiw->get("account/11");
 <% end %>
 
 ### HTTP Request
-`GET <%=@api_prefix%>/2/account/{account_id}`
+`GET <%=@api_prefix%>/2/account`
 
 ### Parameters
 
-Key | Description
---- | -----------
-<% param "account_id" do %>ID of the account object to be retrieved.<% end %>
+This endpoint has no parameters.
 
+<% aside do %>
+This endpoint returns the first account associated with the current login token. To get information about a different account, set the `W-UserId` header to the user id associated with the other account. (See the [Authentication](#authentication) section for details.)
+<% end %>
+
+<% aside do %>
 If the account being queried for is a primary account, the response provides an object with two members: an `account` object, which specifies the primary account for a given user, and an array, `accounts`, containing all subaccounts of the primary account.
+<% end %>
 
 ## Create/Update Account
 
