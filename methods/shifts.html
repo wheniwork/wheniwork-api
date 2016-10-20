@@ -406,6 +406,101 @@ curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
 </tr><tr><td>before</td>
 <td><strong>string</strong><br />The timestamp that represents when the shift data was last fetched from the server. This is optional, and is useful to protect against inadvertently acknowledging shifts that were updated since data was fetched.</td>
 </tr></tbody></table>
+<h2 id="get-shift-history">Get Shift History</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/shifts/1337/history <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"shifts/1337/history"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre id="code-collapse-26" class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"shift"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1045</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19483</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4351</span><span class="p">,</span><span class="w">
+</span></span>    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 08:30:00 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 07 Mar 2014 14:30:00 -0600"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">    </span><span class="nt">"break_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc0000"</span><span class="p">,</span><span class="w">
+</span></span>    </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Come in early today."</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">    </span><span class="nt">"instances"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"published_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"notified_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"acknowledged"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"acknowledged_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span>  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"created"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span>    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"time_changed"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span>    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"time_changed"</span><span class="p">,</span><span class="w">
+</span><span class="hide-section"><span class="w">      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span>    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-26')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-26')">Hide extra fields</a></pre>
+<p>Gets the history of an existing shift. Shift history events are created when one
+or more of the following elements are changed:</p>
+
+<ul>
+<li>start_time</li>
+<li>end_time</li>
+<li>user_id</li>
+<li>position_id</li>
+<li>location_id</li>
+<li>site_id</li>
+<li>published</li>
+<li>break_time</li>
+<li>acknowledged_at</li>
+</ul>
+
+<p>History events contain <code>actor</code> and <code>at</code> fields, and can also contain one or more
+of the following optional fields depending on event type:</p>
+
+<ul>
+<li>start</li>
+<li>end</li>
+<li>user</li>
+<li>break</li>
+</ul>
+
+<p>There is one special event called &quot;current&quot; that includes the current state of
+the shift.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>GET https://api.wheniwork.com/2/shifts/{id}/history</code></p>
+
+<h3 id="parameters">Parameters</h3>
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>id</td>
+<td><strong>integer</strong><br />The ID of the shift for which to fetch history.</td>
+</tr></tbody></table>
 <h2 id="publish-unpublish-shifts">Publish/Unpublish Shifts</h2>
 
 <blockquote>
@@ -566,7 +661,7 @@ curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-26" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-27" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 shifts were copied."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -641,7 +736,7 @@ curl -X PUT https://api.wheniwork.com/2/shifts/10000 <span class="se">\</span>
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-26')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-26')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-27')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-27')">Hide extra fields</a></pre>
 <p>This method allows you to copy shifts from one timeframe into another. There are
 two modes of operation, one that will copy the previous day&#39;s shifts, and another
 that will copy the previous week&#39;s shifts.</p>
@@ -738,7 +833,7 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-27" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-28" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"2016-07-04"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -863,7 +958,7 @@ OpenShifts that otherwise would have created a conflict with previously existing
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-27')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-27')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-28')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-28')">Hide extra fields</a></pre>
 <p>Gets labor information from the schedule, such as total hours worked per day, labor cost, and coverage.</p>
 
 <aside class="notice"><p>This endpoint can only retrieve statistics for at most one week at a time. Attempting to use a span of time longer than one week will result in an error.</p>
