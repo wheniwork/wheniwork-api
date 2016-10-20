@@ -242,6 +242,42 @@
       "description": "Whether the shift is an OpenShift."
     }
   },
+  "shifthistory": {
+    "type": {
+      "type": "enum",
+      "description": "Type of event. One of: `created`, `published`, `time_changed`, `break_changed`, `position_changed`, `unpublished`, `position_removed`, `site_changed`, `reassigned`, or `current`"
+    },
+    "attributes": {
+      "type": "object",
+      "show": false
+    }
+  },
+  "shifthistoryattributes": {
+    "actor": {
+        "type": "string",
+        "description": "Name of the user that initiated the change, or the assigned employee if the event is `current`"
+    },
+    "at": {
+        "type": "datetime",
+        "description": "Time of the change"
+    },
+    "start": {
+        "type": "datetime",
+        "description": "New or current shift start time, if applicable"
+    },
+    "end": {
+        "type": "datetime",
+        "description": "New or current shift end time, if applicable"
+    },
+    "break": {
+        "type": "float",
+        "description": "Length of unpaid break, in hours"
+    },
+    "user": {
+        "type": "string",
+        "description": "Name of scheduled employee, if applicable"
+    }
+  },
   "user": {
     "id": {
       "type": "integer",
