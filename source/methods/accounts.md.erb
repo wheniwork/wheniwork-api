@@ -79,6 +79,54 @@ If the account being queried for is a primary account, the response provides an 
 The `POST` and/or `PUT` body can include fields from the [Account Object](#accounts).
 
 
+## Update Account Settings
+
+Account managers/owners can update certain account settings using this endpoint.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/account/settings`
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/account/settings \
+ -H "W-Token: <%=@wiw_token%>" \
+ -data '{"company":"123 Company","ref_employees":7,"subdomain":"123-company","industry_id":14}'
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("account/settings", array(
+    "company" => "123 Company",
+    "ref_employees" => 7,
+    "subdomain" => "123-company",
+    "industry_id" => 14,
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+  <%= print_json(data.objects['account'], :verbose => true, :include => {
+    'company' => '123 Company',
+    'subdomain' => '123-company'
+  }) %>
+<% end %>
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "company" do %>Company name.<% end %>
+<% param "timezone_id" do %>Updated timezone ID.<% end %>
+<% param "industry_id" do %>ID of the industry relevant to this account. <% end %>
+<% param "ref_employees" do %>Number of employees for this account. <% end %>
+<% param "subdomain" do %>Account subdomain (subdomain.wheniwork.com).<% end %>
+<% param "country_id" do %>ID of account country (only editable for trials).<% end %>
+<% param "type" do %>Account type (trials only).<% end %>
+
+
 ## Invite to Account
 
 Managers can be invited to unclaimed accounts by using this endpoint.
