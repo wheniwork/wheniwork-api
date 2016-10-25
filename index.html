@@ -2083,6 +2083,76 @@ OpenShifts that otherwise would have created a conflict with previously existing
 
 <p>The <code>POST</code> and/or <code>PUT</code> body can include fields from the <a href="#accounts">Account Object</a>.</p>
 
+<h2 id="update-account-settings">Update Account Settings</h2>
+
+<p>Account managers/owners can update certain account settings using this endpoint.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>POST https://api.wheniwork.com/2/account/settings</code></p>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/account/settings <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span> <span class="se">\</span>
+ -data <span class="s1">'{"company":"123 Company","ref_employees":7,"subdomain":"123-company","industry_id":14}'</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"account/settings"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"company"</span> <span class="o">=&gt;</span> <span class="s2">"123 Company"</span><span class="p">,</span>
+    <span class="s2">"ref_employees"</span> <span class="o">=&gt;</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="s2">"subdomain"</span> <span class="o">=&gt;</span> <span class="s2">"123-company"</span><span class="p">,</span>
+    <span class="s2">"industry_id"</span> <span class="o">=&gt;</span> <span class="mi">14</span><span class="p">,</span>
+<span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"master_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/files.wheniwork.com/logos/16434.gif"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Company"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-company"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"bad_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"plan_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun, 14 Feb 2016 00:00:00 -0600"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[\"all\",\"locations\",\"sites\", ...]"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead><tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>company</td>
+<td>Company name.</td>
+</tr><tr><td>timezone_id</td>
+<td>Updated timezone ID.</td>
+</tr><tr><td>industry_id</td>
+<td>ID of the industry relevant to this account.</td>
+</tr><tr><td>ref_employees</td>
+<td>Number of employees for this account.</td>
+</tr><tr><td>subdomain</td>
+<td>Account subdomain (subdomain.wheniwork.com).</td>
+</tr><tr><td>country_id</td>
+<td>ID of account country (only editable for trials).</td>
+</tr><tr><td>type</td>
+<td>Account type (trials only).</td>
+</tr></tbody></table>
+
 <h2 id="invite-to-account">Invite to Account</h2>
 
 <p>Managers can be invited to unclaimed accounts by using this endpoint.</p>
