@@ -81,11 +81,6 @@ The `POST` and/or `PUT` body can include fields from the [Account Object](#accou
 
 ## Update Account Settings
 
-Account managers/owners can update certain account settings using this endpoint.
-
-### HTTP Request
-`POST <%=@api_prefix%>/2/account/settings`
-
 > Example Request
 
 ```shell
@@ -113,6 +108,11 @@ $result = $wiw->post("account/settings", array(
     'subdomain' => '123-company'
   }) %>
 <% end %>
+
+Account managers/owners can update certain account settings using this endpoint.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/account/settings`
 
 ### Parameters
 
