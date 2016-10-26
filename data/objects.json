@@ -81,6 +81,20 @@
       "description": "Object Containing place information",
       "value": null,
       "show": false
+    },
+    "account_holder": {
+      "type": "[Account Holder Object](#account-holder-object)",
+      "description": "Contains information about the account holder",
+      "value": null,
+      "show": false
+    }
+  },
+  "account_holder": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier of the user who is the account holder",
+      "value": 101,
+      "show": true
     }
   },
   "account_search_result": {

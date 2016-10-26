@@ -10,6 +10,8 @@ Accounts are objects that define a business account with When I Work. Every user
 
 <%= print_table(data.objects['place'], :header => :place) %>
 
+<%= print_table(data.objects['account_holder'], :header => "Account Holder") %>
+
 ## Features
 
 The features that are enabled on accounts will vary. The following features are considered defaults and should be considered enabled when `all` is present:
@@ -46,7 +48,8 @@ $result = $wiw->get("account");
     'master_id' => 11,
     'company' => '123 Company',
     'subdomain' => '123-company',
-    'place' => data.objects['place']
+    'place' => data.objects['place'],
+    'account_holder' => data.objects['account_holder']
   }) %>
 }
 <% end %>
