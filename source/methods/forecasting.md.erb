@@ -1,0 +1,41 @@
+## Get Projected Sales
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/forecasting/projected \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("forecasting/projected");
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+    "projectedsales": [
+        <%= print_json(data.objects['projectedsales']) %>,
+        <%= print_json(data.objects['projectedsales'], :include => {
+            'id' => 1235,
+            'day' => 'Thu, 8 Oct 2016',
+            'estimate' => 4500
+        }) %>
+    ]
+}
+<% end %>
+
+### HTTP Request
+
+`GET <%=@api_prefix%>/2/forecasting/projected`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "start", "datetime" do %>(Optional) The start of the time interval to get projected sales for.<% end %>
+<% param "end", "datetime" do %>(Optional) The end of the time interval to get projected sales for.<% end %>
+<% param "location_id", "integer" do %>(Optional) The ID of the location to get projected sales for.<% end %>

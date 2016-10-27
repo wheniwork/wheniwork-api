@@ -1987,5 +1987,37 @@
           "value": "https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/t/5757277e91b7e.png",
           "show": true
       }
+  },
+  "projectedsales": {
+    "id": {
+      "type": "integer",
+      "description": "The ID of the projected sales object.",
+      "value": 1234,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account to which the projected sales object belongs.",
+      "value": 10000,
+      "show": true
+    },
+    "day": {
+      "type": "string",
+      "description": "The day to which the projected sale belongs. Formatted as an [RFC 2822](http://php.net/manual/en/class.datetime.php#datetime.constants.rfc2822) date string, without the time component.",
+      "value": "Thu, 7 Oct 2016",
+      "show": true
+    },
+    "estimate": {
+      "type": "number",
+      "description": "The projected amount of money.",
+      "value": 5000,
+      "show": true
+    },
+    "location_id": {
+      "type": "integer",
+      "description": "The ID of the location to which the projected sales object belongs.",
+      "value": 136,
+      "show": true
+    }
   }
 }
