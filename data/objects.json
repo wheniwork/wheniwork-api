@@ -76,15 +76,14 @@
       "description": "A list of settings for this account",
       "value": "..."
     },
-    "place": {
-      "type": "[Place Object](#place-object)",
-      "description": "Object Containing place information",
-      "value": null,
-      "show": false
-    },
     "account_holder": {
       "type": "[Account Holder Object](#account-holder-object)",
       "description": "Contains information about the account holder",
+      "show": false
+    },
+    "place": {
+      "type": "[Place Object](#place-object)",
+      "description": "Object Containing place information",
       "value": null,
       "show": false
     }

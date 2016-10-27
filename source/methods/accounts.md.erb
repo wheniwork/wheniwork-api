@@ -1,7 +1,10 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['account'], :include => {'place' => data.objects['place']} ,:verbose => true) %>
+<%= print_json(data.objects['account'], :verbose => true, :include => {
+  'account_holder' => data.objects['account_holder'],
+  'place' => data.objects['place']
+  }) %>
 <% end %>
 
 Accounts are objects that define a business account with When I Work. Every user must be associated with an account in order to be able to access Shifts and other data.
