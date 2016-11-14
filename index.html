@@ -194,7 +194,6 @@
       </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span></span>    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -211,7 +210,6 @@
       </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -1899,9 +1897,6 @@ OpenShifts that otherwise would have created a conflict with previously existing
   </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When I Work"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60 Plato Blvd, St Paul, MN 55107, United States"</span><span class="p">,</span><span class="w">
@@ -1945,8 +1940,6 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <td><strong>string</strong><br />Name for the timezone specified in the timezone_id</td>
 </tr><tr><td>settings</td>
 <td><strong>json</strong><br />A list of settings for this account</td>
-</tr><tr><td>account_holder</td>
-<td><strong><a href="#account-holder-object">Account Holder Object</a></strong><br />Contains information about the account holder</td>
 </tr><tr><td>place</td>
 <td><strong><a href="#place-object">Place Object</a></strong><br />Object Containing place information</td>
 </tr></tbody></table>
@@ -1967,14 +1960,6 @@ OpenShifts that otherwise would have created a conflict with previously existing
 <td><strong>string, decimal</strong><br />Latitude of place location</td>
 </tr><tr><td>longitude</td>
 <td><strong>string, decimal</strong><br />Longitude of place location</td>
-</tr></tbody></table>
-
-<h3 id="account-holder-object">Account holder Object</h3>
-
-<table><thead><tr><th>Parameter</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td>id</td>
-<td><strong>integer</strong><br />Unique identifier of the user who is the account holder</td>
 </tr></tbody></table>
 
 <h2 id="features">Features</h2>
@@ -2058,9 +2043,6 @@ OpenShifts that otherwise would have created a conflict with previously existing
     </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When I Work"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60 Plato Blvd, St Paul, MN 55107, United States"</span><span class="p">,</span><span class="w">
@@ -2141,7 +2123,6 @@ OpenShifts that otherwise would have created a conflict with previously existing
   </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2267,7 +2248,6 @@ OpenShifts that otherwise would have created a conflict with previously existing
     </span><span class="nt">"timezone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"place"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
