@@ -236,6 +236,28 @@
 </tr></thead><tbody><tr><td>id</td>
 <td>ID of the pay period requested.</td>
 </tr></tbody></table>
+<p>The <code>payrollhours</code> field of the response will include Payroll Hours objects:</p>
+
+<h3 id="payroll-hours-object">Payroll hours Object</h3>
+<table><thead><tr><th>Parameter</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>id</td>
+<td><strong>integer</strong><br />The unique ID for this payroll hours object.</td>
+</tr><tr><td>payroll_id</td>
+<td><strong>integer</strong><br />The ID of the Payroll this object belongs to.</td>
+</tr><tr><td>type</td>
+<td><strong>integer</strong><br />The type of hours being reported. (1=Regular, 2=OT, 3=PTO, 4=Holiday, 5=Double Time, 6=Sick)</td>
+</tr><tr><td>user_id</td>
+<td><strong>integer</strong><br />The ID of the user who these hours belong to.</td>
+</tr><tr><td>position_id</td>
+<td><strong>integer</strong><br />The ID of the position that is associated with these hours.</td>
+</tr><tr><td>hours</td>
+<td><strong>float</strong><br />The number of hours.</td>
+</tr><tr><td>rate</td>
+<td><strong>float</strong><br />The hourly rate paid for these hours.</td>
+</tr><tr><td>total</td>
+<td><strong>float</strong><br />The total wages for these hours.</td>
+</tr></tbody></table>
 <h2 id="payroll-stats">Payroll Stats</h2>
 
 <blockquote>
