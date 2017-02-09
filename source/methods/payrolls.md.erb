@@ -91,7 +91,9 @@ Key | Description
 --- | -----------
 <% param "id" do %>ID of the pay period requested.<% end %>
 
+The `payrollhours` field of the response will include Payroll Hours objects:
 
+<%= print_table(data.objects['payrollhours'], :header => "Payroll Hours") %>
 
 ## Payroll Stats
 

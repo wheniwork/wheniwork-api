@@ -1210,13 +1210,13 @@
   "payrollhours": {
     "id": {
       "type": "integer",
-      "description": "The unique ID for this payrollhours item.",
+      "description": "The unique ID for this payroll hours object.",
       "value": 100,
       "show": true
     },
     "payroll_id": {
       "type": "integer",
-      "description": "The ID of the payroll item this payrollhours object belongs to.",
+      "description": "The ID of the Payroll this object belongs to.",
       "value": 24,
       "show": true
     },
