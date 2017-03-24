@@ -178,7 +178,7 @@ Key | Description
 <% param "password_confirm", "string" do %> The password of this user.<%end%>
 <% param "subdomain", "string" do %> The subdomain of this user.<%end%>
 <% param "account_id", "string(optional)" do %> The account id of this user.<%end%>
-
+<% param "invited_by_uuid", "string(optional)" do %> Assign this user the same account_id as that of the account with the given UUID. (If account_id is also supplied, both IDs must match, or it is an error.)<%end%>
 Please note that all passwords must be:
 
 - at least 10 characters long
