@@ -52,103 +52,7 @@
     </div>
     <div class="page-wrapper">
       <div class="content">
-        <p>The schedule endpoint acts as an aggregate endpoint for loading shifts, users, and all related objects. The results are paged by user records.</p>
-
-<h2 id="fetching-schedule">Fetching Schedule</h2>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.wheniwork.com/2/schedule/?location_id<span class="o">=</span>1&amp;start<span class="o">=</span>2014-03-05 00:00:00&amp;end<span class="o">=</span>2014-03-08 23:59:59 <span class="se">\</span>
- -H <span class="s2">"W-Token: ilovemyboss"</span>
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"schedule"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-                                <span class="s2">"location_id"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-                                <span class="s2">"start"</span> <span class="o">=&gt;</span> <span class="s2">"2014-03-05 00:00:00"</span><span class="p">,</span>
-                                <span class="s2">"end"</span> <span class="o">=&gt;</span> <span class="s2">"2014-03-08 23:59:59"</span>
-                              <span class="p">));</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"availabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"availabilityitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"shiftchains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"records"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"availabilities"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"availabilityitems"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shiftchains"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shifts"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 05 Mar 2014 00:00:00 -0600"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sat, 08 Mar 2014 23:59:59 -0600"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"position_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This method allows you to load the schedule by blocks of users. The <code>records</code> reflects the total number of users that match the current location and, if provided, position. The <code>totals</code> reflect the total number of records for each type of object returned.</p>
-
-<aside class="notice"><p><strong>The maximum range between <code>start</code> and <code>end</code> is 90 days.</strong> Any range greater than this will be set to the start time plus 90 days.</p>
-</aside>
-
-<aside class="notice"><p><strong>When no more pages are available, <code>next</code> will be <code>false</code></strong>.</p>
-</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code>GET https://api.wheniwork.com/2/schedule</code></p>
-
-<h3 id="parameters">Parameters</h3>
-<table><thead><tr><th>Key</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td>start</td>
-<td><strong>datetime</strong><br />Start time for the search window. The default is the current date and time.</td>
-</tr><tr><td>end</td>
-<td><strong>datetime</strong><br />End time for the search window. The default is exactly three days from the start time.</td>
-</tr><tr><td>offset</td>
-<td><strong>integer</strong><br />Paging offset for searching users. The default is zero.</td>
-</tr><tr><td>location_id</td>
-<td><strong>integer, string array</strong><br />The ID of the location to get shifts for. For multiple locations, enter a list of location IDs separated by commas.</td>
-</tr><tr><td>position_id</td>
-<td><strong>integer, string array</strong><br />The ID of the position to get shifts for. For multiple positions, enter a list of position IDs separated by commas.</td>
-</tr><tr><td>show_inactive</td>
-<td><strong>boolean</strong><br />Include inactive users in the results.</td>
-</tr></tbody></table>
-<aside class="notice"><p>OpenShifts will be included in every page of results.</p>
-</aside>
-
-<h2 id="listing-images">Listing Images</h2>
+        <h2 id="listing-images">Listing Images</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -165,7 +69,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-20" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-101" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
@@ -179,7 +83,7 @@
   </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-20')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-20')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-101')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-101')">Hide extra fields</a></pre>
 <p>This method allows you to fetch images of paper schedules that have been posted for employees.</p>
 
 <p>If there are more images to fetch, the <code>next</code> value will be a page number.</p>
@@ -211,7 +115,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-21" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-102" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -221,7 +125,7 @@
     </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/t/5757277e91b7e.png"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-21')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-21')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-102')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-102')">Hide extra fields</a></pre>
 <p>Gets the details of an existing image.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -247,7 +151,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-22" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-103" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -257,7 +161,7 @@
     </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/uploads.wheniwork.com/s/32/2014-04-06/t/5757277e91b7e.png"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-22')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-22')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-103')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-103')">Hide extra fields</a></pre>
 <p>Creates a new schedule image.</p>
 
 <aside class="notice"><p>The PHP library does not support image uploads at this time.</p>
