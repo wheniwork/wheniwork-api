@@ -799,7 +799,7 @@
     },
     "actor": {
       "type": "integer",
-      "description": "What generated the message (0 = User, 1 = System, 2 = Shift Modification, 3 = All Recipients",
+      "description": "What generated the message (0 = User, 1 = System, 2 = Shift Modification, 3 = All Recipients)",
       "value": 0,
       "show": true
     },
