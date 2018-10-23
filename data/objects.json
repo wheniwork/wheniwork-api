@@ -797,6 +797,12 @@
       "value": "This request has been canceled.",
       "show": true
     },
+    "actor": {
+      "type": "integer",
+      "description": "What generated the message (0 = User, 1 = System, 2 = Shift Modification, 3 = All Recipients)",
+      "value": 0,
+      "show": true
+    },
     "created_at": {
       "type": "datetime",
       "description": "Date at which the message was created.",
@@ -1044,6 +1050,18 @@
       "description": "The current status of the request (0 = Pending, 1 = Canceled, 2 = Accepted, 3 = Expired).",
       "value": 0,
       "show": true
+    },
+    "user_status": {
+      "type": "integer",
+      "description": "The current user status of the request (0 = Pending, 1 = Canceled, 2 = Accepted, 3 = Expired, 4 = Denied).",
+      "value": 0,
+      "show": true
+    },
+    "allowed_statuses": {
+        "type": "array",
+        "description": "Array of valid user_status values for the request based on the current user's permissions.",
+        "value": "[0, 2, 3]",
+        "show": true
     },
     "type": {
       "type": "integer",
