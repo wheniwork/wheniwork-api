@@ -1059,7 +1059,7 @@
     },
     "allowed_statuses": {
         "type": "array",
-        "description": "Array of valid user_status values.",
+        "description": "Array of valid user_status values for the request based on the current user's permissions.",
         "value": "[0, 2, 3]",
         "show": true
     },
