@@ -293,7 +293,7 @@
     },
     "account_id": {
       "type": "integer",
-      "description": "ID of the primary account for this user.",
+      "description": "ID of the account for this user.",
       "value": 10000
     },
     "role": {
