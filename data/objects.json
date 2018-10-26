@@ -293,7 +293,7 @@
     },
     "account_id": {
       "type": "integer",
-      "description": "ID of the primary account for this user.",
+      "description": "ID of the account for this user.",
       "value": 10000
     },
     "role": {
@@ -1071,7 +1071,7 @@
     },
     "hours": {
       "type": "float",
-      "description": "The number of hours of paid time off to use. Only valid for full-day requests that are of type 'Paid Time Off', 'Sick', or 'Holiday'.",
+      "description": "The number of hours of paid time off to use.",
       "value": 0,
       "show": true
     },
