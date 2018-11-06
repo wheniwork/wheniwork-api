@@ -18,3 +18,4 @@ build/
 .yardoc
 _yardoc
 doc/
+vendor

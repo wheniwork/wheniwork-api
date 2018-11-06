@@ -6,6 +6,7 @@
 
 Shifts provide the basis for scheduling. Many other objects, including Locations, Positions, Sites, and Users, all link through Shifts.
 
+For more information about how to use Shifts, visit the [Help Center](https://help.wheniwork.com/hc/en-us/sections/200287656-Using-the-Scheduler).
 
 <%= print_table(data.objects['shift'], :header => :shift) %>
 
@@ -47,6 +48,10 @@ $result = $wiw->get("shifts", array(
 
 This method allows you to search for shifts. See the parameters below for all the options.
 
+<% aside do %>
+**The maximum range between `start` and `end` is 90 days.** Any range greater than this will be set to the start time plus 90 days.
+<% end %>
+
 ### HTTP Request
 `GET <%=@api_prefix%>/2/shifts`
 
@@ -58,18 +63,15 @@ Key | Description
 <% param "end", "datetime" do %>End time for the search window. The default is exactly three days from the start time.<% end %>
 <% param "user_id", "integer, string array" do %>The ID of the user to get shifts for. For multiple users, enter a list of user IDs separated by commas (e.g. `1,5,3`).<% end %>
 <% param "location_id", "integer, string array" do %>The ID of the location to get shifts for. For multiple locations, enter a list of location IDs separated by commas.<% end %>
-<% param "site_id", "integer, string array" do %>The ID of the site to get shifts for. For multiple sites, enter a list of site IDs separated by commas.<% end %>
-<% param "position_id", "integer, string array" do %>The ID of the position to get shifts for. For multiple position, enter a list of position IDs separated by commas.<% end %>
 <% param "include_open", "boolean" do %>Whether to include OpenShifts in the results.<% end %>
 <% param "include_allopen", "boolean" do %>Whether to include OpenShifts in the results, including shifts that might be conflicts.<% end %>
 <% param "include_onlyopen", "boolean" do %>Whether only OpenShifts should be included in the results.<% end %>
 <% param "unpublished", "boolean" do %>Whether unpublished shifts should be included in the results.<% end %>
+<% param "deleted", "boolean" do %>Whether to include a list of deleted shift IDs in the results.<% end %>
 
 <% aside do %>
 OpenShifts will be included in the results as long as either `include_allopen` or `include_onlyopen` is `true`.
 <% end %>
-
-
 
 ## Get Existing Shift
 
@@ -166,7 +168,7 @@ The `POST` or `PUT` body can include fields from the [Shift Object](#shifts).
 
 ```shell
 curl -X POST <%=@api_prefix%>/2/shifts/acknowledge/ \
- --data '{"ids":[34542,45434]}' \
+ --data '{"ids":[34542,45434], "before":"Sun, 6 Dec 2015 00:00:00 -0600"}' \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
@@ -176,7 +178,8 @@ $result = $wiw->post("shifts/acknowledge/", array(
   "ids" => array(
     34542,
     45434
-  )
+  ),
+  "before" => "Sun, 6 Dec 2015 00:00:00 -0600"
 ));
 ?>
 ```
@@ -200,6 +203,77 @@ This method allows you to acknowledge a group of shifts.
 Key | Description
 --- | -----------
 <% param "ids", "integer array" do %>The IDs of the shifts to acknowledge. This parameter must be in the POST body.<% end %>
+<% param "before", "string" do %>The timestamp that represents when the shift data was last fetched from the server. This is optional, and is useful to protect against inadvertently acknowledging shifts that were updated since data was fetched.<% end %>
+
+## Get Shift History
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/shifts/1337/history \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("shifts/1337/history");
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "shift": <%= print_json(data.objects['shift'], :include => {
+    :id => 1337,
+    :notes => "Come in early today."
+  }) %>,
+  "history": [
+    <%= print_json(data.objects['shifthistory'], :include=>{
+      'type' => 'created',
+    }) %>,
+    <%= print_json(data.objects['shifthistory'], :include=>{
+      'type' => 'time_changed',
+    }) %>,
+    <%= print_json(data.objects['shifthistory'], :include=>{
+      'type' => 'time_changed',
+    }) %>
+  ]
+}
+<% end %>
+
+Gets the history of an existing shift. Shift history events are created when one
+or more of the following elements are changed:
+
+* start_time
+* end_time
+* user_id
+* position_id
+* location_id
+* site_id
+* published
+* break_time
+* acknowledged_at
+
+History events contain `actor` and `at` fields, and can also contain one or more
+of the following optional fields depending on event type:
+
+* start
+* end
+* user
+* break
+
+There is one special event called "current" that includes the current state of
+the shift.
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/shifts/{id}/history`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "id", "integer" do %>The ID of the shift for which to fetch history.<% end %>
 
 
 ## Publish/Unpublish Shifts
@@ -453,4 +527,120 @@ Key | Description
 
 <% aside do %>
 If the `id` parameter is present, it will take precedence over `ids`.
+<% end %>
+
+
+## Get Labor
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/shifts/labor?start=2016-07-04&end=2016-07-08 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("shifts/labor", array(
+  "start" => "2016-07-04",
+  "end" => "2016-07-08",
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "count": 8,
+  "data": {
+    "2016-07-04": <%= print_json(data.objects['labor data'], :verbose => true) %>,
+    "2016-07-05": <%= print_json(data.objects['labor data']) %>,
+    "2016-07-06": <%= print_json(data.objects['labor data']) %>,
+    "2016-07-07": <%= print_json(data.objects['labor data']) %>
+  }
+}
+<% end %>
+
+Gets labor information from the schedule, such as total hours worked per day, labor cost, and coverage.
+
+<% aside do %>
+This endpoint can only retrieve statistics for at most one week at a time. Attempting to use a span of time longer than one week will result in an error.
+<% end %>
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "start", "datetime" do %>The start time of the range to calculate labor stats for.<% end %>
+<% param "end", "datetime" do %>The end time of the range to calculate labor stats for.<% end %>
+
+### Response Data
+
+Key | Description
+--- | -----------
+<% param "count", "integer" do %>The total number of shifts contributing to the result.<% end %>
+<% param "data", "object" do %>A JSON object containing labor data objects, indexed by date. Dates are formatted as YYYY-MM-DD ([ISO 8601](https://xkcd.com/1179/)).<% end %>
+
+<%= print_table(data.objects['labor data'], :header => 'labor data') %>
+
+<% aside do %>
+Note that the sum of all the values in `coverage` may not add up to the value of `hours`. This is because `hours` takes unpaid breaks into account, which do not affect overall shift coverage.
+<% end %>
+
+## Counting Shifts
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/shifts/count?location_id=1&start=2014-03-05 00:00:00&end=2014-03-08 23:59:59 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("shifts/count", array(
+                                "location_id" => 1,
+                                "start" => "2014-03-05 00:00:00",
+                                "end" => "2014-03-08 23:59:59"
+                              ));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+    "shifts":17,
+    "locations":1,
+    "users":8,
+    "positions":3,
+    "sites":0
+}
+<% end %>
+
+This method allows you to count shifts as well as their associated locations, users, positions, and sites. The accepted parameters are identical to the <a href="/#listing-shifts">list shifts</a> endpoint. See the parameters below for all the options.
+
+<% aside do %>
+**The maximum range between `start` and `end` is 90 days.** Any range greater than this will be set to the start time plus 90 days.
+<% end %>
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/shifts/count`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "start", "datetime" do %>Start time for the search window. The default is the current date and time.<% end %>
+<% param "end", "datetime" do %>End time for the search window. The default is exactly three days from the start time.<% end %>
+<% param "user_id", "integer, string array" do %>The ID of the user to get shifts for. For multiple users, enter a list of user IDs separated by commas (e.g. `1,5,3`).<% end %>
+<% param "location_id", "integer, string array" do %>The ID of the location to get shifts for. For multiple locations, enter a list of location IDs separated by commas.<% end %>
+<% param "include_open", "boolean" do %>Whether to include OpenShifts in the results.<% end %>
+<% param "include_allopen", "boolean" do %>Whether to include OpenShifts in the results, including shifts that might be conflicts.<% end %>
+<% param "include_onlyopen", "boolean" do %>Whether only OpenShifts should be included in the results.<% end %>
+<% param "unpublished", "boolean" do %>Whether unpublished shifts should be included in the results.<% end %>
+
+<% aside do %>
+OpenShifts will be included in the results as long as either `include_allopen` or `include_onlyopen` is `true`.
 <% end %>

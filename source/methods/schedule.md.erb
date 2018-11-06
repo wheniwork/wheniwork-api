@@ -1,0 +1,144 @@
+## Listing Images
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/schedule/images \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("schedule/images");
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "images": [
+    <%= print_json(data.objects['image']) %>
+  ],
+  "next": null,
+  "total": 1
+}
+<% end %>
+
+This method allows you to fetch images of paper schedules that have been posted for employees.
+
+If there are more images to fetch, the `next` value will be a page number.
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/schedule/images?page={page}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "page", "integer" do %>Which page of images to return, default `1`.<% end %>
+
+## Get Existing Image
+
+> Example Request
+
+```shell
+curl <%=@api_prefix%>/2/schedule/images/32 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->get("schedule/images/32");
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "image": <%= print_json(data.objects['image']) %>
+}
+<% end %>
+
+Gets the details of an existing image.
+
+### HTTP Request
+`GET <%=@api_prefix%>/2/schedule/images/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "id", "integer" do %>ID of the image to get.<% end %>
+
+## Create Image
+
+> Example Request
+
+```shell
+curl -X POST https://api.wheniwork.com/2/schedule/images/ \
+ --data '@/path/to/file.jpg' \
+ -H "W-Token: <%=@wiw_token%>"
+```
+
+> Example Response
+
+<% json do %>
+{
+  "image": <%= print_json(data.objects['image'], :include => {
+    :id => 33
+  }) %>
+}
+<% end %>
+
+Creates a new schedule image.
+
+<% aside do %>
+The PHP library does not support image uploads at this time.
+<% end %>
+
+<% aside do %>
+Schedule images cannot be updated, only created and deleted.
+<% end %>
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/schedule/images`
+
+### POST Body
+
+The body of the request must be binary image data.
+
+## Delete Image
+
+> Example Request
+
+```shell
+curl -X DELETE <%=@api_prefix%>/2/schedule/images/33 \
+ -H "W-Token: <%=@wiw_token%>"
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->delete("schedule/images/33");
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "success": true
+}
+<% end %>
+
+Deletes an existing image.
+
+### HTTP Request
+`DELETE <%=@api_prefix%>/2/schedule/images/{id}`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "id", "integer" do %>ID of the image to delete.<% end %>

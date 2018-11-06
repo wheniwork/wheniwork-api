@@ -328,14 +328,14 @@ The `POST` body can include fields from the Alert Settings Object.
 > Example Request
 
 ```shell
-curl -X POST <%=@api_prefix%>/2/users/invite/ \
+curl -X POST <%=@api_prefix%>/2/users/invite \
  --data '{"ids":[14,15,67]}' \
  -H "W-Token: <%=@wiw_token%>"
 ```
 ```php
 <?php
 $wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->post("users/invite/", array(
+$result = $wiw->post("users/invite", array(
   "ids" => array(14,15,67)
 ));
 ?>
@@ -354,18 +354,19 @@ $result = $wiw->post("users/invite/", array(
 
 Users can be invited by managers, or by supervisors. This will send them an email or text message inviting them to register.
 
-<% aside do %>Users must already be created to be invited.<% end %>
-
 ### HTTP Request
-`POST <%=@api_prefix%>/2/users/invite/`
+`POST <%=@api_prefix%>/2/users/invite`
 
 ### Parameters
 
 Key | Description
 --- | -----------
-<% param "ids", "integer array" do %>List of IDs of users to invite.<% end %>
+<% param "items", "string array" do %>List of email addresses or phone numbers of users to invite.<% end %>
+<% param "ids", "integer array" do %>List of existing user IDs to invite.<% end %>
 <% param "send_all", "boolean" do %>Whether to invite all users who do not currently have a login. If this is `true`, the `ids` parameter will be ignored.<% end %>
 <% param "message", "string" do %>An optional message to include in the email invite.<% end %>
+
+<% aside do %>When inviting users with the `items` method, the entire request will be rejected if any of the email address or phone numbers are invalid. All phone numbers must be [E.164 formatted](https://en.wikipedia.org/wiki/E.164).<% end %>
 
 You can also invite a single user with the following:
 
@@ -415,3 +416,71 @@ Key | Description
 --- | -----------
 <% param "id" do %>ID of the user to delete.<% end %>
 <% param "delete_shifts", "boolean" do %>Indicates whether or not to delete this user's future shifts. If not deleted, those shifts will be moved to Open Shifts. This is an optional parameter.<% end %>
+
+
+## Create/Update User Avatar
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/users/avatar \
+ -H "W-Token: <%=@wiw_token%>"
+ -H "Content-Type: image/jpeg"
+```
+```php
+<?php
+ $ch = curl_init(<%=@api_prefix%>/2/users/avatar);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: ' . $type]);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $image);
+
+        $response = curl_exec($ch);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "avatar": {
+    "hash": "{hash}",
+    "type": "jpg",
+    "sizes": {
+      "small": {
+        "href": "{userhash}/small",
+        "path": "2/fb/{userhash}.small.jpg",
+        "url": "//s3.amazonaws.com/2/fb/{userhash}.small.jpg"
+      }
+    },
+    "medium": {
+      "href": "/{userhash}/medium",
+      "path": "4/e1/{userhash}.medium.jpg",
+      "url": "//s3.amazonaws.com/4/fb/{userhash}.medium.jpg"
+    },
+    "created_at": "2016-01-13T22:05:22+00:00",
+    "updated_at": "2016-01-13T22:05:22+00:00",
+    "best": "medium"
+  },
+  "error": false
+}
+<% end %>
+
+Creates or updates user avatar.
+
+<% aside do %>
+  Remember — This request requires a valid `Content-Type` header.
+<% end %>
+
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/users/avatar`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "user_id", "int (optional)" do %>ID of the user upload avatar. Will default to current user.<% end %>

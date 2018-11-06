@@ -1,7 +1,7 @@
 > Example Object
 
 <% json do %>
-<%= print_json(data.objects['account'], :verbose => true) %>
+<%= print_json(data.objects['account'], :include => {'place' => data.objects['place']} ,:verbose => true) %>
 <% end %>
 
 Accounts are objects that define a business account with When I Work. Every user must be associated with an account in order to be able to access Shifts and other data.
@@ -10,7 +10,19 @@ Accounts are objects that define a business account with When I Work. Every user
 
 <%= print_table(data.objects['place'], :header => :place) %>
 
-## Listing Accounts
+## Features
+
+The features that are enabled on accounts will vary. The following features are considered defaults and should be considered enabled when `all` is present:
+
+<%= print_table(data.objects['default_features']) %>
+
+There are a few other features that may be explicitly enabled on some accounts:
+
+<%= print_table(data.objects['custom_features']) %>
+
+_**NOTE:** Account features are derived from the plan and cannot be modified using the API!_
+
+## Get Existing Account
 
 > Example Request
 
@@ -29,83 +41,30 @@ $result = $wiw->get("account");
 
 <% json do %>
 {
-  "account": <%= print_json(data.objects['account'], :include => {
-      'id' => 11,
-      'master_id' => 11,
-      'company' => '123 Company',
-      'subdomain' => '123-company'
-  }) %>,
-  "accounts": [
-    <%= print_json(data.objects['account'], :include => {
-      'id' => 12,
-      'master_id' => 11,
-      'company' => 'ABC Company',
-      'subdomain' => 'ABC Company',
-      'logo' => 'https://s3.amazonaws.com/files.wheniwork.com/logos/19282.gif'
-    }) %>
-  ]
-}
-<% end %>
-
-### HTTP Request
-Listing accounts gives an object with two members: an `account` object, which specifies the primary account for a given user, and an array, `accounts`, containing all subaccounts of the primary account.
-
-`GET <%=@api_prefix%>/2/account?account_id=11,12`
-
-### Parameters
-
-Key | Description
---- | -----------
-<% param "account_id" do %>A list of account ids to retrieve (Optional; if not specified, will default to returning all accounts for a given user token)<% end %>
-
-### Features
-
-The features that are enabled on accounts will vary. The following features are considered defaults and should be considered enabled when `all` is present:
-
-<%= print_table(data.objects['default_features']) %>
-
-There are a few other features that may be explicitly enabled on some accounts:
-
-<%= print_table(data.objects['custom_features']) %>
-
-_**NOTE:** Account features are derived from the plan and cannot be modified using the API!_
-
-## Get Existing Account
-
-> Example Request
-
-```shell
-curl <%=@api_prefix%>/2/account/11 \
- -H "W-Token: <%=@wiw_token%>"
-```
-```php
-<?php
-$wiw = new Wheniwork("<%=@wiw_token%>");
-$result = $wiw->get("account/11");
-?>
-```
-
-> Example Response
-
-<% json do %>
-{
   "account": <%= print_json(data.objects['account'], :verbose => true, :include => {
     'id' => 11,
     'master_id' => 11,
     'company' => '123 Company',
-    'subdomain' => '123-company'
+    'subdomain' => '123-company',
+    'place' => data.objects['place']
   }) %>
 }
 <% end %>
 
 ### HTTP Request
-`GET <%=@api_prefix%>/2/account/{account_id}`
+`GET <%=@api_prefix%>/2/account`
 
 ### Parameters
 
-Key | Description
---- | -----------
-<% param "account_id" do %>ID of the account object to be retrieved.<% end %>
+This endpoint has no parameters.
+
+<% aside do %>
+This endpoint returns the first account associated with the current login token. To get information about a different account, set the `W-UserId` header to the user id associated with the other account. (See the [Authentication](#authentication) section for details.)
+<% end %>
+
+<% aside do %>
+If the account being queried for is a primary account, the response provides an object with two members: an `account` object, which specifies the primary account for a given user, and an array, `accounts`, containing all subaccounts of the primary account.
+<% end %>
 
 ## Create/Update Account
 
@@ -118,6 +77,125 @@ Key | Description
 ### Parameters
 
 The `POST` and/or `PUT` body can include fields from the [Account Object](#accounts).
+
+### Additional Parameters
+
+Key | Description
+--- | -----------
+<% param "referral_reason" do %>(Optional) referral reason, which will persist as the referral_code.<% end %>
+
+
+## Update Account Settings
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/account/settings \
+ -H "W-Token: <%=@wiw_token%>" \
+ -data '{"company":"123 Company","ref_employees":7,"subdomain":"123-company","industry_id":14}'
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("account/settings", array(
+    "company" => "123 Company",
+    "ref_employees" => 7,
+    "subdomain" => "123-company",
+    "industry_id" => 14,
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+  <%= print_json(data.objects['account'], :verbose => true, :include => {
+    'company' => '123 Company',
+    'subdomain' => '123-company'
+  }) %>
+<% end %>
+
+Account managers/owners can update certain account settings using this endpoint.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/account/settings`
+
+### Parameters
+
+Key | Description
+--- | -----------
+<% param "company" do %>Company name.<% end %>
+<% param "timezone_id" do %>Updated timezone ID.<% end %>
+<% param "industry_id" do %>ID of the industry relevant to this account. <% end %>
+<% param "ref_employees" do %>Number of employees for this account. <% end %>
+<% param "subdomain" do %>Account subdomain (subdomain.wheniwork.com).<% end %>
+<% param "country_id" do %>ID of account country (only editable for trials).<% end %>
+<% param "type" do %>Account type (trials only).<% end %>
+
+
+## Invite to Account
+
+Managers can be invited to unclaimed accounts by using this endpoint.
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/account/{account_id}/invite`
+
+> Example Requests
+
+```shell
+curl -X POST <%=@api_prefix%>/2/account/35/invite \
+ -H "W-Token: <%=@wiw_token%>" \
+ -data '{"email_or_phone":"9525551234","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("account/11/invite", array(
+    "email_or_phone" => "9525551234",
+    "manager_name" => "Sally Smith",
+    "message" => "This scheduling app is really slick!",
+));
+?>
+```
+
+```shell
+curl -X POST <%=@api_prefix%>/2/account/35/invite \
+ -H "W-Token: <%=@wiw_token%>" \
+ -data '{"email_or_phone":"sally@example.com","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'
+```
+```php
+<?php
+$wiw = new Wheniwork("<%=@wiw_token%>");
+$result = $wiw->post("account/11/invite", array(
+    "email_or_phone" => "sally@example.com",
+    "manager_name" => "Sally Smith",
+    "message" => "This scheduling app is really slick!",
+));
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "success": true
+}
+<% end %>
+
+### Parameters
+
+A value for `email_or_phone` must be provided. If a phone number is used, it should be in [E164][e164] format.
+
+Key | Description
+--- | -----------
+<% param "account_id" do %>ID of the account object.<% end %>
+<% param "email_or_phone" do %>Email address or phone number of the manager.<% end %>
+<% param "region" do %>Two letter country code of the phone number. This can be omitted if the phone number is in [E164][e164] format.<% end %>
+<% param "manager_name" do %>The manager's name.<% end %>
+<% param "message" do %>A custom message that will be added to the invite.<% end %>
+
+[e164]: https://en.wikipedia.org/wiki/E.164
+
 
 ## Claim Account
 

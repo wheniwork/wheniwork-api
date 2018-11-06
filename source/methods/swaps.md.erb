@@ -4,7 +4,9 @@
 <%= print_json(data.objects['swap'], :verbose => true) %>
 <% end %>
 
-Swaps let users swap shifts with each other.
+Swaps let users swap shifts with each other or drop shifts for other users to pick up.
+
+For more about using Swaps, visit the [Help Center](https://help.wheniwork.com/hc/en-us/articles/201048288-Trade-Shifts-with-Coworkers).
 
 <%= print_table(data.objects['swap'], :header => :swap) %>
 
@@ -32,6 +34,9 @@ $result = $wiw->get("swaps");
   "swaps": [
     <%= print_json(data.objects['swap']) %>
   ],
+  "more": false,
+  "page": 1,
+  "total": 1,
   "messages" : [
     <%= print_json(data.objects['message'], :include => {
       'swap_id' => '2238'
@@ -67,7 +72,7 @@ Key | Description
 <% param "start", "datetime" do %>Start time for the shift search window. Must be included if `end` is defined.<% end %>
 <% param "end", "datetime" do %>End time for the shift search window. Must be included if `start` is defined.<% end %>
 <% param "limit", "integer" do %>The number of swaps to include per page. Default is `10`.<% end %>
-<% param "page", "integer" do %>The page of results to fetch. Default is `0`.<% end %>
+<% param "page", "integer" do %>The page of results to fetch. Default is `1`.<% end %>
 
 
 

@@ -1,0 +1,63 @@
+## Create/Update Login Avatar
+
+> Example Request
+
+```shell
+curl -X POST <%=@api_prefix%>/2/login/avatar \
+ -H "W-Token: <%=@wiw_token%>"
+ -H "Content-Type: image/jpeg"
+```
+```php
+<?php
+ $ch = curl_init(<%=@api_prefix%>/2/login/avatar);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: ' . $type]);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $image);
+
+        $response = curl_exec($ch);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+?>
+```
+
+> Example Response
+
+<% json do %>
+{
+  "avatar": {
+    "hash": "{hash}",
+    "type": "jpg",
+    "sizes": {
+      "small": {
+        "href": "{loginhash}/small",
+        "path": "2/fb/{loginhash}.small.jpg",
+        "url": "//s3.amazonaws.com/2/fb/{loginhash}.small.jpg"
+      }
+    },
+    "medium": {
+      "href": "/{loginhash}/medium",
+      "path": "4/e1/{loginhash}.medium.jpg",
+      "url": "//s3.amazonaws.com/4/fb/{loginhash}.medium.jpg"
+    },
+    "created_at": "2016-01-13T22:05:22+00:00",
+    "updated_at": "2016-01-13T22:05:22+00:00",
+    "best": "medium"
+  },
+  "error": false
+}
+<% end %>
+
+Creates or updates login avatar.
+
+<% aside do %>
+  Remember — This request requires a valid `Content-Type` header.
+<% end %>
+
+User can only update their own avatar.
+
+
+### HTTP Request
+`POST <%=@api_prefix%>/2/login/avatar`
+

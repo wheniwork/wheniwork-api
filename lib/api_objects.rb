@@ -43,37 +43,59 @@ class ApiObjects < Middleman::Extension
       json_text = JSON.pretty_generate(formatted)
       return json_text.gsub(/\{(.*)\}/m, 'array(\1)').gsub(/\:/, ' =>')
     end
-
+    
+    # Prints a JSON object formatted like those in objects.json. The valid
+    # options are:
+    #
+    # :include::  Any fields you wish to include in the result which are not in
+    #             the original object. Each will have 'show' set to true.
+    # :exclude::  The names of any fields you wish to exclude from the result.
+    #             This sets 'show' to false for each field.
+    # :collapse:: Collapses any fields in the result for which 'show' is false.
+    #             If true, any fields for which 'show' is false will be
+    #             collapsed instead of removed entirely from the output.
+    #             Defaults to true.
+    # :verbose::  Will show all keys in the result, uncollapsed. Overrules the
+    #             :collapse and :exclude options.
     def print_json(object, options={})
-      if !options.has_key?(:collapse)
+      unless options.has_key?(:collapse)
         options[:collapse] = true
       end
 
-      formatted = {}
-      inc = (options[:include] || {}).inject({}) do |hash, (key, value)|
+      included_fields = (options[:include] || {}).inject({}) do |hash, (key, value)|
         hash[key] = {'value' => value, 'show' => true}
         hash
       end
 
+      formatted = {}
       collapse_active = false
-      object.merge(inc).each do |key, obj|
+      object.merge(included_fields).each do |key, field|
         if options[:collapse] && !options[:verbose]
-          if !obj['show'] && !collapse_active
+          should_hide_field = !field['show'] || (!options[:exclude].nil? && options[:exclude].include?(key))
+          if should_hide_field && !collapse_active
             collapse_active = true
             formatted.merge!("SECTION_START_before_#{key}" => true)
-          elsif obj['show'] && collapse_active
+          elsif !should_hide_field && collapse_active
             collapse_active = false
             formatted.merge!("SECTION_END_before_#{key}" => true)
           end
         end
 
-        if options[:verbose] || options[:collapse] || obj['show']
-          formatted.merge!(key => obj['value'])
+        if options[:verbose] || options[:collapse] || !should_hide_field
+          if field['value'].is_a? Hash
+            field_json = print_json(field['value'], {
+              :collapse => options[:collapse],
+              :verbose => options[:verbose],
+            })
+            formatted.merge!(key => JSON.parse(field_json))
+          else
+            formatted.merge!(key => field['value'])
+          end
         end
       end
 
       if options[:collapse] && collapse_active
-        formatted.merge!("SECTION_END_at_end" => true)
+        formatted.merge!('SECTION_END_at_end' => true)
       end
 
       json = JSON.pretty_generate(formatted)
