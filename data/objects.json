@@ -451,16 +451,10 @@
     }
   },
   "site": {
-    "id": {
-      "type": "integer",
-      "description": "The unique ID of the site.",
-      "value": 9,
-      "show": true
-    },
-    "account_id": {
-      "type": "integer",
-      "description": "The ID of the account to which this site belongs.",
-      "value": 10000,
+    "name": {
+      "type": "string",
+      "description": "The name of the site.",
+      "value": "Twin Pines",
       "show": true
     },
     "location_id": {
@@ -468,10 +462,10 @@
       "description": "The ID of the location to which this site belongs. If `0`, this site belongs to all locations.",
       "value": 136
     },
-    "name": {
-      "type": "string",
-      "description": "The name of the site.",
-      "value": "Twin Pines",
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account to which this site belongs.",
+      "value": 10000,
       "show": true
     },
     "color": {

@@ -44,14 +44,13 @@ $result = $wiw->get("sites");
 Gets a list of all Sites in your account.
 
 ### HTTP Request
-`GET <%=@api_prefix%>/2/sites`
+`GET <%=@api_prefix%>/2/sites{?include_deleted=true}`
 
 ### Parameters
 
 Key | Description
 --- | -----------
-<% param "include_deleted", "boolean" do %>Whether to include deleted Sites in the results.<% end %>
-
+<% param "include_deleted", "boolean" do %>Include deleted sites. Optional, defaults to false.<% end %>
 
 
 ## Get Existing Site
