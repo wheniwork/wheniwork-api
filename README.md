@@ -1,7 +1,7 @@
 When I Work API Documentation
 ========
 
-This is the source for the API documentation of [When I Work](http://www.wheniwork.com). If you're looking for the actual documentation page, it can be found at [http://wheniwork.github.io](http://wheniwork.github.io).
+This is the source for the API documentation of [When I Work](https://www.wheniwork.com). If you're looking for the actual documentation page, it can be found at [http://dev.wheniwork.com](http://dev.wheniwork.com).
 
 Editing the Documentation
 ------------------------------
@@ -30,7 +30,7 @@ Now that the API docs are all set up your machine, you'll probably want to learn
 
 #### Asides
 
-Rather than using raw HTML tags, we use the `aside` method. This lets us use Markdown in asides! You can set the type of aside by setting the optional parameter `:class` to either `'notice'` or `'warning'`. 
+Rather than using raw HTML tags, we use the `aside` method. This lets us use Markdown in asides! You can set the type of aside by setting the optional parameter `:class` to either `'notice'` or `'warning'`.
 
 ```erb
 <% aside do %>
@@ -44,4 +44,4 @@ Rather than using raw HTML tags, we use the `aside` method. This lets us use Mar
 
 ### Deploying
 
-To deploy the API docs, run 'rake publish' from the root directory of the repository. You'll need to have proper permissions in order to perform this task. 
+To deploy the API docs, run 'rake publish' from the root directory of the repository. You'll need to have proper permissions in order to perform this task.
