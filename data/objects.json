@@ -451,6 +451,18 @@
     }
   },
   "site": {
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the site.",
+      "value": 9,
+      "show": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "The ID of the account to which this site belongs.",
+      "value": 10000,
+      "show": true
+    },
     "name": {
       "type": "string",
       "description": "The name of the site.",
