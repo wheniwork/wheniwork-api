@@ -887,14 +887,28 @@
         {
           "user_id": 23,
           "status": 0,
-          "shift_id": 0
+          "shift_id": 0,
+          "user_status": 0
         },
         {
           "user_id": 24,
           "status": 0,
-          "shift_id": 0
+          "shift_id": 0,
+          "user_status": 0
         }
       ]
+    },
+    "user_status": {
+      "type": "integer",
+      "description": "The user-facing status of the swap. (0 = Pending Approval, 1 = Pending Acceptance, 2 = Declined, 3 = Accepted, 4 = Canceled, 5 = Expired, 6 = Denied)",
+      "value": 0,
+      "show": true
+    },
+    "allowed_statuses": {
+      "type": "array",
+      "description": "Array of status values that the swap can be transitioned to based on the role of the current user and their relationship to the request.",
+      "value": [1, 2],
+      "show": true
     }
   },
   "template": {
