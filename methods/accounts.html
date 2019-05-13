@@ -324,16 +324,29 @@
 <p><code>POST https://api.wheniwork.com/2/account/{account_id}/invite</code></p>
 
 <blockquote>
-<p>Example Request</p>
+<p>Example Requests</p>
 </blockquote>
 <pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/account/35/invite <span class="se">\</span>
  -H <span class="s2">"W-Token: ilovemyboss"</span> <span class="se">\</span>
- -data <span class="s1">'{"email":"sally@example.com","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'</span>
+ -data <span class="s1">'{"email_or_phone":"9525551234","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"account/11/invite"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s2">"email"</span> <span class="o">=&gt;</span> <span class="s2">"sally@example.com"</span><span class="p">,</span>
+    <span class="s2">"email_or_phone"</span> <span class="o">=&gt;</span> <span class="s2">"9525551234"</span><span class="p">,</span>
+    <span class="s2">"manager_name"</span> <span class="o">=&gt;</span> <span class="s2">"Sally Smith"</span><span class="p">,</span>
+    <span class="s2">"message"</span> <span class="o">=&gt;</span> <span class="s2">"This scheduling app is really slick!"</span><span class="p">,</span>
+<span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST https://api.wheniwork.com/2/account/35/invite <span class="se">\</span>
+ -H <span class="s2">"W-Token: ilovemyboss"</span> <span class="se">\</span>
+ -data <span class="s1">'{"email_or_phone":"sally@example.com","manager_name":"Sally Smith","message":"This scheduling app is really slick!"}'</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$wiw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wheniwork</span><span class="p">(</span><span class="s2">"ilovemyboss"</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$wiw</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s2">"account/11/invite"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"email_or_phone"</span> <span class="o">=&gt;</span> <span class="s2">"sally@example.com"</span><span class="p">,</span>
     <span class="s2">"manager_name"</span> <span class="o">=&gt;</span> <span class="s2">"Sally Smith"</span><span class="p">,</span>
     <span class="s2">"message"</span> <span class="o">=&gt;</span> <span class="s2">"This scheduling app is really slick!"</span><span class="p">,</span>
 <span class="p">));</span>
@@ -350,19 +363,17 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<p>Either <code>email</code> or <code>phone_number</code> must be provided. If both are provided, an SMS and an email will be sent.</p>
+<p>A value for <code>email_or_phone</code> must be provided. If a phone number is used, it should be in <a href="https://en.wikipedia.org/wiki/E.164">E164</a> format.</p>
 <table><thead><tr><th>Key</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>account_id</td>
 <td>ID of the account object.</td>
-</tr><tr><td>email</td>
-<td>Email address of the manager.</td>
-</tr><tr><td>phone_number</td>
-<td>Phone number of the manager.</td>
+</tr><tr><td>email_or_phone</td>
+<td>Email address or phone number of the manager.</td>
 </tr><tr><td>region</td>
 <td>Two letter country code of the phone number. This can be omitted if the phone number is in <a href="https://en.wikipedia.org/wiki/E.164">E164</a> format.</td>
 </tr><tr><td>manager_name</td>
-<td>Managers name.</td>
+<td>The manager&#39;s name.</td>
 </tr><tr><td>message</td>
 <td>A custom message that will be added to the invite.</td>
 </tr></tbody></table>

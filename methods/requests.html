@@ -61,6 +61,8 @@
   </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
   </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"allowed_statuses"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0, 2, 3]"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 14 Mar 2014 00:00:00 -0500"</span><span class="p">,</span><span class="w">
@@ -87,10 +89,14 @@
 <td><strong>integer</strong><br />The ID of the user creating the request.</td>
 </tr><tr><td>status</td>
 <td><strong>integer</strong><br />The current status of the request (0 = Pending, 1 = Canceled, 2 = Accepted, 3 = Expired).</td>
+</tr><tr><td>user_status</td>
+<td><strong>integer</strong><br />The current user status of the request (0 = Pending, 1 = Canceled, 2 = Accepted, 3 = Expired, 4 = Denied).</td>
+</tr><tr><td>allowed_statuses</td>
+<td><strong>array</strong><br />Array of valid user_status values for the request based on the current user&#39;s permissions.</td>
 </tr><tr><td>type</td>
 <td><strong>integer</strong><br />The type of the request (0 = Unpaid Time Off, 1 = Paid Time Off, 2 = Sick Leave, 3 = Holiday).</td>
 </tr><tr><td>hours</td>
-<td><strong>float</strong><br />The number of hours of paid time off to use. Only valid for full-day requests that are of type &#39;Paid Time Off&#39;, &#39;Sick&#39;, or &#39;Holiday&#39;.</td>
+<td><strong>float</strong><br />The number of hours of paid time off to use.</td>
 </tr><tr><td>start_time</td>
 <td><strong>datetime</strong><br />Start time of request.</td>
 </tr><tr><td>end_time</td>
@@ -121,7 +127,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-19" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-13" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
@@ -129,6 +135,8 @@
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"allowed_statuses"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0, 2, 3]"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 14 Mar 2014 00:00:00 -0500"</span><span class="p">,</span><span class="w">
@@ -142,6 +150,8 @@
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"allowed_statuses"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0, 2, 3]"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 24 Mar 2014 08:00:00 -0600"</span><span class="p">,</span><span class="w">
@@ -163,6 +173,7 @@
       </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span></span>      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Approved"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>    </span><span class="p">},</span><span class="w">
@@ -175,6 +186,7 @@
       </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span></span>      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Approved"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>    </span><span class="p">}</span><span class="w">
@@ -244,7 +256,7 @@
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-19')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-19')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-13')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-13')">Hide extra fields</a></pre>
 <p>Gets a list of Requests for your account.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -290,13 +302,15 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-20" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-14" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
     </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allowed_statuses"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0, 2, 3]"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 14 Mar 2014 00:00:00 -0500"</span><span class="p">,</span><span class="w">
@@ -314,6 +328,7 @@
       </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span></span>      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Approved"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Request has been approved"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>    </span><span class="p">}</span><span class="w">
@@ -352,7 +367,7 @@
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-20')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-20')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-14')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-14')">Hide extra fields</a></pre>
 <p>Gets the details of a specific Request.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -402,13 +417,15 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-21" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-15" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
     </span><span class="nt">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allowed_statuses"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0, 2, 3]"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 14 Mar 2014 00:00:00 -0500"</span><span class="p">,</span><span class="w">
@@ -417,7 +434,7 @@ curl -X PUT https://api.wheniwork.com/2/requests/54 <span class="se">\</span>
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Feb 2014 10:51:33 -0600"</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-21')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-21')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-15')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-15')">Hide extra fields</a></pre>
 <p>Creates a new Request or updates an existing one.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>

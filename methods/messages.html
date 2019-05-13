@@ -64,6 +64,7 @@
   </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -88,6 +89,8 @@
 <td><strong>string</strong><br />The title of the message.</td>
 </tr><tr><td>content</td>
 <td><strong>string</strong><br />The content of the message.</td>
+</tr><tr><td>actor</td>
+<td><strong>integer</strong><br />What generated the message (0 = User, 1 = System, 2 = Shift Modification, 3 = All Recipients)</td>
 </tr><tr><td>created_at</td>
 <td><strong>datetime</strong><br />Date at which the message was created.</td>
 </tr><tr><td>updated_at</td>
@@ -107,7 +110,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-4" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-1" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
@@ -118,6 +121,7 @@
       </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span></span>      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>    </span><span class="p">},</span><span class="w">
@@ -130,6 +134,7 @@
       </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span></span>      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been approved"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>    </span><span class="p">},</span><span class="w">
@@ -142,12 +147,13 @@
       </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span></span>      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canceled"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled again."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-4')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-4')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-1')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-1')">Hide extra fields</a></pre>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/messages</code></p>
@@ -176,7 +182,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-5" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-2" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
     </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -186,11 +192,12 @@
     </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span></span>    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
     </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-5')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-5')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-2')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-2')">Hide extra fields</a></pre>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>GET https://api.wheniwork.com/2/messages/{message_id}</code></p>

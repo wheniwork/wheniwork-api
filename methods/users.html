@@ -98,7 +98,7 @@
 </tr><tr><td>login_id</td>
 <td><strong>integer</strong><br />Unique identifier for the login belonging to the user.</td>
 </tr><tr><td>account_id</td>
-<td><strong>integer</strong><br />ID of the primary account for this user.</td>
+<td><strong>integer</strong><br />ID of the account for this user.</td>
 </tr><tr><td>role</td>
 <td><strong>integer</strong><br />The user&#39;s role.<br> <code>1</code> = Admin<br> <code>2</code> = Manager<br> <code>3</code> = Employee (Default)<br> <code>4</code> = Lead (Unused)<br><code>5</code> = Supervisor</td>
 </tr><tr><td>email</td>
@@ -157,7 +157,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-85" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-104" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
@@ -223,7 +223,7 @@
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-85')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-85')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-104')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-104')">Hide extra fields</a></pre>
 <p>Get a list of users, optionally filtered by ID or location. See the parameters below for all the options.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -324,7 +324,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-86" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-105" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
     </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2112</span><span class="p">,</span><span class="w">
@@ -357,7 +357,7 @@
     </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-86')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-86')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-105')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-105')">Hide extra fields</a></pre>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>POST https://api.wheniwork.com/2/users</code></p>
@@ -393,7 +393,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-87" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-106" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
     </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2112</span><span class="p">,</span><span class="w">
@@ -426,7 +426,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
     </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-87')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-87')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-106')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-106')">Hide extra fields</a></pre>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code>PUT https://api.wheniwork.com/2/users/{id}</code></p>
@@ -484,7 +484,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-88" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-107" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
     </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2112</span><span class="p">,</span><span class="w">
@@ -517,7 +517,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
     </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span>  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-88')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-88')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-107')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-107')">Hide extra fields</a></pre>
 <p>Get the authenticated user&#39;s profile, which includes all personal information such as name, email, and phone number, and also includes some extra options like <code>sleep_start</code>.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -554,7 +554,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-89" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-108" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4364</span><span class="p">,</span><span class="w">
   </span><span class="nt">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2112</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">  </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -585,7 +585,7 @@ to include at least the &#39;email&#39; field in the body of the request.</p>
   </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_trusted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-89')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-89')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-108')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-108')">Hide extra fields</a></pre>
 <p>Update the authenticated user&#39;s profile information.</p>
 
 <aside class="notice"><p>Although managers and supervisors are able to change most profile information through the <a href="#update-existing-user">Update Existing User</a> endpoint, this is the <strong>only</strong> way for an employee to change their own information using the API.</p>

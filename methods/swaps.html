@@ -66,13 +66,20 @@
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"allowed_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -98,6 +105,10 @@
 <td><strong>integer</strong><br />The ID of the user who took the shift</td>
 </tr><tr><td>statuses</td>
 <td><strong>array</strong><br />An array of user shift acceptance statuses.</td>
+</tr><tr><td>user_status</td>
+<td><strong>integer</strong><br />The user-facing status of the swap. (0 = Pending Approval, 1 = Pending Acceptance, 2 = Declined, 3 = Accepted, 4 = Canceled, 5 = Expired, 6 = Denied)</td>
+</tr><tr><td>allowed_statuses</td>
+<td><strong>array</strong><br />Array of status values that the swap can be transitioned to based on the role of the current user and their relationship to the request.</td>
 </tr></tbody></table>
 <h2 id="listing-swaps">Listing Swaps</h2>
 
@@ -116,7 +127,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-98" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-93" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
@@ -129,15 +140,22 @@
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
           </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
           </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+</span></span>      </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"allowed_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="mi">2</span><span class="w">
       </span><span class="p">]</span><span class="w">
-</span></span>    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -152,6 +170,7 @@
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span></span>      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>    </span><span class="p">}</span><span class="w">
@@ -246,7 +265,7 @@
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-98')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-98')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-93')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-93')">Hide extra fields</a></pre>
 <p>Gets a list of all swaps in your account.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -292,7 +311,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre id="code-collapse-99" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-94" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
@@ -305,15 +324,22 @@
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
           </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
           </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+</span></span>      </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"allowed_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="mi">2</span><span class="w">
       </span><span class="p">]</span><span class="w">
-</span></span>    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -325,6 +351,7 @@
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span></span>      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>    </span><span class="p">}</span><span class="w">
@@ -419,7 +446,7 @@
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-99')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-99')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-94')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-94')">Hide extra fields</a></pre>
 <p>Gets the details of a specific swap.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -470,7 +497,7 @@
 <blockquote>
 <p>Example Response Object</p>
 </blockquote>
-<pre id="code-collapse-100" class="highlight json"><code><span class="p">{</span><span class="w">
+<pre id="code-collapse-95" class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"swaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2238</span><span class="p">,</span><span class="w">
@@ -483,15 +510,22 @@
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
           </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
           </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+          </span><span class="nt">"shift_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+</span></span>      </span><span class="nt">"user_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"allowed_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="mi">2</span><span class="w">
       </span><span class="p">]</span><span class="w">
-</span></span>    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -503,6 +537,7 @@
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span></span>      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a message title."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request has been canceled."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="hide-section"><span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 21:12:14 -0600"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thu, 06 Mar 2014 22:17:14 -0600"</span><span class="w">
 </span></span>    </span><span class="p">}</span><span class="w">
@@ -651,7 +686,7 @@
 </span></span>    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-100')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-100')">Hide extra fields</a></pre>
+</span></code><a class="expand-link" onclick="toggleCodeSection('#code-collapse-95')">Show hidden fields</a><a class="collapse-link" onclick="toggleCodeSection('#code-collapse-95')">Hide extra fields</a></pre>
 <p>Creates a new swap or updates an existing one.</p>
 
 <h3 id="create-http-request">Create HTTP Request</h3>
